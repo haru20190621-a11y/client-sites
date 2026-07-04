@@ -21,81 +21,85 @@ a { color: var(--ink); }
 
 .en { font-family: "Courier Prime", monospace; }
 
-/* --- top / logo --- */
-.top {
+/* --- photo hero --- */
+.hero {
   position: relative;
-  padding: 28px 20px 8px;
-  text-align: center;
-}
-
-.tagline {
-  display: none; /* モバイルではSNSリンクと重なるため非表示 */
-  font-family: "Courier Prime", monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
-  color: var(--ink);
-  text-align: left;
-  margin-bottom: 8px;
-}
-
-.sns-mini {
-  position: absolute;
-  top: 28px;
-  right: 20px;
+  height: 88vh;
+  min-height: 480px;
+  overflow: hidden;
   display: flex;
-  gap: 14px;
+  align-items: center;
+  justify-content: center;
 }
 
-.sns-mini a {
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(20, 16, 12, 0.32), rgba(20, 16, 12, 0.46));
+}
+
+.hero-body {
+  position: relative;
+  text-align: center;
+  color: #fdfcf8;
+  padding: 0 20px;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+
+.hero-en {
   font-family: "Courier Prime", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
 }
 
-.logo { padding: 26px 0 30px; color: var(--ink); }
-
-.logo-mark { width: 84px; height: 42px; }
-
-.logo-text {
+.hero-logo {
   font-family: "Courier Prime", monospace;
   font-weight: 400;
-  font-size: 1.9rem;
-  letter-spacing: 0.28em;
-  margin-top: 6px;
-}
-
-.logo-sub {
-  font-family: "Courier Prime", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.55em;
-  color: var(--ink-soft);
-  margin-top: 2px;
-  padding-left: 0.55em; /* 字間ぶんのセンター補正 */
-}
-
-/* --- hero --- */
-.hero {
-  background: var(--band);
-  color: var(--ink);
-  text-align: center;
-  padding: 40px 16px 44px;
-}
-
-.hero-art {
-  width: 100%;
-  max-width: 760px;
-  height: auto;
-  opacity: 0.9;
+  font-size: 2rem;
+  letter-spacing: 0.18em;
+  margin: 6px 0 14px;
+  white-space: nowrap;
 }
 
 .hero-copy {
-  font-size: 0.9rem;
-  letter-spacing: 0.14em;
-  margin-top: 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
   white-space: nowrap;
+}
+
+.hero-info {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  margin-top: 18px;
+  opacity: 0.92;
+}
+
+.hero-sns {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: flex;
+  gap: 16px;
+}
+
+.hero-sns a {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #fdfcf8;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(253, 252, 248, 0.6);
+  padding-bottom: 2px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* --- nav --- */
@@ -104,9 +108,9 @@ a { color: var(--ink); }
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px 34px;
-  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 14px 12px;
+  padding: 16px 12px;
+  background: var(--paper);
 }
 
 .menu a {
@@ -154,24 +158,53 @@ a { color: var(--ink); }
   margin: 0 auto;
 }
 
-/* --- items --- */
-.items {
+/* --- gallery --- */
+.gallery {
+  background: var(--band);
+  padding: 56px 16px;
+  text-align: center;
+}
+
+.gallery-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 44px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-note {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  margin-top: 18px;
+}
+
+.gallery-note a { color: var(--ink-soft); }
+
+/* --- item list --- */
+.item-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   margin-top: 8px;
 }
 
-.item svg { width: 150px; height: auto; color: var(--ink); }
-
-.item h3 {
+.item-list h3 {
   font-weight: 400;
-  font-size: 0.98rem;
-  letter-spacing: 0.22em;
-  margin-top: 6px;
+  font-size: 1rem;
+  letter-spacing: 0.24em;
 }
 
-.item p {
+.item-list p {
   font-size: 0.82rem;
   color: var(--ink-soft);
   margin-top: 2px;
@@ -270,9 +303,8 @@ a { color: var(--ink); }
 /* --- desktop --- */
 @media (min-width: 700px) {
   .pc { display: inline; }
-  .tagline { display: block; }
-  .hero-copy { font-size: 0.98rem; letter-spacing: 0.28em; }
-  .items { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .logo-text { font-size: 2.3rem; }
+  .hero-logo { font-size: 3.6rem; }
+  .hero-copy { font-size: 1.05rem; letter-spacing: 0.3em; }
+  .item-list { flex-direction: row; justify-content: center; gap: 56px; }
   .shop th { width: 120px; padding-left: 40px; }
 }
