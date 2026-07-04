@@ -1,7 +1,7 @@
 :root {
   --paper: #fdfcf8;
-  --ink: #33415c;
-  --ink-soft: #5c6b85;
+  --ink: #2a3550;
+  --ink-soft: #48557a;
   --line: #d8d5cb;
   --band: #f4f1e8;
 }
@@ -10,7 +10,7 @@
 
 body {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   background: var(--paper);
   color: var(--ink);
   line-height: 2.1;
@@ -38,7 +38,11 @@ a { color: var(--ink); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.8s ease;
 }
+
+.hero-img.active { opacity: 1; }
 
 .hero-veil {
   position: absolute;
@@ -130,7 +134,7 @@ a { color: var(--ink); }
   text-align: center;
 }
 
-.sec h2 { margin-bottom: 34px; font-weight: 400; }
+.sec h2 { margin-bottom: 34px; font-weight: 500; }
 
 .sec h2 .en {
   display: block;
@@ -199,7 +203,7 @@ a { color: var(--ink); }
 }
 
 .item-list h3 {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.24em;
 }
@@ -229,7 +233,7 @@ a { color: var(--ink); }
   border-bottom: 1px solid var(--line);
   padding: 14px 6px;
   vertical-align: top;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .shop th {
@@ -298,6 +302,23 @@ a { color: var(--ink); }
   color: var(--ink-soft);
   margin-top: 22px;
   letter-spacing: 0.08em;
+}
+
+/* --- scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible { opacity: 1; transform: none; }
+
+.reveal.d1 { transition-delay: 0.15s; }
+.reveal.d2 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-img { transition: none; }
 }
 
 /* --- desktop --- */
