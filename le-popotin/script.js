@@ -21,9 +21,7 @@
     return;
   }
 
-  var ticking = false;
   function check() {
-    ticking = false;
     var limit = window.innerHeight * 0.88;
     targets = targets.filter(function (el) {
       if (el.getBoundingClientRect().top < limit) {
@@ -34,14 +32,14 @@
     });
   }
 
-  function onScroll() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(check);
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  // rAFはタブ非表示時に止まりスクロール判定を取りこぼすため直接呼ぶ（要素数が少なく軽い）
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
   check();
+
+  // 保険: scrollイベントを発行しない環境（アプリ内ブラウザ等）でも確実に出現させる
+  var guard = setInterval(function () {
+    check();
+    if (targets.length === 0) clearInterval(guard);
+  }, 700);
 })();

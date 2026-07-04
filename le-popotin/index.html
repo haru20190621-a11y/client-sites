@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -32,6 +32,7 @@
 <nav class="menu">
   <a href="#concept">Concept</a>
   <a href="#gallery">Gallery</a>
+  <span class="menu-logo en">le popotin</span>
   <a href="#item">Item</a>
   <a href="#access">Access</a>
 </nav>
@@ -48,11 +49,16 @@
     </p>
   </section>
 
-  <section class="gallery" id="gallery">
-    <div class="gallery-grid">
-      <img class="reveal" src="img/g1.jpg" alt="果実を包んだデニッシュの断面" loading="lazy">
-      <img class="reveal d1" src="img/g2.jpg" alt="アイシングのかかった渦巻きデニッシュ" loading="lazy">
-      <img class="reveal d2" src="img/g3.jpg" alt="焼きたてのデニッシュが並ぶトレー" loading="lazy">
+  <section class="strip" id="gallery" aria-label="パンの写真">
+    <div class="strip-track">
+      <img src="img/hero.jpg" alt="" loading="lazy">
+      <img src="img/g1.jpg" alt="果実を包んだデニッシュの断面" loading="lazy">
+      <img src="img/g2.jpg" alt="アイシングのかかった渦巻きデニッシュ" loading="lazy">
+      <img src="img/g3.jpg" alt="焼きたてのデニッシュが並ぶトレー" loading="lazy">
+      <img src="img/hero.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="img/g1.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="img/g2.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="img/g3.jpg" alt="" aria-hidden="true" loading="lazy">
     </div>
     <p class="gallery-note en">photos from <a href="https://www.instagram.com/boulangerie_lepopotin/" target="_blank" rel="noopener">@boulangerie_lepopotin</a></p>
   </section>
@@ -76,7 +82,10 @@
     <p class="item-note">ほかにもバゲットやサンドイッチなど、日替わりでたくさん並びます。</p>
   </section>
 
-  <hr class="rule">
+  <section class="quote-band">
+    <div class="quote-veil"></div>
+    <p class="quote reveal">毎日およそ80種類、<br>今日も窯からパンが出ます。</p>
+  </section>
 
   <section class="sec reveal" id="access">
     <h2><span class="en">Access</span><span class="jp">店舗情報</span></h2>
@@ -111,6 +120,6 @@
   <p class="demo-note">このサイトはWebサイト制作のご提案用デモです。店舗公式サイトではありません。<br>写真は店舗Instagram（@boulangerie_lepopotin）より。</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
