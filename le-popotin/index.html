@@ -4,92 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>ル・ポポタン｜ふじみ野の焼きたてパン Boulangerie Le Popotin</title>
+<title>ル・ポポタン｜ふじみ野の小さなパン屋 Boulangerie Le Popotin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
-  <nav class="nav">
-    <span class="nav-logo">Le Popotin</span>
-    <a class="nav-cta" href="tel:0492144774">☎ 049-214-4774</a>
-  </nav>
-  <div class="hero-inner">
-    <p class="hero-en">Boulangerie</p>
-    <h1>ル・ポポタン</h1>
-    <p class="hero-copy">ふじみ野で愛される、毎日約80種類の焼きたてパン。</p>
-    <div class="hero-badges">
-      <span>火〜日 9:00–19:00</span>
-      <span>月曜定休</span>
-      <span>駐車場あり</span>
-    </div>
-    <a class="btn" href="#access">お店の場所を見る</a>
+<header class="top">
+  <p class="tagline">it&rsquo;s fresh from the oven</p>
+  <div class="sns-mini">
+    <a href="https://www.instagram.com/boulangerie_lepopotin/" target="_blank" rel="noopener">instagram</a>
+    <a href="https://ja-jp.facebook.com/le.popotin/" target="_blank" rel="noopener">facebook</a>
+    <a href="https://page.line.me/vcc8724w" target="_blank" rel="noopener">line</a>
   </div>
-  <div class="hero-deco" aria-hidden="true"></div>
+
+  <div class="logo">
+    <svg class="logo-mark" viewBox="0 0 120 60" aria-hidden="true">
+      <!-- 麦の穂の線画 -->
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M60 54 V14"/>
+        <path d="M60 22 C52 20 48 14 48 8 C56 10 60 14 60 22"/>
+        <path d="M60 22 C68 20 72 14 72 8 C64 10 60 14 60 22"/>
+        <path d="M60 34 C52 32 47 26 46 19 C55 21 60 26 60 34"/>
+        <path d="M60 34 C68 32 73 26 74 19 C65 21 60 26 60 34"/>
+        <path d="M60 46 C51 44 45 38 44 30 C54 32 60 38 60 46"/>
+        <path d="M60 46 C69 44 75 38 76 30 C66 32 60 38 60 46"/>
+      </g>
+    </svg>
+    <h1 class="logo-text">le popotin</h1>
+    <p class="logo-sub">BOULANGERIE</p>
+  </div>
 </header>
 
+<div class="hero" aria-hidden="true">
+  <svg class="hero-art" viewBox="0 0 900 220" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- バゲット -->
+      <ellipse cx="150" cy="130" rx="110" ry="34" transform="rotate(-14 150 130)"/>
+      <path d="M85 130 l30 -16 M120 118 l30 -16 M155 106 l30 -16" transform="rotate(4 150 130)"/>
+      <!-- クロワッサン -->
+      <path d="M360 150 C350 120 372 96 404 96 C436 96 458 120 448 150 C466 142 480 150 482 162 C466 172 448 174 432 168 C424 174 384 174 376 168 C360 174 342 172 326 162 C328 150 342 142 360 150 Z"/>
+      <path d="M376 104 C372 122 372 146 378 164 M432 104 C436 122 436 146 430 164 M404 98 C402 120 402 148 404 170"/>
+      <!-- 山型食パン -->
+      <path d="M560 170 V110 C560 92 576 82 592 88 C598 74 622 74 628 88 C644 82 660 92 660 110 V170 Z"/>
+      <path d="M560 128 H660"/>
+      <!-- 丸パン -->
+      <circle cx="780" cy="140" r="42"/>
+      <path d="M758 122 L802 158 M780 114 L780 166 M802 122 L758 158" opacity="0.55"/>
+    </g>
+  </svg>
+  <p class="hero-copy">ふじみ野の毎日に、焼きたてのパンを。</p>
+</div>
+
+<nav class="menu">
+  <a href="#concept">Concept</a>
+  <a href="#item">Item</a>
+  <a href="#access">Access</a>
+  <a href="#sns">Contact</a>
+</nav>
+
 <main>
-  <section class="section about">
-    <h2><span class="en">About</span>ル・ポポタンについて</h2>
-    <p>
-      東武東上線ふじみ野駅から歩いて約11分。ハード系から菓子パン、お食事パン、サンドイッチまで、
-      毎日およそ80種類のパンが並ぶ地元密着のブーランジェリーです。
-      お昼どきには行列ができることも。テイクアウト専門店です。
+  <section class="sec" id="concept">
+    <h2><span class="en">Concept</span><span class="jp">ル・ポポタンについて</span></h2>
+    <p class="lead">
+      東武東上線ふじみ野駅から歩いて11分ほど。<br>
+      ハード系からお菓子のパン、お食事パン、サンドイッチまで、<br class="pc">
+      毎日およそ80種類のパンを焼いています。<br>
+      お昼どきには行列ができる日も。<br>
+      焼きたてを、テイクアウトでどうぞ。
     </p>
   </section>
 
-  <section class="section lineup">
-    <h2><span class="en">Lineup</span>人気のパン</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="card-visual v1" aria-hidden="true">🥐</div>
-        <h3>クロワッサン</h3>
-        <p>クチコミでも定番人気。バターの香りとパリッとした食感。</p>
-      </div>
-      <div class="card">
-        <div class="card-visual v2" aria-hidden="true">🍈</div>
-        <h3>メロンパン</h3>
-        <p>クッキー生地がカリッと香ばしい、小ぶりで食べやすいサイズ。</p>
-      </div>
-      <div class="card">
-        <div class="card-visual v3" aria-hidden="true">🍛</div>
-        <h3>焼きカレーパン</h3>
-        <p>揚げずに焼き上げるカレーパン。お食事パンの人気者。</p>
-      </div>
+  <hr class="rule">
+
+  <section class="sec" id="item">
+    <h2><span class="en">Item</span><span class="jp">人気のパン</span></h2>
+    <div class="items">
+      <figure class="item">
+        <svg viewBox="0 0 160 110" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 74 C42 50 60 30 80 30 C100 30 118 50 110 74 C124 68 136 74 138 84 C124 92 110 94 98 89 C92 94 68 94 62 89 C50 94 36 92 22 84 C24 74 36 68 50 74 Z"/>
+            <path d="M62 36 C59 50 59 68 64 84 M98 36 C101 50 101 68 96 84 M80 31 C78 48 78 70 80 88"/>
+          </g>
+        </svg>
+        <figcaption>
+          <h3>クロワッサン</h3>
+          <p>バターの香り、パリッと軽い定番。</p>
+        </figcaption>
+      </figure>
+      <figure class="item">
+        <svg viewBox="0 0 160 110" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="80" cy="58" r="36"/>
+            <path d="M56 34 L110 74 M70 26 L100 84 M92 26 L62 84 M104 34 L50 74" opacity="0.6"/>
+          </g>
+        </svg>
+        <figcaption>
+          <h3>メロンパン</h3>
+          <p>クッキー生地がカリッと香ばしい小ぶりサイズ。</p>
+        </figcaption>
+      </figure>
+      <figure class="item">
+        <svg viewBox="0 0 160 110" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <ellipse cx="80" cy="58" rx="44" ry="27"/>
+            <path d="M52 48 l6 4 M70 42 l6 4 M92 44 l6 4 M60 66 l6 4 M84 68 l6 4 M104 58 l6 4" opacity="0.7"/>
+          </g>
+        </svg>
+        <figcaption>
+          <h3>焼きカレーパン</h3>
+          <p>揚げずに焼き上げる、お食事パンの人気者。</p>
+        </figcaption>
+      </figure>
     </div>
-    <p class="note">※ このほかバゲット・サンドイッチなど、日替わりで多数並びます。</p>
+    <p class="item-note">ほかにもバゲットやサンドイッチなど、日替わりでたくさん並びます。</p>
   </section>
 
-  <section class="section info" id="access">
-    <h2><span class="en">Access</span>店舗情報</h2>
-    <dl>
-      <div><dt>店名</dt><dd>ル・ポポタン（Boulangerie Le Popotin）</dd></div>
-      <div><dt>住所</dt><dd>〒356-0038 埼玉県ふじみ野市駒林元町3-8-1</dd></div>
-      <div><dt>電話</dt><dd><a href="tel:0492144774">049-214-4774</a></dd></div>
-      <div><dt>営業時間</dt><dd>9:00〜19:00</dd></div>
-      <div><dt>定休日</dt><dd>月曜日</dd></div>
-      <div><dt>アクセス</dt><dd>東武東上線「ふじみ野駅」東口より徒歩約11分／駐車場あり</dd></div>
-      <div><dt>スタイル</dt><dd>テイクアウト専門（イートインなし）</dd></div>
-    </dl>
-    <a class="btn btn-outline" href="https://www.google.com/maps/search/%E3%83%AB%E3%83%BB%E3%83%9D%E3%83%9D%E3%82%BF%E3%83%B3+%E3%81%B5%E3%81%98%E3%81%BF%E9%87%8E" target="_blank" rel="noopener">Google マップで開く</a>
+  <hr class="rule">
+
+  <section class="sec" id="access">
+    <h2><span class="en">Access</span><span class="jp">店舗情報</span></h2>
+    <table class="shop">
+      <tr><th>店名</th><td>ル・ポポタン（Boulangerie Le Popotin）</td></tr>
+      <tr><th>住所</th><td>〒356-0038 埼玉県ふじみ野市駒林元町3-8-1</td></tr>
+      <tr><th>電話</th><td><a href="tel:0492144774">049-214-4774</a></td></tr>
+      <tr><th>営業時間</th><td>9:00 − 19:00</td></tr>
+      <tr><th>定休日</th><td>月曜日</td></tr>
+      <tr><th>アクセス</th><td>東武東上線「ふじみ野駅」東口より徒歩約11分<br>駐車場あり</td></tr>
+      <tr><th>スタイル</th><td>テイクアウト専門</td></tr>
+    </table>
+    <p class="map-link"><a href="https://www.google.com/maps/search/%E3%83%AB%E3%83%BB%E3%83%9D%E3%83%9D%E3%82%BF%E3%83%B3+%E3%81%B5%E3%81%98%E3%81%BF%E9%87%8E" target="_blank" rel="noopener">google maps &rarr;</a></p>
   </section>
 
-  <section class="section sns">
-    <h2><span class="en">Follow</span>最新情報はSNSで</h2>
-    <p>焼き上がり情報や新作パンはSNSでお知らせしています。</p>
-    <div class="sns-links">
-      <a href="https://www.instagram.com/boulangerie_lepopotin/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://page.line.me/vcc8724w" target="_blank" rel="noopener">LINE公式アカウント</a>
-      <a href="https://ja-jp.facebook.com/le.popotin/" target="_blank" rel="noopener">Facebook</a>
-    </div>
+  <hr class="rule">
+
+  <section class="sec" id="sns">
+    <h2><span class="en">Contact</span><span class="jp">最新情報</span></h2>
+    <p class="lead">焼き上がりや新作のお知らせはSNSで。</p>
+    <ul class="sns-list">
+      <li><a href="https://www.instagram.com/boulangerie_lepopotin/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://page.line.me/vcc8724w" target="_blank" rel="noopener">LINE公式アカウント</a></li>
+      <li><a href="https://ja-jp.facebook.com/le.popotin/" target="_blank" rel="noopener">Facebook</a></li>
+    </ul>
   </section>
 </main>
 
-<footer class="footer">
-  <p class="footer-logo">Le Popotin</p>
+<footer class="foot">
+  <p class="foot-logo">le popotin</p>
+  <p class="foot-sub">BOULANGERIE — FUJIMINO, SAITAMA</p>
   <p class="demo-note">このサイトはWebサイト制作のご提案用デモです。店舗公式サイトではありません。</p>
 </footer>
 
