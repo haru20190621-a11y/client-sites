@@ -214,7 +214,7 @@ a { color: var(--ink); }
 /* --- 写真バンド＋一言 --- */
 .quote-band {
   position: relative;
-  background: url("img/g2.jpg") center / cover no-repeat;
+  background: url("img/g3.jpg") center / cover no-repeat;
   padding: 110px 24px;
   text-align: center;
 }
