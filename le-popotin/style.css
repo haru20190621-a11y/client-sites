@@ -21,6 +21,38 @@ a { color: var(--ink); }
 
 .en { font-family: "Courier Prime", monospace; }
 
+/* --- 反応獲得バナー --- */
+.offer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.offer-banner b { font-weight: 500; }
+
+.offer-banner a {
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .offer-banner { font-size: 0.76rem; padding: 10px 12px; }
+}
+
 /* --- photo hero --- */
 .hero {
   position: relative;
