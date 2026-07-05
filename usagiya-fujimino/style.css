@@ -1,0 +1,249 @@
+:root {
+  --paper: #faf6ee;
+  --ink: #5a332e;
+  --ink-soft: #8a5f58;
+  --line: #ddd0c2;
+  --band: #f2eadc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+}
+
+a { color: var(--ink); }
+.en { font-family: "Courier Prime", monospace; }
+.sp { display: inline; }
+
+/* --- 反応獲得バナー --- */
+.offer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.offer-banner b { font-weight: 500; }
+
+.offer-banner a {
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* --- hero（写真なし・タイポ＋線画） --- */
+.hero {
+  text-align: center;
+  padding: 72px 20px 64px;
+  background: var(--band);
+}
+
+.hero-en {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--ink-soft);
+}
+
+.hero-mark { width: 96px; height: auto; color: var(--ink); margin-top: 30px; }
+
+.hero h1 {
+  font-family: "Shippori Mincho", serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  padding-left: 0.35em;
+  margin-top: 14px;
+}
+
+.hero-copy {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  margin-top: 16px;
+}
+
+.hero-info {
+  margin-top: 26px;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-info .sep { color: var(--line); margin: 0 6px; }
+.hero-info a { text-decoration: none; border-bottom: 1px solid var(--ink-soft); }
+
+/* --- nav --- */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 30px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 12px;
+  background: rgba(250, 246, 238, 0.94);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.menu a {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+}
+
+.menu-logo { font-size: 0.95rem; letter-spacing: 0.22em; padding: 0 6px; }
+
+/* --- sections --- */
+.sec {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  text-align: center;
+}
+
+.sec h2 { margin-bottom: 34px; font-weight: 500; }
+
+.sec h2 .en {
+  display: block;
+  font-size: 1.25rem;
+  letter-spacing: 0.3em;
+  font-weight: 400;
+}
+
+.sec h2 .jp {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.lead { font-size: 0.94rem; }
+
+.rule { border: none; border-top: 1px solid var(--line); width: 56px; margin: 0 auto; }
+
+/* --- items --- */
+.item-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.item-list svg { width: 150px; height: auto; color: var(--ink); }
+
+.item-list h3 {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.24em;
+  margin-top: 6px;
+}
+
+.item-list p { font-size: 0.84rem; color: var(--ink-soft); margin-top: 2px; }
+
+.item-note {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 40px;
+  letter-spacing: 0.1em;
+}
+
+/* --- access --- */
+.shop { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+
+.shop th, .shop td {
+  border-bottom: 1px solid var(--line);
+  padding: 14px 6px;
+  vertical-align: top;
+  font-weight: 400;
+}
+
+.shop th { width: 88px; color: var(--ink-soft); letter-spacing: 0.2em; white-space: nowrap; }
+.shop td small { color: var(--ink-soft); font-size: 0.78rem; }
+.shop td a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+.map-link { margin-top: 26px; }
+
+.map-link a {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+.tel-big { margin-top: 20px; }
+
+.tel-big a {
+  font-family: "Courier Prime", monospace;
+  font-size: 1.7rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+/* --- footer --- */
+.foot {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 46px 20px 40px;
+  margin-top: 40px;
+}
+
+.foot-logo { font-family: "Courier Prime", monospace; font-size: 1.05rem; letter-spacing: 0.3em; }
+
+.foot-sub {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.demo-note { font-size: 0.68rem; color: var(--ink-soft); margin-top: 22px; letter-spacing: 0.08em; }
+
+/* --- reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (min-width: 700px) {
+  .sp { display: none; }
+  .hero h1 { font-size: 4rem; }
+  .item-list { flex-direction: row; justify-content: center; gap: 48px; }
+  .shop th { width: 120px; padding-left: 40px; }
+}
