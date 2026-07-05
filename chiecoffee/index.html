@@ -2,360 +2,143 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChieCoffee｜上福岡駅前の小さなコーヒースタンド</title>
-<meta name="robots" content="noindex"><!-- 契約後の本番公開時にこの行を削除 -->
-<meta name="description" content="上福岡駅東口近くのテイクアウト専門コーヒースタンド、ChieCoffeeの無料デモサイト。自家焙煎珈琲豆、ハンドドリップ、ドリップバッグなど、公開情報をもとにした仮原稿です。">
+<script>document.documentElement.className+=' js';</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ChieCoffee｜自家焙煎コーヒースタンド（上福岡）</title>
+<meta name="description" content="上福岡駅東口・駅前名店街のテイクアウト専門コーヒースタンド、ChieCoffee。自家焙煎の珈琲豆とハンドドリップの一杯を。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#f2ead9; --paper:#fffdf8; --cream:#e5d4b8;
-  --green:#314d3c; --green2:#5d7a5b; --terra:#b25b33; --coffee:#4b2f23;
-  --ink:#28231f; --muted:#746b60; --line:#d5c5aa;
-  --shadow:0 18px 42px rgba(52,42,30,.16);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word}
-.min{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-.section{padding:72px 0}
-.htitle{text-align:center;margin-bottom:36px}
-.htitle .en{display:block;color:var(--green2);font-size:.72rem;letter-spacing:0;margin-bottom:10px}
-.htitle h2{font-size:1.7rem;font-weight:600;line-height:1.5}
-.htitle .line{width:44px;height:2px;background:var(--terra);margin:16px auto 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:6px;padding:14px 24px;transition:.2s;white-space:nowrap;font-size:.95rem;border:0;cursor:pointer}
-.btn-primary{background:var(--green);color:#fff}
-.btn-outline{background:#fff;color:var(--terra);border:1.5px solid var(--terra)}
-.btn:hover{opacity:.92;transform:translateY(-1px)}
-
-.demo-banner{background:var(--terra);color:#fff;text-align:center;padding:10px 16px;font-size:.84rem;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.demo-banner b{font-weight:700}
-.demo-banner .btn{background:#fff;color:var(--terra);padding:8px 18px;font-size:.82rem;border-radius:20px}
-
-header{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-.brand{display:flex;flex-direction:column;line-height:1.3}
-.brand .jp{font-size:1.25rem;font-weight:600}
-.brand .en{font-size:.62rem;color:var(--muted);letter-spacing:0}
-.nav-links{display:flex;gap:24px;font-size:.86rem;font-weight:500}
-.nav-links a:hover{color:var(--green)}
-.nav-note{font-size:.78rem;color:var(--green);font-weight:700}
-
-.hero{position:relative;min-height:540px;display:flex;align-items:center;color:#fff;background:var(--coffee);overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;opacity:0;transition:opacity 1.8s ease}
-.hero-bg.active{opacity:1;animation:kenburns 8s ease-out forwards}
-@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.07)}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero-bg.active{animation:none}.hero-bg{transition:none}}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,26,20,.86),rgba(49,77,60,.48));z-index:1}
-.ph-note{position:absolute;right:16px;bottom:12px;font-size:.66rem;color:rgba(255,255,255,.7);z-index:3}
-.hero-in{position:relative;z-index:2;padding:64px 0}
-.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:4px;font-size:.76rem;padding:5px 12px;margin-bottom:22px}
-.hero h1{font-size:2.36rem;line-height:1.55;font-weight:600;margin-bottom:20px;text-shadow:0 2px 12px rgba(0,0,0,.25)}
-.hero h1 b{color:#ffe0a3;font-weight:700}
-.hero p{font-size:1rem;max-width:590px;margin-bottom:28px;text-shadow:0 1px 8px rgba(0,0,0,.3)}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-
-.strip{background:var(--green);color:#fff}
-.strip-in{display:flex;justify-content:center;flex-wrap:wrap;text-align:center}
-.strip-in div{padding:16px 28px;border-right:1px solid rgba(255,255,255,.18)}
-.strip-in div:last-child{border-right:none}
-.strip-in b{font-family:"Shippori Mincho",serif;font-size:1.12rem;display:block}
-.strip-in span{font-size:.72rem;opacity:.86}
-
-.about{background:var(--paper)}
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
-.about-card{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:28px;box-shadow:var(--shadow)}
-.about-card h3{font-size:1.25rem;margin-bottom:12px;color:var(--green)}
-.about-card p{color:#3c342c;font-size:.94rem}
-.about-lead{font-size:1.06rem;color:#3c342c;margin-bottom:14px}
-.about-lead b{color:var(--green)}
-.fact-list{display:grid;gap:10px;margin-top:20px}
-.fact{display:flex;gap:12px;border-top:1px solid var(--line);padding-top:10px}
-.fact .k{width:92px;flex:none;color:var(--green);font-weight:700;font-size:.86rem}
-.tag{display:inline-flex;align-items:center;border:1px solid var(--terra);color:var(--terra);border-radius:20px;padding:2px 8px;font-size:.72rem;margin-left:6px}
-
-.owner{background:var(--bg)}
-.owner-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
-.owner-photo{aspect-ratio:4/3;border-radius:8px;background:linear-gradient(135deg,#f8efe1,#d7c098);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--green);font-weight:700}
-.owner .en{color:var(--green2);font-size:.72rem;letter-spacing:0;margin-bottom:10px}
-.owner h2{font-size:1.45rem;font-weight:600;line-height:1.75;margin-bottom:20px;padding-left:18px;border-left:3px solid var(--terra)}
-.owner p{color:#3a352d;margin-bottom:14px}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-.badge2{background:var(--paper);border:1px solid var(--line);border-radius:4px;font-size:.78rem;padding:6px 12px;color:var(--green);font-weight:500}
-
-.menu{background:var(--cream)}
-.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.item{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
-.item-visual{height:190px;overflow:hidden}
-.item-visual img{width:100%;height:100%;object-fit:cover}
-.item-body{padding:24px}
-.item h3{font-size:1.12rem;margin-bottom:8px}
-.item p{font-size:.92rem;color:#3f382f}
-.note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:16px}
-
-.photo-section{background:var(--paper)}
-.photo-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px}
-.photo{min-height:220px;border-radius:8px;border:1px solid var(--line);background:var(--cream);overflow:hidden;position:relative;display:flex;align-items:flex-end}
-.photo.large{grid-row:span 2;min-height:454px}
-.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.48))}
-.photo span{position:relative;color:#fff;padding:18px;font-weight:700;z-index:1}
-.photo.placeholder{background:linear-gradient(135deg,#efe2cd,#695846)}
-
-.access{background:var(--bg)}
-.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-.info-row{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
-.info-row .k{width:94px;color:var(--green);font-weight:700;flex-shrink:0;font-size:.88rem}
-.map-embed{aspect-ratio:4/3;border-radius:8px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--green2);text-align:center;padding:20px;font-size:.85rem}
-
-.cta{background:linear-gradient(90deg,rgba(34,26,20,.78),rgba(49,77,60,.52)),var(--green);color:#fff;text-align:center}
-.cta h2{font-size:1.6rem;font-weight:600;margin-bottom:12px}
-.cta p{opacity:.92;margin-bottom:26px}
-.cta .hero-cta{justify-content:center}
-footer{background:#2d3029;color:#c9d0c4;padding:34px 0;text-align:center;font-size:.84rem}
-footer .fb{font-family:"Shippori Mincho",serif;color:#fff;font-size:1.15rem;margin-bottom:8px}
-footer small{color:#96a08f;display:block;margin-top:8px}
-.mobilebar{display:none}
-
-@media(max-width:860px){
-  .nav-links,.nav-note{display:none}
-  .hero{min-height:auto}
-  .hero h1{font-size:1.72rem}
-  .about-grid,.owner-in,.access-grid{grid-template-columns:1fr}
-  .menu-grid{grid-template-columns:1fr}
-  .photo-grid{grid-template-columns:1fr}
-  .photo.large{grid-row:auto;min-height:260px}
-  .strip-in div{padding:14px 18px}
-  .section{padding:52px 0}
-  body{padding-bottom:68px}
-  .mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:9px 12px;gap:10px;box-shadow:0 -4px 18px rgba(0,0,0,.07)}
-  .mobilebar .btn{flex:1;padding:12px 8px}
-}
-@media(max-width:420px){
-  .wrap{padding:0 18px}
-  .hero h1{font-size:1.48rem}
-  .hero p{font-size:.92rem}
-  .htitle h2{font-size:1.38rem}
-  .hero-cta .btn{width:100%;padding:12px 14px;font-size:.88rem}
-  .fact{display:block}
-  .fact .k{width:auto;margin-bottom:2px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Cormorant+Garamond:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+<script src="script.js?v=1" defer></script>
 </head>
 <body>
 
-<!-- TODO: GAS再実行後、ChieCoffee の店舗名入り事前入力URLに差し替え -->
-<div class="demo-banner">
-  <span>このサイトは<b>ChieCoffee様</b>に無料で差し上げるために作成したデモです。そのまま公式サイトとしてお使いいただけます。</span>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" class="btn" target="_blank" rel="noopener">気に入っていただけましたらご連絡ください</a>
+<!-- 契約後の本番公開時にこのブロックごと削除 -->
+<div class="offer-banner">
+  <p>このサイトはChieCoffee様に無料で差し上げるために作成しました。そのまま公式サイトとしてお使いいただけます。気に入っていただけましたらご連絡ください。</p>
+  <a class="offer-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" target="_blank" rel="noopener">受け取る・相談する</a>
 </div>
 
-<header>
-  <div class="wrap nav">
-    <div class="brand">
-      <span class="jp min">ChieCoffee</span>
-      <span class="en">KAMIFUKUOKA COFFEE STAND</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#about">このサイトについて</a>
-      <a href="#owner">オーナー紹介</a>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo en" href="#top">ChieCoffee</a>
+    <div class="nav-links">
+      <a href="#about">こだわり</a>
       <a href="#menu">メニュー</a>
-      <a href="#photos">写真</a>
-      <a href="#access">店舗情報</a>
-    </nav>
-    <div class="nav-note">小さな窓口で、今日に合う一杯を。</div>
-  </div>
-</header>
-
-<section class="hero">
-  <img class="hero-bg active" src="img/hero-drip.jpg" alt="窓辺で一杯ずつ淹れるハンドドリップ">
-  <img class="hero-bg" src="img/hero-iced.jpg" alt="レンガ壁の前に並ぶアイスコーヒー">
-  <span class="ph-note">photos from @chiecoffee</span>
-  <div class="wrap hero-in">
-    <span class="badge">上福岡駅東口近く／テイクアウト専門のコーヒースタンド</span>
-    <h1 class="min">一杯ずつ、<br>上福岡の足もとに。<br><b>小さな窓口から、香りを手渡す。</b></h1>
-    <p>ChieCoffeeは、上福岡駅東口から歩いてすぐのコーヒースタンド。自家焙煎の珈琲豆、ハンドドリップ、ドリップバッグまで、ふと思い出した日に立ち寄れる一軒です。</p>
-    <div class="hero-cta">
-      <a href="#menu" class="btn btn-primary">メニューを見る</a>
-      <a href="#access" class="btn btn-outline">店舗情報</a>
+      <a href="#info">店舗情報</a>
+      <a href="https://chiecoffee.thebase.in/" target="_blank" rel="noopener">通販</a>
     </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="slide" style="background-image:url(img/ph-store.jpg)"></div>
+  <div class="slide" style="background-image:url(img/hero-drip.jpg)"></div>
+  <div class="slide" style="background-image:url(img/hero-iced.jpg)"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label en">COFFEE &amp; BEANS — KAMIFUKUOKA</p>
+    <h1>ChieCoffee</h1>
+    <p class="hero-copy">一杯ずつ、手渡しの珈琲。<br>上福岡駅東口・駅前名店街のコーヒースタンド。</p>
+    <p class="hero-hours">9:00–15:00｜月・火定休｜テイクアウト専門</p>
   </div>
 </section>
 
-<div class="strip"><div class="wrap strip-in">
-  <div><b>9:00〜15:00</b><span>公式情報の営業時間</span></div>
-  <div><b>月・火休み</b><span>公式情報の定休日</span></div>
-  <div><b>自家焙煎</b><span>珈琲豆・ドリップバッグ</span></div>
-  <div><b>徒歩約3分</b><span>上福岡駅東口から</span></div>
-</div></div>
+<div class="strip">
+  <div class="strip-in">
+    <div><span class="k">営業時間</span>9:00–15:00</div>
+    <div><span class="k">定休日</span>月・火</div>
+    <div><span class="k">場所</span>上福岡駅東口 徒歩約3分</div>
+    <div><span class="k">お支払い</span>現金のみ</div>
+  </div>
+</div>
 
-<section class="section about" id="about">
+<section class="sec" id="about">
   <div class="wrap about-grid">
-    <div class="about-card">
-      <h3 class="min">このサイトについて</h3>
-      <p>このページは、NexusGuildが公開情報をもとに無料で作成したデモサイトです。お店の雰囲気が伝わるように、文章・写真・構成を仮で整えています。正式公開の前に、事実確認と写真差し替えを行う前提です。</p>
+    <div class="about-text reveal">
+      <p class="sec-label">ABOUT</p>
+      <h2>緑の小屋の、小さな窓口</h2>
+      <p>上福岡駅東口から歩いて3分、駅前名店街の角に立つ緑色の小屋がChieCoffeeです。注文を受けてから一杯ずつハンドドリップで淹れる、テイクアウト専門のコーヒースタンド。少量ずつ自家焙煎した珈琲豆とドリップバッグも、この小さな窓口から手渡ししています。</p>
+      <p>道路に面した店先だから「車にお気をつけください」と呼びかけたり、買ったあとに荷物を整えられるカウンターを増設したり。立ち寄る人の小さな時間まで気にかけているお店です。</p>
     </div>
-    <div>
-      <p class="about-lead"><b>「いいお店なのに、情報が点在している」</b>。そんな小さなお店に、見やすい1ページを先に作ってお届けする取り組みです。</p>
-      <p>Instagram、ブログ、地域メディアで確認できた内容を整理し、ChieCoffeeらしい静かな温度でまとめました。不明な情報は作らず、確認が必要な箇所には「要確認」を残しています。</p>
-      <div class="fact-list">
-        <div class="fact"><div class="k">確認済み</div><div>テイクアウト専門、自家焙煎珈琲豆販売、9:00〜15:00、月・火定休、現金のみ。</div></div>
-        <div class="fact"><div class="k">確認済み</div><div>上福岡駅東口から徒歩約3分。住所は埼玉県ふじみ野市上福岡1-2-16。</div></div>
-        <div class="fact"><div class="k">要確認</div><div>オーナーのお名前、資格、上福岡在住歴などの人物情報。</div></div>
-      </div>
-    </div>
+    <figure class="about-photo reveal">
+      <img src="img/ph-open.jpg" alt="YES, WE ARE OPENのサインと観葉植物" loading="lazy">
+      <figcaption>この札が出ていたら、営業中。</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="section owner" id="owner">
-  <div class="wrap owner-in">
-    <div class="owner-photo">
-      オーナー写真<br>
-      ※写真は差し替え可
-    </div>
-    <div>
-      <p class="en min">オーナー紹介</p>
-      <h2 class="min">「急がなくて大丈夫です。」<br>小さな店先に、少しだけ余白を。</h2>
-      <p>Instagramの投稿では、道路に面したお店だからこそ「車にお気をつけください」と添えたり、購入後に荷物を整えられるカウンターを増設したことが紹介されています。コーヒーだけでなく、立ち寄る人の小さな時間まで見ているお店です。</p>
-      <p>オーナーは「ちえこさん」<span class="tag">要確認</span>、コーヒーインストラクター資格をお持ち<span class="tag">要確認</span>、上福岡に20年以上在住<span class="tag">要確認</span>という情報は、正式公開前にご本人確認を取ってから反映します。</p>
-      <div class="badges">
-        <span class="badge2">少量ずつ丁寧に焙煎</span>
-        <span class="badge2">テイクアウト専門</span>
-        <span class="badge2">おひとりさまでも立ち寄りやすく</span>
-        <span class="badge2">人物情報は要確認</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section menu" id="menu">
-  <div class="htitle"><span class="en min">Menu &amp; Craft</span><h2>メニューと、ChieCoffeeのこだわり</h2><div class="line"></div></div>
+<section class="sec sec-alt" id="menu">
   <div class="wrap">
-    <div class="menu-grid">
-      <article class="item">
-        <div class="item-visual"><img src="img/menu-handdrip.jpg" alt="窓辺のドリッパーで抽出中のコーヒー"></div>
-        <div class="item-body">
-          <h3 class="min">ハンドドリップコーヒー</h3>
-          <p>注文後に一杯ずつハンドドリップ。地域メディアでは、見ているだけでも楽しいほど丁寧に淹れる様子が紹介されています。</p>
-        </div>
+    <p class="sec-label reveal">MENU</p>
+    <h2 class="reveal">メニュー例</h2>
+    <div class="items">
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu-handdrip.jpg" alt="窓辺のドリッパーで抽出中のコーヒー" loading="lazy"></div>
+        <h3>ハンドドリップコーヒー</h3>
+        <p>注文後に一杯ずつ、窓辺のドリッパーで。待つ時間ごと味わう一杯です。</p>
       </article>
-      <article class="item">
-        <div class="item-visual"><img src="img/menu-beans.jpg" alt="レンガ壁に映るCOFFEE BEANSの文字の影"></div>
-        <div class="item-body">
-          <h3 class="min">自家焙煎珈琲豆</h3>
-          <p>ブログでは、少量ずつ丁寧に焙煎した珈琲豆の提供や、店頭・メールでのお豆予約が案内されています。</p>
-        </div>
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu-beans.jpg" alt="レンガ壁に映るCOFFEE BEANSの文字の影" loading="lazy"></div>
+        <h3>自家焙煎珈琲豆</h3>
+        <p>少量ずつ丁寧に焙煎。店頭のほか、メールでのお豆の予約も案内されています。</p>
       </article>
-      <article class="item">
-        <div class="item-visual"><img src="img/menu-dripbag.jpg" alt="ギフト包装されたオリジナルブレンドのドリップバッグ"></div>
-        <div class="item-body">
-          <h3 class="min">ドリップバッグ</h3>
-          <p>おうちでゆっくり味わえるドリップバッグも販売。ちょっとした贈りものにも合いそうなラインです。</p>
-        </div>
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu-dripbag-cropped.jpg" alt="ギフト包装されたオリジナルブレンドのドリップバッグ" loading="lazy"></div>
+        <h3>ドリップバッグ</h3>
+        <p>オリジナルブレンド「陽だまりに香る朝の珈琲」。ちょっとした贈りものにも。</p>
       </article>
-      <article class="item">
-        <div class="item-visual"><img src="img/menu-seasonal.jpg" alt="カスカラシロップのボトル"></div>
-        <div class="item-body">
-          <h3 class="min">季節の飲みもの</h3>
-          <p>公開情報では、アイスコーヒー、はちみつのカフェオレ、カスカラオレなどの投稿・紹介が確認できます。現行メニューは要確認です。</p>
-        </div>
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu-seasonal.jpg" alt="カスカラシロップのボトル" loading="lazy"></div>
+        <h3>季節の飲みもの</h3>
+        <p>カスカラシロップの一杯や、はちみつのカフェオレなど、季節の投稿も届いています。</p>
       </article>
     </div>
-    <p class="note">※価格・現在の提供メニューは、正式公開前に店舗へ確認して差し替えます。</p>
+    <p class="menu-note">価格・現在の提供メニューは店頭でご確認ください。</p>
   </div>
 </section>
 
-<section class="section photo-section" id="photos">
-  <div class="htitle"><span class="en min">Photos</span><h2>写真で伝えたい空気</h2><div class="line"></div></div>
-  <div class="wrap photo-grid">
-    <div class="photo large"><img src="img/ph-store.jpg" alt="COFFEE STANDの看板がかかる緑の小屋の店先"><span>駅前名店街の、緑の小屋。</span></div>
-    <div class="photo"><img src="img/ph-street.jpg" alt="鯉のぼりが泳ぐ上福岡駅前名店街"><span>鯉のぼりの泳ぐ商店街に。</span></div>
-    <div class="photo"><img src="img/ph-open.jpg" alt="YES, WE ARE OPENのサインと観葉植物"><span>この札が出ていたら、営業中。</span></div>
-  </div>
-  <p class="note">photos from <a href="https://www.instagram.com/chiecoffee/" target="_blank" rel="noopener" style="color:inherit">@chiecoffee</a></p>
-</section>
+<div class="band">
+  <p class="band-quote">駅前名店街の、いつもの角で。</p>
+</div>
 
-<section class="section access" id="access">
-  <div class="htitle"><span class="en min">Shop Info</span><h2>店舗情報</h2><div class="line"></div></div>
-  <div class="wrap access-grid">
-    <div>
-      <div class="info-row"><div class="k">店名</div><div>ChieCoffee（チエコーヒー）</div></div>
-      <div class="info-row"><div class="k">住所</div><div>埼玉県ふじみ野市上福岡1-2-16</div></div>
-      <div class="info-row"><div class="k">アクセス</div><div>上福岡駅東口から徒歩約3分</div></div>
-      <div class="info-row"><div class="k">営業時間</div><div>9:00〜15:00</div></div>
-      <div class="info-row"><div class="k">定休日</div><div>月・火</div></div>
-      <div class="info-row"><div class="k">支払い</div><div>現金のみ（公式Instagramプロフィールより）</div></div>
-      <div class="info-row"><div class="k">連絡</div><div>DMは気づきにくいため、問い合わせはメール推奨との公式案内あり</div></div>
+<section class="sec" id="info">
+  <div class="wrap info-grid">
+    <div class="reveal">
+      <p class="sec-label">SHOP INFO</p>
+      <h2>店舗情報</h2>
+      <table class="shop">
+        <tr><th>店名</th><td>ChieCoffee（チエコーヒー）</td></tr>
+        <tr><th>住所</th><td>埼玉県ふじみ野市上福岡1-2-16</td></tr>
+        <tr><th>アクセス</th><td>東武東上線 上福岡駅東口 徒歩約3分（駅前名店街）</td></tr>
+        <tr><th>営業時間</th><td>9:00–15:00</td></tr>
+        <tr><th>定休日</th><td>月曜・火曜</td></tr>
+        <tr><th>お支払い</th><td>現金のみ</td></tr>
+      </table>
+      <p class="map-link"><a href="https://www.google.com/maps/search/?api=1&amp;query=ChieCoffee+%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%B5%E3%81%98%E3%81%BF%E9%87%8E%E5%B8%82%E4%B8%8A%E7%A6%8F%E5%B2%A11-2-16" target="_blank" rel="noopener">Google Mapsで見る</a></p>
     </div>
-    <div class="map-embed">Googleマップ<br>（正式公開時に店舗地図を埋め込み）</div>
-  </div>
-</section>
-
-<section class="section cta">
-  <div class="wrap">
-    <h2 class="min">このページを気に入っていただけましたら、<br>ご連絡ください。</h2>
-    <p>写真と細部を差し替えれば、そのまま公式サイトとして使える形に整えます。</p>
-    <div class="hero-cta">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" class="btn btn-outline" target="_blank" rel="noopener">気に入っていただけましたらご連絡ください</a>
+    <div class="reveal">
+      <p class="sec-label">CONTACT</p>
+      <h2>ご連絡・通販</h2>
+      <p>お問い合わせはメールが確実です（Instagramのダイレクトメッセージは気づきにくい旨、公式に案内されています）。定休日の月・火はお返事がお休みです。</p>
+      <ul class="contact-list">
+        <li><span class="k en">MAIL</span><a href="mailto:chiecoffee74@gmail.com">chiecoffee74@gmail.com</a></li>
+        <li><span class="k en">INSTAGRAM</span><a href="https://www.instagram.com/chiecoffee/" target="_blank" rel="noopener">@chiecoffee</a></li>
+        <li><span class="k en">BLOG</span><a href="https://finecafe.exblog.jp/" target="_blank" rel="noopener">finecafe.exblog.jp</a></li>
+        <li><span class="k en">ONLINE SHOP</span><a href="https://chiecoffee.thebase.in/" target="_blank" rel="noopener">chiecoffee.thebase.in</a></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="fb min">ChieCoffee</div>
-    <div>埼玉県ふじみ野市上福岡1-2-16 ／ テイクアウト専門コーヒースタンド</div>
-    <small>このページはNexusGuildが作成した無料デモです。掲載内容は公開情報をもとにした仮原稿を含みます。</small>
-  </div>
+  <p class="foot-logo en">ChieCoffee</p>
+  <p>埼玉県ふじみ野市上福岡1-2-16｜テイクアウト専門コーヒースタンド</p>
+  <p class="credit">photos from <a href="https://www.instagram.com/chiecoffee/" target="_blank" rel="noopener">@chiecoffee</a></p>
+  <p class="demo-note">このサイトはWebサイト制作のご提案用デモです</p>
 </footer>
 
-<div class="mobilebar">
-  <a href="#menu" class="btn btn-primary">メニュー</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" class="btn btn-outline" target="_blank" rel="noopener">ご連絡はこちら</a>
-</div>
-
-<script>
-(function () {
-  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ヒーロー写真のクロスフェード
-  var slides = document.querySelectorAll('.hero-bg');
-  if (slides.length > 1 && !rm) {
-    var idx = 0;
-    setInterval(function () {
-      slides[idx].classList.remove('active');
-      idx = (idx + 1) % slides.length;
-      slides[idx].classList.add('active');
-    }, 6000);
-  }
-
-  // スクロール出現
-  var targets = Array.prototype.slice.call(
-    document.querySelectorAll('.htitle,.about-card,.about-lead,.fact,.owner-in > div,.item,.photo,.info-row,.map-embed')
-  );
-  targets.forEach(function (el) { el.classList.add('reveal'); });
-  if (rm) { targets.forEach(function (el) { el.classList.add('visible'); }); return; }
-
-  function check() {
-    var limit = window.innerHeight * 0.9;
-    targets = targets.filter(function (el) {
-      if (el.getBoundingClientRect().top < limit) { el.classList.add('visible'); return false; }
-      return true;
-    });
-  }
-  window.addEventListener('scroll', check, { passive: true });
-  window.addEventListener('resize', check);
-  check();
-  // scrollイベントを発行しない環境向けの保険
-  var guard = setInterval(function () { check(); if (targets.length === 0) clearInterval(guard); }, 700);
-})();
-</script>
 </body>
 </html>
