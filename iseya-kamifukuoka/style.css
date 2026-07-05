@@ -1,9 +1,9 @@
 :root {
-  --paper: #faf6ee;
-  --ink: #5a332e;
-  --ink-soft: #8a5f58;
-  --line: #ddd0c2;
-  --band: #f2eadc;
+  --paper: #fbfaf7;
+  --ink: #2c2a26;
+  --ink-soft: #7a4a52;
+  --line: #ddd6cc;
+  --band: #f2ede4;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -285,13 +285,13 @@ a { color: var(--ink); }
 .demo-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 22px; letter-spacing: 0.08em; }
 
 /* --- reveal --- */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
 .reveal.d1 { transition-delay: 0.15s; }
 .reveal.d2 { transition-delay: 0.3s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .ticker-track { animation: none; }
   .hero-mark { animation: none; }
   .draw path, .draw ellipse { stroke-dashoffset: 0; animation: none; }
