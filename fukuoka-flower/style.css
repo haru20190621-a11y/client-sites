@@ -336,3 +336,31 @@ a { color: var(--ink); }
   .shop th { width: 120px; padding-left: 40px; }
   .band-quote { font-size: 1.7rem; }
 }
+
+/* --- お店のようすギャラリー --- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+.photo-grid figure { margin: 0; }
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.photo-grid figure:hover img { transform: scale(1.03); filter: saturate(1); }
+.photo-grid figcaption {
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+@media (min-width: 700px) {
+  .photo-grid { grid-template-columns: repeat(4, 1fr); }
+}
