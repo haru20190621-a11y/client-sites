@@ -66,6 +66,7 @@ a:hover{color:var(--accent)}
   line-height:2.2;margin-top:22px;word-break:keep-all}
 .hero-hours{font-size:.88rem;letter-spacing:.1em;margin-top:26px;opacity:.92}
 .hero-hours span{white-space:nowrap}
+.nb{white-space:nowrap}
 
 /* --- strip --- */
 .strip{border-bottom:1px solid var(--line);background:var(--bg)}
