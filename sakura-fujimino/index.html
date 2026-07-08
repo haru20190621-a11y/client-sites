@@ -1,4 +1,3 @@
-<!-- 線画・タイポ型（うさぎや参照実装ベース）を 食彩処 咲くら 用に改変。構造・アニメーションは不変。 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%235c2a28'/%3E%3Cg fill='none' stroke='%23f7f1e6' stroke-width='3' stroke-linecap='round'%3E%3Cellipse cx='32' cy='36' rx='17' ry='5'/%3E%3Cpath d='M16 38 C18 50 46 50 48 38'/%3E%3Cpath d='M28 24 c-3 -4 3 -6 0 -10'/%3E%3Cpath d='M37 24 c-3 -4 3 -6 0 -10'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -22,18 +21,37 @@
 </div>
 
 <header class="hero">
+  <svg class="lantern" viewBox="0 0 70 112" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M35 4 L35 14"/>
+      <path d="M24 16 L46 16"/>
+      <path d="M24 18 C11 30, 11 74, 24 86"/>
+      <path d="M46 18 C59 30, 59 74, 46 86"/>
+      <path d="M24 86 L46 86"/>
+      <path d="M14 34 C28 38, 42 38, 56 34"/>
+      <path d="M12 50 C28 54, 42 54, 58 50"/>
+      <path d="M13 66 C28 70, 42 70, 57 66"/>
+      <path d="M35 88 L35 100 M31 101 L39 101"/>
+    </g>
+  </svg>
   <p class="hero-en">TEISHOKU &amp; IZAKAYA — SAKURA / OI, FUJIMINO</p>
   <div class="hero-stage">
     <p class="vtx v1">昼は定食、夜は一献。</p>
     <div class="hero-center">
-      <svg class="hero-mark draw" viewBox="0 0 120 92" aria-hidden="true">
+      <svg class="hero-mark draw" viewBox="0 0 160 130" aria-hidden="true">
         <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <ellipse pathLength="1" cx="60" cy="56" rx="34" ry="9"/>
-          <path pathLength="1" d="M27 58 C31 79 89 79 93 58"/>
-          <path pathLength="1" d="M45 34 C41 28 49 25 45 18"/>
-          <path pathLength="1" d="M60 31 C56 25 64 22 60 15"/>
-          <path pathLength="1" d="M75 34 C71 28 79 25 75 18"/>
-          <path pathLength="1" d="M74 52 L104 40 M77 58 L107 47"/>
+          <ellipse pathLength="1" cx="80" cy="70" rx="40" ry="10"/>
+          <path pathLength="1" d="M42 73 C46 96, 114 96, 118 73"/>
+          <path pathLength="1" d="M70 95 C70 100, 90 100, 90 95"/>
+          <path pathLength="1" d="M102 8 L84 30"/>
+          <path pathLength="1" d="M112 12 L86 32"/>
+          <path pathLength="1" d="M83 30 C78 42, 84 50, 80 61"/>
+          <path pathLength="1" d="M85 31 C82 42, 89 50, 85 62"/>
+          <path pathLength="1" d="M87 32 C85 44, 92 52, 89 63"/>
+          <path pathLength="1" d="M62 67 C64 68, 64 72, 61 72"/>
+          <circle pathLength="1" cx="62" cy="70" r="6"/>
+          <path class="steam" d="M52 46 C48 38, 56 32, 52 24"/>
+          <path class="steam" d="M64 42 C60 34, 68 28, 64 20"/>
         </g>
       </svg>
       <h1>咲くら</h1>
@@ -44,7 +62,7 @@
   <div class="hero-info">
     <span>水曜定休</span><span class="sep">｜</span><span>カード可</span><span class="sep">｜</span><a href="tel:0492662715">049-266-2715</a>
   </div>
-  <div class="hero-info sub"><span>昼 11:00〜14:00／夜 17:00〜23:00・大井中央</span></div>
+  <div class="hero-info sub"><span>昼 11:00〜14:00／夜 17:00〜23:00（日曜は夜のみ）・大井中央</span></div>
   <div class="hero-scroll" aria-hidden="true">scroll<span class="bar"></span></div>
 </header>
 
@@ -83,22 +101,23 @@
     <h2><span class="en">Menu</span><span class="jp">名物とお品書き</span></h2>
     <ul class="item-list">
       <li class="reveal">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="80" cy="62" rx="44" ry="11"/><path d="M40 64 C46 88 114 88 120 64"/><path d="M64 40 C59 33 69 30 64 22" opacity="0.7"/><path d="M80 36 C75 29 85 26 80 18" opacity="0.7"/><path d="M96 40 C91 33 101 30 96 22" opacity="0.7"/></g></svg>
+        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="80" cy="56" rx="42" ry="11"/><path d="M40 59 C46 86, 114 86, 120 59"/><path d="M72 85 C72 90, 88 90, 88 85"/><path d="M70 51 C72 52, 72 56, 69 56"/><circle cx="70" cy="54" r="5.5"/><ellipse cx="92" cy="56" rx="6.5" ry="3.6"/><path d="M56 55 C59 52, 63 55, 66 52"/><path class="steam" d="M64 36 C60 28, 68 22, 64 14"/><path class="steam" d="M88 34 C84 26, 92 20, 88 12"/></g></svg>
         <h3>味噌ラーメン</h3>
-        <p>北海道味噌の一杯。出汁の取り方が評判で、これを目当てに通う人も。</p>
+        <p>北海道味噌の一杯。出汁の取り方が評判の、店の代名詞。</p>
       </li>
       <li class="reveal d1">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="40" width="100" height="46" rx="4"/><ellipse cx="60" cy="63" rx="16" ry="9"/><ellipse cx="100" cy="63" rx="13" ry="8"/><path d="M50 63 h20 M90 63 h20" opacity="0.5"/></g></svg>
+        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="30" width="116" height="60" rx="5"/><ellipse cx="58" cy="66" rx="23" ry="9"/><circle cx="50" cy="61" r="4.5"/><circle cx="60" cy="58" r="5"/><circle cx="69" cy="62" r="4.5"/><path d="M46 57 C50 54, 56 56, 60 53 C64 56, 70 54, 73 57"/><path d="M92 60 C93 71, 109 71, 110 60"/><ellipse cx="101" cy="60" rx="9" ry="3.6"/><path d="M93 56 C96 49, 106 49, 109 56"/><path d="M117 64 C118 72, 131 72, 132 64"/><ellipse cx="124.5" cy="64" rx="7.5" ry="3"/><path d="M30 98 L88 93 M30 103 L88 98"/></g></svg>
         <h3>鶏南蛮定食</h3>
         <p>自家製タルタルの鶏南蛮。やわらかい鶏肉で、これで800円。</p>
       </li>
       <li class="reveal d2">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="80" cy="66" rx="46" ry="16"/><path d="M58 52 q10 -12 22 0 q10 -12 22 0" opacity="0.8"/><path d="M60 62 h44" opacity="0.5"/></g></svg>
+        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="80" cy="72" rx="46" ry="14"/><path d="M54 63 C58 55, 74 52, 82 58 C84 60, 84 64, 82 66 C74 72, 58 71, 54 65 C53 64.5, 53 63.5, 54 63"/><path d="M60 58 L63 66 M66 56 L69 65 M72 55 L75 63"/><path d="M54 62 L46 56 M54 64 L44 62 M54 66 L46 68"/><path d="M78 72 C84 66, 98 65, 105 70 C106 71, 105 73, 104 74 C96 80, 82 81, 78 77 C76 76, 76 73, 78 72"/><path d="M84 69 L86 77 M90 68 L92 76 M96 68 L98 75"/><path d="M105 71 L113 66 M106 73 L115 72 M105 75 L113 78"/><path d="M58 48 C61 45, 64 48, 67 45 M64 52 C67 49, 70 52, 73 49"/><path d="M112 60 A9 9 0 0 1 130 60 L112 60"/><path d="M121 51 L121 60 M115 54 L121 60 M127 54 L121 60"/></g></svg>
         <h3>日替わりの定食</h3>
         <p>とんかつ・海老フライ・ミックスフライなど。定食は700〜900円ほど。</p>
       </li>
     </ul>
     <p class="item-note">メニューは仕入れによって日々変わります。夜は一品料理とお酒も。じんぎすかんもあります。</p>
+    <svg class="sake" viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M56 14 C54 24, 48 28, 48 36 C48 46, 44 58, 49 68 C53 77, 71 77, 75 68 C80 58, 76 46, 76 36 C76 28, 70 24, 68 14"/><path d="M56 14 C58 12, 66 12, 68 14"/><path d="M56 14 L53 11 M68 14 L71 11"/><path d="M88 67 C88 77, 104 77, 104 67"/><ellipse cx="96" cy="67" rx="8" ry="3"/></g></svg>
   </section>
 
   <hr class="rule">

@@ -40,6 +40,7 @@ a { color: var(--ink); }
 
 /* --- hero --- */
 .hero {
+  position: relative;
   text-align: center;
   padding: 60px 20px 34px;
   background:
@@ -48,6 +49,22 @@ a { color: var(--ink); }
     var(--band);
   overflow: hidden;
 }
+
+/* 提灯（居酒屋の夜の顔。ゆらゆら） */
+.lantern {
+  position: absolute;
+  right: 7%;
+  top: 46px;
+  width: 58px;
+  color: var(--ink-soft);
+  animation: sway 4.5s ease-in-out infinite alternate;
+  transform-origin: 50% 4px;
+}
+@keyframes sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(3deg); }
+}
+@media (max-width: 699px) { .lantern { display: none; } }
 
 .hero-en {
   font-family: "Courier Prime", monospace;
@@ -76,7 +93,7 @@ a { color: var(--ink); }
 .v2 { font-size: 0.8rem; }
 
 .hero-mark {
-  width: 104px; height: auto;
+  width: 140px; height: auto;
   color: var(--ink);
   animation: float 5.5s ease-in-out infinite alternate;
 }
@@ -90,15 +107,33 @@ a { color: var(--ink); }
 .draw path, .draw ellipse {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: drawline 1.8s ease forwards;
+  animation: drawline 1.6s ease forwards;
 }
-.draw path:nth-child(2) { animation-delay: 0.5s; }
-.draw path:nth-child(3) { animation-delay: 0.8s; }
-.draw path:last-child { animation-delay: 1.3s; }
-.draw circle { opacity: 0; animation: fadein 0.6s ease 1.5s forwards; }
+.draw path:nth-of-type(2) { animation-delay: 0.15s; }
+.draw path:nth-of-type(3) { animation-delay: 0.3s; }
+.draw path:nth-of-type(4) { animation-delay: 0.45s; }
+.draw path:nth-of-type(5) { animation-delay: 0.6s; }
+.draw path:nth-of-type(6) { animation-delay: 0.75s; }
+.draw path:nth-of-type(7) { animation-delay: 0.9s; }
+.draw path:nth-of-type(8) { animation-delay: 1.05s; }
+.draw circle { opacity: 0; animation: fadein 0.6s ease 1.4s forwards; stroke-dasharray: none; stroke-dashoffset: 0; }
 
 @keyframes drawline { to { stroke-dashoffset: 0; } }
 @keyframes fadein { to { opacity: 1; } }
+
+/* 湯気（描き上がりと分離し、立ちのぼりループ） */
+.steam, .draw path.steam {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 0;
+  animation: steamrise 3.4s ease-in-out infinite;
+}
+.steam:nth-of-type(2n), .draw path.steam:nth-of-type(2n) { animation-delay: 1.4s; }
+@keyframes steamrise {
+  0% { transform: translateY(5px); opacity: 0; }
+  35% { opacity: 0.5; }
+  100% { transform: translateY(-9px); opacity: 0; }
+}
 
 .hero h1 {
   font-family: "Shippori Mincho", serif;
@@ -255,6 +290,9 @@ a { color: var(--ink); }
 
 .item-note { font-size: 0.95rem; color: var(--ink-soft); margin-top: 40px; letter-spacing: 0.1em; }
 
+/* 徳利とおちょこ（夜の一献） */
+.sake { width: 96px; height: auto; color: var(--ink-soft); margin-top: 20px; }
+
 /* --- access --- */
 .shop { width: 100%; border-collapse: collapse; text-align: left; font-size: 1rem; }
 .shop th, .shop td { border-bottom: 1px solid var(--line); padding: 14px 6px; vertical-align: top; font-weight: 400; }
@@ -300,6 +338,7 @@ a { color: var(--ink); }
   .hero-mark { animation: none; }
   .draw path, .draw ellipse { stroke-dashoffset: 0; animation: none; }
   .draw circle { opacity: 1; animation: none; }
+  .steam, .draw path.steam { opacity: 0.5; transform: none; }
   .hero-scroll .bar { animation: none; }
 }
 
