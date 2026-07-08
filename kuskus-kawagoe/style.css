@@ -120,9 +120,9 @@ a:hover{color:var(--accent)}
 .about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
 .about-text p{margin-bottom:1.2em;max-width:34em}
 .about-text .script-head,.about-text h2{max-width:none}
-.about-photo{position:relative}
+.about-photo .ph{position:relative;display:block}
 .about-photo img{width:100%;height:auto;position:relative;z-index:1}
-.about-photo::before{content:"";position:absolute;inset:-14px 14px 14px -14px;
+.about-photo .ph::before{content:"";position:absolute;inset:-14px 14px 14px -14px;
   border:1px solid var(--line);z-index:0}
 .about-photo figcaption{font-size:.8rem;letter-spacing:.12em;
   color:rgba(47,44,41,.6);margin-top:14px}
