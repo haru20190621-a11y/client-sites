@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=' js';</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ホールケーキのご予約｜pâtissier Abe à bébé（ふじみ野）</title>
+<meta name="description" content="pâtissier Abe à bébé（ふじみ野）のホールケーキご予約フォーム。3営業日前までのご予約をお願いしています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Cormorant+Garamond:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232c2a26'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23fbfaf7' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css?v=3">
+<script src="script.js?v=3" defer></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo en" href="index.html">à bébé</a>
+    <div class="nav-links">
+      <a href="index.html#about">こだわり</a>
+      <a href="index.html#menu">メニュー</a>
+      <a href="reserve.html">ご予約</a>
+      <a href="index.html#info">店舗情報</a>
+      <a href="https://www.instagram.com/abebe.fujimino/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</nav>
+
+<section class="sec" id="reserve">
+  <div class="wrap">
+    <p class="sec-label reveal">RESERVATION</p>
+    <h2 class="reveal">ホールケーキのご予約</h2>
+    <p class="reserve-lead reveal">アニバーサリーケーキ（生デコレーション・たまごショート・チョコレート）のご予約を、こちらのフォームからお申込みいただけます。ご予約は<strong>3営業日前まで</strong>。フォームの送信後、お店からの折り返しのご連絡をもって確定となります。InstagramのDMでのご予約も、これまで通りご利用いただけます。</p>
+    <form id="reserveForm" class="reserve-form reveal" novalidate>
+      <div class="rf-grid">
+        <label class="rf-field">
+          <span class="rf-label">お名前 <em>必須</em></span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label class="rf-field">
+          <span class="rf-label">お電話番号 <em>必須</em></span>
+          <input type="tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="090-1234-5678" required>
+        </label>
+        <label class="rf-field">
+          <span class="rf-label">お受け取り希望日 <em>必須</em></span>
+          <input type="date" name="date" id="rfDate" required>
+          <span class="rf-note">3営業日前までのご予約をお願いしています。月曜・火曜は定休日です。臨時休業日はInstagramの営業日カレンダーをご確認ください。</span>
+        </label>
+        <label class="rf-field">
+          <span class="rf-label">お受け取り時間 <em>必須</em></span>
+          <select name="time" id="rfTime" required disabled>
+            <option value="">お受け取り日を選択してください</option>
+          </select>
+          <span class="rf-note">水〜土 12:00–18:00｜日 11:00–16:00</span>
+        </label>
+      </div>
+      <fieldset class="rf-choice">
+        <legend class="rf-label">ケーキの種類 <em>必須</em></legend>
+        <div class="rf-pills" id="rfKind">
+          <label><input type="radio" name="kind" value="生デコレーションケーキ" required><span>生デコレーションケーキ</span></label>
+          <label><input type="radio" name="kind" value="たまごショートケーキ"><span>たまごショートケーキ</span></label>
+          <label><input type="radio" name="kind" value="チョコレートケーキ"><span>チョコレートケーキ</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="rf-choice" id="rfFruitWrap" hidden>
+        <legend class="rf-label" id="rfFruitLabel">フルーツ <em>必須</em></legend>
+        <div class="rf-pills" id="rfFruit"></div>
+        <span class="rf-note">季節により内容が変わります。</span>
+      </fieldset>
+      <fieldset class="rf-choice">
+        <legend class="rf-label">サイズ <em>必須</em></legend>
+        <div class="rf-pills">
+          <label><input type="radio" name="size" value="4号" required><span>4号</span></label>
+          <label><input type="radio" name="size" value="5号"><span>5号</span></label>
+          <label><input type="radio" name="size" value="6号"><span>6号</span></label>
+        </div>
+      </fieldset>
+      <label class="rf-field rf-full">
+        <span class="rf-label">プレートのメッセージ（ご希望の場合）</span>
+        <input type="text" name="plate" placeholder="例：Happy Birthday 〇〇ちゃん">
+      </label>
+      <p class="rf-error" id="rfError" hidden></p>
+      <div class="rf-actions">
+        <button type="submit" class="reserve-btn" id="rfSubmit">この内容で申し込む</button>
+      </div>
+      <p class="rf-note">送信がうまくいかない場合は、お手数ですが<a href="https://www.instagram.com/abebe.fujimino/" target="_blank" rel="noopener">InstagramのDM</a>からお願いいたします。</p>
+    </form>
+    <div class="reserve-done reveal" id="reserveDone" hidden>
+      <h3>ご予約のお申込みを受け付けました</h3>
+      <p>内容を確認のうえ、お店より折り返しご連絡いたします。<br>折り返しのご連絡をもって、ご予約の確定となります。</p>
+    </div>
+    <p class="map-link"><a href="index.html">← トップページへ戻る</a></p>
+  </div>
+</section>
+
+<footer>
+  <p class="foot-logo en">à bébé</p>
+  <p>埼玉県ふじみ野市ふじみ野4-9-23｜パティスリー</p>
+  <p class="demo-note">このサイトはWebサイト制作のご提案用デモです</p>
+</footer>
+
+</body>
+</html>
