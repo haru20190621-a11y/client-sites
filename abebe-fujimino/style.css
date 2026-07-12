@@ -188,3 +188,21 @@ footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
   .rf-grid{grid-template-columns:1fr;gap:20px}
   .reserve-btn{width:100%;padding:16px 20px}
 }
+
+
+/* --- reservation CTA buttons（2026-07-13追加） --- */
+.hero-btn{display:inline-block;margin-top:30px;padding:14px 40px;
+  font-family:var(--serif);font-size:.95rem;letter-spacing:.22em;
+  color:#fff;border:1px solid rgba(255,255,255,.85);text-decoration:none;
+  background:rgba(20,16,12,.18);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+  transition:background .3s,color .3s}
+.hero-btn:hover{background:#fff;color:var(--ink)}
+.menu-cta{text-align:center;margin-top:36px}
+.cta-btn{display:inline-block;padding:16px 48px;font-family:var(--serif);
+  font-size:.95rem;letter-spacing:.22em;color:#fdfcf8;background:var(--ink);
+  border:1px solid var(--ink);text-decoration:none;transition:background .3s,border-color .3s}
+.cta-btn:hover{background:var(--accent);border-color:var(--accent)}
+@media (max-width:560px){
+  .hero-btn{padding:13px 30px;font-size:.9rem}
+  .cta-btn{display:block;max-width:340px;margin:0 auto;padding:15px 20px;text-align:center}
+}
