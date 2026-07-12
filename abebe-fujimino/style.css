@@ -144,3 +144,47 @@ footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
   .slide{opacity:0}
   .slide:first-child{opacity:1}
 }
+
+
+/* --- reserve form（2026-07-12追加・ホールケーキ予約） --- */
+#reserve .reserve-lead{max-width:660px;margin-bottom:38px}
+.reserve-form{max-width:760px}
+.rf-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;margin-bottom:28px}
+.rf-field{display:block}
+.rf-full{display:block;margin-bottom:28px}
+.rf-label{display:block;font-family:var(--serif);letter-spacing:.12em;font-size:.92rem;margin-bottom:9px}
+.rf-label em{font-style:normal;font-size:.66rem;color:var(--accent);border:1px solid currentColor;
+  padding:1px 7px;margin-left:8px;letter-spacing:.2em;vertical-align:2px}
+.reserve-form input[type=text],.reserve-form input[type=tel],
+.reserve-form input[type=date],.reserve-form select{
+  width:100%;padding:12px 14px;border:1px solid var(--line);background:#fff;
+  font-family:var(--sans);font-size:1rem;color:var(--ink);border-radius:0;
+  -webkit-appearance:none;appearance:none;line-height:1.5}
+.reserve-form select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%233b332c' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.reserve-form select:disabled{color:rgba(59,51,44,.45);background-color:#f4f0e9;cursor:not-allowed}
+.reserve-form input:focus,.reserve-form select:focus{outline:none;border-color:var(--accent)}
+.rf-note{display:block;font-size:.78rem;color:rgba(59,51,44,.62);margin-top:7px;line-height:1.8}
+.rf-choice{border:none;margin:0 0 28px;padding:0}
+.rf-pills{display:flex;flex-wrap:wrap;gap:10px}
+.rf-pills label{position:relative;cursor:pointer}
+.rf-pills input{position:absolute;opacity:0;pointer-events:none}
+.rf-pills span{display:inline-block;border:1px solid var(--line);background:#fff;
+  padding:11px 24px;font-size:.95rem;letter-spacing:.08em;transition:background .25s,border-color .25s,color .25s}
+.rf-pills input:checked+span{background:var(--accent);border-color:var(--accent);color:#fdfcf8}
+.rf-pills input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.rf-error{color:#a03d2e;font-size:.9rem;margin:0 0 16px;line-height:1.8}
+.rf-actions{margin:4px 0 14px}
+.reserve-btn{font-family:var(--serif);letter-spacing:.22em;font-size:.95rem;color:#fdfcf8;
+  background:var(--ink);border:1px solid var(--ink);padding:16px 48px;cursor:pointer;
+  transition:background .3s,border-color .3s}
+.reserve-btn:hover{background:var(--accent);border-color:var(--accent)}
+.reserve-btn[disabled]{opacity:.55;cursor:default}
+.reserve-done{border:1px solid var(--line);background:#fff;padding:48px 30px;
+  text-align:center;max-width:760px}
+.reserve-done h3{margin:0 0 .6em}
+@media (max-width:620px){
+  .rf-grid{grid-template-columns:1fr;gap:20px}
+  .reserve-btn{width:100%;padding:16px 20px}
+}
