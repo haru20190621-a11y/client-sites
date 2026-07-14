@@ -68,7 +68,7 @@ a { color: var(--ink); }
   font-size: 0.95rem;
   letter-spacing: 0.42em;
   color: var(--ink-soft);
-  height: 240px;
+  height: 280px;
 }
 
 .v2 { font-size: 0.8rem; }
@@ -125,7 +125,8 @@ a { color: var(--ink); }
 
 .hero-copy { font-size: 0.9rem; letter-spacing: 0.16em; margin-top: 12px; color: var(--ink-soft); }
 
-.hero-info { margin-top: 28px; font-size: 0.95rem; letter-spacing: 0.08em; }
+.hero-info { margin-top: 28px; font-size: 0.95rem; letter-spacing: 0.08em;
+  display: flex; flex-wrap: wrap; justify-content: center; column-gap: 4px; }
 .hero-info span, .hero-info a { white-space: nowrap; }
 .hero-info.sub { margin-top: 8px; font-size: 0.9rem; color: var(--ink-soft); }
 .hero-info .sep { color: var(--line); margin: 0 6px; }
@@ -303,6 +304,20 @@ a { color: var(--ink); }
 .foot-sub { font-family: "Courier Prime", monospace; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--ink-soft); margin-top: 6px; }
 .demo-note { font-size: 0.85rem; color: var(--ink-soft); margin-top: 22px; letter-spacing: 0.08em; }
 
+/* --- 写真ギャラリー --- */
+.photo-sec { max-width: 1020px; }
+.photo-grid { display: flex; flex-direction: column; gap: 34px; margin-top: 8px; }
+.photo-grid figure { margin: 0; }
+.photo-grid .ph { overflow: hidden; aspect-ratio: 1 / 1; }
+.photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
+.photo-grid figure:hover img { transform: scale(1.04); }
+.photo-grid h3 {
+  font-family: "Shippori Mincho", serif;
+  font-weight: 600; font-size: 1.02rem;
+  letter-spacing: 0.12em; margin-top: 12px;
+}
+.photo-grid figcaption p { font-size: 1rem; color: var(--ink-soft); }
+
 /* --- reveal --- */
 .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.9s ease, transform 0.9s ease; }
 .js .reveal.visible { opacity: 1; transform: none; }
@@ -332,6 +347,8 @@ a { color: var(--ink); }
   .hero { padding-top: 76px; }
   .hero h1 { font-size: 4.2rem; }
   .item-list { flex-direction: row; justify-content: center; gap: 48px; }
+  .photo-grid { flex-direction: row; gap: 28px; }
+  .photo-grid figure { flex: 1; }
   .shop th { width: 120px; padding-left: 40px; }
   .band-quote { font-size: 1.7rem; }
 }
