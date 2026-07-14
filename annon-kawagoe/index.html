@@ -2,143 +2,135 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
 <script>document.documentElement.className+=' js';</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
 <title>annon（アンノン）｜焼き菓子専門店（川越・南通町）</title>
+<meta name="description" content="川越・南通町の小さな焼き菓子店。埼玉産小麦「茜」や産地から選んだ素材で焼く、季節のタルトやケイク・オ・フリュイ。annon（アンノン）。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime&family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23493a2d'/%3E%3Cpath d='M18 40 C18 30 46 30 46 40 C46 46 40 49 32 49 C24 49 18 46 18 40 Z' fill='none' stroke='%23f7f3ea' stroke-width='2.4'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=4">
+<script src="script.js?v=4" defer></script>
 </head>
 <body>
 
-<!-- 反応獲得バナー: 契約後の本番公開時にこのブロックごと削除 -->
+<!-- 契約後の本番公開時にこのブロックごと削除 -->
 <div class="offer-banner">
-  <span>このサイトは<b>annon様</b>に無料でお渡しするために作成しました。受け取るだけなら、費用は一切かかりません。公式サイトとしての公開と毎月の更新までお任せいただく場合も月5,000円だけ（ドメイン・サーバー費込み。30ヶ月つづけたらサイトごとお店のものになります）。気に入っていただけましたらご連絡ください。</span>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" target="_blank" rel="noopener">受け取る・相談する</a>
+  <p>このサイトは<b>annon様</b>に無料でお渡しするために作成しました。受け取るだけなら、費用は一切かかりません。公式サイトとしての公開と毎月の更新までお任せいただく場合も月5,000円だけ（ドメイン・サーバー費込み。30ヶ月つづけたらサイトごとお店のものになります）。気に入っていただけましたらご連絡ください。</p>
+  <a class="offer-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" target="_blank" rel="noopener">受け取る・相談する</a>
 </div>
 
-<header class="hero">
-  <p class="hero-en">YAKIGASHI ANNON — MINAMIDORI, KAWAGOE</p>
-  <div class="hero-stage">
-    <p class="vtx v1">埼玉の小麦で、焼き菓子を。</p>
-    <div class="hero-center">
-      <svg class="hero-mark draw" viewBox="0 0 120 104" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path pathLength="1" d="M60 96 L60 30"/>
-          <path pathLength="1" d="M60 34 C51 29 47 20 49 11 C58 15 63 24 60 34 Z"/>
-          <path pathLength="1" d="M60 46 C50 42 44 33 46 24 C56 28 62 37 60 46 Z" opacity="0.9"/>
-          <path pathLength="1" d="M60 46 C70 42 76 33 74 24 C64 28 58 37 60 46 Z" opacity="0.9"/>
-          <path pathLength="1" d="M60 60 C50 56 44 47 46 38 C56 42 62 51 60 60 Z" opacity="0.72"/>
-          <path pathLength="1" d="M60 60 C70 56 76 47 74 38 C64 42 58 51 60 60 Z" opacity="0.72"/>
-          <path pathLength="1" d="M60 74 C50 70 44 61 46 52 C56 56 62 65 60 74 Z" opacity="0.58"/>
-          <path pathLength="1" d="M60 74 C70 70 76 61 74 52 C64 56 58 65 60 74 Z" opacity="0.58"/>
-        </g>
-      </svg>
-      <h1>annon</h1>
-      <p class="hero-copy">季節のタルトと、ケイク・オ・フリュイ。</p>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo en" href="#top">annon</a>
+    <div class="nav-links">
+      <a href="#about">こだわり</a>
+      <a href="#menu">お菓子</a>
+      <a href="#info">店舗情報</a>
     </div>
-    <p class="vtx v2">川越・南通町</p>
   </div>
-  <div class="hero-info">
-    <span>営業日はInstagramで</span><span class="sep">｜</span><span>川越八幡宮ちかく</span><span class="sep">｜</span><a href="tel:0492987665">049-298-7665</a>
-  </div>
-  <div class="hero-scroll" aria-hidden="true">scroll<span class="bar"></span></div>
-</header>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>ケイク・オ・フリュイ</span><i>・</i><span>季節のタルト</span><i>・</i><span>スコーン</span><i>・</i><span>クッキー</span><i>・</i><span>パウンドケーキ</span><i>・</i>
-    <span>ケイク・オ・フリュイ</span><i>・</i><span>季節のタルト</span><i>・</i><span>スコーン</span><i>・</i><span>クッキー</span><i>・</i><span>パウンドケーキ</span><i>・</i>
-  </div>
-</div>
-
-<nav class="menu">
-  <a href="#concept">Concept</a>
-  <a href="#ingredient">Ingredient</a>
-  <span class="menu-logo">annon</span>
-  <a href="#item">Item</a>
-  <a href="#access">Access</a>
 </nav>
 
-<main>
-  <section class="sec reveal" id="concept">
-    <h2><span class="en">Concept</span><span class="jp">annonについて</span></h2>
-    <p class="lead">
-      川越八幡宮のちかく、南通町の小さな焼き菓子店。<br>
-      「いつか焼き菓子屋さんを」という想いから、<br>
-      2021年に生まれました。<br>
-      店名の annon は、穏やかで安らかな「安穏」から。
-    </p>
-  </section>
+<section class="hero" id="top">
+  <div class="slide" style="background-image:url(img/hero1.jpg)"></div>
+  <div class="slide" style="background-image:url(img/hero2.jpg)"></div>
+  <div class="slide" style="background-image:url(img/hero3.jpg)"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label en">YAKIGASHI ANNON — MINAMIDORI, KAWAGOE</p>
+    <h1>annon</h1>
+    <p class="hero-copy">埼玉の小麦で焼く、季節の焼き菓子。<br>川越・南通町の、小さな焼き菓子店。</p>
+    <p class="hero-hours">営業日はInstagramで｜川越八幡宮ちかく</p>
+  </div>
+</section>
 
-  <section class="band reveal">
-    <p class="band-quote">サクサクのタルト、<br class="sp">しっとりのパウンド。</p>
-    <p class="band-sub">SAITAMA WHEAT &ldquo;AKANE&rdquo;</p>
-  </section>
+<div class="strip">
+  <div class="strip-in">
+    <div><span class="k">Open</span>営業日はInstagramで</div>
+    <div><span class="k">Place</span>南通町の裏路地</div>
+    <div><span class="k">Access</span>本川越・川越市駅 徒歩圏</div>
+    <div><span class="k">Tel</span>049-298-7665</div>
+  </div>
+</div>
 
-  <section class="sec reveal" id="ingredient">
-    <h2><span class="en">Ingredient</span><span class="jp">素材のこと</span></h2>
-    <p class="lead">
-      生地には、埼玉産の小麦「茜」。<br>
-      風味が豊かで、焼き上がりが違います。
-    </p>
-    <p class="ing-note">
-      奄美大島のきび砂糖、北海道のバター、川越の養鶏場のたまご。<br>
-      ひとつひとつ、産地から選んだ素材で焼いています。
-    </p>
-  </section>
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <p class="sec-label">About</p>
+      <h2>小さな、<br>焼き菓子店。</h2>
+      <p>川越八幡宮のちかく、南通町の裏路地にある小さな焼き菓子店です。「いつか焼き菓子屋さんを」という想いから、2021年に生まれました。店名の annon は、穏やかで安らかな「安穏」から。</p>
+      <p>生地には、埼玉産の小麦「茜」。奄美大島のきび砂糖、北海道のバター、川越の養鶏場のたまご。ひとつひとつ、産地から選んだ素材で焼いています。</p>
+    </div>
+    <figure class="about-photo reveal">
+      <img src="img/about.jpg" alt="annonの店内。あたたかい灯りとショーケース" loading="lazy">
+      <figcaption>あたたかい灯りの、店内。</figcaption>
+    </figure>
+  </div>
+</section>
 
-  <section class="sec reveal" id="item">
-    <h2><span class="en">Item</span><span class="jp">お菓子</span></h2>
-    <ul class="item-list">
-      <li class="reveal">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="80" cy="62" rx="48" ry="30"/><ellipse cx="80" cy="62" rx="37" ry="21" opacity="0.45"/><circle cx="66" cy="56" r="6"/><circle cx="90" cy="54" r="6"/><circle cx="80" cy="68" r="6"/></g></svg>
-        <h3>季節のタルト</h3>
-        <p>旬のフルーツをのせて。サクサクの生地で焼き上げます。</p>
-      </li>
-      <li class="reveal d1">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M40 78 L40 62 C40 46 120 46 120 62 L120 78 Z"/><path d="M40 78 h80"/><path d="M54 55 q26 -10 52 0" opacity="0.5"/><circle cx="64" cy="63" r="3" fill="currentColor" stroke="none"/><circle cx="90" cy="60" r="3" fill="currentColor" stroke="none"/><circle cx="78" cy="69" r="3" fill="currentColor" stroke="none"/></g></svg>
-        <h3>ケイク・オ・フリュイ</h3>
-        <p>フルーツを混ぜ込んだ、しっとりのパウンドケーキ。</p>
-      </li>
-      <li class="reveal d2">
-        <svg viewBox="0 0 160 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="66" cy="58" r="26"/><circle cx="100" cy="66" r="19"/><circle cx="60" cy="52" r="2.6" fill="currentColor" stroke="none"/><circle cx="72" cy="62" r="2.6" fill="currentColor" stroke="none"/><circle cx="63" cy="66" r="2.6" fill="currentColor" stroke="none"/><circle cx="102" cy="64" r="2.4" fill="currentColor" stroke="none"/></g></svg>
-        <h3>クッキーと焼き菓子</h3>
-        <p>スコーンやパウンドも。日替わりで10種前後が並びます。</p>
-      </li>
-    </ul>
-    <p class="item-note">その日のラインナップは、Instagramでお知らせしています。売り切れ御免。</p>
-  </section>
+<section class="sec sec-alt" id="menu">
+  <div class="wrap">
+    <p class="sec-label reveal">Sweets</p>
+    <h2 class="reveal">お菓子</h2>
+    <div class="items">
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu1.jpg" alt="季節の素材で焼いた、季節の焼き菓子" loading="lazy"></div>
+        <h3>季節の焼き菓子</h3>
+        <p>その時季のフルーツや素材で焼く、季節のお菓子。並ぶ顔ぶれは、日ごとに変わります。</p>
+      </article>
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu2.jpg" alt="しっとり焼き上げたケーキ" loading="lazy"></div>
+        <h3>焼き上がりのケーキ</h3>
+        <p>しっとり焼いた、その日のケーキ。手みやげにも、自分のおやつにも。</p>
+      </article>
+      <article class="item reveal">
+        <div class="item-ph"><img src="img/menu3.jpg" alt="しっとりのパウンドケーキ" loading="lazy"></div>
+        <h3>パウンドケーキ</h3>
+        <p>しっとり焼き上げた、フルーツやチョコのパウンド。ケイク・オ・フリュイも。</p>
+      </article>
+    </div>
+    <p class="menu-note">季節のタルト・ケイク・オ・フリュイ・スコーン・クッキー・パウンドなど、日替わりで10種前後。その日のラインナップは、Instagramでお知らせしています（売り切れ御免）。</p>
+  </div>
+</section>
 
-  <hr class="rule">
+<div class="band">
+  <p class="band-quote">手みやげにも、自分にも。</p>
+</div>
 
-  <section class="sec reveal" id="access">
-    <h2><span class="en">Access</span><span class="jp">店舗情報</span></h2>
-    <table class="shop">
-      <tr><th>店名</th><td>annon（アンノン）</td></tr>
-      <tr><th>住所</th><td>埼玉県川越市南通町16-22 spaceK B01<br>（川越八幡宮ちかくの裏路地）</td></tr>
-      <tr><th>電話</th><td><a href="tel:0492987665">049-298-7665</a></td></tr>
-      <tr><th>営業</th><td>不定期営業<br><small>※営業日・お菓子のラインナップはInstagramでお知らせしています</small></td></tr>
-      <tr><th>最寄り</th><td>本川越駅・川越市駅から徒歩圏</td></tr>
-    </table>
-    <p class="map-link"><a href="https://www.google.com/maps/search/annon+%E5%B7%9D%E8%B6%8A%E5%B8%82%E5%8D%97%E9%80%9A%E7%94%BA" target="_blank" rel="noopener">google maps &rarr;</a></p>
-  </section>
+<section class="sec" id="info">
+  <div class="wrap info-grid">
+    <div class="reveal">
+      <p class="sec-label">Shop Info</p>
+      <h2>店舗情報</h2>
+      <table class="shop">
+        <tr><th>店名</th><td>annon（アンノン）</td></tr>
+        <tr><th>住所</th><td>埼玉県川越市南通町16-22 spaceK B01<br>（川越八幡宮ちかくの裏路地）</td></tr>
+        <tr><th>アクセス</th><td>本川越駅・川越市駅から徒歩圏</td></tr>
+        <tr><th>営業日</th><td>不定期営業<br>※営業日・お菓子のラインナップはInstagramでお知らせしています</td></tr>
+        <tr><th>電話</th><td><a href="tel:0492987665">049-298-7665</a></td></tr>
+      </table>
+      <p class="map-link"><a href="https://www.google.com/maps/search/?api=1&amp;query=annon%20%E5%B7%9D%E8%B6%8A%E5%B8%82%E5%8D%97%E9%80%9A%E7%94%BA16-22" target="_blank" rel="noopener">Google Mapsで見る</a></p>
+    </div>
+    <div class="reveal">
+      <p class="sec-label">Contact</p>
+      <h2>ご連絡</h2>
+      <p>営業日・焼き上がり・お菓子のラインナップは、Instagramでお知らせしています。</p>
+      <ul class="contact-list">
+        <li><span class="k en">INSTAGRAM</span><a href="https://www.instagram.com/annon_yakigashi/" target="_blank" rel="noopener">@annon_yakigashi</a></li>
+        <li><span class="k en">TEL</span><a href="tel:0492987665">049-298-7665</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <section class="band band2 reveal" id="note">
-    <p class="band-quote">焼き上がり・営業日は、<br>Instagramでお知らせしています。</p>
-    <p class="tel-big"><a href="https://www.instagram.com/annon_yakigashi/" target="_blank" rel="noopener">@annon_yakigashi</a></p>
-  </section>
-</main>
-
-<footer class="foot">
-  <p class="foot-logo">annon</p>
-  <p class="foot-sub">YAKIGASHI — MINAMIDORI, KAWAGOE</p>
-  <p class="demo-note">このサイトはWebサイト制作のご提案用デモです。店舗公式サイトではありません。<br>掲載内容は地域メディア等の公開情報をもとにした仮のものです。お写真をご提供・撮影させていただければ、そのまま組み込んでお渡しします。</p>
+<footer>
+  <p class="foot-logo en">annon</p>
+  <p>埼玉県川越市南通町16-22 spaceK B01｜焼き菓子</p>
+  <p class="credit">写真：お店のInstagram <a href="https://www.instagram.com/annon_yakigashi/" target="_blank" rel="noopener">@annon_yakigashi</a> より</p>
+  <p class="demo-note">このサイトはWebサイト制作のご提案用デモです。店舗公式サイトではありません。掲載内容は地域メディア等の公開情報とお店のInstagramをもとにした仮のものです。</p>
 </footer>
 
-<script src="script.js?v=1"></script>
 </body>
 </html>
