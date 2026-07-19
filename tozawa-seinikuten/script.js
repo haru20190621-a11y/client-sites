@@ -15,3 +15,16 @@
   check();
   var guard = setInterval(function () { check(); if (targets.length === 0) clearInterval(guard); }, 700);
 })();
+
+/* ヒーロー写真のクロスフェード（5秒ごと・reduced-motion時は先頭写真で固定） */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var phs = document.querySelectorAll('.hero-ph');
+  if (phs.length < 2) return;
+  var i = 0;
+  setInterval(function () {
+    phs[i].classList.remove('on');
+    i = (i + 1) % phs.length;
+    phs[i].classList.add('on');
+  }, 5000);
+})();
