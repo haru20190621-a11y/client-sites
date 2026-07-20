@@ -28,7 +28,7 @@ a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .offer-banner{background:var(--accent);color:#fdfcf8;text-align:center;
   padding:18px 20px;font-size:.9rem;line-height:1.8}
 .offer-banner p{max-width:720px;margin:0 auto 10px;font-family:var(--serif);letter-spacing:.08em}
-.offer-btn{display:inline-block;color:#fdfcf8;font-family:var(--serif);
+.offer-btn{display:inline-block;margin:0 6px 6px;color:#fdfcf8;font-family:var(--serif);
   letter-spacing:.18em;text-decoration:none;border:1px solid rgba(253,252,248,.85);
   padding:9px 30px;transition:background .3s,color .3s}
 .offer-btn:hover{background:#fdfcf8;color:var(--accent)}
