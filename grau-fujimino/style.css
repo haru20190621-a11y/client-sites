@@ -2,8 +2,8 @@
    変えてよいのは :root の --bg/--ink/--accent（§1業種表から）と .band の background-image だけ。
    それ以外のレイアウト・アニメーション値は変更しない。 */
 :root{
-  --bg:#f7f2ea; --ink:#241a12; --accent:#b5622e;
-  --line:rgba(36,26,18,.16);
+  --bg:#f7f4ee; --ink:#33302b; --accent:#4c5b48;
+  --line:rgba(51,48,43,.16);
   --serif:"Shippori Mincho",serif;
   --sans:"Zen Kaku Gothic New",sans-serif;
 }
@@ -94,7 +94,7 @@ a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 @media (min-width:700px){.items{grid-template-columns:repeat(2,1fr);gap:48px 40px}}
 
 /* --- band --- */
-.band{min-height:340px;background-image:url(img/band.jpg);background-size:cover;
+.band{min-height:340px;background-image:url(img/ph-street.jpg);background-size:cover;
   background-position:center 65%;background-attachment:fixed;position:relative;
   display:flex;align-items:center;justify-content:center}
 .band::before{content:"";position:absolute;inset:0;background:rgba(20,16,12,.32)}
@@ -123,23 +123,6 @@ footer{border-top:1px solid var(--line);padding:56px 24px 40px;text-align:center
 .foot-logo{font-size:1.4rem;letter-spacing:.16em;margin-bottom:10px}
 footer .credit{margin-top:18px;color:rgba(51,48,43,.7)}
 footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
-
-/* --- モバイル1画面目に店名・営業時間を入れる（2026-07-21批評指摘） --- */
-@media (max-width:560px){
-  .offer-banner{padding:12px 14px;font-size:.78rem;line-height:1.65}
-  .offer-banner p{margin-bottom:8px}
-  .offer-btn{padding:7px 18px;margin:0 4px 4px;font-size:.8rem}
-  .hero{height:min(100svh,560px)}
-}
-
-/* --- AIイメージ注記（2026-07-21ルール・全AI画像に必須） --- */
-.ph-note{position:relative}
-.ph-note::after{content:"※画像はイメージです";position:absolute;right:8px;bottom:6px;
-  color:rgba(255,255,255,.85);font-size:.68rem;letter-spacing:.1em;
-  text-shadow:0 1px 4px rgba(0,0,0,.65);pointer-events:none}
-.hero-ai-note,.band-ai-note{position:absolute;right:14px;bottom:10px;z-index:3;
-  color:rgba(255,255,255,.75);font-size:.7rem;letter-spacing:.1em;
-  text-shadow:0 1px 4px rgba(0,0,0,.65);margin:0}
 
 /* --- scroll reveal --- */
 .js .reveal{opacity:0;transform:translateY(24px);
