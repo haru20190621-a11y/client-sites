@@ -124,7 +124,8 @@ footer{border-top:1px solid var(--line);padding:56px 24px 40px;text-align:center
 footer .credit{margin-top:18px;color:rgba(51,48,43,.7)}
 footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
 
-#contact{scroll-margin-top:110px} /* ナビ4個目「ご連絡」用（2026-07-21批評指摘。CONTACT列に id="contact" を振る） */
+#contact{scroll-margin-top:110px}
+.nw{white-space:nowrap} /* ナビ4個目「ご連絡」用（2026-07-21批評指摘。CONTACT列に id="contact" を振る） */
 
 /* --- モバイル1画面目に店名・営業時間を入れる（2026-07-21批評指摘で確立。バナー圧縮＋ヒーロー上限） --- */
 @media (max-width:560px){
