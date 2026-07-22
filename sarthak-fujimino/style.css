@@ -1,5 +1,5 @@
 /* 写真主役型テンプレートCSS（ChieCoffee批評合格版・kamuro流用）。
-   変えたのは :root の --bg/--ink/--accent（家庭料理居酒屋・和モダン）と .band の位置のみ。 */
+   サルタク＝インド料理・スパイスのテラコッタ配色。変えたのは :root の色と .band 位置のみ。 */
 :root{
   --bg:#f8f2e6; --ink:#281d13; --accent:#c25a2b;
   --line:rgba(40,29,19,.16);
