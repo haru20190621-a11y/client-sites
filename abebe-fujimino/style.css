@@ -206,3 +206,9 @@ footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
   .hero-btn{padding:13px 30px;font-size:.9rem}
   .cta-btn{display:block;max-width:340px;margin:0 auto;padding:15px 20px;text-align:center}
 }
+
+/* --- hero ambient video --- */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero.video-on .hero-video{opacity:1}
+.hero.video-on .slide{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}

@@ -144,3 +144,9 @@ footer .demo-note{margin-top:6px;color:rgba(42,37,32,.55);font-size:.74rem}
 .about-text h2{word-break:keep-all}
 .shop .note{display:block;font-size:.84rem;line-height:1.8;color:rgba(42,37,32,.78);margin-top:6px}
 .menu-note{line-height:2}
+
+/* --- hero ambient video --- */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero.video-on .hero-video{opacity:1}
+.hero.video-on .slide{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
