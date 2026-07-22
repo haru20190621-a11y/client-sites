@@ -1,11 +1,34 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ヒーロー写真のクロスフェード切り替え
+  // ヒーロー背景の動画（再生できたらフェードイン、失敗したら写真クロスフェードのまま）
+  var hero = document.querySelector('.hero');
+  var heroVideo = document.querySelector('.hero-video');
+  var bandVideo = document.querySelector('.band-video');
+  if (reduceMotion) {
+    if (heroVideo) heroVideo.remove();
+    if (bandVideo) bandVideo.remove();
+    heroVideo = null;
+    bandVideo = null;
+  }
+  if (heroVideo) {
+    heroVideo.addEventListener('playing', function () { hero.classList.add('video-on'); });
+    heroVideo.addEventListener('error', function () { heroVideo.remove(); }, true);
+    var hp = heroVideo.play();
+    if (hp && hp.catch) hp.catch(function () {});
+  }
+  if (bandVideo) {
+    bandVideo.addEventListener('error', function () { bandVideo.remove(); }, true);
+    var bp = bandVideo.play();
+    if (bp && bp.catch) bp.catch(function () {});
+  }
+
+  // ヒーロー写真のクロスフェード切り替え（動画が再生中の間は切り替えを止める）
   var slides = document.querySelectorAll('.hero-img');
   if (slides.length > 1 && !reduceMotion) {
     var idx = 0;
     setInterval(function () {
+      if (hero && hero.classList.contains('video-on')) return;
       slides[idx].classList.remove('active');
       idx = (idx + 1) % slides.length;
       slides[idx].classList.add('active');
