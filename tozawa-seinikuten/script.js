@@ -28,3 +28,13 @@
     phs[i].classList.add('on');
   }, 5000);
 })();
+
+// ヒーロー背景の動画（再生できたらフェードイン、失敗したら写真クロスフェードのまま）
+(function(){
+  var hero=document.querySelector('.hero'),v=document.querySelector('.hero-video');
+  if(!v)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.remove();return;}
+  v.addEventListener('playing',function(){hero.classList.add('video-on');});
+  v.addEventListener('error',function(){hero.classList.remove('video-on');v.remove();},true);
+  var p=v.play();if(p&&p.catch)p.catch(function(){});
+})();

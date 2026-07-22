@@ -373,3 +373,9 @@ a { color: var(--ink); }
   .shop th { width: 120px; padding-left: 40px; }
   .band-quote { font-size: 1.7rem; }
 }
+
+/* --- hero ambient video --- */
+.hero .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;z-index:1}
+.hero.video-on .hero-video{opacity:1}
+.hero.video-on .hero-ph{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.hero .hero-video{display:none}}
