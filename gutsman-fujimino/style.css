@@ -1,0 +1,213 @@
+/* 写真主役型テンプレートCSS（ChieCoffee批評合格版）。
+   変えてよいのは :root の --bg/--ink/--accent（§1業種表から）と .band の background-image だけ。
+   それ以外のレイアウト・アニメーション値は変更しない。 */
+:root{
+  --bg:#f6f2ea; --ink:#241c17; --accent:#a4442a;
+  --line:rgba(36,28,23,.16);
+  --serif:"Shippori Mincho",serif;
+  --sans:"Zen Kaku Gothic New",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);
+  background:var(--bg);line-height:1.9;letter-spacing:.04em;font-size:16px}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.14em;line-height:1.5}
+h1{font-size:clamp(2rem,6vw,3.4rem)}
+h2{font-size:clamp(1.4rem,3.5vw,2rem);margin-bottom:.9em}
+h3{font-size:1.05rem;margin:.9em 0 .3em}
+a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.en{font-family:"Cormorant Garamond",serif}
+.sec-label{font-family:"Cormorant Garamond",serif;font-size:.78rem;
+  letter-spacing:.35em;color:var(--accent);text-transform:uppercase;margin:0 0 .4em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.sec{padding:88px 0}
+.sec-alt{background:#efeade}
+
+/* --- offer banner --- */
+.offer-banner{background:var(--accent);color:#fdfcf8;text-align:center;
+  padding:18px 20px;font-size:.9rem;line-height:1.8}
+.offer-banner p{max-width:720px;margin:0 auto 10px;font-family:var(--serif);letter-spacing:.08em}
+.offer-btn{display:inline-block;margin:0 6px 6px;color:#fdfcf8;font-family:var(--serif);
+  letter-spacing:.18em;text-decoration:none;border:1px solid rgba(253,252,248,.85);
+  padding:9px 30px;transition:background .3s,color .3s}
+.offer-btn:hover{background:#fdfcf8;color:var(--accent)}
+
+/* --- nav --- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(246,242,234,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(0,0,0,.08)}
+.nav-in{max-width:1080px;margin:0 auto;padding:14px 24px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.nav-logo{font-size:1.25rem;letter-spacing:.12em;text-decoration:none}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:2px}
+.nav-links a:hover{border-bottom-color:var(--ink)}
+@media (max-width:560px){
+  .nav-in{flex-direction:column;align-items:center;gap:6px;padding:12px 16px}
+  .nav-links{justify-content:center;gap:18px}
+}
+
+/* --- hero --- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;animation:heroFade 15s infinite,kenburns 15s ease-in-out infinite}
+.slide:nth-child(2){animation-delay:5s,5s}
+.slide:nth-child(3){animation-delay:10s,10s}
+@keyframes heroFade{0%{opacity:0}7%{opacity:1}33%{opacity:1}40%{opacity:0}100%{opacity:0}}
+@keyframes kenburns{0%{transform:scale(1)}100%{transform:scale(1.1)}}
+.hero-overlay{position:absolute;inset:0;background:rgba(20,16,12,.38)}
+.hero-content{position:relative;z-index:2;color:#fff;height:100%;padding:0 20px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero-label{font-size:.8rem;letter-spacing:.35em;margin-bottom:18px;opacity:.92}
+.hero-copy{font-family:var(--serif);font-size:1.02rem;letter-spacing:.12em;
+  line-height:2.2;margin-top:22px;word-break:keep-all}
+.hero-hours{font-size:.82rem;letter-spacing:.14em;margin-top:26px;opacity:.9}
+
+/* --- strip --- */
+.strip{border-bottom:1px solid var(--line);background:var(--bg)}
+.strip-in{max-width:1080px;margin:0 auto;padding:18px 24px;
+  display:flex;justify-content:center;gap:34px;flex-wrap:wrap}
+.strip-in div{font-size:.9rem;letter-spacing:.08em}
+.strip-in .k{font-family:"Cormorant Garamond",serif;font-size:.72rem;
+  letter-spacing:.22em;color:var(--accent);display:block;line-height:1.4}
+@media (max-width:560px){
+  .strip-in{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;justify-content:start;text-align:left}
+  .strip-in div{min-width:0}
+}
+
+/* --- about --- */
+.about-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+.about-text p{margin-bottom:1.2em;max-width:34em}
+.about-photo img{width:100%;height:auto}
+.about-photo figcaption{font-size:.8rem;letter-spacing:.14em;color:var(--accent);
+  margin-top:12px;font-family:var(--serif)}
+@media (min-width:800px){.about-grid{grid-template-columns:1.1fr .9fr}}
+
+/* --- menu --- */
+.items{display:grid;grid-template-columns:1fr;gap:40px;margin-top:14px}
+.item-ph{overflow:hidden;aspect-ratio:4/3}
+.item-ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.item:hover .item-ph img{transform:scale(1.04)}
+.item p{font-size:.92rem;max-width:30em}
+.menu-note{font-size:.8rem;letter-spacing:.08em;margin-top:36px;color:rgba(36,28,23,.7)}
+@media (min-width:700px){.items{grid-template-columns:repeat(2,1fr);gap:48px 40px}}
+
+/* --- band --- */
+.band{min-height:340px;background-image:url(img/band.jpg);background-size:cover;
+  background-position:center 65%;background-attachment:fixed;position:relative;
+  display:flex;align-items:center;justify-content:center}
+.band::before{content:"";position:absolute;inset:0;background:rgba(20,16,12,.46)}
+.band-quote{position:relative;color:#fff;font-family:var(--serif);
+  font-size:clamp(1.1rem,3vw,1.5rem);letter-spacing:.22em;padding:0 20px;text-align:center}
+@media (max-width:900px),(hover:none){.band{background-attachment:scroll}}
+
+/* --- info --- */
+.info-grid{display:grid;grid-template-columns:1fr;gap:56px}
+.shop{width:100%;border-collapse:collapse;text-align:left;font-size:.92rem}
+.shop th{font-weight:500;color:var(--accent);width:6.5em;vertical-align:top;
+  padding:10px 8px 10px 0;border-bottom:1px solid var(--line);letter-spacing:.1em}
+.shop td{padding:10px 0;border-bottom:1px solid var(--line)}
+.map-link{margin-top:20px;font-size:.9rem}
+.contact-list{list-style:none;margin-top:20px}
+.contact-list li{display:flex;align-items:baseline;gap:14px;padding:10px 0;
+  border-bottom:1px solid var(--line);font-size:.92rem}
+.contact-list .k{font-size:.72rem;letter-spacing:.22em;color:var(--accent);
+  width:7.5em;flex:none}
+#info > .wrap > div > p{max-width:32em}
+@media (min-width:800px){.info-grid{grid-template-columns:1fr 1fr}}
+
+/* --- footer --- */
+footer{border-top:1px solid var(--line);padding:56px 24px 40px;text-align:center;
+  font-size:.82rem;letter-spacing:.08em}
+.foot-logo{font-size:1.4rem;letter-spacing:.16em;margin-bottom:10px}
+footer .credit{margin-top:18px;color:rgba(36,28,23,.7)}
+footer .demo-note{margin-top:6px;color:rgba(36,28,23,.55);font-size:.74rem}
+
+#contact{scroll-margin-top:110px} /* ナビ4個目「ご連絡」用（2026-07-21批評指摘。CONTACT列に id="contact" を振る） */
+
+/* --- モバイル1画面目に店名・営業時間を入れる（2026-07-21批評指摘で確立。バナー圧縮＋ヒーロー上限） --- */
+@media (max-width:560px){
+  .offer-banner{padding:12px 14px;font-size:.78rem;line-height:1.65}
+  .offer-banner p{margin-bottom:8px}
+  .offer-btn{padding:7px 18px;margin:0 4px 4px;font-size:.8rem}
+  .hero{height:min(100svh,470px);min-height:0}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:.78rem;letter-spacing:.08em}
+}
+#kushi{scroll-margin-top:110px}
+
+/* --- AIイメージ注記（2026-07-21ルール。AIイメージ型のとき全AI画像に付ける。実写サイトでは未使用のまま置いてよい） --- */
+.ph-note{position:relative}
+.ph-note::after{content:"※画像はイメージです";position:absolute;right:8px;bottom:6px;
+  color:rgba(255,255,255,.85);font-size:.68rem;letter-spacing:.1em;
+  text-shadow:0 1px 4px rgba(0,0,0,.65);pointer-events:none}
+.hero-ai-note,.band-ai-note{position:absolute;right:14px;bottom:10px;z-index:3;
+  color:rgba(255,255,255,.75);font-size:.7rem;letter-spacing:.1em;
+  text-shadow:0 1px 4px rgba(0,0,0,.65);margin:0}
+
+/* --- マーキー帯（トラックに写真2セット→translateX(-50%)ループ） --- */
+.marquee{overflow:hidden;background:var(--ink)}
+.mq-track{display:flex;width:max-content;animation:mqScroll 46s linear infinite}
+.mq-set{display:flex}
+.mq-set img{width:220px;height:165px;object-fit:cover;flex:none;
+  border-right:1px solid rgba(246,242,234,.14)}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:560px){.mq-set img{width:150px;height:114px}}
+
+/* --- band 出典 --- */
+.band-src{position:relative;color:rgba(255,255,255,.8);font-size:.74rem;
+  letter-spacing:.18em;margin-top:12px;text-align:center;width:100%}
+.band{flex-direction:column}
+
+/* --- 語中改行の禁止（375px対策・12字以内で使う） --- */
+.nb{white-space:nowrap}
+
+/* --- About写真のオフセット枠（figcaptionを横切らないようimgだけを包む） --- */
+.about-photo .ph{position:relative;display:block}
+.about-photo .ph::before{content:"";position:absolute;inset:-14px 14px 14px -14px;
+  border:1px solid var(--accent);opacity:.5;pointer-events:none}
+@media (max-width:560px){.about-photo .ph::before{inset:-8px 8px 8px -8px}}
+
+/* --- リード文 --- */
+.lead{max-width:34em;margin:0 0 34px;font-size:.95rem}
+
+/* --- 串のお品書き（写真のない品目をテキストで見せる） --- */
+.kushi{margin-top:64px;border-top:1px solid var(--line);padding-top:44px}
+.kushi-h{font-size:1.05rem;letter-spacing:.16em;margin:0 0 26px}
+.kushi-cols{display:grid;grid-template-columns:1fr;gap:30px 44px}
+.kushi-cat{font-family:var(--serif);font-size:.86rem;letter-spacing:.2em;
+  color:var(--accent);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.kushi ul{list-style:none}
+.kushi li{display:flex;justify-content:space-between;gap:14px;
+  font-size:.9rem;padding:5px 0}
+.kushi li span:first-child{white-space:nowrap}
+.kushi li .p{flex:none;letter-spacing:.06em}
+.kushi-note{font-size:.82rem;margin-top:10px;color:rgba(36,28,23,.7)}
+.kushi-foot{font-size:.82rem;letter-spacing:.06em;margin-top:30px;
+  line-height:1.9;color:rgba(36,28,23,.72)}
+@media (min-width:700px){.kushi-cols{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.kushi-cols{grid-template-columns:repeat(4,1fr)}}
+
+/* --- ギャラリー --- */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+.gal figure{margin:0}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.gal figcaption{font-size:.78rem;letter-spacing:.06em;margin-top:8px;
+  color:rgba(36,28,23,.72);line-height:1.7}
+@media (min-width:760px){.gal{grid-template-columns:repeat(3,1fr);gap:26px}}
+
+/* --- scroll reveal --- */
+.js .reveal{opacity:0;transform:translateY(24px);
+  transition:opacity .8s ease,transform .8s ease}
+.js .reveal.on{opacity:1;transform:none}
+
+/* --- reduced motion --- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .band{background-attachment:scroll}
+  .slide{opacity:0}
+  .slide:first-child{opacity:1}
+}
