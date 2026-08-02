@@ -248,3 +248,51 @@ footer a{color:#fff}
   .hero-ph .slide{opacity:0}
   .hero-ph .slide:first-child{opacity:1}
 }
+
+/* ============ ハル指摘・第2ラウンド（2026-08-02・85点）============
+   ①「ある日のこと」の枠が何のためか分からない → 廃止し、理念の中に実例として統合
+   ② 理念の文章が論文みたい → 引用を1文ずつ切り、大きさで階層をつける
+   ③ 受け入れ条件が上から目線 → 見出しと動詞を「お受けする側」の言葉に
+   ④ 重要な情報とそうでない情報のメリハリがない → 主役カード・数値の拡大・見出し階層
+   ================================================================ */
+
+/* ② 理念は「大きい1文＋小さい1文」。段落を積まない */
+.creed-lead{font-size:clamp(1.32rem,3.1vw,2rem);line-height:1.85;font-weight:700;
+  max-width:24em;margin-top:26px;padding-left:20px;border-left:4px solid var(--c-job)}
+.creed-sub{font-size:1.02rem;line-height:2;color:rgba(255,255,255,.86);
+  max-width:32em;margin-top:18px;padding-left:24px}
+
+/* ① 実例（旧・ある日のこと）を理念の中へ */
+.episode{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;
+  background:rgba(255,255,255,.07);border-radius:14px;padding:20px;margin-top:34px}
+.episode img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.episode .ep-h{font-weight:700;color:var(--c-job);margin-bottom:6px}
+.episode p{font-size:1rem;line-height:1.95}
+@media (min-width:760px){
+  .episode{grid-template-columns:300px 1fr;gap:26px;padding:22px}
+}
+
+/* ④ 主役カード（この事業所の本体サービス）を大きく見せる */
+.card.feature{border-top:4px solid var(--accent);background:var(--tint)}
+.card.feature h3{font-size:1.32rem;margin-top:2px}
+.card.feature p{font-size:1rem;color:var(--ink)}
+.card.feature .ic{width:48px;height:48px;background:#fff}
+.card.feature .ic svg{width:25px;height:25px}
+@media (min-width:1000px){.card.feature{grid-column:span 2}}
+@media (min-width:700px) and (max-width:999px){.card.feature{grid-column:span 2}}
+
+/* ④ 体制の数値をきちんと見せる */
+.fig{padding:18px 20px}
+.fig b{font-size:1.5rem}
+.fig span{margin-top:2px}
+
+/* ④ セクション見出しの階層をはっきりさせる */
+h2{letter-spacing:.02em}
+.sec-head{margin-bottom:8px}
+.lead{margin-top:.6em}
+
+/* 主役カードは横幅を広げず（6枚の3列グリッドが1枚余るため）、色と文字で重みを付ける */
+@media (min-width:700px){.card.feature{grid-column:auto}}
+@media (min-width:1000px){.card.feature{grid-column:auto}}
+.card.feature{box-shadow:0 4px 18px rgba(38,96,76,.08)}
+.card.feature h3{font-size:1.24rem}
