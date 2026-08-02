@@ -298,3 +298,39 @@ footer a{color:#fff}
 /* ブロブがセクション外へはみ出して横スクロールを起こすのを防ぐ */
 .sec{overflow:hidden}
 .hero{overflow:hidden}
+
+/* キャッチは3行のずらし（rirus型）。2行だとモバイルで帯の中で折り返す */
+.hero-body h1 .l2{margin-left:1.2em}
+.hero-body h1 .l3{margin-left:2.4em;margin-top:6px}
+@media (max-width:560px){
+  .hero-body h1 .l{font-size:1.45rem}
+  .hero-body h1 .l2{margin-left:.7em}
+  .hero-body h1 .l3{margin-left:1.4em}
+  /* ヘッダーの事業所名を1行に収める（3行に折れていた） */
+  .hdr-logo small{display:none}
+  .hdr-logo{font-size:.92rem;line-height:1.2}
+  .hdr-mark{width:32px;height:32px}
+}
+
+/* ============ 批評（第3世代・1周目）の修正 2026-08-02 ============ */
+/* 7: ヘッダーのマークを単色SVGに */
+.hdr-mark{width:38px;height:38px;border-radius:0;box-shadow:none;color:var(--accent);flex:none}
+@media (max-width:560px){.hdr-mark{width:32px;height:32px}}
+/* 8: ヒーローは明るい1枚に固定。写真は「地の質感」に落としてコピーを立てる */
+.hero-ph .slide{animation:none;opacity:1}
+.hero-ph::after{background:linear-gradient(100deg,rgba(16,38,28,.72) 0%,rgba(16,38,28,.5) 54%,rgba(16,38,28,.26) 100%)}
+/* 6: 色に役割外の仕事をさせない。橙は求職者導線だけに残す */
+.sec-head .bar{background:var(--accent);opacity:.85}
+.hdr-nav a i{color:var(--accent);opacity:.75}
+#team .sec-head .bar{background:var(--c-job);opacity:.9}
+/* 3/4: 375pxの語中改行と禁則（長音符・閉じ括弧の行頭） */
+.hdr-logo,.hdr-logo span,.door .d,.voice p,.card p,.hero-body h1 small,
+.fig span,.shots figcaption,.episode p{word-break:auto-phrase;line-break:strict}
+@media (max-width:560px){.hdr-logo{font-size:.86rem}}
+/* 5: カードの高さを内容に合わせる（下半分が空白のカードができていた） */
+.cards,.doors,.figs{align-items:start}
+/* 9: ブロブを大きくして輪郭を消す（小さい単色楕円は逆に安っぽい） */
+.blob{filter:blur(30px)}
+.blob-a{width:620px;height:540px;opacity:.42}
+.blob-b{width:520px;height:470px;opacity:.45}
+.blob-c{width:460px;height:420px;opacity:.45}
