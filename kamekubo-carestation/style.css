@@ -318,3 +318,50 @@ h1,h2,h3{font-family:var(--maru);font-weight:700;line-height:1.6;letter-spacing:
   .band-ph img{aspect-ratio:16/8}
   .band-cap{bottom:14px;font-size:.84rem}
 }
+
+/* ============ 批評（第5世代・1周目）の修正 2026-08-02 ============ */
+/* 3/4/6: 白文字や本文にパステルをそのまま使っていてコントラストがAA未達だった。
+   「色ベタ・アイコン・線」用のパステルと、「文字」用の暗い変種を分ける */
+:root{
+  --pink-t:#b8555f;
+  --blue-t:#3f7f99;
+  --yellow-t:#8a6118;
+  --sub:#6d6a62;
+}
+.door.u{--c:#3d8a5f} .door.m{--c:#3f7f99} .door.j{--c:#a9701c}
+.sec-title .en{color:var(--green-d)}
+#spec .sec-title .en{color:var(--blue-t)}
+#creed .sec-title .en{color:var(--pink-t)}
+#team .sec-title .en{color:var(--yellow-t)}
+.creed-lead{color:var(--pink-t)}
+.voice-h,.episode .ep-h{color:var(--pink-t)}
+.fig b{color:var(--yellow-t)}
+.hero-en{color:var(--yellow-t)}
+.cond{color:#8a6118}
+.side-nav a .en2{opacity:1}
+.side-nav a:nth-child(2) .en2{color:var(--blue-t)}
+.side-nav a:nth-child(3) .en2{color:var(--pink-t)}
+.side-nav a:nth-child(4) .en2{color:var(--yellow-t)}
+.side-nav a:nth-child(1) .en2,.side-nav a:nth-child(5) .en2{color:var(--green-d)}
+.en2{display:block;font-style:normal;font-size:.66rem;letter-spacing:.16em;margin-top:2px}
+/* 5: .ja を h2 にしたので見た目を維持する */
+.sec-title h2.ja{font-size:1.06rem;font-weight:700;color:var(--ink-d);letter-spacing:.1em;margin-top:4px}
+/* 8: モバイル用のアンカーチップ（900px以下でナビが消えるため） */
+.chips{display:none}
+@media (max-width:900px){
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;background:#f2f8f4;color:var(--green-d);border-radius:20px;
+    padding:7px 15px;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap}
+}
+/* 9: 縦の短いノートPCでサイドバー下部の住所・電話が隠れる */
+@media (max-height:780px) and (min-width:901px){.side-vtxt{display:none}.side-mark{width:88px;height:88px}}
+/* 7: 380px以下の指定が後段の900px指定に上書きされて死んでいた（順序を最後尾へ） */
+@media (max-width:380px){
+  .side-name{font-size:.88rem;white-space:normal;line-height:1.35}
+  .side-name small{display:none}
+}
+
+/* 入口カードの白文字がまだ4.5:1に届いていなかった（4.18〜4.46）ので一段暗くする */
+.door.u{--c:#33795a} .door.m{--c:#37718c} .door.j{--c:#96631a}
