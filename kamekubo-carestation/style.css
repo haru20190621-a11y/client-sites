@@ -304,3 +304,17 @@ h1,h2,h3{font-family:var(--maru);font-weight:700;line-height:1.6;letter-spacing:
    01/02/03 の前に✕が出ていた。番号は .num に改名する */
 .door .num{font-size:.86rem;letter-spacing:.2em;opacity:.92;margin-bottom:4px;display:block}
 .door .num::before{content:none}
+
+/* ---------- 写真を大きく使う（実写が6枚しかないので枚数でなく面積で見せる） ---------- */
+.hero-ph{margin:36px 0 0;border-radius:0;overflow:hidden}
+.hero-ph img{width:100%;aspect-ratio:20/7;object-fit:cover}
+.band-ph{position:relative;margin:0;overflow:hidden}
+.band-ph img{width:100%;aspect-ratio:20/6;object-fit:cover}
+.band-ph::after{content:"";position:absolute;inset:0;background:rgba(20,32,24,.28)}
+.band-cap{position:absolute;left:0;right:0;bottom:22px;z-index:2;text-align:center;color:#fff;
+  font-size:.92rem;letter-spacing:.16em;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+@media (max-width:700px){
+  .hero-ph img{aspect-ratio:16/9}
+  .band-ph img{aspect-ratio:16/8}
+  .band-cap{bottom:14px;font-size:.84rem}
+}
