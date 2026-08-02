@@ -414,3 +414,22 @@ footer a{color:#fff}
 #creed .sec-head .bar{background:var(--c-sun)}
 .shots img{border-radius:44% 56% 52% 48%/48% 46% 54% 52%}
 .episode img{border-radius:54% 46% 50% 50%/48% 54% 46% 52%}
+
+/* ヒーローの装飾がはみ出して横スクロールが出る（.hero を overflow:visible にしたため）。
+   overflow:clip なら position:sticky を壊さずに切れる */
+html,body{overflow-x:clip}
+@media (max-width:899px){
+  .hero .blob{display:none}
+  .hero-art{overflow:visible}
+  .hero-ph2{right:4px}
+  .dots{left:0}
+}
+
+/* モバイルは電話ボタンをアイコンのみにして、事業所名の1行ぶんの幅を確保する
+   （固定バーに番号が常時出ているので、ヘッダーは発信できれば足りる） */
+@media (max-width:560px){
+  .hdr-tel{padding:10px;border-radius:50%;font-size:0;gap:0}
+  .hdr-tel svg{width:19px;height:19px}
+  .hdr-logo{font-size:.95rem;white-space:nowrap;word-break:normal}
+}
+@media (max-width:360px){.hdr-logo{font-size:.86rem}}
