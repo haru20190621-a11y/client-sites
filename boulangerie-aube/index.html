@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ブーランジェリー オーブ｜朝5時から焼く、国産小麦のハード系パン</title>
+<meta name="description" content="埼玉県◯◯市のパン屋。石窯と自家製酵母で、北海道産小麦のハード系パンを毎朝5時から焼いています。">
+
+<style>
+/* ---------- 基本設計 ----------
+   色：地＝#F5F1E9（小麦）／文字＝#2A2320（焼き色の濃い方）／アクセント＝#A9553A（クラストの赤茶）
+   見出し＝明朝、本文＝ゴシック
+   モバイル 375px を基準に組み、768px で二段組みへ
+------------------------------- */
+
+:root{
+  --paper:#F5F1E9;
+  --ink:#2A2320;
+  --ink-60:rgba(42,35,32,.62);
+  --ink-25:rgba(42,35,32,.25);
+  --ink-12:rgba(42,35,32,.12);
+  --accent:#A9553A;
+
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+
+  --pad:22px;          /* 画面左右の余白（モバイル） */
+  --gap:clamp(68px,12vw,124px); /* セクション間 */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:2;
+  letter-spacing:.04em;
+  font-feature-settings:"palt" 1;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;letter-spacing:.08em;line-height:1.7}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1180px;margin-inline:auto}
+
+/* セクション見出し（番号＋和文＋欧文の三点） */
+.sec-head{margin:0 0 clamp(28px,6vw,44px)}
+.sec-num{
+  display:block;font-family:var(--serif);font-size:12px;letter-spacing:.22em;
+  color:var(--accent);margin-bottom:14px;
+}
+.sec-title{margin:0;font-size:clamp(21px,5.4vw,30px)}
+.sec-en{
+  display:block;margin-top:10px;font-size:10px;letter-spacing:.28em;
+  color:var(--ink-60);text-transform:uppercase;font-family:var(--sans);
+}
+
+/* 画像プレースホルダ：差し替え時は src を実画像に変えるだけ */
+.ph{width:100%;background:#E8DFD2;object-fit:cover}
+
+/* ============ 1. ファーストビュー ============ */
+.hero{position:relative;min-height:100svh;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media video{width:100%;height:100%;object-fit:cover;background:#3A2C22}
+.hero__media::after{
+  content:"";position:absolute;inset:0;
+  background:rgba(30,22,17,.42);
+}
+.hero__inner{
+  position:relative;z-index:1;flex:1;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 var(--pad) clamp(44px,11vh,88px);
+  color:#F5F1E9;max-width:1180px;margin-inline:auto;width:100%;
+}
+.hero__mark{
+  position:absolute;top:clamp(26px,7vh,44px);left:var(--pad);
+  font-family:var(--serif);font-size:12px;letter-spacing:.3em;
+}
+.hero__copy{
+  margin:0 0 22px;font-family:var(--serif);
+  font-size:clamp(26px,7.6vw,50px);line-height:1.85;letter-spacing:.1em;
+}
+.hero__copy span{display:block}
+.hero__name{
+  margin:0 0 6px;font-family:var(--serif);
+  font-size:clamp(15px,4vw,19px);letter-spacing:.14em;
+}
+.hero__sub{
+  margin:0 0 34px;font-size:12px;letter-spacing:.14em;color:rgba(245,241,233,.78);
+  line-height:1.9;
+}
+.hero__cta{
+  display:inline-block;align-self:flex-start;
+  padding:15px 34px;border:1px solid rgba(245,241,233,.55);
+  font-size:12px;letter-spacing:.2em;text-decoration:none;
+  transition:background-color .35s,color .35s,border-color .35s;
+}
+.hero__cta:hover{background:#F5F1E9;color:var(--ink);border-color:#F5F1E9}
+
+/* ============ 2. コンセプト ============ */
+.concept{padding-top:var(--gap)}
+.concept__lead{
+  font-family:var(--serif);font-size:clamp(18px,4.8vw,25px);
+  line-height:2.15;margin:0 0 30px;
+}
+.concept__text p{margin:0 0 1.6em;color:var(--ink-60);font-size:14px}
+.concept__text p:last-child{margin-bottom:0}
+.concept__fig{margin:38px 0 0}
+.concept__fig .ph{aspect-ratio:4/5}
+.concept__cap{
+  margin-top:12px;font-size:11px;letter-spacing:.1em;color:var(--ink-60);line-height:1.9;
+}
+
+/* ============ 3. 人気のパン ============ */
+.breads{padding-top:var(--gap)}
+.bread{border-top:1px solid var(--ink-12);padding:30px 0}
+.bread:last-child{border-bottom:1px solid var(--ink-12)}
+.bread__ph{aspect-ratio:3/2;margin-bottom:20px}
+.bread__name{margin:0 0 4px;font-size:clamp(17px,4.6vw,21px)}
+.bread__kana{
+  display:block;font-family:var(--sans);font-size:10px;
+  letter-spacing:.22em;color:var(--ink-60);margin-bottom:16px;
+}
+.bread__desc{margin:0 0 20px;font-size:13.5px;color:var(--ink-60)}
+.spec{margin:0;font-size:12px;letter-spacing:.06em}
+.spec div{display:flex;gap:14px;padding:5px 0;border-bottom:1px dotted var(--ink-12)}
+.spec div:last-child{border-bottom:0}
+.spec dt{flex:0 0 5.2em;color:var(--ink-60);margin:0}
+.spec dd{margin:0}
+.spec .price{font-family:var(--serif);font-size:14px}
+
+/* ============ 4. こだわり ============ */
+.craft{padding-top:var(--gap)}
+.craft__item{padding:30px 0;border-top:1px solid var(--ink-12)}
+.craft__item:last-child{border-bottom:1px solid var(--ink-12)}
+.craft__no{
+  font-family:var(--serif);font-size:11px;letter-spacing:.2em;color:var(--accent);
+}
+.craft__title{margin:10px 0 14px;font-size:clamp(17px,4.4vw,20px)}
+.craft__body{margin:0;font-size:13.5px;color:var(--ink-60)}
+.craft__fig{margin-top:22px}
+.craft__fig .ph{aspect-ratio:16/10}
+
+/* ============ 5. 店舗情報 ============ */
+.shop{padding-top:var(--gap)}
+.info{margin:0 0 34px;font-size:13.5px}
+.info>div{display:flex;flex-wrap:wrap;gap:6px 16px;padding:15px 0;border-top:1px solid var(--ink-12)}
+.info>div:last-child{border-bottom:1px solid var(--ink-12)}
+.info dt{
+  flex:0 0 100%;margin:0;font-size:10.5px;letter-spacing:.2em;color:var(--ink-60);
+}
+.info dd{margin:0;width:100%}
+.info a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--ink-25)}
+.dummy{
+  display:inline-block;margin-left:.4em;padding:1px 7px;
+  font-size:10px;letter-spacing:.08em;color:var(--accent);
+  border:1px solid var(--accent);line-height:1.7;vertical-align:2px;
+}
+.note{font-size:11.5px;color:var(--ink-60);line-height:1.9;margin:0}
+
+/* 地図の埋め込み枠：ここに Google マップの iframe を差し込む */
+.map{
+  aspect-ratio:4/3;background:#E8DFD2;border:1px solid var(--ink-12);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.map p{margin:0;font-size:11px;letter-spacing:.14em;color:var(--ink-60);padding:20px;line-height:2}
+
+/* ============ 6. 来店・電話（本命CTA） ============ */
+.call{margin-top:var(--gap);background:var(--ink);color:var(--paper);
+      padding:clamp(52px,10vw,78px) 0}
+.call__lead{margin:0 0 14px;font-size:10px;letter-spacing:.28em;color:rgba(245,241,233,.6)}
+.call__title{margin:0 0 30px;font-size:clamp(18px,4.6vw,24px);line-height:1.95}
+.call__tel{
+  display:inline-block;margin:0 0 18px;padding:16px 30px;
+  border:1px solid rgba(245,241,233,.5);
+  font-family:var(--serif);font-size:clamp(20px,5.6vw,26px);letter-spacing:.06em;
+  text-decoration:none;transition:background-color .35s,color .35s;
+}
+.call__tel:hover{background:var(--paper);color:var(--ink)}
+.call__hours{margin:0 0 22px;font-size:12px;line-height:2;color:rgba(245,241,233,.72)}
+.call__map{font-size:12px;letter-spacing:.14em;color:var(--paper);
+           border-bottom:1px solid rgba(245,241,233,.45);text-decoration:none;padding-bottom:3px}
+.call .dummy{color:rgba(245,241,233,.75);border-color:rgba(245,241,233,.45)}
+
+/* スマホだけ、画面下に電話ボタンを固定する */
+.callbar{display:none}
+
+/* ============ 7. Instagram ============ */
+.ig{margin-top:var(--gap);border-top:1px solid var(--ink-12);padding-top:clamp(52px,10vw,80px)}
+.ig__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:30px}
+.ig__grid .ph{aspect-ratio:1/1}
+.ig__title{margin:0 0 8px;font-size:clamp(17px,4.4vw,21px)}
+.ig__handle{margin:0 0 22px;font-size:12px;letter-spacing:.14em;color:var(--ink-60)}
+.ig__link{
+  display:inline-block;padding:14px 30px;border:1px solid var(--ink-25);
+  font-size:12px;letter-spacing:.18em;text-decoration:none;
+  transition:background-color .35s,color .35s,border-color .35s;
+}
+.ig__link:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ============ 8. フッター ============ */
+footer{margin-top:var(--gap);padding:44px 0 40px;border-top:1px solid var(--ink-12)}
+.f__name{font-family:var(--serif);font-size:14px;letter-spacing:.16em;margin:0 0 6px}
+.f__addr{margin:0 0 26px;font-size:11.5px;color:var(--ink-60);line-height:2}
+.f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--ink-60)}
+/* サンプル写真の出典。CC BY / CC BY-SA は表示義務があるので消さないこと */
+.f__credit{margin:16px 0 0;font-size:10px;line-height:1.9;color:var(--ink-60)}
+
+/* ---------- フェードイン（控えめ） ----------
+   .js が付いたとき（＝JSが動いたとき）だけ隠す。
+   JS が失敗しても本文が消えないようにするため。 */
+.js .fade{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+.js .fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .fade{opacity:1;transform:none;transition:none}
+}
+
+/* ---------- 767px 以下：画面下に電話ボタンを固定 ---------- */
+@media (max-width:767px){
+  body{padding-bottom:64px}   /* 固定ボタン(約60px)にフッターが隠れないように */
+  .callbar{
+    display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;
+    background:var(--accent);color:#F7F3EC;text-align:center;
+    padding:17px 12px;font-size:13px;letter-spacing:.16em;text-decoration:none;
+  }
+}
+
+/* ---------- 768px 以上 ---------- */
+@media (min-width:768px){
+  :root{--pad:56px}
+  body{font-size:15.5px}
+
+  /* 横組みでは写真を横長にする。縦長のままだと本文が終わった下に
+     200〜300px の死んだ余白が残るため（縦組みの比率とは別に指定する）。 */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,84px);align-items:start}
+  .concept__fig{margin-top:0}
+  .concept__fig .ph{aspect-ratio:5/3;object-fit:cover}
+
+  .bread{display:grid;grid-template-columns:minmax(0,42%) 1fr;gap:clamp(30px,5vw,58px);padding:44px 0;align-items:start}
+  .bread__ph{margin-bottom:0;aspect-ratio:3/2;object-fit:cover}
+
+  .craft{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,52px)}
+  .craft__head{grid-column:1/-1}
+  .craft__item{border-top:1px solid var(--ink-12);border-bottom:0;padding:26px 0 0}
+  .craft__item:last-child{border-bottom:0}
+
+  .shop__grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:start}
+  .info dt{flex:0 0 6.5em}
+  .info dd{width:auto;flex:1}
+
+  .ig__grid{gap:3px;margin-bottom:38px}
+  .ig__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:end}
+
+  .call__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(40px,6vw,80px);align-items:end}
+  .call__title{margin-bottom:0}
+  .call__right{text-align:right}
+}
+
+@media (min-width:1024px){
+  .hero__copy{max-width:16em}
+}
+
+/* ---------- 印刷・PDF書き出し ----------
+   1vh が用紙の高さになってしまうので、ファーストビューの高さは
+   --hero-print-h（既定 760px）で明示する。 */
+@media print{
+  :root{--hero-print-h:760px}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:var(--paper)}
+
+  /* スクロール連動の演出は無効化して、全部見えている状態で出す */
+  .fade,.js .fade{opacity:1 !important;transform:none !important;transition:none !important}
+
+  /* 動画は印刷できないので、暗い面として置く */
+  .hero{min-height:0;height:var(--hero-print-h)}
+  .hero__media{background:#3A2C22}
+  .hero__media video{display:none}
+  .hero__media::after{background:none}
+
+  /* ページの切れ目が商品カードや写真の途中に入らないように。
+     セクション単位で avoid すると、1ページに収まらない章が丸ごと
+     次ページへ送られるので指定しない。 */
+  .bread,.craft__item,figure{break-inside:avoid}
+
+  .callbar{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ 1. ファーストビュー ============ -->
+<header class="hero">
+  <div class="hero__media">
+    <!-- 後日 AI 生成動画（石窯からバゲットを引き出す 8 秒ループ）を src に指定する。
+         poster は動画読み込み前に表示される静止画。 -->
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true"></video>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__mark">AUBE</p>
+
+    <h1 class="hero__copy">
+      <span>朝5時、</span>
+      <span>薪に火を入れる。</span>
+    </h1>
+    <p class="hero__name">ブーランジェリー オーブ</p>
+    <p class="hero__sub">
+      北海道産小麦と自家製レーズン酵母のハード系パン<br>
+      最初のバゲットが焼き上がるのは 6:30 です
+    </p>
+
+    <a class="hero__cta" href="#breads">焼き上がりの時間を見る</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. コンセプト ============ -->
+<section class="concept wrap fade">
+  <div class="two">
+    <div>
+      <p class="sec-num">01</p>
+      <p class="concept__lead">
+        粉と水と塩と、<br>
+        時間だけで作っています。
+      </p>
+      <div class="concept__text">
+        <p>
+          油脂も卵も乳製品も使わないハード系のパンだけを、一日およそ 120 本焼いています。
+          仕込みは前日の 14 時。冷蔵庫で 18 時間かけてゆっくり発酵させ、翌朝 5 時に薪窯へ火を入れます。
+        </p>
+        <p>
+          小麦は北海道産の「ゆめちから」と「春よ恋」を自家配合。
+          酵母はレーズンから起こしたものを 2019 年の開店時から継ぎ足しで使っています。
+          季節のパンは年に 8 種類、旬の材料が手に入る 2〜3 週間だけ焼きます。
+        </p>
+      </div>
+    </div>
+
+    <figure class="concept__fig">
+      <img class="ph" src="images/01-concept.jpg"
+           alt="布を敷いた台の上で粗熱を取っている、打ち粉のついた丸いハード系パン。">
+      <figcaption class="concept__cap">
+        写真：焼き上がったパンは、布の上で粗熱を取ってから店に出します。
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 3. 人気のパン3種 ============ -->
+<section class="breads wrap fade" id="breads">
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <h2 class="sec-title">よく出る3つ</h2>
+    <span class="sec-en">Selection</span>
+  </div>
+
+  <article class="bread">
+    <img class="ph bread__ph" src="images/02-baguette.jpg"
+         alt="木の板に交差させて置いた、クープの開いたバゲット3本。">
+    <div>
+      <h3 class="bread__name">バゲット・トラディション</h3>
+      <span class="bread__kana">BAGUETTE TRADITION</span>
+      <p class="bread__desc">
+        加水 72%。粉・水・塩・自家製酵母のみで、モルトも使いません。
+        当日中に食べきれない分は、切ってから冷凍してください。
+      </p>
+      <dl class="spec">
+        <div><dt>価格</dt><dd class="price">¥340</dd></div>
+        <div><dt>焼き上がり</dt><dd>6:30 / 11:00 / 15:30</dd></div>
+        <div><dt>重さ</dt><dd>約 280g</dd></div>
+        <div><dt>小麦</dt><dd>北海道産 ゆめちから 70%・春よ恋 30%</dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <article class="bread">
+    <img class="ph bread__ph" src="images/03-campagne.jpg"
+         alt="濃い焼き色のパン・ド・カンパーニュ。木の葉状のクープが入っている。">
+    <div>
+      <h3 class="bread__name">パン・ド・カンパーニュ</h3>
+      <span class="bread__kana">PAIN DE CAMPAGNE</span>
+      <p class="bread__desc">
+        ライ麦 15%。48 時間発酵させているので酸味がはっきり出ます。
+        3 日目からのほうが味が落ち着きます。
+      </p>
+      <dl class="spec">
+        <div><dt>価格</dt><dd class="price">¥980（1/2 カット ¥500）</dd></div>
+        <div><dt>焼き上がり</dt><dd>8:00（1 日 12 本）</dd></div>
+        <div><dt>重さ</dt><dd>約 900g</dd></div>
+        <div><dt>小麦</dt><dd>北海道産 ゆめちから・国産ライ麦全粒粉</dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <article class="bread">
+    <img class="ph bread__ph" src="images/04-noix-figue.jpg"
+         alt="ライ麦のパンと、そのスライス。表面に種がまぶしてある。">
+    <div>
+      <h3 class="bread__name">くるみとイチジクのライ麦</h3>
+      <span class="bread__kana">NOIX ET FIGUE</span>
+      <p class="bread__desc">
+        生地の 45% がくるみとイチジク。10 月から 3 月までの限定です。
+        ブルーチーズと合わせるお客さんが多いパンです。
+      </p>
+      <dl class="spec">
+        <div><dt>価格</dt><dd class="price">¥620</dd></div>
+        <div><dt>焼き上がり</dt><dd>9:30（1 日 20 本）</dd></div>
+        <div><dt>重さ</dt><dd>約 400g</dd></div>
+        <div><dt>販売期間</dt><dd>10月〜3月</dd></div>
+      </dl>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 4. こだわり ============ -->
+<section class="craft wrap fade">
+  <div class="craft__head sec-head">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title">道具と材料のこと</h2>
+    <span class="sec-en">Oven, Flour, Levain</span>
+  </div>
+
+  <div class="craft__item">
+    <span class="craft__no">i</span>
+    <h3 class="craft__title">薪の石窯</h3>
+    <p class="craft__body">
+      1.8 トンの耐火煉瓦を積んだ薪窯です。朝 5 時に薪を入れ、炉床が 260℃ に達する 7 時前から焼き始めます。
+      その後は追い焚きせず、下がっていく余熱だけで午後まで焼きます。窯の温度によって、同じ生地でも焼き上がりは日ごとに変わります。
+    </p>
+    <figure class="craft__fig">
+      <img class="ph" src="images/05-oven.jpg"
+           alt="煉瓦を積んだドーム型の石窯。炉床で薪が燃えている。">
+    </figure>
+  </div>
+
+  <div class="craft__item">
+    <span class="craft__no">ii</span>
+    <h3 class="craft__title">北海道産の小麦</h3>
+    <p class="craft__body">
+      十勝の農家 2 軒から、ゆめちからと春よ恋を直接仕入れています。年に一度、9 月の収穫後に配合を決め直します。
+      2025 年産はタンパクが高めだったため、加水を 2% 上げました。全粒粉とライ麦は自家製粉です。
+    </p>
+    <figure class="craft__fig">
+      <img class="ph" src="images/06-flour.jpg"
+           alt="束ねた小麦の穂と、まわりに散らした小麦の粒。">
+    </figure>
+  </div>
+
+  <div class="craft__item">
+    <span class="craft__no">iii</span>
+    <h3 class="craft__title">自家製のレーズン酵母</h3>
+    <p class="craft__body">
+      2019 年 4 月にレーズンから起こした種を、毎日 2 回、粉と水を足しながらつないでいます。
+      種の起きが悪い真冬は発酵に 22 時間かかることもあり、その日はバゲットの焼き上がりが 30 分ほど遅れます。
+    </p>
+    <figure class="craft__fig">
+      <img class="ph" src="images/07-levain.jpg"
+           alt="ガラス瓶に入った自家製の酵母種。気泡が全体に入っている。">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 5. 店舗情報 ============ -->
+<section class="shop wrap fade" id="shop">
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <h2 class="sec-title">店舗情報</h2>
+    <span class="sec-en">Information</span>
+  </div>
+
+  <div class="shop__grid">
+    <div>
+      <dl class="info">
+        <div>
+          <dt>営業時間</dt>
+          <dd>7:00 – 18:00（売り切れ次第終了）</dd>
+        </div>
+        <div>
+          <dt>定休日</dt>
+          <dd>月曜・火曜／年末年始</dd>
+        </div>
+        <div>
+          <dt>住所</dt>
+          <dd>
+            〒000-0000<br>
+            埼玉県◯◯市△△町 0-0-0<span class="dummy">ダミー</span>
+          </dd>
+        </div>
+        <div>
+          <dt>電話</dt>
+          <dd>
+            <a href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+          </dd>
+        </div>
+        <div>
+          <dt>駐車場</dt>
+          <dd>店舗前に 3 台</dd>
+        </div>
+        <div>
+          <dt>予約</dt>
+          <dd>カンパーニュのみ前日 17 時まで電話で受付</dd>
+        </div>
+      </dl>
+      <p class="note">
+        土曜・日曜の 10 時前後は店内が混み合います。<br>
+        バゲットは 15:30 の回まで焼きますが、日によって早く売り切れます。
+      </p>
+    </div>
+
+    <!-- 地図：ここに Google マップの iframe を貼る（幅100%・高さ100%で挿入） -->
+    <div class="map">
+      <p>
+        MAP<br>
+        Google マップの埋め込みコードを<br>
+        この枠に差し込みます
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. Instagram ============ -->
+<section class="ig wrap fade">
+  <div class="ig__grid">
+    <img class="ph" src="images/08-ig-boule.jpg"
+         alt="深いクープを入れて焼いた、黒く焼き締まった丸パン。">
+    <img class="ph" src="images/09-ig-board.jpg"
+         alt="木のまな板に並べた、焼き上がったばかりの角型のパン2つ。">
+    <img class="ph" src="images/10-ig-lattice.jpg"
+         alt="格子状にクープを入れて焼いた大きな丸パン。">
+    <img class="ph" src="images/11-ig-crumb.jpg"
+         alt="スライスしたパンの断面。大小の気泡が open crumb 状に入っている。">
+    <img class="ph" src="images/12-ig-oven.jpg"
+         alt="火の入った石窯の焚き口。内側がオレンジ色に光っている。">
+    <img class="ph" src="images/13-ig-oval.jpg"
+         alt="十字にクープを入れて焼いたオーバル型のパン。">
+  </div>
+
+  <div class="ig__inner">
+    <div>
+      <span class="sec-num">05</span>
+      <h2 class="ig__title">その日の焼き上がりは<br>Instagram に出しています</h2>
+      <p class="ig__handle">@boulangerie_aube_dummy<span class="dummy">ダミー</span></p>
+    </div>
+    <div>
+      <!-- 公開時に実アカウントの URL に差し替える -->
+      <a class="ig__link" href="#" rel="noopener">Instagram を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. 来店・電話（本命CTA） ============ -->
+<section class="call fade">
+  <div class="wrap call__inner">
+    <div>
+      <p class="call__lead">RESERVATION</p>
+      <h2 class="call__title">
+        カンパーニュの取り置きは<br>
+        前日 17 時まで、電話で受け付けます
+      </h2>
+    </div>
+    <div class="call__right">
+      <a class="call__tel" href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+      <p class="call__hours">
+        電話に出られるのは 7:00 – 18:00 です<br>
+        月曜・火曜は定休です
+      </p>
+      <a class="call__map" href="#shop">地図と駐車場を見る</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 画面下に固定する電話ボタン（スマホのみ表示） -->
+<a class="callbar" href="tel:00000000000">電話する　000-0000-0000（ダミー）</a>
+
+<!-- ============ 8. フッター ============ -->
+<footer class="wrap">
+  <p class="f__name">ブーランジェリー オーブ</p>
+  <p class="f__addr">
+    〒000-0000 埼玉県◯◯市△△町 0-0-0<span class="dummy">ダミー</span><br>
+    TEL 000-0000-0000<span class="dummy">ダミー</span>／7:00–18:00・月火定休
+  </p>
+  <p class="f__copy">&copy; Boulangerie Aube</p>
+  <p class="f__credit">
+    サンプル用の写真は Wikimedia Commons / Openverse の CC BY・CC BY-SA・
+    パブリックドメイン作品です（撮影者一覧は images/CREDITS.md）。<br>
+    実際の案件では、店舗で撮影した写真に差し替えます。
+  </p>
+</footer>
+
+<script>
+// スクロール時のフェードイン。一度表示したら監視を外す。
+// IntersectionObserver が使えない環境では何もしない（本文はそのまま見える）。
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll('.fade');
+  document.documentElement.classList.add('js');   // ここで初めて .fade を隠す
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+
+  // 監視が一度も働かなかった場合の保険（3秒後に全部出す）
+  var safety = setTimeout(function () {
+    for (var j = 0; j < targets.length; j++) targets[j].classList.add('in');
+  }, 3000);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      clearTimeout(safety);   // 実際に発火したことを確認できた時だけ解除
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
