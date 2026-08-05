@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>hair salon 凪｜一日八人までの美容室（埼玉県◯◯市）</title>
+<meta name="description" content="埼玉県◯◯市の美容室。1日の予約は8人まで。乾いた髪から切り、担当は最初から最後まで替わりません。">
+
+<style>
+/* ---------- 基本設計 ----------
+   色：地＝#F1F2EF（冷たい白）／文字＝#1C221F（緑みの濃い墨）／アクセント＝#5E7268（青みの緑）
+   パン屋（暖色・横罫線・3カラム）とは別物にするため、
+   こちらは冷色・縦罫線・左に縦組みのラベルを立てる構成にする。
+   モバイル 375px を基準に組み、820px で横組みへ。
+------------------------------- */
+
+:root{
+  --paper:#F1F2EF;
+  --mist:#E4E7E2;
+  --ink:#1C221F;
+  --ink-64:rgba(28,34,31,.64);
+  --ink-40:rgba(28,34,31,.40);
+  --ink-14:rgba(28,34,31,.14);
+  --accent:#5E7268;
+
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+
+  --pad:20px;
+  --gap:clamp(76px,13vw,132px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:14.5px;line-height:1.95;
+  letter-spacing:.05em;font-feature-settings:"palt" 1;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.75;letter-spacing:.12em;margin:0}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1120px;margin-inline:auto}
+.ph{width:100%;background:var(--mist);object-fit:cover}
+
+/* セクションの頭。左に細い縦罫、その上にラベルを置く */
+.label{
+  font-size:10px;letter-spacing:.34em;color:var(--accent);
+  text-transform:uppercase;margin:0 0 18px;
+}
+.sec-title{font-size:clamp(20px,5.2vw,29px);margin:0 0 clamp(26px,5vw,40px)}
+
+/* ============ 1. ファーストビュー ============ */
+.hero{position:relative;min-height:100svh;min-height:100vh;display:flex;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media video{width:100%;height:100%;object-fit:cover;background:#2A302C}
+.hero__media::after{content:"";position:absolute;inset:0;background:rgba(20,26,23,.38)}
+.hero__inner{
+  position:relative;z-index:1;width:100%;max-width:1120px;margin-inline:auto;
+  padding:0 var(--pad) clamp(48px,10vh,92px);
+  display:flex;flex-direction:column;justify-content:flex-end;color:#F1F2EF;
+}
+.hero__mark{
+  position:absolute;top:clamp(24px,6vh,40px);left:var(--pad);
+  font-family:var(--serif);font-size:11px;letter-spacing:.42em;
+}
+.hero__copy{
+  font-family:var(--serif);font-size:clamp(28px,8.4vw,54px);
+  line-height:1.6;letter-spacing:.14em;margin:0 0 26px;
+}
+.hero__name{font-family:var(--serif);font-size:clamp(14px,3.8vw,17px);letter-spacing:.2em;margin:0 0 8px}
+.hero__sub{font-size:12px;line-height:2;color:rgba(241,242,239,.8);margin:0 0 34px}
+.hero__cta{
+  align-self:flex-start;display:inline-block;
+  padding:14px 32px;background:var(--paper);color:var(--ink);
+  font-size:12px;letter-spacing:.18em;text-decoration:none;
+  transition:background-color .3s,color .3s;
+}
+.hero__cta:hover{background:var(--accent);color:var(--paper)}
+
+/* ============ 2. コンセプト ============ */
+.concept{padding-top:var(--gap)}
+.concept__lead{
+  font-family:var(--serif);font-size:clamp(19px,5vw,26px);
+  line-height:2.05;letter-spacing:.1em;margin:0 0 28px;
+}
+.concept__text p{margin:0 0 1.5em;color:var(--ink-64);font-size:13.5px}
+.concept__text p:last-child{margin-bottom:0}
+.concept__fig{margin:34px 0 0}
+.concept__fig .ph{aspect-ratio:3/4}
+.concept__cap{margin:10px 0 0;font-size:11px;color:var(--ink-40);line-height:1.9}
+
+/* ============ 3. メニュー ============ */
+.menu{padding-top:var(--gap)}
+.menu__item{padding:0 0 34px}
+.menu__ph{aspect-ratio:4/3;margin-bottom:18px}
+.menu__name{font-size:clamp(17px,4.4vw,20px);margin:0 0 4px}
+.menu__en{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.28em;color:var(--ink-40);margin-bottom:14px}
+.menu__price{font-family:var(--serif);font-size:clamp(19px,5vw,22px);letter-spacing:.06em;margin:0 0 4px}
+.menu__time{font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 14px}
+.menu__desc{font-size:13px;color:var(--ink-64);margin:0 0 14px}
+.menu__note{font-size:11.5px;color:var(--ink-40);margin:0;line-height:1.9;
+            border-left:1px solid var(--ink-14);padding-left:12px}
+
+/* ============ 4. 使うものと、順序 ============ */
+.method{padding-top:var(--gap)}
+.method__item{padding:30px 0;border-top:1px solid var(--ink-14)}
+.method__item:last-child{border-bottom:1px solid var(--ink-14)}
+.method__no{font-family:var(--serif);font-size:11px;letter-spacing:.3em;color:var(--accent)}
+.method__title{font-size:clamp(16px,4.2vw,19px);margin:10px 0 12px}
+.method__body{font-size:13px;color:var(--ink-64);margin:0}
+.method__fig{margin-top:20px}
+.method__fig .ph{aspect-ratio:3/2}
+
+/* ============ 5. 店舗情報 ============ */
+.shop{padding-top:var(--gap)}
+.info{margin:0 0 30px;font-size:13px}
+.info>div{padding:14px 0;border-bottom:1px solid var(--ink-14)}
+.info>div:first-child{border-top:1px solid var(--ink-14)}
+.info dt{margin:0 0 4px;font-size:10px;letter-spacing:.24em;color:var(--accent)}
+.info dd{margin:0}
+.info a{color:var(--ink);border-bottom:1px solid var(--ink-40);text-decoration:none}
+.dummy{
+  display:inline-block;margin-left:.4em;padding:1px 7px;font-size:10px;
+  letter-spacing:.08em;color:var(--accent);border:1px solid var(--accent);
+  line-height:1.7;vertical-align:2px;
+}
+.note{margin:0;font-size:11.5px;color:var(--ink-40);line-height:1.95}
+.map{
+  aspect-ratio:1/1;background:var(--mist);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+}
+.map p{margin:0;padding:20px;font-size:11px;letter-spacing:.14em;color:var(--ink-40);line-height:2}
+
+/* ============ 6. 予約（本命CTA） ============ */
+.reserve{margin-top:var(--gap);background:var(--accent);color:#F1F2EF;padding:clamp(50px,9vw,76px) 0}
+.reserve__label{font-size:10px;letter-spacing:.34em;color:rgba(241,242,239,.66);margin:0 0 14px}
+.reserve__title{font-size:clamp(18px,4.6vw,24px);line-height:1.9;margin:0 0 28px}
+.reserve__tel{
+  display:inline-block;font-family:var(--serif);
+  font-size:clamp(21px,6vw,28px);letter-spacing:.06em;text-decoration:none;
+  border-bottom:1px solid rgba(241,242,239,.5);padding-bottom:6px;margin:0 0 20px;
+}
+.reserve__hours{font-size:12px;line-height:2;color:rgba(241,242,239,.78);margin:0 0 22px}
+.reserve__line{
+  display:inline-block;padding:13px 28px;border:1px solid rgba(241,242,239,.6);
+  font-size:12px;letter-spacing:.16em;text-decoration:none;
+  transition:background-color .3s,color .3s;
+}
+.reserve__line:hover{background:#F1F2EF;color:var(--accent)}
+.reserve .dummy{color:rgba(241,242,239,.8);border-color:rgba(241,242,239,.5)}
+
+/* スマホだけ、画面下に予約ボタンを出す */
+.callbar{display:none}
+
+/* ============ 7. Instagram ============ */
+.ig{margin-top:var(--gap);padding-top:clamp(50px,9vw,76px);border-top:1px solid var(--ink-14)}
+.ig__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:28px}
+.ig__grid .ph{aspect-ratio:1/1}
+.ig__title{font-size:clamp(17px,4.4vw,20px);margin:0 0 8px}
+.ig__handle{font-size:12px;letter-spacing:.14em;color:var(--ink-40);margin:0 0 20px}
+.ig__link{
+  display:inline-block;padding:13px 28px;border:1px solid var(--ink-14);
+  font-size:12px;letter-spacing:.16em;text-decoration:none;
+  transition:background-color .3s,color .3s,border-color .3s;
+}
+.ig__link:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ============ 8. フッター ============ */
+footer{margin-top:var(--gap);padding:40px 0 38px;border-top:1px solid var(--ink-14)}
+.f__name{font-family:var(--serif);font-size:13px;letter-spacing:.2em;margin:0 0 6px}
+.f__addr{margin:0 0 24px;font-size:11.5px;color:var(--ink-40);line-height:2}
+.f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--ink-40)}
+.f__credit{margin:16px 0 0;font-size:10px;line-height:1.9;color:var(--ink-40)}
+.f__credit-link{color:var(--ink-40);border-bottom:1px solid var(--ink-14);text-decoration:none}
+
+/* 出品用スクリーンショット：?shot を付けると「ダミー」バッジを隠す */
+.shot .dummy{display:none}
+
+/* ---------- フェードイン（控えめ） ---------- */
+.js .fade{opacity:0;transform:translateY(12px);transition:opacity .85s ease,transform .85s ease}
+.js .fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js .fade{opacity:1;transform:none;transition:none} }
+
+/* ---------- 819px 以下：画面下に予約ボタン ---------- */
+@media (max-width:819px){
+  body{padding-bottom:62px}
+  .callbar{
+    display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;
+    background:var(--ink);color:#F1F2EF;text-decoration:none;
+  }
+  .callbar span{
+    flex:1;text-align:center;padding:16px 8px;font-size:12px;letter-spacing:.14em;
+  }
+  .callbar span + span{border-left:1px solid rgba(241,242,239,.25)}
+}
+
+/* ---------- 820px 以上 ---------- */
+@media (min-width:820px){
+  :root{--pad:48px}
+  body{font-size:15px}
+
+  /* 左にラベルの柱を立て、本文は右に寄せる。
+     縦組みにするのは .cols の直下に置いたラベルだけ。
+     これを全ての .label に効かせると、Instagram や予約の枠でも
+     高さが伸びて 900px 近い空白ができる。 */
+  .cols{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(28px,4vw,56px)}
+  .cols > .label{
+    writing-mode:vertical-rl;margin:0;padding-left:14px;
+    border-left:1px solid var(--ink-14);letter-spacing:.5em;
+  }
+
+  /* 横組みでは写真を横長にする。縦長のままだと本文が終わった下に余白が残る */
+  .concept__body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:start}
+  .concept__fig{margin:0}
+  .concept__fig .ph{aspect-ratio:4/3}
+
+  .menu__list{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.4vw,44px)}
+  .menu__item{padding-bottom:0}
+
+  .method__item{display:grid;grid-template-columns:minmax(0,44%) 1fr;
+                gap:clamp(28px,4vw,56px);align-items:start;padding:40px 0}
+  .method__fig{margin:0;order:-1}
+  .method__fig .ph{aspect-ratio:3/2}
+  .method__item:nth-child(even) .method__fig{order:1}
+
+  .shop__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,72px);align-items:start}
+  .info dt{float:left;width:6.5em;margin:0}
+  .info dd{margin-left:7.5em}
+
+  .reserve__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(36px,5vw,72px);align-items:end}
+  .reserve__right{text-align:right}
+  .reserve__title{margin-bottom:0}
+
+  .ig__grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .ig__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(36px,5vw,72px);align-items:end}
+}
+
+/* ---------- 印刷・PDF書き出し ---------- */
+@media print{
+  :root{--hero-print-h:760px}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:var(--paper)}
+  .fade,.js .fade{opacity:1 !important;transform:none !important;transition:none !important}
+  .hero{min-height:0;height:var(--hero-print-h)}
+  .hero__media{background:#2A302C}
+  .hero__media video{display:none}
+  .hero__media::after{background:none}
+  .menu__item,.method__item,figure{break-inside:avoid}
+  .callbar{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ 1. ファーストビュー ============ -->
+<header class="hero">
+  <div class="hero__media">
+    <!-- 後日、席に座って髪を乾かしている8秒ほどのループ動画を src に指定する -->
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true"></video>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__mark">NAGI</p>
+    <h1 class="hero__copy">一日に、八人まで。</h1>
+    <p class="hero__name">hair salon 凪（なぎ）</p>
+    <p class="hero__sub">
+      席は3つ、スタイリストは2人。<br>
+      受付から仕上げまで、担当が替わりません。
+    </p>
+    <a class="hero__cta" href="#menu">メニューと所要時間を見る</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. コンセプト ============ -->
+<section class="concept wrap fade">
+  <div class="cols">
+    <p class="label">Concept</p>
+    <div>
+      <p class="concept__lead">
+        詰め込まないから、<br>
+        乾かしてから切れます。
+      </p>
+      <div class="concept__body">
+        <div class="concept__text">
+          <p>
+            1日の予約枠は8人までにしています。カットは1人60分、カラーは90分、
+            酸性ストレートは180分を確保していて、続けて入れることはしません。
+            指名の有無で待ち時間が変わることもありません。
+          </p>
+          <p>
+            濡れた髪は乾くと1〜2mm短く見えます。当店は、ほとんどの工程を乾かしてから始めます。
+            そのぶん所要時間は他店より15分ほど長くなりますが、切った直後と2週間後の差が小さくなります。
+          </p>
+        </div>
+        <figure class="concept__fig">
+          <img class="ph" src="images/01-concept.jpg"
+               alt="丸い鏡が3枚並んだセット面。壁は濃い色で、鏡の下に道具が置かれている。">
+          <figcaption class="concept__cap">写真：セット面は3つ。同時に動くのは2席までです。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. メニュー ============ -->
+<section class="menu wrap fade" id="menu">
+  <div class="cols">
+    <p class="label">Menu</p>
+    <div>
+      <h2 class="sec-title">メニューと所要時間</h2>
+
+      <div class="menu__list">
+        <article class="menu__item">
+          <img class="ph menu__ph" src="images/02-cut.jpg"
+               alt="シザーとコームを持った手元のクローズアップ。暗い背景に手だけが浮かんでいる。">
+          <h3 class="menu__name">カット</h3>
+          <span class="menu__en">CUT</span>
+          <p class="menu__price">¥4,800</p>
+          <p class="menu__time">所要 60分／シャンプー・ブロー込み</p>
+          <p class="menu__desc">
+            乾いた状態で全体の形を決めてから、細部を濡らして整えます。
+          </p>
+          <p class="menu__note">1か月以内の前髪の直しは無料です。</p>
+        </article>
+
+        <article class="menu__item">
+          <img class="ph menu__ph" src="images/03-color.jpg"
+               alt="後頭部にカラー剤を塗っているところ。ハケとグローブをつけた手が写っている。">
+          <h3 class="menu__name">カラー</h3>
+          <span class="menu__en">COLOR</span>
+          <p class="menu__price">¥7,200 〜</p>
+          <p class="menu__time">所要 90分／根元のみは ¥5,400</p>
+          <p class="menu__desc">
+            白髪の量に応じて、2剤を6%と3%で使い分けます。常備は3社12色です。
+          </p>
+          <p class="menu__note">前回から6週間以内のご来店は ¥600 引きです。</p>
+        </article>
+
+        <article class="menu__item">
+          <img class="ph menu__ph" src="images/04-straight.jpg"
+               alt="トレイの上に置かれたストレートアイロン。まわりに小物が並んだ静物。">
+          <h3 class="menu__name">酸性ストレート</h3>
+          <span class="menu__en">ACID STRAIGHT</span>
+          <p class="menu__price">¥16,000</p>
+          <p class="menu__time">所要 180分／根元のみは ¥9,000</p>
+          <p class="menu__desc">
+            アルカリ剤を使わず、pH 5.5〜6.5 の薬剤で伸ばします。当日の洗髪も可能です。
+          </p>
+          <p class="menu__note">ブリーチを3回以上した髪にはかけられません。</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. 使うものと、順序 ============ -->
+<section class="method wrap fade">
+  <div class="cols">
+    <p class="label">Method</p>
+    <div>
+      <h2 class="sec-title">使うものと、順序</h2>
+
+      <div class="method__item">
+        <div>
+          <span class="method__no">i</span>
+          <h3 class="method__title">乾かしてから切る</h3>
+          <p class="method__body">
+            濡れた髪は引っ張られて伸びるため、乾くと1〜2mm短くなります。
+            当店は全体の形を乾いた状態で決め、量を減らす工程だけ霧吹きを使います。
+            所要時間は15分ほど延びますが、2週間後の伸び方が揃います。
+          </p>
+        </div>
+        <figure class="method__fig">
+          <img class="ph" src="images/05-dry.jpg"
+               alt="ドライヤーとブラシで髪を乾かしている手元。後ろからの角度で顔は写っていない。">
+        </figure>
+      </div>
+
+      <div class="method__item">
+        <div>
+          <span class="method__no">ii</span>
+          <h3 class="method__title">薬剤は3社12色</h3>
+          <p class="method__body">
+            白髪染めは、白髪の割合が3割までなら2剤を3%、5割を超えたら6%に上げます。
+            同じ色番号でも、前回の履歴によって1トーン変えることがあります。
+            使った配合は名前と日付でノートに残していて、次回はそこから始めます。
+          </p>
+        </div>
+        <figure class="method__fig">
+          <img class="ph" src="images/06-shelf.jpg"
+               alt="鏡の前のカウンターに並んだ薬剤とボトル。奥にセット面の椅子が見えている。">
+        </figure>
+      </div>
+
+      <div class="method__item">
+        <div>
+          <span class="method__no">iii</span>
+          <h3 class="method__title">シャンプー台の水</h3>
+          <p class="method__body">
+            シャンプー台の水は軟水器を通しています。硬度は月に一度測り、
+            50mg/L を超えたらカートリッジを交換します。
+            硬度が高いとカラーの色が濁り、洗い上がりがきしみます。
+          </p>
+        </div>
+        <figure class="method__fig">
+          <img class="ph" src="images/07-basin.jpg"
+               alt="並んだシャンプー台。黒い椅子とボウルが横一列に続いている。">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 店舗情報 ============ -->
+<section class="shop wrap fade" id="shop">
+  <div class="cols">
+    <p class="label">Information</p>
+    <div>
+      <h2 class="sec-title">店舗情報</h2>
+
+      <div class="shop__grid">
+        <div>
+          <dl class="info">
+            <div><dt>営業時間</dt><dd>9:30 – 18:30<br>最終受付：カット 17:30／カラー 16:30</dd></div>
+            <div><dt>定休日</dt><dd>火曜・第3水曜</dd></div>
+            <div><dt>住所</dt><dd>〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span></dd></div>
+            <div><dt>電話</dt><dd><a href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span></dd></div>
+            <div><dt>駐車場</dt><dd>店舗前に2台</dd></div>
+            <div><dt>予約</dt><dd>電話・LINE から。当日の予約は電話のみ</dd></div>
+            <div><dt>支払い</dt><dd>現金・クレジットカード・QR コード決済</dd></div>
+          </dl>
+          <p class="note">
+            スタイリストは2人、席は3つです。<br>
+            小学生以下のお子さま連れの場合は、予約時にお知らせください。
+          </p>
+        </div>
+
+        <!-- 地図：ここに Google マップの iframe を差し込む -->
+        <div class="map">
+          <p>MAP<br>Google マップの埋め込みコードを<br>この枠に差し込みます</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. Instagram ============ -->
+<section class="ig wrap fade">
+  <div class="ig__grid">
+    <img class="ph" src="images/08-ig.jpg"
+         alt="肩に流れた長い髪の質感がわかる寄りの写真。">
+    <img class="ph" src="images/09-ig.jpg"
+         alt="大理石の台に置いたシザーとコーム。上から撮った平置きの写真。">
+    <img class="ph" src="images/10-ig.jpg"
+         alt="商品が並んだ淡い色の棚。落ち着いた店内の一角。">
+    <img class="ph" src="images/11-ig.jpg"
+         alt="棚に置かれたシャンプーとコンディショナーのボトル。壁に葉の影が落ちている。">
+    <img class="ph" src="images/12-ig.jpg"
+         alt="アイロンで毛先を巻いている手元。髪の動きが見える寄りの写真。">
+    <img class="ph" src="images/13-ig.jpg"
+         alt="たたんだタオルとキャンドルが置かれた棚まわり。木と石でできた落ち着いた内装。">
+  </div>
+
+  <div class="ig__inner">
+    <div>
+      <p class="label">Instagram</p>
+      <h2 class="ig__title">仕上がりと空き状況は<br>Instagram に出しています</h2>
+      <p class="ig__handle">@salon_nagi_dummy<span class="dummy">ダミー</span></p>
+    </div>
+    <div>
+      <!-- 公開時に実アカウントの URL に差し替える -->
+      <a class="ig__link" href="#" rel="noopener">Instagram を見る</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 6. 予約（本命CTA） ============ -->
+<section class="reserve fade" id="reserve">
+  <div class="wrap reserve__inner">
+    <div>
+      <p class="reserve__label">Reservation</p>
+      <h2 class="reserve__title">
+        当日の空きは電話でお尋ねください。<br>
+        翌日以降は LINE でも受け付けます。
+      </h2>
+    </div>
+    <div class="reserve__right">
+      <a class="reserve__tel" href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+      <p class="reserve__hours">
+        電話がつながるのは 9:30 – 18:30 です<br>
+        火曜・第3水曜は定休です
+      </p>
+      <a class="reserve__line" href="#" rel="noopener">LINE で予約する</a>
+    </div>
+  </div>
+</section>
+
+<!-- 画面下に固定する予約ボタン（スマホのみ表示） -->
+<a class="callbar" href="tel:00000000000">
+  <span>電話する</span><span>LINE で予約</span>
+</a>
+
+<!-- ============ 8. フッター ============ -->
+<footer class="wrap">
+  <p class="f__name">hair salon 凪</p>
+  <p class="f__addr">
+    〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span><br>
+    TEL 000-0000-0000<span class="dummy">ダミー</span>／9:30–18:30・火曜と第3水曜が定休
+  </p>
+  <p class="f__copy">&copy; hair salon nagi</p>
+  <p class="f__credit">
+    サンプル用の写真は <a class="f__credit-link" href="https://unsplash.com/" rel="noopener">Unsplash</a> の作品です。
+    撮影者の一覧は <a class="f__credit-link" href="images/CREDITS.md">こちら</a>。<br>
+    実際の案件では、店舗で撮影した写真に差し替えます。
+  </p>
+</footer>
+
+<script>
+// 出品用スクリーンショット向け：?shot を付けて開くと「ダミー」バッジを隠す。
+if (location.search.indexOf('shot') !== -1) {
+  document.documentElement.classList.add('shot');
+}
+
+// スクロール時のフェードイン。一度表示したら監視を外す。
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll('.fade');
+  document.documentElement.classList.add('js');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+
+  var safety = setTimeout(function () {
+    for (var j = 0; j < targets.length; j++) targets[j].classList.add('in');
+  }, 3000);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      clearTimeout(safety);
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
