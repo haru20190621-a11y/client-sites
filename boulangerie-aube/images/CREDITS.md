@@ -1,31 +1,39 @@
 # 画像の出典
 
-サンプル用に、Wikimedia Commons と Openverse から集めたパブリックドメイン／
-クリエイティブ・コモンズの写真を使っています。**架空の店のデモなので、実際の
-案件では店舗で撮影した写真に差し替える前提**です。
+13枚とも [Unsplash](https://unsplash.com/) の写真です。
+**Unsplash License は帰属表示を求めていません**（商用利用可・改変可）。
+そのため、このページのスクリーンショットを出品ページや資料に使っても、
+クレジットが付いていないことが問題になりません。
 
-CC BY / CC BY-SA の写真は表示義務があるため、下記の一覧をこのファイルとして
-残し、ページのフッターにも出典表記を入れています。差し替えたら、その行を
-この表から削除してください。
+下の一覧は記録として残しているものです。Unsplash の API ガイドラインが
+撮影者と Unsplash へのリンクを推奨しているため、フッターにも一行載せています。
 
-| ファイル | 元の題名 | 撮影者 | ライセンス | 元ページ |
-|---|---|---|---|---|
-| `01-concept.jpg` | File:Home made sour dough bread.jpg | Tomascastelazo | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Home_made_sour_dough_bread.jpg |
-| `02-baguette.jpg` | File:Baguettes - stonesoup.jpg | jules / stonesoup | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Baguettes_-_stonesoup.jpg |
-| `03-campagne.jpg` | File:Sourdough bread.jpg | Anasuyas | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sourdough_bread.jpg |
-| `04-noix-figue.jpg` | File:Ruisleipä-limppu reikäleipä reissumies hapankorppu-1.JP | Hellahulla (Hellahulla) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Ruisleip%C3%A4-limppu_reik%C3%A4leip%C3%A4_reissumies_hapankorppu-1.JPG |
-| `05-oven.jpg` | File:Bread oven bricks start to whiten.jpg | Vinny Burgoo | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bread_oven_bricks_start_to_whiten.jpg |
-| `06-flour.jpg` | k7219-1 | USDAgov | by 2.0 | https://www.flickr.com/photos/41284017@N08/8455840761 |
-| `07-levain.jpg` | File:Sourdough starter 001.jpg | Jeuwre | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sourdough_starter_001.jpg |
-| `08-ig-boule.jpg` | File:6314 sourdough bread with logo.jpg | Virtual-Pano | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:6314_sourdough_bread_with_logo.jpg |
-| `09-ig-board.jpg` | Loaves | Editor B | by 2.0 | https://www.flickr.com/photos/11018968@N00/8416150030 |
-| `10-ig-lattice.jpg` | File:Home made sourdough cob.jpg | Fæ | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Home_made_sourdough_cob.jpg |
-| `11-ig-crumb.jpg` | File:Slices of sourdough bread.jpg | Angel Ganev | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Slices_of_sourdough_bread.jpg |
-| `12-ig-oven.jpg` | File:Oven for baking bread at Jexhof, Bavaria 02.jpg | Kritzolina | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Oven_for_baking_bread_at_Jexhof,_Bavaria_02.jpg |
-| `13-ig-oval.jpg` | File:Roggenbrot-Laib Loaf-rye-bread.JPG | Dirk Schneider (ds-foto) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Roggenbrot-Laib_Loaf-rye-bread.JPG |
+架空の店のサンプルなので、実案件では店舗で撮影した写真に差し替える前提です。
 
-## 表記の扱い
+| ファイル | 使用箇所 | 撮影者 | 写真ページ |
+|---|---|---|---|
+| `01-concept.jpg` | コンセプト | [Duncan Kidd](https://unsplash.com/@we_the_royal) | https://unsplash.com/photos/persons-hand-on-white-textile-2HMPWWifKrs |
+| `02-baguette.jpg` | 商品1 バゲット | [Sergio Arze](https://unsplash.com/@sergich) | https://unsplash.com/photos/bread-cWXibBbXx44 |
+| `03-campagne.jpg` | 商品2 カンパーニュ | [Ben Stein](https://unsplash.com/@benostein) | https://unsplash.com/photos/a-loaf-of-bread-sitting-on-top-of-a-counter-NPYmhef4kX4 |
+| `04-noix-figue.jpg` | 商品3 くるみとイチジクのライ麦 | [Emma Miller](https://unsplash.com/@littlegemstudio) | https://unsplash.com/photos/a-loaf-of-bread-sitting-on-top-of-a-wooden-cutting-board-sDDZsUhi3EI |
+| `05-oven.jpg` | こだわり i 薪の石窯 | [Yasin Onus](https://unsplash.com/@yasinonus) | https://unsplash.com/photos/bread-baking-in-a-stone-oven-w-Ep34orfoA |
+| `06-flour.jpg` | こだわり ii 北海道産の小麦 | [Immo Wegmann](https://unsplash.com/@tinkerman) | https://unsplash.com/photos/white-powder-on-brown-wooden-table-8CYL4WGzSQ4 |
+| `07-levain.jpg` | こだわり iii 自家製のレーズン酵母 | [Nik](https://unsplash.com/@helloimnik) | https://unsplash.com/photos/a-close-up-of-a-mixture-of-food-JlIGvRs1hwI |
+| `08-ig.jpg` | Instagram 1 | [DDP](https://unsplash.com/@moino007) | https://unsplash.com/photos/baked-breadas-QnQSxrXFgnw |
+| `09-ig.jpg` | Instagram 2 | [Mettfluencer Mett Lifestyle](https://unsplash.com/@mettfluencer_de) | https://unsplash.com/photos/brown-bread-on-brown-wooden-table-Mvx9T8jlYDk |
+| `10-ig.jpg` | Instagram 3 | [Alan Aprilio](https://unsplash.com/@alanaprilio) | https://unsplash.com/photos/golden-brown-artisan-sourdough-bread-on-wooden-plate-FJyjcrEBsMo |
+| `11-ig.jpg` | Instagram 4 | [Tommaso Urli](https://unsplash.com/@tunnuz) | https://unsplash.com/photos/sliced-bread-on-brown-wooden-chopping-board-vEtYK2wkOt0 |
+| `12-ig.jpg` | Instagram 5 | [Patty Greco](https://unsplash.com/@pattygreco) | https://unsplash.com/photos/a-black-plate-topped-with-a-cake-covered-in-powdered-sugar-IWy4NSq9QRA |
+| `13-ig.jpg` | Instagram 6 | [Wim van 't Einde](https://unsplash.com/@wimvanteinde) | https://unsplash.com/photos/a-basket-filled-with-lots-of-different-types-of-bread-4CuVNN1GnE0 |
 
-- CC0 / パブリックドメイン … 表示義務なし。差し替えるまでの間もそのまま使えます。
-- CC BY / CC BY-SA … 撮影者名とライセンスの表示が必要です。フッターの出典表記を消さないでください。
-- ファーストビューの動画は未設定のままです（`images/hero.mp4` と `images/hero-poster.jpg`）。
+## 差し替えるとき
+
+同じファイル名で置き換えれば HTML の変更は不要です。`object-fit: cover` で
+中央基準に切り抜かれるので、主題を中央に置いた構図にしてください。
+推奨サイズはコンテンツ用が 1400×1050 前後、Instagram が 1000×1000。
+差し替えたらこの表の該当行も直してください。
+
+## ファーストビューの動画（未設定）
+
+`<video>` の `src` は空のままです。用意できたら `images/hero.mp4` と
+`images/hero-poster.jpg` を置いて指定します。
