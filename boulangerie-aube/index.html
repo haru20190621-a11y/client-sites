@@ -208,8 +208,14 @@ footer{margin-top:var(--gap);padding:44px 0 40px;border-top:1px solid var(--ink-
 .f__name{font-family:var(--serif);font-size:14px;letter-spacing:.16em;margin:0 0 6px}
 .f__addr{margin:0 0 26px;font-size:11.5px;color:var(--ink-60);line-height:2}
 .f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--ink-60)}
-/* サンプル写真の出典。CC BY / CC BY-SA は表示義務があるので消さないこと */
+/* サンプル写真の出典。CC BY / CC BY-SA は表示義務があるので消さないこと。
+   クレジット一覧に到達できることが要件なので、リンクは必ず残す */
 .f__credit{margin:16px 0 0;font-size:10px;line-height:1.9;color:var(--ink-60)}
+.f__credit-link{color:var(--ink-60);border-bottom:1px solid var(--ink-25);text-decoration:none}
+
+/* 出品用のスクリーンショットを撮るとき、URL に ?shot を付けると
+   「ダミー」バッジが消える（住所・電話がダミーである事実は変わらない） */
+.shot .dummy{display:none}
 
 /* ---------- フェードイン（控えめ） ----------
    .js が付いたとき（＝JSが動いたとき）だけ隠す。
@@ -591,12 +597,18 @@ footer{margin-top:var(--gap);padding:44px 0 40px;border-top:1px solid var(--ink-
   <p class="f__copy">&copy; Boulangerie Aube</p>
   <p class="f__credit">
     サンプル用の写真は Wikimedia Commons / Openverse の CC BY・CC BY-SA・
-    パブリックドメイン作品です（撮影者一覧は images/CREDITS.md）。<br>
+    パブリックドメイン作品です。撮影者とライセンスの一覧は
+    <a class="f__credit-link" href="images/CREDITS.md">こちら</a>。<br>
     実際の案件では、店舗で撮影した写真に差し替えます。
   </p>
 </footer>
 
 <script>
+// 出品用スクリーンショット向け：?shot を付けて開くと「ダミー」バッジを隠す。
+if (location.search.indexOf('shot') !== -1) {
+  document.documentElement.classList.add('shot');
+}
+
 // スクロール時のフェードイン。一度表示したら監視を外す。
 // IntersectionObserver が使えない環境では何もしない（本文はそのまま見える）。
 (function () {
