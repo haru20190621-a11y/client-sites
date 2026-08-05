@@ -1,493 +1,333 @@
-/* ============================================================
-   情報主役型（info-first）第5世代 — 2026-08-02
-   ハル指示:「構成やエフェクト・アニメーションをパクって、内容は変えずに
-   外観を真似したバージョン」。参照元 = palette-nagasaki.or.jp
-   ------------------------------------------------------------
-   palette から写した骨格:
-   ・地色クリーム。中央のコンテンツだけを白い角丸30pxブロックで浮かせる
-   ・左に固定サイドバー（ロゴマーク大／事業所名／ナビは日本語＋英語の2段・縦積み／住所・電話）
-   ・右端に縦書きの施設名（fixed）
-   ・セクション見出しは「小さいロゴマーク → 英語タイトル（大・色つき・字間広め） → 日本語サブ」
-   ・本文は中央揃え
-   ・カードは色ベタ＋白文字＋番号（01/02/03）＋白いピルボタン
-   ・ボタンは白背景＋細枠＋角丸22pxのピル（文字色＝枠色）
-   ・ロゴマーク（palette=円環／うち=亀）を大小散らして背景装飾に
-   ・丸ゴシック（筑紫A丸ゴ→Zen Maru Gothic）
-   ・スクロールで下からふわっと出す（velocity.js→CSS transition）
-   ============================================================ */
+@charset "utf-8";
+/* あいずの森デイサービスセンター — 専用スタイル
+   デザイン方向: 「お風呂とごはんのある一日」＝時刻を背骨にした和のエディトリアル。
+   共通テンプレートは使わず、この事業所の資産（実写のお食事5枚・1階の大浴場・2006年開設・
+   パンフレットの時刻つき1日の流れ）から骨格・配色・書体を起こしている。 */
+
 :root{
-  --cream:#fbf8ee;
-  --card:#ffffff;
-  --ink:#59564f;
-  --ink-d:#3d3a35;
-  --sub:#7d7a72;
-  --line:#ebe6d5;
-  --green:#3a8560;
-  --green-d:#2b6349;
-  --pink:#e28d95;
-  --blue:#7cb6cf;
-  --yellow:#d9a244;
-  --maru:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;
-  --side:344px;
-  --vt:132px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{overflow-x:clip}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{font-family:var(--maru);color:var(--ink);background:var(--cream);
-  font-size:16px;line-height:2.05;letter-spacing:.06em}
-img{max-width:100%;display:block}
-a{color:var(--green-d)}
-h1,h2,h3{font-family:var(--maru);font-weight:700;line-height:1.6;letter-spacing:.1em}
-
-/* ---------- ①契約後の本番公開時にこのブロックごと削除 ---------- */
-.offer-banner{background:var(--green-d);color:#fff;text-align:center;padding:15px 18px;
-  font-size:.86rem;line-height:1.85;position:relative;z-index:60}
-.offer-banner p{max-width:780px;margin:0 auto 9px}
-.offer-btn{display:inline-block;margin:0 5px 4px;color:#fff;text-decoration:none;
-  border:1px solid rgba(255,255,255,.8);border-radius:22px;padding:7px 24px;font-size:.84rem}
-.offer-btn:hover{background:#fff;color:var(--green-d)}
-
-/* ---------- 左の固定サイドバー ---------- */
-.side{position:fixed;top:0;left:0;width:var(--side);height:100vh;z-index:50;
-  padding:26px 30px 24px;display:flex;flex-direction:column;overflow-y:auto}
-.side::-webkit-scrollbar{width:0}
-.side-vtxt{font-size:.78rem;letter-spacing:.24em;color:var(--sub);line-height:2.4;margin-bottom:20px}
-.side-logo{display:block;text-decoration:none;color:var(--ink-d);margin-bottom:26px}
-.side-mark{width:112px;height:112px;color:var(--green);margin-bottom:10px}
-.side-name{font-size:1.32rem;font-weight:700;letter-spacing:.06em;line-height:1.4}
-.side-name small{display:block;font-size:.7rem;font-weight:400;color:var(--sub);
-  letter-spacing:.1em;margin-top:5px}
-.side-nav{display:flex;flex-direction:column;gap:15px}
-.side-nav a{text-decoration:none;color:var(--ink-d);font-size:.95rem;line-height:1.5;transition:color .25s}
-.side-nav a i{display:block;font-style:normal;font-size:.66rem;letter-spacing:.16em;margin-top:2px}
-.side-nav a:nth-child(1) i{color:var(--green)}
-.side-nav a:nth-child(2) i{color:var(--blue)}
-.side-nav a:nth-child(3) i{color:var(--pink)}
-.side-nav a:nth-child(4) i{color:var(--yellow)}
-.side-nav a:nth-child(5) i{color:var(--green)}
-.side-nav a:hover{color:var(--green)}
-.side-foot{margin-top:auto;padding-top:26px;font-size:.78rem;line-height:1.95;color:var(--sub)}
-.side-foot a{color:var(--ink-d);text-decoration:none;font-weight:700;font-size:.95rem}
-.side-tel{display:none;align-items:center;gap:7px;background:var(--green);color:#fff;
-  border-radius:50%;padding:11px;text-decoration:none;margin-left:auto}
-.side-tel svg{width:19px;height:19px}
-
-/* ---------- 右端の縦書き ---------- */
-.vtitle{position:fixed;top:0;right:0;width:var(--vt);height:100vh;z-index:40;
-  background:var(--card);border-radius:26px 0 0 26px;display:flex;align-items:center;justify-content:center}
-.vtitle span{writing-mode:vertical-rl;font-size:.76rem;letter-spacing:.34em;color:var(--sub)}
-
-/* ---------- 中央の白いブロック ---------- */
-.contents{position:relative;z-index:10;background:var(--card);border-radius:30px;
-  margin:0 calc(var(--vt) + 22px) 0 var(--side);padding:0 0 10px;overflow:hidden}
-.wrap{max-width:760px;margin:0 auto;padding:0 30px}
-.sec{padding:74px 0;position:relative}
-.sec-tint{background:#f6faf7}
-.sec-cream{background:#fdfaf0}
-
-/* 背景に散らす亀マーク（palette の円環と同じ使い方） */
-.ring{position:absolute;z-index:0;color:var(--green);pointer-events:none}
-.ring.p{color:var(--pink)} .ring.b{color:var(--blue)} .ring.y{color:var(--yellow)}
-.sec > .wrap{position:relative;z-index:1}
-
-/* ---------- セクション見出し（palette型） ---------- */
-.sec-title{text-align:center;margin-bottom:34px}
-.sec-title .m{width:40px;height:40px;margin:0 auto 12px;color:var(--green)}
-.sec-title .en{font-size:1.42rem;font-weight:700;letter-spacing:.14em;color:var(--green);line-height:1.4}
-.sec-title .ja{font-size:1.06rem;font-weight:700;color:var(--ink-d);letter-spacing:.1em;margin-top:4px}
-#spec .sec-title .en,#spec .sec-title .m{color:var(--blue)}
-#creed .sec-title .en,#creed .sec-title .m{color:var(--pink)}
-#team .sec-title .en,#team .sec-title .m{color:var(--yellow)}
-.lead{text-align:center;font-size:.95rem;color:var(--sub);max-width:40em;margin:0 auto}
-
-/* ---------- ボタン（白地＋細枠のピル） ---------- */
-.pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--green);
-  color:var(--green);border-radius:22px;padding:11px 30px;font-size:.95rem;font-weight:700;
-  text-decoration:none;transition:background .25s,color .25s}
-.pill:hover{background:var(--green);color:#fff}
-.pill svg{width:17px;height:17px;flex:none}
-.pill-lg{font-size:1.12rem;padding:14px 34px}
-
-/* ---------- ヒーロー ---------- */
-.hero{padding:46px 0 0;position:relative}
-.hero-in{max-width:760px;margin:0 auto;padding:0 30px;text-align:center;position:relative;z-index:1}
-.hero-en{font-size:.8rem;letter-spacing:.3em;color:var(--yellow);font-weight:700;margin-bottom:14px}
-.hero h1{font-size:clamp(1.5rem,3.2vw,2.05rem);color:var(--ink-d);line-height:1.85}
-.hero h1 em{font-style:normal;color:var(--green)}
-.hero-area{display:inline-block;border:1px solid var(--green);color:var(--green);
-  border-radius:22px;padding:4px 16px;font-size:.78rem;font-weight:700;margin-bottom:18px}
-.hero-copy{margin-top:18px;font-size:.95rem;color:var(--sub)}
-.hero-ph{margin:32px 0 0;border-radius:20px;overflow:hidden}
-.hero-ph img{width:100%;aspect-ratio:16/8;object-fit:cover}
-.hero-cta{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:10px}
-.cta-note{font-size:.82rem;color:var(--sub);line-height:1.8}
-
-.hero-bar{max-width:760px;margin:26px auto 0;padding:0 30px}
-.svc-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.svc-tags span{background:#f2f8f4;color:var(--green-d);border-radius:22px;
-  padding:5px 15px;font-size:.82rem;font-weight:700}
-.hero-bar-info{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:14px;justify-content:center;
-  font-size:.84rem;color:var(--sub)}
-.hero-bar-info b{color:var(--ink-d)}
-
-/* ---------- 読み手別の入口（palette の3カラー・ベタカード） ---------- */
-.doors{display:grid;grid-template-columns:1fr;gap:18px;margin-top:10px}
-@media (min-width:700px){.doors{grid-template-columns:repeat(3,1fr);gap:15px}}
-.door{display:flex;flex-direction:column;border-radius:14px;padding:24px 20px 22px;
-  text-decoration:none;color:#fff;background:var(--c);text-align:center;
-  transition:transform .3s,box-shadow .3s}
-.door:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(60,70,60,.16)}
-.door.u{--c:#5aa87c} .door.m{--c:#7cb6cf} .door.j{--c:#e0a95c}
-.door .num{font-size:.86rem;letter-spacing:.2em;opacity:.92;margin-bottom:4px}
-.door b{font-size:1.04rem;line-height:1.55;letter-spacing:.05em}
-.door .d{font-size:.83rem;line-height:1.85;margin-top:8px;opacity:.96;flex:1}
-.door .go{display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  background:#fff;color:var(--c);border-radius:22px;padding:8px 20px;font-size:.83rem;
-  font-weight:700;margin-top:16px;align-self:center}
-
-/* ---------- サービスカード ---------- */
-.cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:10px}
-@media (min-width:640px){.cards{grid-template-columns:repeat(2,1fr)}}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;text-align:center}
-.card .ic{width:50px;height:50px;border-radius:50%;background:#f2f8f4;
-  display:grid;place-items:center;margin:0 auto 12px}
-.card .ic svg{width:25px;height:25px;stroke:var(--green)}
-.card:nth-child(2) .ic{background:#fbeff1}.card:nth-child(2) .ic svg{stroke:var(--pink)}
-.card:nth-child(3) .ic{background:#eef5f9}.card:nth-child(3) .ic svg{stroke:var(--blue)}
-.card:nth-child(4) .ic{background:#fdf5e6}.card:nth-child(4) .ic svg{stroke:var(--yellow)}
-.card:nth-child(5) .ic{background:#fbeff1}.card:nth-child(5) .ic svg{stroke:var(--pink)}
-.card:nth-child(6) .ic{background:#eef5f9}.card:nth-child(6) .ic svg{stroke:var(--blue)}
-.card h3{font-size:1.02rem;color:var(--ink-d)}
-.card p{font-size:.88rem;color:var(--sub);margin-top:6px;line-height:1.95;text-align:left}
-.card.feature{background:#f7fbf8;border-color:#d6e8dd}
-
-/* ---------- お受けできること（表） ---------- */
-.spec{width:100%;border-collapse:separate;border-spacing:0;margin-top:8px;
-  border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
-.spec th,.spec td{padding:14px 18px;border-bottom:1px solid var(--line);text-align:left;
-  font-size:.9rem;vertical-align:top;line-height:1.85}
-.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
-.spec th{font-weight:700;color:var(--ink-d);background:#fbfdfc}
-.spec td{color:var(--sub)}
-@media (min-width:561px){.spec th{width:14em}}
-.yes,.no,.cond{display:inline-flex;align-items:center;gap:7px;font-weight:700}
-.yes{color:var(--green-d)}
-.yes::before{content:"";width:15px;height:15px;flex:none;border:2.4px solid var(--green);border-radius:50%}
-.no{color:#8a8a8a;font-weight:500}
-.no::before{content:"";width:15px;height:15px;flex:none;
-  background:linear-gradient(45deg,transparent 44%,#9a9a9a 44% 56%,transparent 56%),
-             linear-gradient(-45deg,transparent 44%,#9a9a9a 44% 56%,transparent 56%)}
-.cond{color:#b07f38;font-weight:500}
-.cond::before{content:"";width:15px;height:15px;flex:none;border:2.4px solid var(--yellow);
-  border-radius:4px;box-sizing:border-box}
-@media (max-width:560px){
-  .spec th,.spec td{display:block;width:auto}
-  .spec th{padding:13px 15px 0;background:#fff}
-  .spec td{padding:2px 15px 13px}
-}
-.src{font-size:.8rem;color:var(--sub);margin-top:18px;text-align:center;line-height:1.9}
-
-/* ---------- わたしたちの考え ---------- */
-.creed-lead{font-size:clamp(1.1rem,2.4vw,1.4rem);line-height:2;font-weight:700;
-  color:var(--pink);text-align:center;margin-top:6px}
-.creed-sub{font-size:.95rem;line-height:2.05;color:var(--sub);text-align:center;margin-top:16px}
-.episode{background:#fff;border-radius:16px;padding:22px;margin-top:30px;
-  display:grid;grid-template-columns:1fr;gap:20px;align-items:center;border:1px solid var(--line)}
-@media (min-width:640px){.episode{grid-template-columns:230px 1fr;gap:24px}}
-.episode img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
-.episode .ep-h{font-weight:700;color:var(--pink);margin-bottom:6px;font-size:.95rem}
-.episode p{font-size:.9rem;line-height:1.95;text-align:left}
-.voice{background:#fdf2f3;border-radius:16px;padding:24px;margin-top:20px;text-align:center}
-.voice-h{font-weight:700;font-size:.92rem;color:var(--pink);margin-bottom:10px}
-.voice p{font-size:.94rem;line-height:2.05}
-.voice-s{font-size:.82rem;color:var(--sub);margin-top:12px}
-
-/* ---------- はたらく人 ---------- */
-.figs{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px}
-@media (min-width:640px){.figs{grid-template-columns:repeat(3,1fr)}}
-.fig{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
-.fig b{display:block;font-size:1.16rem;color:var(--yellow);line-height:1.5}
-.fig span{display:block;font-size:.82rem;color:var(--sub);margin-top:2px}
-.shots{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
-@media (min-width:640px){.shots{grid-template-columns:repeat(3,1fr)}}
-.shots figure{margin:0}
-.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
-.shots figcaption{font-size:.82rem;color:var(--sub);margin-top:.6em;line-height:1.85;text-align:left}
-.team-cta{margin-top:28px;text-align:center;font-size:.9rem;color:var(--sub)}
-.team-cta .pill{margin-top:12px}
-
-/* ---------- 事業所情報 ---------- */
-.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:6px}
-.tbl th,.tbl td{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.tbl th{font-weight:700;color:var(--ink-d);width:8em;white-space:nowrap}
-.tbl td{color:var(--sub)}
-@media (max-width:560px){.tbl th{width:6em;font-size:.85rem}.tbl td{font-size:.86rem}}
-.contact-box{background:#f7fbf8;border-radius:16px;padding:26px;margin-top:26px;text-align:center}
-.contact-box p{font-size:.9rem;color:var(--sub)}
-.contact-box .pill{margin-top:16px}
-.contact-list{list-style:none;margin-top:18px;font-size:.86rem;display:inline-block;text-align:left}
-.contact-list li{padding:5px 0}
-.contact-list .k{color:var(--green);font-weight:700;font-size:.74rem;letter-spacing:.12em;margin-right:10px}
-
-/* ---------- フッター ---------- */
-.foot{text-align:center;padding:40px 24px 34px;font-size:.82rem;color:var(--sub);line-height:2}
-.foot-logo{font-weight:700;font-size:1.02rem;color:var(--ink-d);margin-bottom:6px}
-.demo-note{margin-top:10px;font-size:.76rem;opacity:.85}
-
-/* ---------- モバイル固定電話バー ---------- */
-.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;
-  background:rgba(251,247,230,.97);padding:9px 14px;box-shadow:0 -3px 16px rgba(0,0,0,.08)}
-.fixbar .pill{width:100%;justify-content:center;background:var(--green);color:#fff;border-color:var(--green)}
-
-/* ---------- スクロールで下からふわっと（palette の velocity 相当） ---------- */
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
-.js .rv.on{opacity:1;transform:none}
-.js .rv.d1{transition-delay:.1s} .js .rv.d2{transition-delay:.2s} .js .rv.d3{transition-delay:.3s}
-
-/* ---------- レスポンシブ ---------- */
-@media (max-width:1180px){
-  :root{--side:290px;--vt:0px}
-  .vtitle{display:none}
-  .contents{margin-right:20px}
-  .side{width:var(--side);padding:22px 22px 20px}
-  .side-mark{width:88px;height:88px}
-  .side-name{font-size:1.14rem}
-}
-@media (max-width:900px){
-  :root{--side:0px}
-  .side{position:static;width:auto;height:auto;padding:18px 20px 6px;
-    flex-direction:row;align-items:center;gap:14px;flex-wrap:nowrap}
-  .side-vtxt,.side-nav,.side-foot{display:none}
-  .side-logo{margin:0;display:flex;align-items:center;gap:11px}
-  .side-mark{width:46px;height:46px;margin:0}
-  .side-name{font-size:1.02rem;white-space:nowrap}
-  .side-name small{font-size:.62rem;margin-top:2px;white-space:normal}
-  .side-tel{display:inline-flex}
-  .contents{margin:0 12px;border-radius:22px}
-  .wrap,.hero-in,.hero-bar{padding:0 20px}
-  .sec{padding:56px 0}
-  .fixbar{display:block}
-  body{padding-bottom:80px}
-}
-@media (max-width:380px){.side-name{font-size:.9rem}}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-  .rv,.js .rv{opacity:1!important;transform:none!important}
+  --paper:#f5efe3;
+  --paper2:#efe7d6;
+  --alt:#fbf6ec;
+  --card:#fffdf8;
+  --ink:#2f2a23;
+  --sub:#5b5449;
+  --line:#ddd1ba;
+  --ai:#1d4f5c;      /* 藍 — 湯とのれん。主色 */
+  --ai-d:#123a45;
+  --shu:#b34e30;     /* 朱 — ロゴの社名から。差し色 */
+  --wakaba:#5f7c46;  /* 若草 — ロゴの弧から。○の色だけに使う */
+  --sand:#dcc49b;
+  --min:"Shippori Mincho B1",'Hiragino Mincho ProN','Yu Mincho',serif;
+  --go:"Zen Kaku Gothic New",'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
 }
 
-/* ---------- レイアウト: 提案バナーの下に潜らないよう flex + sticky ---------- */
-.layout{display:flex;align-items:flex-start;gap:0}
-.side{position:sticky;top:0;height:100vh;flex:0 0 var(--side)}
-.contents{flex:1;min-width:0;margin:0}
-.vtitle{position:sticky;top:0;height:100vh;flex:0 0 var(--vt);
-  background:var(--card);border-radius:26px 0 0 26px;margin-left:22px}
-@media (max-width:1180px){.vtitle{display:none}.contents{margin-right:0}}
-@media (max-width:900px){
-  .layout{display:block}
-  .side{position:static;height:auto;flex:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--go);font-size:17px;font-weight:400;line-height:1.95;
+  -webkit-text-size-adjust:100%;
 }
-/* 事業所名が2行に折れるのを防ぐ */
-.side-name{font-size:1.14rem;letter-spacing:.02em}
-@media (max-width:1180px){.side-name{font-size:1.02rem}}
-
-/* SVGは既定でinlineなので、ロゴが事業所名と同じ行に流れて折り返していた */
-.side-mark,.sec-title .m{display:block}
-.side-logo{display:block}
-.side-name{display:block;font-size:1.1rem}
-@media (max-width:1180px){.side-name{font-size:1rem}}
-@media (max-width:900px){.side-logo{display:flex;align-items:center;gap:11px}.side-name{font-size:1.02rem}}
-
-/* クラス名衝突の修正: 入口カードの番号 .no が、表の「×」用 .no::before を拾って
-   01/02/03 の前に✕が出ていた。番号は .num に改名する */
-.door .num{font-size:.86rem;letter-spacing:.2em;opacity:.92;margin-bottom:4px;display:block}
-.door .num::before{content:none}
-
-/* ---------- 写真を大きく使う（実写が6枚しかないので枚数でなく面積で見せる） ---------- */
-.hero-ph{margin:36px 0 0;border-radius:0;overflow:hidden}
-.hero-ph img{width:100%;aspect-ratio:20/7;object-fit:cover}
-.band-ph{position:relative;margin:0;overflow:hidden}
-.band-ph img{width:100%;aspect-ratio:20/6;object-fit:cover}
-.band-ph::after{content:"";position:absolute;inset:0;background:rgba(20,32,24,.28)}
-.band-cap{position:absolute;left:0;right:0;bottom:22px;z-index:2;text-align:center;color:#fff;
-  font-size:.92rem;letter-spacing:.16em;text-shadow:0 1px 10px rgba(0,0,0,.5)}
-@media (max-width:700px){
-  .hero-ph img{aspect-ratio:16/9}
-  .band-ph img{aspect-ratio:16/8}
-  .band-cap{bottom:14px;font-size:.84rem}
-}
-
-/* ============ 批評（第5世代・1周目）の修正 2026-08-02 ============ */
-/* 3/4/6: 白文字や本文にパステルをそのまま使っていてコントラストがAA未達だった。
-   「色ベタ・アイコン・線」用のパステルと、「文字」用の暗い変種を分ける */
-:root{
-  --pink-t:#b8555f;
-  --blue-t:#3f7f99;
-  --yellow-t:#8a6118;
-  --sub:#6d6a62;
-}
-.door.u{--c:#3d8a5f} .door.m{--c:#3f7f99} .door.j{--c:#a9701c}
-.sec-title .en{color:var(--green-d)}
-#spec .sec-title .en{color:var(--blue-t)}
-#creed .sec-title .en{color:var(--pink-t)}
-#team .sec-title .en{color:var(--yellow-t)}
-.creed-lead{color:var(--pink-t)}
-.voice-h,.episode .ep-h{color:var(--pink-t)}
-.fig b{color:var(--yellow-t)}
-.hero-en{color:var(--yellow-t)}
-.cond{color:#8a6118}
-.side-nav a .en2{opacity:1}
-.side-nav a:nth-child(2) .en2{color:var(--blue-t)}
-.side-nav a:nth-child(3) .en2{color:var(--pink-t)}
-.side-nav a:nth-child(4) .en2{color:var(--yellow-t)}
-.side-nav a:nth-child(1) .en2,.side-nav a:nth-child(5) .en2{color:var(--green-d)}
-.en2{display:block;font-style:normal;font-size:.66rem;letter-spacing:.16em;margin-top:2px}
-/* 5: .ja を h2 にしたので見た目を維持する */
-.sec-title h2.ja{font-size:1.06rem;font-weight:700;color:var(--ink-d);letter-spacing:.1em;margin-top:4px}
-/* 8: モバイル用のアンカーチップ（900px以下でナビが消えるため） */
-.chips{display:none}
-@media (max-width:900px){
-  .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none}
-  .chips::-webkit-scrollbar{display:none}
-  .chips a{flex:none;background:#f2f8f4;color:var(--green-d);border-radius:20px;
-    padding:7px 15px;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap}
-}
-/* 9: 縦の短いノートPCでサイドバー下部の住所・電話が隠れる */
-@media (max-height:780px) and (min-width:901px){.side-vtxt{display:none}.side-mark{width:88px;height:88px}}
-/* 7: 380px以下の指定が後段の900px指定に上書きされて死んでいた（順序を最後尾へ） */
-@media (max-width:380px){
-  .side-name{font-size:.88rem;white-space:normal;line-height:1.35}
-  .side-name small{display:none}
-}
-
-/* 入口カードの白文字がまだ4.5:1に届いていなかった（4.18〜4.46）ので一段暗くする */
-.door.u{--c:#33795a} .door.m{--c:#37718c} .door.j{--c:#96631a}
-
-/* ============================================================
-   あいずの森デイサービスセンター 個別調整（2026-08-04・批評1周目の指摘）
-   ============================================================ */
-/* 4: 本文が14px級で小さい（読み手に高齢のご家族が含まれる業種＝実害） */
-.card p,.spec th,.spec td,.tbl td,.contact-box p,.lead{font-size:1rem}
-.src{font-size:.84rem}
-/* 5: クリーム地でのAA未達を一段暗く */
-:root{--blue-t:#35708a;--pink-t:#a8474f}
-.no{color:#6d6a62}
-/* 6: ナビ英字の色は「担当のある2本」だけに残し、他は主色へ戻す */
-.side-nav a[href] .en2{color:var(--green-d)}
-.side-nav a[href="#spec"] .en2{color:var(--blue-t)}
-.side-nav a[href="#team"] .en2{color:var(--yellow-t)}
-/* 9: カードの高さが揃って中身が揃わない */
-.cards,.doors,.figs,.shots{align-items:start}
-/* 10: 日本語の禁則をブラウザ任せにしない */
+img{max-width:100%;height:auto;display:block}
+a{color:var(--ai);text-decoration:none}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.5}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
 .nb{white-space:nowrap}
-.card p,.lead,.spec td,.spec th,.tbl td,.hero-copy,.creed-sub,.contact-box p,.shots figcaption,.src{
-  word-break:auto-phrase;line-break:strict}
-/* 11: モバイルで白ブロックが画面端に付き、地色の枠が消えていた */
-@media (max-width:900px){.contents{margin:0 12px}}
-/* 13: お食事5枚の最終行が欠ける → 1枚目を2列ぶんに広げて2行を埋める（640px以上のときだけ） */
-@media (min-width:640px){
-  #meal .shots figure:first-child{grid-column:span 2}
-  #meal .shots figure:first-child img{aspect-ratio:20/9}
+p,li,td,th,figcaption,blockquote{word-break:auto-phrase;line-break:strict}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ── 提案バナー（契約後に削除） ───────────────── */
+.offer-banner{
+  background:var(--ai-d);color:#f3ece0;padding:20px 20px 22px;text-align:center;
+  border-bottom:3px solid var(--shu);
+}
+.offer-banner p{max-width:880px;margin:0 auto 14px;font-size:.93rem;line-height:1.85}
+.offer-btn{
+  display:inline-block;margin:0 5px 6px;padding:.62em 1.5em;
+  border:1.5px solid #f3ece0;color:#f3ece0;font-size:.92rem;font-weight:500;border-radius:3px;
+}
+.offer-btn:hover{background:#f3ece0;color:var(--ai-d)}
+
+/* ── ヘッダー ─────────────────────────── */
+.hdr{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:20px;
+  padding:10px 22px;background:rgba(245,239,227,.95);border-bottom:1px solid var(--line);
+  backdrop-filter:saturate(1.2) blur(8px);
+}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ai)}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand-txt b{display:block;font-family:var(--min);font-size:1.06rem;letter-spacing:.03em;color:var(--ai-d);line-height:1.35}
+.brand-txt small{display:block;font-size:.72rem;color:var(--sub);letter-spacing:.02em;line-height:1.5}
+.gnav{display:flex;gap:1.35rem;margin-left:auto;font-size:.93rem}
+.gnav a{color:var(--ink);padding-bottom:3px;border-bottom:2px solid transparent}
+.gnav a:hover{border-bottom-color:var(--shu);color:var(--ai-d)}
+.hdr-tel{display:flex;align-items:center;gap:8px;font-family:var(--min);font-size:1.16rem;color:var(--ai-d);letter-spacing:.02em}
+.hdr-tel svg{width:19px;height:19px;color:var(--shu);flex:none}
+.hdr-tel small{display:block;font-family:var(--go);font-size:.68rem;color:var(--sub);letter-spacing:.08em;line-height:1.2}
+
+/* ── ヒーロー ─────────────────────────── */
+.hero{
+  max-width:1160px;margin:0 auto;padding:54px 20px 34px;
+  display:grid;grid-template-columns:1fr .9fr;gap:46px;align-items:center;
+}
+.kicker{display:flex;align-items:center;gap:12px;margin:0 0 .9em;font-size:.76rem;letter-spacing:.22em;color:var(--shu)}
+.kicker::before{content:"";width:34px;height:1px;background:var(--shu)}
+.hero h1{font-family:var(--min);font-size:clamp(2.05rem,5.1vw,3.3rem);color:var(--ai-d);letter-spacing:.04em;line-height:1.48}
+.hero h1 span{display:block}
+.hero h1 span:nth-child(2){margin-left:1.1em}
+.hero h1 span:nth-child(3){margin-left:2.2em}
+.hero-lead{margin:1.5em 0 0;max-width:31em;font-size:1.02rem;color:var(--sub)}
+.hero-act{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.7em}
+.hero-hours{margin-top:1.4em;font-size:.88rem;color:var(--sub)}
+.hero-hours i{display:inline-block;width:5px;height:5px;margin:0 .8em;border-radius:50%;background:var(--line);vertical-align:middle}
+.hero-arch{overflow:hidden;border-radius:210px 210px 8px 8px;box-shadow:0 14px 34px rgba(29,79,92,.14)}
+.hero-arch img{width:100%;aspect-ratio:4/3.1;object-fit:cover;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.075)}}
+.hero-cap{margin:.9em 0 0;font-size:.82rem;color:var(--sub);text-align:center}
+
+/* ── 読み手別の入口（カードにせず、罫線の3列） ── */
+.doors{
+  max-width:1160px;margin:6px auto 0;padding:0 20px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+}
+.doors a{
+  padding:20px 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.doors a:last-child{border-right:1px solid var(--line)}
+.doors b{display:block;font-family:var(--min);font-size:1.04rem;color:var(--ai-d);position:relative;padding-left:16px}
+.doors b::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-top:1.6px solid var(--shu);border-right:1.6px solid var(--shu);transform:rotate(45deg);transition:transform .25s}
+.doors a:hover{background:var(--alt)}
+.doors a:hover b::before{transform:rotate(45deg) translate(3px,-3px)}
+.doors span{display:block;margin-top:.25em;padding-left:16px;font-size:.84rem;color:var(--sub);line-height:1.75}
+
+/* ── 数字の帯 ─────────────────────────── */
+.nums{
+  max-width:1160px;margin:44px auto 0;padding:26px 20px;background:var(--paper2);
+  display:grid;grid-template-columns:repeat(3,1fr);text-align:center;
+}
+.nums div+div{border-left:1px solid var(--line)}
+.nums b{display:block;font-family:var(--min);font-size:2.9rem;color:var(--ai);line-height:1.15;letter-spacing:.02em}
+.nums small{font-size:.34em;margin-left:.18em;color:var(--ai-d)}
+.nums span{display:block;font-size:.83rem;color:var(--sub);line-height:1.7}
+
+/* ── セクション共通 ───────────────────── */
+.sec{padding:78px 0}
+.sec-day{background:var(--alt)}
+.sec-meal{background:var(--paper2)}
+.sec-h{margin-bottom:1.5em}
+.sec-h .en{margin:0;font-size:.73rem;letter-spacing:.3em;color:var(--shu)}
+.sec-h h2{font-family:var(--min);font-size:clamp(1.62rem,3.4vw,2.15rem);color:var(--ai-d);letter-spacing:.05em;margin-top:.1em}
+.sec-h h2::after{content:"";display:block;width:44px;height:2px;background:var(--ai);margin-top:.55em}
+.lead{max-width:44em;color:var(--sub);margin-bottom:2em}
+.src{margin-top:1.8em;font-size:.79rem;color:#736b5e;line-height:1.8}
+.sec-dark .src{color:#a79c88}
+
+/* ── ボタン ──────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:.55em;padding:.8em 1.5em;border-radius:3px;
+  border:1.5px solid var(--ai);color:var(--ai);font-size:.98rem;font-weight:500;
+}
+.btn:hover{background:var(--ai);color:var(--paper)}
+.btn-fill{background:var(--ai);color:var(--paper);border-color:var(--ai)}
+.btn-fill:hover{background:var(--ai-d);border-color:var(--ai-d);color:var(--paper)}
+.btn-fill b{font-family:var(--min);font-size:1.1em;letter-spacing:.02em}
+.btn-lg{font-size:1.14rem;padding:.85em 1.7em}
+.btn svg{width:19px;height:19px}
+
+/* ── できること（品書き型の一覧） ───────── */
+.menu{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:52px;align-items:start}
+.menu li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:0 16px;padding:22px 0;border-top:1px solid var(--line)}
+.menu .mn{font-family:var(--min);font-size:1.42rem;color:var(--shu);line-height:1.4;letter-spacing:.02em}
+.menu h3{font-family:var(--min);font-size:1.2rem;color:var(--ai-d);letter-spacing:.03em;margin-bottom:.3em}
+.menu p{font-size:.97rem;color:var(--sub);margin:0}
+
+/* ── 一日の流れ（このサイトの背骨） ─────── */
+.day{position:relative;margin-top:6px}
+.day-rail{position:absolute;left:118px;top:14px;bottom:22px;width:2px;background:var(--line);overflow:hidden}
+.day-prog{display:block;width:100%;height:100%;background:var(--ai);transform-origin:top center}
+@supports (animation-timeline:view()){
+  .day-prog{transform:scaleY(0);animation:railgrow linear both;animation-timeline:view();animation-range:cover 6% cover 74%}
+}
+@keyframes railgrow{to{transform:scaleY(1)}}
+.day-row{
+  position:relative;display:grid;grid-template-columns:104px minmax(0,1fr);gap:0 46px;
+  padding:26px 0;border-top:1px solid var(--line);
+}
+.day-row:first-of-type{border-top:0}
+.day-row::before{
+  content:"";position:absolute;left:112px;top:34px;width:14px;height:14px;border-radius:50%;
+  background:var(--alt);border:2px solid var(--ai);
+}
+.day-ph{grid-template-columns:104px minmax(0,1fr) 296px}
+.day .t{margin:0;font-family:var(--min);font-size:2.05rem;color:var(--ai);line-height:1.25;text-align:right;letter-spacing:.01em}
+.day .t small{font-size:.52em;margin-left:.04em}
+.day .c h3{font-family:var(--min);font-size:1.24rem;color:var(--ai-d);letter-spacing:.03em}
+.day .c p{margin:.45em 0 0;font-size:.97rem;color:var(--sub)}
+.day figure{position:relative;margin:0}
+.day figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.day figcaption{margin-top:.5em;font-size:.79rem;color:#736b5e}
+.steam{position:absolute;top:10px;left:14px;width:62px;height:42px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;opacity:.9}
+.steam path{animation:steam 4.6s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:1.5s}
+.steam path:nth-child(3){animation-delay:3s}
+@keyframes steam{
+  0%{opacity:0;transform:translateY(7px)}
+  40%{opacity:.85}
+  100%{opacity:0;transform:translateY(-9px)}
 }
 
-/* ---- 批評2周目の指摘 ---- */
-/* 2: お問い合わせの電話ボタンが .contact-list とベースライン揃えで左下に落ちていた */
-.contact-box .pill{display:flex;width:max-content;margin:16px auto 0}
-/* 3: 375px以下で h1 の12文字目だけが3行目に落ちる */
-@media (max-width:420px){.hero h1{font-size:1.34rem;letter-spacing:.04em}}
-/* 5: 事業所情報の見出しと値が密着し、560px以下の指定が後段に殺されていた */
-.tbl th{width:9.6em;padding-right:1.2em;font-size:.95rem}
-@media (max-width:560px){.tbl th{width:7.4em;font-size:.86rem}.tbl td{font-size:.9rem}}
-/* 6: 固有名詞の語中改行 */
-.foot,.side-name,.hero-area{word-break:auto-phrase;line-break:strict}
-/* 7: 最重要カードが地色に沈んでいた（feature 側を浮かせる） */
-.card.feature{background:#fff;border-color:#bcdaca;box-shadow:0 3px 14px rgba(40,60,48,.10)}
-/* 10: 役割のない差し色を主色へ戻す */
-.hero-en{color:var(--green-d)}
-#meal .creed-lead{color:var(--green-d)}
-#meal .ring{color:var(--green)}
-#team .ring{color:var(--yellow)}
-/* 12: 主CTAの文字色・背景がAA未達（4.47:1）だった */
-.pill{border-color:var(--green-d);color:var(--green-d)}
-.pill:hover{background:var(--green-d)}
-.fixbar .pill{background:var(--green-d);border-color:var(--green-d);color:#fff}
-.contact-list .k{color:var(--green-d)}
-.hero-area{border-color:var(--green-d);color:var(--green-d)}
-/* ヒーロー写真: 素材が669×490なので20:7は白の面積が勝ちすぎる。16:9の枠に収める */
-.hero-ph{margin:34px 22px 0;border-radius:18px;overflow:hidden}
-.hero-ph img{aspect-ratio:16/9}
-
-/* ---- 批評3周目の指摘 ---- */
-/* 1: 375pxで事業所情報の表が枠から溢れて値の末尾が切れる → .spec と同じ縦積みに */
-@media (max-width:560px){
-  .tbl th,.tbl td{display:block;width:auto;white-space:normal}
-  .tbl th{padding:12px 0 0}
-  .tbl td{padding:0 0 12px}
+/* ── お食事 ──────────────────────────── */
+.meal{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:center}
+.meal-txt blockquote{
+  margin:0;font-family:var(--min);font-size:clamp(1.85rem,4.4vw,2.7rem);color:var(--ai-d);
+  line-height:1.5;letter-spacing:.05em;
 }
-/* 3: 本文系の一部が16px未満（連絡先まわりが一番小さかった） */
-.hero-copy,.creed-sub,.team-cta{font-size:1rem}
-.contact-list{font-size:.95rem}
-/* 5: お食事1行目の高さが揃わない */
-@media (min-width:640px){#meal .shots figure:nth-child(2) img{aspect-ratio:20/9}}
-/* 6: メールアドレスがハイフンで折り返って別の語に見える */
-.contact-list a{overflow-wrap:anywhere}
-/* 1b: 560px以下では表そのものをブロック化しないと、テーブルの min-content 幅が
-       白ブロックを超えて右端が切れる（.spec で実測378px > 枠336px） */
-@media (max-width:560px){
-  .spec,.spec tbody,.spec tr,.tbl,.tbl tbody,.tbl tr{display:block;width:auto;max-width:100%}
+.meal-txt blockquote::before{content:"「";color:var(--shu)}
+.meal-txt blockquote::after{content:"」";color:var(--shu)}
+.q-src{margin:.7em 0 1.5em;font-size:.8rem;color:#736b5e}
+.meal-txt p:last-child{font-size:.99rem;color:var(--sub)}
+.meal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:26px}
+.meal-grid figure{margin:0}
+.meal-grid figure:nth-child(2n){transform:translateY(26px)}
+.meal-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;box-shadow:0 6px 18px rgba(47,42,35,.09)}
+
+/* ── お受けできること（表） ──────────── */
+.spec{width:100%;border-collapse:collapse}
+.spec th{
+  width:14.5em;text-align:left;vertical-align:top;font-weight:700;font-size:.98rem;color:var(--ai-d);
+  padding:1em 1.2em 1em 0;border-bottom:1px solid var(--line);
+}
+.spec td{vertical-align:top;padding:1em 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.spec tr:first-child th,.spec tr:first-child td{border-top:1px solid var(--line)}
+.yes,.no,.cond{display:block;position:relative;padding-left:1.6em}
+.yes::before,.no::before,.cond::before{position:absolute;left:0;top:0;font-weight:700}
+.yes::before{content:"○";color:var(--wakaba)}
+.no::before{content:"×";color:var(--shu)}
+.cond::before{content:"△";color:#8a6d24}
+.no,.cond{color:var(--sub)}
+
+/* ── はたらく人のこと（濃色） ─────────── */
+.sec-dark{background:var(--ai-d);color:#e7dfd0}
+.sec-dark .sec-h .en{color:var(--sand)}
+.sec-dark .sec-h h2{color:#f4ecdd}
+.sec-dark .sec-h h2::after{background:var(--sand)}
+.tnums{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:36px}
+.tnums div{padding:4px 18px}
+.tnums div+div{border-left:1px solid rgba(220,196,155,.32)}
+.tnums b{display:block;font-family:var(--min);font-size:2.8rem;color:var(--sand);line-height:1.2}
+.tnums small{font-size:.33em;margin-left:.16em;color:#e7dfd0}
+.tnums span{display:block;font-size:.83rem;color:#c9bfab;line-height:1.7}
+.tcols{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:start}
+.tcols h3{font-family:var(--min);font-size:1.16rem;color:#f4ecdd;letter-spacing:.03em;margin-bottom:.5em;padding-left:13px;border-left:3px solid var(--sand)}
+.tcols p{font-size:.96rem;color:#d5cbb8}
+.tcta{margin-top:34px;padding-top:24px;border-top:1px solid rgba(220,196,155,.32);font-size:.98rem;color:#e7dfd0}
+.tcta .btn-fill{margin-left:14px;background:var(--sand);border-color:var(--sand);color:var(--ai-d);font-family:var(--min);font-size:1.1rem}
+.tcta .btn-fill:hover{background:#f4ecdd;border-color:#f4ecdd;color:var(--ai-d)}
+
+/* ── 事業所情報・お問い合わせ ─────────── */
+.info{display:grid;grid-template-columns:1.25fr .95fr;gap:44px;align-items:start}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{width:9.5em;text-align:left;vertical-align:top;font-weight:500;font-size:.92rem;color:var(--sub);padding:.85em 1em .85em 0;border-bottom:1px solid var(--line)}
+.tbl td{vertical-align:top;padding:.85em 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.contact{background:var(--card);border-top:3px solid var(--shu);padding:28px 26px 26px;box-shadow:0 8px 22px rgba(47,42,35,.07)}
+.contact h3{font-family:var(--min);font-size:1.2rem;color:var(--ai-d);letter-spacing:.04em;margin-bottom:.5em}
+.contact p{font-size:.95rem;color:var(--sub)}
+.contact .btn-lg{margin:.4em 0 1.2em;font-family:var(--min);letter-spacing:.02em}
+.contact ul{list-style:none;margin:0;padding:0;font-size:.9rem}
+.contact li{padding:.5em 0;border-top:1px solid var(--line);line-height:1.8}
+.contact .k{display:inline-block;min-width:6.4em;color:var(--sub);font-size:.84rem}
+
+/* ── フッター ─────────────────────────── */
+.foot{background:var(--ai-d);color:#cec4b1;padding:44px 0 92px;font-size:.86rem;line-height:1.9}
+.foot-name{font-family:var(--min);font-size:1.14rem;color:#f4ecdd;letter-spacing:.05em;margin-bottom:.5em}
+.credit{margin-top:1.2em;font-size:.78rem;color:#a79c88}
+.demo-note{margin-top:.6em;font-size:.78rem;color:#a79c88}
+
+/* ── モバイル固定電話バー ─────────────── */
+.fixbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:8px 12px;background:rgba(18,58,69,.96);backdrop-filter:blur(6px)}
+.fixbar a{display:flex;align-items:center;justify-content:center;gap:.5em;padding:.72em;border-radius:3px;background:var(--sand);color:var(--ai-d);font-weight:700;font-size:1.02rem}
+.fixbar svg{width:19px;height:19px}
+
+/* ── スクロール出現 ───────────────────── */
+.js .rv{opacity:0;transform:translateY(15px)}
+.js .rv.on{opacity:1;transform:none;transition:opacity .75s ease,transform .75s cubic-bezier(.22,.7,.3,1)}
+.js .menu li:nth-child(2n).on{transition-delay:.11s}
+.js .meal-grid figure:nth-child(2n).on{transition-delay:.11s}
+
+/* ── レスポンシブ ─────────────────────── */
+@media (max-width:1020px){
+  .gnav{display:none}
+  .hero{grid-template-columns:1fr;gap:30px;padding-top:38px}
+  .hero-arch{border-radius:170px 170px 8px 8px}
+  .hero h1 span:nth-child(2){margin-left:.7em}
+  .hero h1 span:nth-child(3){margin-left:1.4em}
+  .doors{grid-template-columns:1fr}
+  .doors a{border-right:1px solid var(--line)}
+  .doors a+a{border-top:0}
+  .menu{grid-template-columns:1fr;column-gap:0}
+  .info{grid-template-columns:1fr;gap:30px}
+  .tcols{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:860px){
+  .day-ph{grid-template-columns:104px minmax(0,1fr)}
+  .day figure{grid-column:1/-1;margin-top:16px;max-width:420px}
+  .meal{grid-template-columns:1fr;gap:26px}
+  .meal-grid figure:nth-child(2n){transform:none}
+  .meal-grid{padding-bottom:0}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .hdr{padding:9px 15px;gap:12px}
+  .hdr-tel{margin-left:auto;font-size:1rem;gap:6px;flex:none}
+  .hdr-tel small{display:none}
+  .hdr-tel span{white-space:nowrap}
+  .brand{min-width:0}
+  .brand-mark{width:31px;height:31px}
+  .brand-txt b{font-size:.9rem}
+  .brand-txt small{display:none}
+  .menu li{grid-template-columns:38px minmax(0,1fr);gap:0 12px}
+  .menu .mn{font-size:1.15rem}
+  .fixbar{display:block}
+  .sec{padding:56px 0}
+  .nums{margin-top:32px;padding:20px 12px}
+  .nums b{font-size:2.05rem}
+  .nums span{font-size:.72rem}
+  .tnums{grid-template-columns:1fr;gap:0}
+  .tnums div{padding:16px 0;border-left:0}
+  .tnums div+div{border-left:0;border-top:1px solid rgba(220,196,155,.32)}
+  .tcta .btn-fill{display:flex;justify-content:center;margin:.9em 0 0}
+  .day-rail{left:8px}
+  .day-row,.day-ph{grid-template-columns:1fr;gap:0;padding:22px 0 22px 34px}
+  .day-row::before{left:2px;top:30px}
+  .day .t{text-align:left;font-size:1.62rem;margin-bottom:.15em}
+  .day figure{grid-column:auto;max-width:100%;margin-top:14px}
+  .spec th,.spec td{display:block;width:auto;border-bottom:0;padding:0}
+  .spec th{padding-top:1.1em;font-size:.9rem;color:var(--sub)}
+  .spec td{padding:.15em 0 1.1em;border-bottom:1px solid var(--line)}
+  .spec tr:first-child th{border-top:0}
+  .spec tr:first-child td{border-top:0}
+  .tbl th,.tbl td{display:block;width:auto;padding:0}
+  .tbl th{padding-top:1em;font-size:.86rem;border-bottom:0}
+  .tbl td{padding:.1em 0 1em;border-bottom:1px solid var(--line)}
+  .contact{padding:22px 18px}
+  .contact .k{min-width:5.6em}
+  .foot{padding-bottom:96px}
+}
+@media (max-width:400px){
+  .hero h1 span:nth-child(2){margin-left:0}
+  .hero h1 span:nth-child(3){margin-left:0}
+  .nums{grid-template-columns:1fr}
+  .nums div+div{border-left:0;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+  .meal-grid{grid-template-columns:1fr}
 }
 
-/* ---- 批評ループ 2026-08-05 の修正 ---- */
-/* 1. .spec のセル内でネスト要素があると4アイテムが横一列に並んで切れる */
-.yes,.no,.cond{flex-wrap:wrap}
-/* 2. お食事2枚目が細帯になり下に空白が残る */
-@media (min-width:640px){#meal .shots figure:nth-child(2) img{aspect-ratio:1/1}}
-/* 3. ファーストビューを詰めて営業時間をヒーロー内へ */
-.hero{padding:24px 0 0}
-.hero-in .hero-bar-info{margin-top:20px}
-/* 7. ヒーローの小文字が16pxを割っていた */
-.cta-note,.hero-area{font-size:1rem;line-height:1.8}
-/* 8. 濃色の反転セクションが1つも無かった */
-#meal{background:var(--green-d)}
-#meal .sec-title .m{color:#fff}
-#meal .sec-title .en{color:#ffe9b8}
-#meal .sec-title .ja{color:#fff}
-#meal .creed-lead{color:#fff;border-color:#ffe9b8}
-#meal .creed-sub{color:rgba(255,255,255,.92)}
-#meal .shots figcaption{color:rgba(255,255,255,.9)}
-#meal .src{color:rgba(255,255,255,.86)}
-#meal .ring{color:#fff}
-/* 9. 一日の流れの時刻列が広すぎた */
-@media (min-width:561px){#day .spec th{width:7em}}
-
-/* ---- 批評ループ 2周目（2026-08-05）の修正 ---- */
-/* 1. flex-wrap の副作用でマークだけが単独行に残る → ぶら下げインデントに変更 */
-.yes,.no,.cond{display:block;position:relative;padding-left:23px;flex-wrap:initial}
-.yes::before,.no::before,.cond::before{position:absolute;left:0;top:.42em}
-/* 2. ファーストビューの営業時間と事業所情報の本文が16pxを割っていた */
-.hero-bar-info{font-size:1rem}
-@media (max-width:560px){.tbl th{font-size:.95rem}.tbl td{font-size:1rem}}
-/* 4. お食事1枚目と2枚目の下端を揃える */
-@media (min-width:640px){
-  #meal .shots{align-items:stretch}
-  #meal .shots figure{display:grid;grid-template-rows:1fr}
-  #meal .shots figure:nth-child(2) img{aspect-ratio:auto;height:100%;min-height:0;object-fit:cover}
+/* ── reduced-motion（必須） ───────────── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1!important;transform:none!important}
+  .day-prog{transform:scaleY(1)!important}
+  .steam{display:none}
 }
-/* 6. お問い合わせ欄の禁則処理 */
-.contact-list{word-break:auto-phrase;line-break:strict}
-
-/* ---- 批評ループ 3周目（2026-08-05）の修正 ---- */
-/* nowrap の一文がグリッドトラックの最小幅を押し上げ、カードが枠外へはみ出していた */
-@media (min-width:640px){
-  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .figs{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media (min-width:700px){.doors{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.card,.door,.fig{min-width:0}
-.card p{overflow-wrap:anywhere}
-/* 本文まわりの16px未達 */
-.contact-list{font-size:1rem}
-.tbl th{font-size:1rem}
