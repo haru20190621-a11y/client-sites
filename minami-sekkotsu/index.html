@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>みなみ接骨院｜柔道整復師2名・保険と自費の線引きを先に説明します（埼玉県◯◯市）</title>
+<meta name="description" content="埼玉県◯◯市の接骨院。柔道整復師2名。健康保険が使えるのは原因のはっきりした外傷だけです。可動域を角度計で測り、初回と比べながら通院間隔を決めます。">
+
+<style>
+/* ---------- 基本設計 ----------
+   色：地＝#F5F6F4（灰みの白）／文字＝#1F252B（青みの黒）／アクセント＝#9A5B4C（くすんだ煉瓦）
+   パン屋＝暖色×横罫、美容室＝寒色×縦組みラベル。
+   ここは「明るいファーストビュー・番号つきの手順・表」で組み、前の2本と別物にする。
+   モバイル 375px を基準に組み、860px で横組みへ。
+------------------------------- */
+
+:root{
+  --paper:#F5F6F4;
+  --panel:#EAECE8;
+  --ink:#1F252B;
+  --ink-66:rgba(31,37,43,.66);
+  --ink-42:rgba(31,37,43,.42);
+  --ink-14:rgba(31,37,43,.14);
+  --accent:#9A5B4C;
+
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+
+  --pad:20px;
+  --gap:clamp(64px,11vw,112px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:14.5px;line-height:1.9;
+  letter-spacing:.03em;font-feature-settings:"palt" 1;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.7;letter-spacing:.08em;margin:0}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1060px;margin-inline:auto}
+.ph{width:100%;background:var(--panel);object-fit:cover}
+
+/* 見出しは番号を頭に置き、下に一本だけ罫を引く */
+.head{border-bottom:2px solid var(--ink);padding-bottom:12px;margin:0 0 clamp(24px,4.5vw,36px);
+      display:flex;align-items:baseline;gap:14px}
+.head__no{font-family:var(--serif);font-size:12px;letter-spacing:.2em;color:var(--accent)}
+.head__title{font-size:clamp(19px,5vw,26px)}
+
+/* ============ 1. ファーストビュー（明るい） ============ */
+.hero{position:relative;min-height:100svh;min-height:100vh;display:flex;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0;background:var(--panel)}
+.hero__media video{width:100%;height:100%;object-fit:cover}
+.hero__media::after{content:"";position:absolute;inset:0;background:rgba(245,246,244,.78)}
+.hero__inner{
+  position:relative;z-index:1;width:100%;max-width:1060px;margin-inline:auto;
+  padding:0 var(--pad) clamp(44px,9vh,84px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.hero__mark{position:absolute;top:clamp(22px,6vh,38px);left:var(--pad);
+            font-family:var(--serif);font-size:12px;letter-spacing:.3em}
+.hero__copy{font-family:var(--serif);font-size:clamp(25px,7vw,46px);
+            line-height:1.65;letter-spacing:.08em;margin:0 0 22px}
+.hero__name{font-family:var(--serif);font-size:clamp(14px,3.8vw,17px);letter-spacing:.16em;margin:0 0 8px}
+.hero__sub{font-size:12.5px;line-height:1.95;color:var(--ink-66);margin:0 0 30px}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero__cta{
+  display:inline-block;padding:14px 28px;background:var(--ink);color:var(--paper);
+  font-size:12px;letter-spacing:.14em;text-decoration:none;transition:background-color .3s;
+}
+.hero__cta:hover{background:var(--accent)}
+.hero__cta--ghost{background:none;color:var(--ink);border:1px solid var(--ink-14)}
+.hero__cta--ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* ============ 2. はじめに ============ */
+.intro{padding-top:var(--gap)}
+.intro__lead{font-family:var(--serif);font-size:clamp(18px,4.6vw,24px);
+             line-height:1.95;margin:0 0 24px}
+.intro__text p{margin:0 0 1.4em;color:var(--ink-66);font-size:13.5px}
+.intro__text p:last-child{margin-bottom:0}
+.intro__fig{margin:30px 0 0}
+.intro__fig .ph{aspect-ratio:3/2}
+.intro__cap{margin:10px 0 0;font-size:11px;color:var(--ink-42)}
+
+/* 保険の線引きを、地の色を変えた箱で示す */
+.rule{background:var(--panel);padding:clamp(22px,4vw,32px);margin-top:clamp(26px,4vw,38px)}
+.rule h3{font-size:15px;margin:0 0 14px}
+.rule ul{margin:0;padding-left:1.1em;font-size:13px;color:var(--ink-66)}
+.rule li{margin-bottom:.5em}
+.rule li:last-child{margin-bottom:0}
+.rule strong{color:var(--ink);font-weight:600}
+
+/* ============ 3. 主な施術 ============ */
+.care{padding-top:var(--gap)}
+.care__item{border-top:1px solid var(--ink-14);padding:26px 0}
+.care__item:last-child{border-bottom:1px solid var(--ink-14)}
+.care__ph{aspect-ratio:16/9;margin-bottom:18px}
+.care__tag{display:inline-block;font-size:10.5px;letter-spacing:.14em;
+           padding:2px 10px;border:1px solid var(--accent);color:var(--accent);margin-bottom:12px}
+.care__name{font-size:clamp(17px,4.4vw,20px);margin:0 0 12px}
+.care__desc{font-size:13px;color:var(--ink-66);margin:0 0 16px}
+.fee{width:100%;border-collapse:collapse;font-size:12.5px}
+.fee th,.fee td{text-align:left;padding:7px 0;border-bottom:1px dotted var(--ink-14);vertical-align:top}
+.fee th{width:7.5em;font-weight:400;color:var(--ink-42);letter-spacing:.1em;font-size:11px}
+.fee td strong{font-family:var(--serif);font-size:15px;font-weight:400}
+
+/* ============ 4. 通院の流れ ============ */
+.flow{padding-top:var(--gap)}
+.flow__step{padding:24px 0;border-top:1px solid var(--ink-14)}
+.flow__step:last-child{border-bottom:1px solid var(--ink-14)}
+.flow__no{font-family:var(--serif);font-size:clamp(26px,7vw,34px);color:var(--accent);
+          line-height:1;display:block;margin-bottom:10px}
+.flow__title{font-size:16px;margin:0 0 8px}
+.flow__min{font-size:11px;letter-spacing:.14em;color:var(--ink-42);margin:0 0 10px}
+.flow__body{font-size:13px;color:var(--ink-66);margin:0}
+.flow__fig{margin-top:16px}
+.flow__fig .ph{aspect-ratio:4/3}
+
+/* ============ 5. 記録のこと ============ */
+.record{padding-top:var(--gap)}
+.record__item{padding:26px 0;border-top:1px solid var(--ink-14)}
+.record__item:last-child{border-bottom:1px solid var(--ink-14)}
+.record__title{font-size:16px;margin:0 0 10px}
+.record__body{font-size:13px;color:var(--ink-66);margin:0}
+.record__fig{margin-top:18px}
+.record__fig .ph{aspect-ratio:3/2}
+
+/* ============ 6. 院の情報 ============ */
+.info-sec{padding-top:var(--gap)}
+.info{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 26px}
+.info th,.info td{text-align:left;padding:13px 0;border-bottom:1px solid var(--ink-14);vertical-align:top}
+.info th{width:6.5em;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:var(--accent);
+         white-space:nowrap}
+.info a{color:var(--ink);border-bottom:1px solid var(--ink-42);text-decoration:none}
+.dummy{display:inline-block;margin-left:.4em;padding:1px 7px;font-size:10px;letter-spacing:.08em;
+       color:var(--accent);border:1px solid var(--accent);line-height:1.7;vertical-align:2px}
+.hours{width:100%;border-collapse:collapse;font-size:12.5px}
+.hours th,.hours td{padding:8px 6px;border:1px solid var(--ink-14);text-align:center}
+.hours th{background:var(--panel);font-weight:400;font-size:11px;letter-spacing:.08em}
+.hours td:first-child{text-align:left;white-space:nowrap}
+.map{aspect-ratio:16/10;background:var(--panel);display:flex;align-items:center;
+     justify-content:center;text-align:center;margin-top:26px}
+.map p{margin:0;padding:20px;font-size:11px;letter-spacing:.14em;color:var(--ink-42);line-height:2}
+
+/* ============ 7. よくある質問 ============ */
+.faq{padding-top:var(--gap)}
+.faq__item{border-top:1px solid var(--ink-14);padding:20px 0}
+.faq__item:last-child{border-bottom:1px solid var(--ink-14)}
+.faq__q{font-size:14px;margin:0 0 8px}
+.faq__q::before{content:"Q ";color:var(--accent);font-family:var(--serif)}
+.faq__a{font-size:13px;color:var(--ink-66);margin:0}
+
+/* ============ 8. 予約（本命CTA） ============ */
+.book{margin-top:var(--gap);background:var(--ink);color:var(--paper);padding:clamp(46px,8vw,72px) 0}
+.book__label{font-size:10px;letter-spacing:.3em;color:rgba(245,246,244,.6);margin:0 0 14px}
+.book__title{font-size:clamp(18px,4.4vw,23px);line-height:1.85;margin:0 0 26px}
+.book__tel{display:inline-block;font-family:var(--serif);font-size:clamp(22px,6vw,30px);
+           letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(245,246,244,.45);
+           padding-bottom:6px;margin:0 0 18px}
+.book__hours{font-size:12px;line-height:1.95;color:rgba(245,246,244,.74);margin:0 0 20px}
+.book__line{display:inline-block;padding:13px 26px;border:1px solid rgba(245,246,244,.55);
+            font-size:12px;letter-spacing:.14em;text-decoration:none;transition:background-color .3s,color .3s}
+.book__line:hover{background:var(--paper);color:var(--ink)}
+.book .dummy{color:rgba(245,246,244,.8);border-color:rgba(245,246,244,.5)}
+
+/* スマホだけ、画面下に電話ボタンを固定 */
+.callbar{display:none}
+
+/* ============ 9. フッター ============ */
+footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-14)}
+.f__name{font-family:var(--serif);font-size:13px;letter-spacing:.16em;margin:0 0 6px}
+.f__addr{margin:0 0 20px;font-size:11.5px;color:var(--ink-42);line-height:1.95}
+.f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--ink-42)}
+.f__credit{margin:14px 0 0;font-size:10px;line-height:1.85;color:var(--ink-42)}
+.f__credit-link{color:var(--ink-42);border-bottom:1px solid var(--ink-14);text-decoration:none}
+
+/* 出品用スクリーンショット：?shot でダミーバッジを隠す */
+.shot .dummy{display:none}
+
+/* ---------- フェードイン（控えめ） ---------- */
+.js .fade{opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+.js .fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js .fade{opacity:1;transform:none;transition:none} }
+
+/* ---------- 859px 以下：画面下に電話 ---------- */
+@media (max-width:859px){
+  body{padding-bottom:60px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;
+           background:var(--accent);color:var(--paper);text-decoration:none}
+  .callbar span{flex:1;text-align:center;padding:16px 8px;font-size:12px;letter-spacing:.12em}
+  .callbar span + span{border-left:1px solid rgba(245,246,244,.3)}
+}
+
+/* ---------- 860px 以上 ---------- */
+@media (min-width:860px){
+  :root{--pad:44px}
+  body{font-size:15px}
+
+  .intro__body{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,4.5vw,64px);align-items:start}
+  .intro__fig{margin:0}
+  .intro__fig .ph{aspect-ratio:4/3}
+
+  /* 施術は、写真を左・内容を右の帯にする */
+  .care__item{display:grid;grid-template-columns:minmax(0,38%) 1fr;
+              gap:clamp(26px,4vw,52px);align-items:start;padding:34px 0}
+  .care__ph{margin:0;aspect-ratio:4/3}
+
+  /* 流れは4つを横に並べる */
+  .flow__list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,32px)}
+  .flow__step{border-top:2px solid var(--ink);border-bottom:0;padding:20px 0 0}
+  .flow__step:last-child{border-bottom:0}
+  .flow__fig .ph{aspect-ratio:1/1}
+
+  .record__item{display:grid;grid-template-columns:1fr minmax(0,42%);
+                gap:clamp(26px,4vw,52px);align-items:start;padding:34px 0}
+  .record__fig{margin:0}
+
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4.5vw,64px);align-items:start}
+  .map{margin-top:0;aspect-ratio:4/3}
+
+  .faq__list{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,4.5vw,64px)}
+
+  .book__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,4.5vw,64px);align-items:end}
+  .book__right{text-align:right}
+  .book__title{margin-bottom:0}
+}
+
+/* ---------- 印刷・PDF書き出し ---------- */
+@media print{
+  :root{--hero-print-h:760px}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:var(--paper)}
+  .fade,.js .fade{opacity:1 !important;transform:none !important;transition:none !important}
+  .hero{min-height:0;height:var(--hero-print-h)}
+  .hero__media video{display:none}
+  .care__item,.flow__step,.record__item,figure{break-inside:avoid}
+  .callbar{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ 1. ファーストビュー ============ -->
+<header class="hero">
+  <div class="hero__media">
+    <!-- 後日、施術室に朝の光が入る8秒ほどのループ動画を src に指定する -->
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true"></video>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__mark">MINAMI</p>
+    <h1 class="hero__copy">
+      保険が使えるかどうかを、<br>
+      触る前に説明します。
+    </h1>
+    <p class="hero__name">みなみ接骨院（柔道整復師 2名）</p>
+    <p class="hero__sub">
+      初回は問診と検査に15分。可動域を角度計で測り、次回その数字と比べます。<br>
+      痛みが3週間以上続く場合は、整形外科の受診をお願いしています。
+    </p>
+    <div class="hero__ctas">
+      <a class="hero__cta" href="#book">電話で予約する</a>
+      <a class="hero__cta hero__cta--ghost" href="#care">料金と施術を見る</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. はじめに ============ -->
+<section class="intro wrap fade">
+  <div class="intro__body">
+    <div>
+      <p class="intro__lead">
+        「なんとなく効きそう」では、<br>
+        保険は使えません。
+      </p>
+      <div class="intro__text">
+        <p>
+          接骨院で健康保険が使えるのは、いつ何をして痛めたかがはっきりしている外傷だけです。
+          具体的には、骨折・脱臼・打撲・ねんざ・肉ばなれの5つ。
+          原因のわからない肩こりや、慢性的な腰の張りは対象外で、自費の施術になります。
+        </p>
+        <p>
+          この線引きを、施術を始める前に必ずお伝えします。
+          そのうえで、保険を使う場合は負傷の日付と原因をカルテに残し、
+          月に一度、療養費支給申請書に署名をいただきます。
+        </p>
+      </div>
+
+      <div class="rule">
+        <h3>健康保険の取り扱い</h3>
+        <ul>
+          <li><strong>使えるもの</strong>：骨折・脱臼・打撲・ねんざ・肉ばなれ（原因と日付が言えるもの）</li>
+          <li><strong>使えないもの</strong>：慢性的な肩こり・腰痛、疲労回復、姿勢の調整、スポーツ前後のケア</li>
+          <li><strong>医師の同意が必要</strong>：骨折と脱臼（応急手当を除く）</li>
+          <li>交通事故（自賠責保険）と、仕事中のけが（労災）も取り扱います</li>
+        </ul>
+      </div>
+    </div>
+
+    <figure class="intro__fig">
+      <img class="ph" src="images/01-room.jpg"
+           alt="施術ベッドと椅子が置かれた施術室。白い壁に鏡があり、机の上に植物が置かれている。">
+      <figcaption class="intro__cap">ベッドは3床。同時に施術するのは2人までです。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 3. 主な施術 ============ -->
+<section class="care wrap fade" id="care">
+  <div class="head">
+    <span class="head__no">01</span>
+    <h2 class="head__title">主な施術と料金</h2>
+  </div>
+
+  <article class="care__item">
+    <img class="ph care__ph" src="images/02-taping.jpg"
+         alt="足首の構造がわかる解剖模型。骨と靭帯が色分けされ、暗い背景に置かれている。">
+    <div>
+      <span class="care__tag">健康保険が使えます</span>
+      <h3 class="care__name">ねんざ・打撲・肉ばなれ</h3>
+      <p class="care__desc">
+        受傷から48時間は冷却と固定を優先します。腫れが引いてから可動域を戻す施術に移り、
+        テーピングは毎回巻き直します。
+      </p>
+      <table class="fee">
+        <tr><th>料金</th><td><strong>¥460 〜 ¥1,200</strong>（3割負担・部位数による）</td></tr>
+        <tr><th>時間</th><td>初回 25分／2回目以降 15分</td></tr>
+        <tr><th>通う間隔</th><td>受傷直後は中1〜2日、落ち着いたら週1回</td></tr>
+      </table>
+    </div>
+  </article>
+
+  <article class="care__item">
+    <img class="ph care__ph" src="images/03-manual.jpg"
+         alt="うつ伏せの肩まわりに両手を当てている施術中の手元。明るい室内で顔は写っていない。">
+    <div>
+      <span class="care__tag">自費です</span>
+      <h3 class="care__name">全身調整</h3>
+      <p class="care__desc">
+        慢性的な肩こりや腰の張りはこちらです。股関節と肩甲骨の動きを見てから、
+        硬い側だけを緩めます。左右で時間配分を変えます。
+      </p>
+      <table class="fee">
+        <tr><th>料金</th><td><strong>¥3,800</strong>（30分）／<strong>¥6,500</strong>（60分）</td></tr>
+        <tr><th>時間</th><td>30分・60分から選べます</td></tr>
+        <tr><th>通う間隔</th><td>2〜3週間に1回の方が多いです</td></tr>
+      </table>
+    </div>
+  </article>
+
+  <article class="care__item">
+    <img class="ph care__ph" src="images/04-neck.jpg"
+         alt="首の後ろから肩にかけてテープを貼った背中。後ろからの角度で顔は写っていない。">
+    <div>
+      <span class="care__tag">自賠責保険が使えます</span>
+      <h3 class="care__name">交通事故によるむちうち</h3>
+      <p class="care__desc">
+        事故の相手方保険会社への連絡と、整形外科との併院の進め方をこちらで説明します。
+        窓口での負担はありません。
+      </p>
+      <table class="fee">
+        <tr><th>料金</th><td><strong>窓口負担なし</strong>（自賠責保険から支払われます）</td></tr>
+        <tr><th>時間</th><td>初回 40分／2回目以降 20分</td></tr>
+        <tr><th>必要なもの</th><td>事故証明、相手方保険会社の担当者名と連絡先</td></tr>
+      </table>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 4. 通院の流れ ============ -->
+<section class="flow wrap fade">
+  <div class="head">
+    <span class="head__no">02</span>
+    <h2 class="head__title">初回の流れ</h2>
+  </div>
+
+  <div class="flow__list">
+    <div class="flow__step">
+      <span class="flow__no">1</span>
+      <h3 class="flow__title">問診</h3>
+      <p class="flow__min">15分</p>
+      <p class="flow__body">
+        いつ、何をして、どこが痛むかを伺います。ここで保険が使えるかどうかが決まります。
+      </p>
+      <figure class="flow__fig">
+        <img class="ph" src="images/05-intake.jpg"
+             alt="机の上のノートと鉛筆、眼鏡。問診票を書く前の手元まわり。">
+      </figure>
+    </div>
+
+    <div class="flow__step">
+      <span class="flow__no">2</span>
+      <h3 class="flow__title">検査</h3>
+      <p class="flow__min">10分</p>
+      <p class="flow__body">
+        肩の外転、股関節の屈曲など、痛む側と痛まない側の角度を角度計で測って記録します。
+      </p>
+      <figure class="flow__fig">
+        <img class="ph" src="images/06-assess.jpg"
+             alt="膝に治療器を当てているところ。脚と機器だけが写っている。">
+      </figure>
+    </div>
+
+    <div class="flow__step">
+      <span class="flow__no">3</span>
+      <h3 class="flow__title">施術</h3>
+      <p class="flow__min">15〜30分</p>
+      <p class="flow__body">
+        急な外傷は固定を優先します。慢性のものは硬い側から緩め、左右差を減らします。
+      </p>
+      <figure class="flow__fig">
+        <img class="ph" src="images/07-treat.jpg"
+             alt="施術ベッドの上で背中に両手を当てている場面。顔は写っていない。">
+      </figure>
+    </div>
+
+    <div class="flow__step">
+      <span class="flow__no">4</span>
+      <h3 class="flow__title">説明</h3>
+      <p class="flow__min">5分</p>
+      <p class="flow__body">
+        測った角度がどれだけ戻ったかを見せ、次に来る日と、家でやることを2つだけ決めます。
+      </p>
+      <figure class="flow__fig">
+        <img class="ph" src="images/08-explain.jpg"
+             alt="背骨の一つひとつの形がわかる模型。黒い背景に白く浮かんでいる。">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 記録のこと ============ -->
+<section class="record wrap fade">
+  <div class="head">
+    <span class="head__no">03</span>
+    <h2 class="head__title">記録のこと</h2>
+  </div>
+
+  <div class="record__item">
+    <div>
+      <h3 class="record__title">角度で残す</h3>
+      <p class="record__body">
+        「軽くなった気がする」は記録に残りません。初回に測った角度を毎回同じ姿勢で測り直し、
+        カルテに数字で残します。肩の外転が130度から155度に戻った、という形で見比べられます。
+        3回続けて数字が動かない場合は、施術の方針を変えるか、整形外科での検査をお勧めします。
+      </p>
+    </div>
+    <figure class="record__fig">
+      <img class="ph" src="images/09-chart.jpg"
+           alt="背骨のスケッチが描かれた紙と、クリップボード。机の上に広げられている。">
+    </figure>
+  </div>
+
+  <div class="record__item">
+    <div>
+      <h3 class="record__title">通う回数を先に決める</h3>
+      <p class="record__body">
+        初回に、次にいつ来るかまで決めます。急な外傷は中1〜2日、慢性のものは2〜3週間に1回が目安です。
+        回数券は扱っていません。来る必要がなくなったら、その日に「次の予約は取らなくて大丈夫です」とお伝えします。
+      </p>
+    </div>
+    <figure class="record__fig">
+      <img class="ph" src="images/10-calendar.jpg"
+           alt="壁に掛かった月めくりのカレンダーと、その下の机。予定を書き込む場所。">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 6. 院の情報 ============ -->
+<section class="info-sec wrap fade" id="info">
+  <div class="head">
+    <span class="head__no">04</span>
+    <h2 class="head__title">院の情報</h2>
+  </div>
+
+  <div class="info-grid">
+    <div>
+      <table class="info">
+        <tr><th>施術者</th><td>柔道整復師 2名（国家資格）</td></tr>
+        <tr><th>住所</th><td>〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span></td></tr>
+        <tr><th>電話</th><td><a href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span></td></tr>
+        <tr><th>駐車場</th><td>院の前に3台</td></tr>
+        <tr><th>予約</th><td>予約優先（当日の空きは電話でお尋ねください）</td></tr>
+        <tr><th>支払い</th><td>現金・クレジットカード・QR コード決済</td></tr>
+        <tr><th>取り扱い</th><td>健康保険／自賠責保険（交通事故）／労災</td></tr>
+      </table>
+
+      <table class="hours">
+        <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
+        <tr><td>9:00 – 12:30</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>—</td></tr>
+        <tr><td>15:00 – 20:00</td><td>●</td><td>●</td><td>—</td><td>●</td><td>●</td><td>—</td><td>—</td></tr>
+      </table>
+      <p class="intro__cap">土曜は 9:00 – 14:00 の通し、水曜の午後と日祝は休みです。</p>
+    </div>
+
+    <!-- 地図：ここに Google マップの iframe を差し込む -->
+    <div class="map">
+      <p>MAP<br>Google マップの埋め込みコードを<br>この枠に差し込みます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. よくある質問 ============ -->
+<section class="faq wrap fade">
+  <div class="head">
+    <span class="head__no">05</span>
+    <h2 class="head__title">よくある質問</h2>
+  </div>
+
+  <div class="faq__list">
+    <div class="faq__item">
+      <h3 class="faq__q">整形外科に通いながらでも来られますか</h3>
+      <p class="faq__a">同じ部位について同じ月に両方で健康保険を使うことはできません。
+        整形外科で検査や投薬を受けている場合は、こちらは自費でお受けします。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">何回くらい通いますか</h3>
+      <p class="faq__a">ねんざなら2〜3週間、肉ばなれは4〜6週間が目安です。
+        初回に測った角度が戻り切ったところで終わりにします。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">保険証を忘れました</h3>
+      <p class="faq__a">その日は自費でお預かりし、同じ月のうちに保険証をお持ちいただければ差額を返金します。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">子どもも診てもらえますか</h3>
+      <p class="faq__a">はい。小学生以下は保護者の方の同伴をお願いします。
+        成長期のスポーツによる痛みは、まず整形外科での画像検査をお勧めすることがあります。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 8. 予約（本命CTA） ============ -->
+<section class="book fade" id="book">
+  <div class="wrap book__inner">
+    <div>
+      <p class="book__label">Reservation</p>
+      <h2 class="book__title">
+        当日の空きは電話でお尋ねください。<br>
+        翌日以降は LINE でも受け付けます。
+      </h2>
+    </div>
+    <div class="book__right">
+      <a class="book__tel" href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+      <p class="book__hours">
+        電話がつながるのは 9:00 – 20:00 です<br>
+        水曜の午後と日祝は休みです
+      </p>
+      <a class="book__line" href="#" rel="noopener">LINE で予約する</a>
+    </div>
+  </div>
+</section>
+
+<!-- 画面下に固定する予約ボタン（スマホのみ表示） -->
+<a class="callbar" href="tel:00000000000">
+  <span>電話する</span><span>LINE で予約</span>
+</a>
+
+<!-- ============ 9. フッター ============ -->
+<footer class="wrap">
+  <p class="f__name">みなみ接骨院</p>
+  <p class="f__addr">
+    〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span><br>
+    TEL 000-0000-0000<span class="dummy">ダミー</span>／柔道整復師 2名／水曜午後・日祝休
+  </p>
+  <p class="f__copy">&copy; minami sekkotsuin</p>
+  <p class="f__credit">
+    サンプル用の写真は <a class="f__credit-link" href="https://unsplash.com/" rel="noopener">Unsplash</a> の作品です。
+    撮影者の一覧は <a class="f__credit-link" href="images/CREDITS.md">こちら</a>。<br>
+    実際の案件では、院内で撮影した写真に差し替えます。
+  </p>
+</footer>
+
+<script>
+// 出品用スクリーンショット向け：?shot を付けて開くと「ダミー」バッジを隠す。
+if (location.search.indexOf('shot') !== -1) {
+  document.documentElement.classList.add('shot');
+}
+
+// スクロール時のフェードイン。一度表示したら監視を外す。
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll('.fade');
+  document.documentElement.classList.add('js');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+
+  var safety = setTimeout(function () {
+    for (var j = 0; j < targets.length; j++) targets[j].classList.add('in');
+  }, 3000);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      clearTimeout(safety);
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
