@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>野口工務店｜見積もりは現地調査から3日以内。追加費用の出方も先に説明します（埼玉県◯◯市）</title>
+<meta name="description" content="埼玉県◯◯市の工務店。水まわり・内装・外まわりのリフォーム。見積もりは現地調査から3日以内、無料。着工後に費用が増える典型例も先にお伝えします。">
+
+<style>
+/* ---------- 基本設計 ----------
+   色：地＝#ECEAE5（生成りの灰）／文字＝#23262A（黒鉛）／アクセント＝#1F4E5F（濃い青）
+   前の4本（暖色白地・寒色白地・灰白地・暗い地）と重ならないよう、
+   ここは「生成りの地＋濃い青」。図面のような細い罫と、時系列の縦線で組む。
+   モバイル 375px を基準に組み、880px で横組みへ。
+------------------------------- */
+
+:root{
+  --paper:#ECEAE5;
+  --panel:#DFDCD5;
+  --ink:#23262A;
+  --ink-66:rgba(35,38,42,.66);
+  --ink-42:rgba(35,38,42,.42);
+  --ink-14:rgba(35,38,42,.14);
+  --accent:#1F4E5F;
+
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+
+  --pad:20px;
+  --gap:clamp(66px,11vw,116px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:14.5px;line-height:1.95;
+  letter-spacing:.04em;font-feature-settings:"palt" 1;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.75;letter-spacing:.1em;margin:0}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1080px;margin-inline:auto}
+.ph{width:100%;background:var(--panel);object-fit:cover}
+
+/* 見出しは、大きな白抜き番号を左に添える */
+.head{display:flex;align-items:flex-start;gap:16px;margin:0 0 clamp(24px,4.5vw,38px)}
+.head__no{font-family:var(--serif);font-size:clamp(30px,8vw,44px);line-height:.9;
+          color:transparent;-webkit-text-stroke:1px var(--accent);letter-spacing:0}
+.head__title{font-size:clamp(19px,5vw,26px);padding-top:6px}
+
+/* ============ 1. ファーストビュー ============ */
+.hero{position:relative;min-height:100svh;min-height:100vh;display:flex;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0;background:#2E3236}
+.hero__media video{width:100%;height:100%;object-fit:cover}
+.hero__media::after{content:"";position:absolute;inset:0;background:rgba(20,23,26,.5)}
+.hero__inner{
+  position:relative;z-index:1;width:100%;max-width:1080px;margin-inline:auto;
+  padding:0 var(--pad) clamp(44px,9vh,86px);
+  display:flex;flex-direction:column;justify-content:flex-end;color:var(--paper);
+}
+.hero__mark{position:absolute;top:clamp(22px,6vh,38px);left:var(--pad);
+            font-family:var(--serif);font-size:11px;letter-spacing:.34em}
+.hero__copy{font-family:var(--serif);font-size:clamp(25px,7vw,46px);
+            line-height:1.7;letter-spacing:.1em;margin:0 0 22px}
+.hero__name{font-family:var(--serif);font-size:clamp(14px,3.8vw,17px);letter-spacing:.18em;margin:0 0 8px}
+.hero__sub{font-size:12px;line-height:1.95;color:rgba(236,234,229,.8);margin:0 0 30px}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:10px}
+.hero__cta{display:inline-block;padding:14px 28px;background:var(--paper);color:var(--ink);
+           font-size:12px;letter-spacing:.14em;text-decoration:none;transition:background-color .3s,color .3s}
+.hero__cta:hover{background:var(--accent);color:var(--paper)}
+.hero__cta--ghost{background:none;color:var(--paper);border:1px solid rgba(236,234,229,.5)}
+.hero__cta--ghost:hover{background:var(--paper);color:var(--ink)}
+
+/* ============ 2. 考え方 ============ */
+.think{padding-top:var(--gap)}
+.think__lead{font-family:var(--serif);font-size:clamp(18px,4.6vw,25px);line-height:2;margin:0 0 24px}
+.think__text p{margin:0 0 1.4em;color:var(--ink-66);font-size:13.5px}
+.think__text p:last-child{margin-bottom:0}
+.think__fig{margin:30px 0 0}
+.think__fig .ph{aspect-ratio:3/2}
+.think__cap{margin:10px 0 0;font-size:11px;color:var(--ink-42)}
+
+/* ============ 3. 主な工事 ============ */
+.work{padding-top:var(--gap)}
+.work__item{border-top:1px solid var(--ink-14);padding:26px 0}
+.work__item:last-child{border-bottom:1px solid var(--ink-14)}
+.work__ph{aspect-ratio:4/3;margin-bottom:18px}
+.work__name{font-size:clamp(17px,4.4vw,20px);margin:0 0 12px}
+.work__desc{font-size:13px;color:var(--ink-66);margin:0 0 16px}
+.spec{width:100%;border-collapse:collapse;font-size:12.5px}
+.spec th,.spec td{text-align:left;padding:7px 0;border-bottom:1px dotted var(--ink-14);vertical-align:top}
+.spec th{width:6.5em;font-weight:400;font-size:11px;letter-spacing:.1em;color:var(--ink-42)}
+.spec td strong{font-family:var(--serif);font-size:15px;font-weight:400}
+
+/* ============ 4. 見積もりのこと ============ */
+.quote{padding-top:var(--gap)}
+.quote__item{padding:26px 0;border-top:1px solid var(--ink-14)}
+.quote__item:last-child{border-bottom:1px solid var(--ink-14)}
+.quote__title{font-size:16px;margin:0 0 10px}
+.quote__body{font-size:13px;color:var(--ink-66);margin:0}
+.quote__fig{margin-top:18px}
+.quote__fig .ph{aspect-ratio:3/2}
+.callout{background:var(--panel);padding:clamp(20px,3.6vw,30px);margin-top:clamp(24px,4vw,34px)}
+.callout h3{font-size:14.5px;margin:0 0 12px}
+.callout ul{margin:0;padding-left:1.1em;font-size:13px;color:var(--ink-66)}
+.callout li{margin-bottom:.5em}
+.callout li:last-child{margin-bottom:0}
+
+/* ============ 5. 工事の流れ（縦の時系列） ============ */
+.flow{padding-top:var(--gap)}
+.flow__list{position:relative;padding-left:26px}
+.flow__list::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;
+                    width:1px;background:var(--ink-14)}
+.flow__step{position:relative;padding:0 0 26px}
+.flow__step:last-child{padding-bottom:0}
+.flow__step::before{content:"";position:absolute;left:-24px;top:8px;width:9px;height:9px;
+                    border:1px solid var(--accent);background:var(--paper);border-radius:0}
+.flow__when{font-size:11px;letter-spacing:.16em;color:var(--accent);margin:0 0 4px}
+.flow__title{font-size:15px;margin:0 0 6px}
+.flow__body{font-size:13px;color:var(--ink-66);margin:0}
+.flow__fig{margin-top:26px}
+.flow__fig .ph{aspect-ratio:16/9}
+
+/* ============ 6. 会社情報 ============ */
+.info-sec{padding-top:var(--gap)}
+.info{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 24px}
+.info th,.info td{text-align:left;padding:13px 0;border-bottom:1px solid var(--ink-14);vertical-align:top}
+.info th{width:7em;font-weight:400;font-size:10.5px;letter-spacing:.18em;color:var(--accent);white-space:nowrap}
+.info a{color:var(--ink);border-bottom:1px solid var(--ink-42);text-decoration:none}
+.dummy{display:inline-block;margin-left:.4em;padding:1px 7px;font-size:10px;letter-spacing:.08em;
+       color:var(--accent);border:1px solid var(--accent);line-height:1.7;vertical-align:2px}
+.area{background:var(--panel);padding:18px 20px;font-size:12.5px;line-height:1.9}
+.area strong{font-weight:600}
+.map{aspect-ratio:4/3;background:var(--panel);display:flex;align-items:center;justify-content:center;
+     text-align:center;margin-top:24px}
+.map p{margin:0;padding:20px;font-size:11px;letter-spacing:.14em;color:var(--ink-42);line-height:2}
+
+/* ============ 7. 相談（本命CTA） ============ */
+.contact{margin-top:var(--gap);background:var(--accent);color:var(--paper);padding:clamp(46px,8vw,74px) 0}
+.contact__label{font-size:10px;letter-spacing:.3em;color:rgba(236,234,229,.62);margin:0 0 14px}
+.contact__title{font-size:clamp(18px,4.4vw,24px);line-height:1.85;margin:0 0 26px}
+.contact__tel{display:inline-block;font-family:var(--serif);font-size:clamp(22px,6vw,30px);
+              letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(236,234,229,.45);
+              padding-bottom:6px;margin:0 0 18px}
+.contact__note{font-size:12px;line-height:1.95;color:rgba(236,234,229,.76);margin:0 0 20px}
+.contact__form{display:inline-block;padding:13px 26px;border:1px solid rgba(236,234,229,.55);
+               font-size:12px;letter-spacing:.14em;text-decoration:none;transition:background-color .3s,color .3s}
+.contact__form:hover{background:var(--paper);color:var(--accent)}
+.contact .dummy{color:rgba(236,234,229,.8);border-color:rgba(236,234,229,.5)}
+
+/* スマホだけ、画面下に電話ボタン */
+.callbar{display:none}
+
+/* ============ 8. よくある質問 ============ */
+.faq{padding-top:var(--gap)}
+.faq__item{border-top:1px solid var(--ink-14);padding:20px 0}
+.faq__item:last-child{border-bottom:1px solid var(--ink-14)}
+.faq__q{font-size:14px;margin:0 0 8px}
+.faq__q::before{content:"Q ";color:var(--accent);font-family:var(--serif)}
+.faq__a{font-size:13px;color:var(--ink-66);margin:0}
+
+/* ============ 9. フッター ============ */
+footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-14)}
+.f__name{font-family:var(--serif);font-size:13px;letter-spacing:.18em;margin:0 0 6px}
+.f__addr{margin:0 0 20px;font-size:11.5px;color:var(--ink-42);line-height:1.95}
+.f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--ink-42)}
+.f__credit{margin:14px 0 0;font-size:10px;line-height:1.85;color:var(--ink-42)}
+.f__credit-link{color:var(--ink-42);border-bottom:1px solid var(--ink-14);text-decoration:none}
+
+/* 出品用スクリーンショット：?shot でダミーバッジを隠す */
+.shot .dummy{display:none}
+
+/* ---------- フェードイン（控えめ） ---------- */
+.js .fade{opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+.js .fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js .fade{opacity:1;transform:none;transition:none} }
+
+/* ---------- 879px 以下 ---------- */
+@media (max-width:879px){
+  body{padding-bottom:60px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;
+           background:var(--ink);color:var(--paper);text-decoration:none}
+  .callbar span{flex:1;text-align:center;padding:16px 8px;font-size:12px;letter-spacing:.12em}
+  .callbar span + span{border-left:1px solid rgba(236,234,229,.3)}
+}
+
+/* ---------- 880px 以上 ---------- */
+@media (min-width:880px){
+  :root{--pad:44px}
+  body{font-size:15px}
+
+  .think__body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4.5vw,64px);align-items:start}
+  .think__fig{margin:0}
+  .think__fig .ph{aspect-ratio:4/3}
+
+  /* 工事は写真を右に置き、左右を交互に入れ替える */
+  .work__item{display:grid;grid-template-columns:1fr minmax(0,44%);
+              gap:clamp(28px,4vw,56px);align-items:start;padding:36px 0}
+  .work__ph{margin:0}
+  .work__item:nth-child(even) .work__ph{order:-1}
+
+  .quote__item{display:grid;grid-template-columns:1fr minmax(0,40%);
+               gap:clamp(28px,4vw,56px);align-items:start;padding:34px 0}
+  .quote__fig{margin:0}
+
+  .flow__grid{display:grid;grid-template-columns:1fr minmax(0,46%);gap:clamp(32px,4.5vw,64px);align-items:start}
+  .flow__fig{margin:0}
+  .flow__fig .ph{aspect-ratio:3/4}
+
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4.5vw,64px);align-items:start}
+  .map{margin-top:0}
+
+  .faq__list{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,4.5vw,64px)}
+
+  .contact__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,4.5vw,64px);align-items:end}
+  .contact__right{text-align:right}
+  .contact__title{margin-bottom:0}
+}
+
+/* ---------- 印刷・PDF書き出し ---------- */
+@media print{
+  :root{--hero-print-h:760px}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:var(--paper)}
+  .fade,.js .fade{opacity:1 !important;transform:none !important;transition:none !important}
+  .hero{min-height:0;height:var(--hero-print-h)}
+  .hero__media video{display:none}
+  .work__item,.quote__item,.flow__step,figure{break-inside:avoid}
+  .callbar{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ 1. ファーストビュー ============ -->
+<header class="hero">
+  <div class="hero__media">
+    <!-- 後日、現場で墨付けをしている8秒ほどのループ動画を src に指定する -->
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true"></video>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__mark">NOGUCHI</p>
+    <h1 class="hero__copy">
+      増えるとしたら、<br>
+      どこが増えるかを先に言います。
+    </h1>
+    <p class="hero__name">野口工務店（埼玉県◯◯市）</p>
+    <p class="hero__sub">
+      見積もりは現地調査から3日以内、無料です。<br>
+      壁を開けてみないと分からない部分は、その旨と上限額を見積書に書きます。
+    </p>
+    <div class="hero__ctas">
+      <a class="hero__cta" href="#contact">見積もりを頼む</a>
+      <a class="hero__cta hero__cta--ghost" href="#work">工事と費用の目安</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. 考え方 ============ -->
+<section class="think wrap fade">
+  <div class="think__body">
+    <div>
+      <p class="think__lead">
+        リフォームで揉めるのは、<br>
+        だいたい追加費用の話です。
+      </p>
+      <div class="think__text">
+        <p>
+          既存の建物を触る工事は、壁や床を開けてから分かることがあります。
+          下地の腐り、配管の劣化、断熱材の欠損。これらは事前の調査では見えません。
+        </p>
+        <p>
+          当社は、見積書に「開けてみて◯◯だった場合、追加で最大◯万円」と書き添えます。
+          金額が上振れする可能性のある項目を、契約前に一覧で示します。
+          実際に開けた時点で写真を撮り、その場でご連絡してから進めます。
+        </p>
+      </div>
+    </div>
+
+    <figure class="think__fig">
+      <img class="ph" src="images/01-site.jpg"
+           alt="壁に掛けて並べた大工道具。のみと鉋が種類ごとに整列している。">
+      <figcaption class="think__cap">墨付けと刻みは自社の大工が行います。応援は入れません。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 3. 主な工事 ============ -->
+<section class="work wrap fade" id="work">
+  <div class="head">
+    <span class="head__no">01</span>
+    <h2 class="head__title">主な工事と費用の目安</h2>
+  </div>
+
+  <article class="work__item">
+    <div>
+      <h3 class="work__name">水まわり</h3>
+      <p class="work__desc">
+        浴室・洗面・トイレ・キッチン。ユニットバスの入れ替えは、解体から仕上げまで実働3〜5日です。
+        給湯器の交換を同時に行うと、1日短くなります。
+      </p>
+      <table class="spec">
+        <tr><th>費用の目安</th><td><strong>65万 〜 180万円</strong>（ユニットバス入れ替えの場合）</td></tr>
+        <tr><th>工期</th><td>浴室 3〜5日／トイレ 1日／キッチン 2〜4日</td></tr>
+        <tr><th>増えやすい所</th><td>土台の腐り、配管の交換（開けてから判断します）</td></tr>
+      </table>
+    </div>
+    <img class="ph work__ph" src="images/02-water.jpg"
+         alt="改装後の浴室と洗面台。ガラス張りのシャワーブースと鏡が写っている。">
+  </article>
+
+  <article class="work__item">
+    <div>
+      <h3 class="work__name">内装</h3>
+      <p class="work__desc">
+        床の張り替え、壁紙、間仕切りの撤去。無垢のフローリングは、施工の2週間前に現場へ入れて
+        湿度に慣らしてから張ります。反りを防ぐためです。
+      </p>
+      <table class="spec">
+        <tr><th>費用の目安</th><td><strong>8万 〜 60万円</strong>（6畳の床と壁紙で 25万円前後）</td></tr>
+        <tr><th>工期</th><td>6畳の床 1〜2日／壁紙 1日／間仕切り撤去 2〜3日</td></tr>
+        <tr><th>増えやすい所</th><td>下地の不陸調整、根太の補強</td></tr>
+      </table>
+    </div>
+    <img class="ph work__ph" src="images/03-interior.jpg"
+         alt="明るい木の床の部屋。大きな窓から光が入り、テーブルと椅子が置かれている。">
+  </article>
+
+  <article class="work__item">
+    <div>
+      <h3 class="work__name">外まわり</h3>
+      <p class="work__desc">
+        外壁塗装、屋根、雨樋。目地のシーリングはオートンイクシードを使います。
+        一般的なシーリング材より材料費は上がりますが、次に打ち替えるまでの年数が変わります。
+      </p>
+      <table class="spec">
+        <tr><th>費用の目安</th><td><strong>90万 〜 160万円</strong>（30坪・足場と塗装2回塗り）</td></tr>
+        <tr><th>工期</th><td>14日前後（雨天順延あり）</td></tr>
+        <tr><th>増えやすい所</th><td>下地の補修、破風や軒天の傷み</td></tr>
+      </table>
+    </div>
+    <img class="ph work__ph" src="images/04-exterior.jpg"
+         alt="足場を組んで外壁を塗装している住宅の外観。夕方の光が当たっている。">
+  </article>
+</section>
+
+<!-- ============ 4. 見積もりのこと ============ -->
+<section class="quote wrap fade">
+  <div class="head">
+    <span class="head__no">02</span>
+    <h2 class="head__title">見積もりのこと</h2>
+  </div>
+
+  <div class="quote__item">
+    <div>
+      <h3 class="quote__title">現地調査から3日以内に出します</h3>
+      <p class="quote__body">
+        調査には1時間ほどいただきます。床下と天井裏を見て、写真を20枚前後撮ります。
+        見積書は項目ごとに数量と単価を分けて書き、「一式」でまとめるのは仮設工事だけにしています。
+        他社との比較のために、同じ形式でお出しします。
+      </p>
+    </div>
+    <figure class="quote__fig">
+      <img class="ph" src="images/05-estimate.jpg"
+           alt="机に広げた図面に定規を当てて書き込んでいる手元。丸めた図面が横に置かれている。">
+    </figure>
+  </div>
+
+  <div class="quote__item">
+    <div>
+      <h3 class="quote__title">材料は型番で書きます</h3>
+      <p class="quote__body">
+        「高耐久シーリング」ではなく「オートンイクシード」、「国産の床材」ではなく品番まで書きます。
+        同じ予算で別の材料を選ぶこともできるので、その場合は差額を並べてお見せします。
+        施主支給の材料も受けますが、その部分の保証は材料メーカーの保証のみになります。
+      </p>
+    </div>
+    <figure class="quote__fig">
+      <img class="ph" src="images/06-material.jpg"
+           alt="外壁の目地にシーリング材を打っているところ。ノズルの先と充填した跡が見える。">
+    </figure>
+  </div>
+
+  <div class="callout">
+    <h3>着工後に費用が増える、よくある3つ</h3>
+    <ul>
+      <li>浴室の解体後、土台や柱の下部が腐っていた（補修 3万 〜 15万円）</li>
+      <li>床を剥がしたら根太が傷んでいた（補強 2万 〜 8万円）</li>
+      <li>外壁の下地が浮いていて、そのままでは塗れない（補修 5万 〜 20万円）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5. 工事の流れ ============ -->
+<section class="flow wrap fade">
+  <div class="head">
+    <span class="head__no">03</span>
+    <h2 class="head__title">ご相談から引き渡しまで</h2>
+  </div>
+
+  <div class="flow__grid">
+    <div class="flow__list">
+      <div class="flow__step">
+        <p class="flow__when">当日〜3日</p>
+        <h3 class="flow__title">ご相談・現地調査</h3>
+        <p class="flow__body">電話かフォームでご連絡ください。調査は1時間ほど、床下と天井裏も見ます。</p>
+      </div>
+      <div class="flow__step">
+        <p class="flow__when">調査から3日以内</p>
+        <h3 class="flow__title">見積もりの提出</h3>
+        <p class="flow__body">項目ごとに数量と単価を分けた見積書と、増えうる項目の一覧をお渡しします。</p>
+      </div>
+      <div class="flow__step">
+        <p class="flow__when">ご検討</p>
+        <h3 class="flow__title">打ち合わせ</h3>
+        <p class="flow__body">仕様の変更や減額の相談はこの段階で。何度でも作り直します。急かしません。</p>
+      </div>
+      <div class="flow__step">
+        <p class="flow__when">契約後 2〜4週間</p>
+        <h3 class="flow__title">着工</h3>
+        <p class="flow__body">材料の手配に2〜4週間いただきます。近隣へのご挨拶は着工の3日前に伺います。</p>
+      </div>
+      <div class="flow__step">
+        <p class="flow__when">工事中</p>
+        <h3 class="flow__title">写真で報告</h3>
+        <p class="flow__body">見えなくなる部分は必ず撮影し、その日のうちにお送りします。</p>
+      </div>
+      <div class="flow__step">
+        <p class="flow__when">完了</p>
+        <h3 class="flow__title">引き渡し・保証</h3>
+        <p class="flow__body">一緒に確認してからお渡しします。自社施工部分は10年、設備はメーカー保証に準じます。</p>
+      </div>
+    </div>
+
+    <figure class="flow__fig">
+      <img class="ph" src="images/07-done.jpg"
+           alt="引き渡し後の居間。窓が大きく、家具が入って片付いた状態。">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 6. 会社情報 ============ -->
+<section class="info-sec wrap fade" id="info">
+  <div class="head">
+    <span class="head__no">04</span>
+    <h2 class="head__title">会社情報</h2>
+  </div>
+
+  <div class="info-grid">
+    <div>
+      <table class="info">
+        <tr><th>商号</th><td>野口工務店</td></tr>
+        <tr><th>建設業許可</th><td>埼玉県知事許可（般-00）第00000号<span class="dummy">ダミー</span></td></tr>
+        <tr><th>資格</th><td>二級建築士 1名／一級建築施工管理技士 1名／大工 2名</td></tr>
+        <tr><th>住所</th><td>〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span></td></tr>
+        <tr><th>電話</th><td><a href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span></td></tr>
+        <tr><th>営業時間</th><td>8:00 – 18:00（日曜・祝日は事前予約のみ）</td></tr>
+        <tr><th>支払い</th><td>着工時 50%・完了時 50%（銀行振込）</td></tr>
+        <tr><th>保証</th><td>自社施工部分 10年／設備機器はメーカー保証</td></tr>
+      </table>
+
+      <div class="area">
+        <strong>対応エリア</strong>：事務所から車で片道30分以内。<br>
+        ふじみ野市・富士見市・三芳町・川越市南部・志木市。<br>
+        それ以外の地域は、工事の内容によってはお受けできないことがあります。
+      </div>
+    </div>
+
+    <!-- 地図：ここに Google マップの iframe を差し込む -->
+    <div class="map">
+      <p>MAP<br>Google マップの埋め込みコードを<br>この枠に差し込みます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. よくある質問 ============ -->
+<section class="faq wrap fade">
+  <div class="head">
+    <span class="head__no">05</span>
+    <h2 class="head__title">よくある質問</h2>
+  </div>
+
+  <div class="faq__list">
+    <div class="faq__item">
+      <h3 class="faq__q">見積もりだけでもいいですか</h3>
+      <p class="faq__a">構いません。無料です。他社と比べるための資料としてお使いください。
+        こちらから催促の連絡はしません。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">住みながらの工事はできますか</h3>
+      <p class="faq__a">水まわり以外は可能です。浴室は3〜5日使えなくなるので、
+        近隣の入浴施設をご案内するか、工程を分けて対応します。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">小さな工事も頼めますか</h3>
+      <p class="faq__a">網戸の張り替えや手すり1本から受けています。
+        3万円未満の工事は、出張費として2,000円を頂戴します。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">工事中の写真はもらえますか</h3>
+      <p class="faq__a">お渡しします。特に壁の中や床下など、完成すると見えなくなる部分は
+        必ず撮影して、その日のうちにお送りします。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 7. 相談（本命CTA） ============ -->
+<section class="contact fade" id="contact">
+  <div class="wrap contact__inner">
+    <div>
+      <p class="contact__label">Contact</p>
+      <h2 class="contact__title">
+        現地調査は無料です。<br>
+        見積もりは3日以内にお渡しします。
+      </h2>
+    </div>
+    <div class="contact__right">
+      <a class="contact__tel" href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+      <p class="contact__note">
+        電話に出られるのは 8:00 – 18:00 です<br>
+        現場に出ている間は折り返します
+      </p>
+      <a class="contact__form" href="#" rel="noopener">フォームから相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- 画面下に固定するボタン（スマホのみ表示） -->
+<a class="callbar" href="tel:00000000000">
+  <span>電話する</span><span>フォームで相談</span>
+</a>
+
+<!-- ============ 9. フッター ============ -->
+<footer class="wrap">
+  <p class="f__name">野口工務店</p>
+  <p class="f__addr">
+    〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span><br>
+    TEL 000-0000-0000<span class="dummy">ダミー</span>／建設業許可 埼玉県知事許可（般-00）第00000号<span class="dummy">ダミー</span>
+  </p>
+  <p class="f__copy">&copy; noguchi koumuten</p>
+  <p class="f__credit">
+    サンプル用の写真は <a class="f__credit-link" href="https://unsplash.com/" rel="noopener">Unsplash</a> の作品です。
+    撮影者の一覧は <a class="f__credit-link" href="images/CREDITS.md">こちら</a>。<br>
+    実際の案件では、現場で撮影した写真に差し替えます。
+  </p>
+</footer>
+
+<script>
+// 出品用スクリーンショット向け：?shot を付けて開くと「ダミー」バッジを隠す。
+if (location.search.indexOf('shot') !== -1) {
+  document.documentElement.classList.add('shot');
+}
+
+// スクロール時のフェードイン。一度表示したら監視を外す。
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll('.fade');
+  document.documentElement.classList.add('js');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+
+  var safety = setTimeout(function () {
+    for (var j = 0; j < targets.length; j++) targets[j].classList.add('in');
+  }, 3000);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      clearTimeout(safety);
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
