@@ -93,6 +93,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.7;letter-spacing
 .rule li{margin-bottom:.5em}
 .rule li:last-child{margin-bottom:0}
 .rule strong{color:var(--ink);font-weight:600}
+.rule__call{margin:16px 0 14px;font-size:13px;line-height:1.9;color:var(--ink-66)}
+.rule__tel{display:inline-block;padding:12px 24px;background:var(--ink);color:var(--paper);
+           font-size:12.5px;letter-spacing:.1em;text-decoration:none;transition:background-color .3s}
+.rule__tel:hover{background:var(--accent)}
 
 /* ============ 3. 主な施術 ============ */
 .care{padding-top:var(--gap)}
@@ -301,6 +305,12 @@ footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-
           <li>このページは、掲載が認められている事項（名称・施術者・施術日と施術時間・
             予約に基づく施術・駐車設備・療養費支給申請ができる旨など）だけで構成しています。</li>
         </ul>
+        <p class="rule__call">
+          <strong>料金と施術の内容は、電話でご説明します。</strong>
+          広告に書けないだけで、お問い合わせにお答えすることは差し支えありません。
+          けがの状況を伺ったうえで、保険が使えるかどうかもその場でお伝えします。
+        </p>
+        <a class="rule__tel" href="tel:00000000000">電話で聞く　000-0000-0000</a><span class="dummy">ダミー</span>
       </div>
     </div>
 
@@ -343,10 +353,49 @@ footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-
   </div>
 </section>
 
-<!-- ============ 4. ご来院のときに ============ -->
-<section class="record wrap fade">
+
+<!-- ============ 4. ご来院の流れ（手続きのみ） ============ -->
+<section class="flow wrap fade">
   <div class="head">
     <span class="head__no">02</span>
+    <h2 class="head__title">ご来院の流れ</h2>
+  </div>
+
+  <div class="flow__list">
+    <div class="flow__step">
+      <span class="flow__no">1</span>
+      <h3 class="flow__title">受付</h3>
+      <p class="flow__min">5分</p>
+      <p class="flow__body">保険証を確認し、はじめての方には用紙にご記入いただきます。</p>
+    </div>
+    <div class="flow__step">
+      <span class="flow__no">2</span>
+      <h3 class="flow__title">お伺い</h3>
+      <p class="flow__min">10分</p>
+      <p class="flow__body">
+        けがをした日と、そのときの状況を伺います。療養費の支給申請に必要な確認です。
+        ここで保険が使えるかどうかもお伝えします。
+      </p>
+    </div>
+    <div class="flow__step">
+      <span class="flow__no">3</span>
+      <h3 class="flow__title">施術</h3>
+      <p class="flow__min">状態により異なります</p>
+      <p class="flow__body">内容は広告に書けないため、当日その場でご説明します。</p>
+    </div>
+    <div class="flow__step">
+      <span class="flow__no">4</span>
+      <h3 class="flow__title">お会計・次回の予約</h3>
+      <p class="flow__min">5分</p>
+      <p class="flow__body">お支払いのあと、次にお越しになる日を決めてお帰りいただきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ご来院のときに ============ -->
+<section class="record wrap fade">
+  <div class="head">
+    <span class="head__no">03</span>
     <h2 class="head__title">ご来院のときに</h2>
   </div>
 
@@ -383,7 +432,7 @@ footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-
 <!-- ============ 5. 院の情報 ============ -->
 <section class="info-sec wrap fade">
   <div class="head">
-    <span class="head__no">03</span>
+    <span class="head__no">04</span>
     <h2 class="head__title">院の情報</h2>
   </div>
 
@@ -395,13 +444,16 @@ footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-
     <tr><th>施術日</th><td>月・火・水（午前）・木・金・土（午前）</td></tr>
     <tr><th>施術時間</th><td>9:00 – 12:30／15:00 – 20:00</td></tr>
     <tr><th>取り扱い</th><td>骨折・脱臼・打撲・ねんざ・挫傷の施術および後療法／医療保険療養費支給申請ができます</td></tr>
+    <tr><th>休日・夜間</th><td>行っていません（日曜・祝日は休み、平日は 20:00 まで）</td></tr>
+    <tr><th>出張施術</th><td>行っていません</td></tr>
+    <tr><th>開設届</th><td>◯◯保健所に施術所開設届を提出しています<span class="dummy">ダミー</span></td></tr>
   </table>
 </section>
 
 <!-- ============ 6. よくある質問 ============ -->
 <section class="faq wrap fade">
   <div class="head">
-    <span class="head__no">04</span>
+    <span class="head__no">05</span>
     <h2 class="head__title">よくある質問</h2>
   </div>
 
