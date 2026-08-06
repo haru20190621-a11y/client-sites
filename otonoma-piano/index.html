@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ピアノ教室 音の間｜週1回30分、録音を持ち帰る教室（埼玉県◯◯市）</title>
+<meta name="description" content="埼玉県◯◯市のピアノ教室。1レッスンの最後に30秒だけ録音して持ち帰ります。グランドピアノは年2回調律。発表会は12月に1回。">
+
+<style>
+/* ---------- 基本設計 ----------
+   色：地＝#16191B（濃い灰）／文字＝#EAE6DE（生成り）／アクセント＝#B08A4E（真鍮）
+   前の3本（暖色の白地・寒色の白地・灰白地）に対して、ここだけ暗い地にする。
+   5本並べたときに、これが一番遠くから見分けがつく。
+   モバイル 375px を基準に組み、840px で横組みへ。
+------------------------------- */
+
+:root{
+  --bg:#16191B;
+  --bg-2:#1D2124;
+  --cream:#EAE6DE;
+  --cream-70:rgba(234,230,222,.70);
+  --cream-45:rgba(234,230,222,.45);
+  --cream-16:rgba(234,230,222,.16);
+  --brass:#B08A4E;
+
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif JP",serif;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","YuGothic","Noto Sans JP",sans-serif;
+
+  --pad:20px;
+  --gap:clamp(72px,12vw,124px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--cream);
+  font-family:var(--sans);font-size:14.5px;line-height:2;
+  letter-spacing:.06em;font-feature-settings:"palt" 1;
+}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.8;letter-spacing:.14em;margin:0}
+
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1040px;margin-inline:auto}
+.ph{width:100%;background:var(--bg-2);object-fit:cover}
+
+/* 見出しは中央に置き、上下に細い真鍮の罫を引く */
+.head{text-align:center;margin:0 0 clamp(28px,5vw,44px)}
+.head__en{display:block;font-size:10px;letter-spacing:.4em;color:var(--brass);margin-bottom:14px}
+.head__title{font-size:clamp(20px,5.2vw,28px)}
+.head::after{content:"";display:block;width:36px;height:1px;background:var(--brass);margin:18px auto 0}
+
+/* ============ 1. ファーストビュー ============ */
+.hero{position:relative;min-height:100svh;min-height:100vh;display:flex;overflow:hidden}
+.hero__media{position:absolute;inset:0;z-index:0;background:#0E1012}
+.hero__media video{width:100%;height:100%;object-fit:cover}
+.hero__media::after{content:"";position:absolute;inset:0;background:rgba(14,16,18,.55)}
+.hero__inner{
+  position:relative;z-index:1;width:100%;max-width:1040px;margin-inline:auto;
+  padding:0 var(--pad) clamp(46px,10vh,90px);
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;
+}
+.hero__mark{position:absolute;top:clamp(24px,6vh,40px);left:50%;transform:translateX(-50%);
+            font-family:var(--serif);font-size:11px;letter-spacing:.5em;color:var(--brass)}
+.hero__copy{font-family:var(--serif);font-size:clamp(26px,7.4vw,48px);
+            line-height:1.75;letter-spacing:.16em;margin:0 0 24px}
+.hero__name{font-family:var(--serif);font-size:clamp(14px,3.8vw,17px);letter-spacing:.22em;margin:0 0 10px}
+.hero__sub{font-size:12px;line-height:2;color:var(--cream-70);margin:0 0 32px}
+.hero__cta{
+  display:inline-block;padding:15px 34px;border:1px solid var(--brass);color:var(--brass);
+  font-size:12px;letter-spacing:.2em;text-decoration:none;
+  transition:background-color .3s,color .3s;
+}
+.hero__cta:hover{background:var(--brass);color:var(--bg)}
+
+/* ============ 2. 教室について ============ */
+.about{padding-top:var(--gap)}
+.about__lead{font-family:var(--serif);font-size:clamp(18px,4.6vw,25px);
+             line-height:2.1;margin:0 0 26px;text-align:center}
+.about__text p{margin:0 0 1.5em;color:var(--cream-70);font-size:13.5px}
+.about__text p:last-child{margin-bottom:0}
+.about__fig{margin:32px 0 0}
+.about__fig .ph{aspect-ratio:3/2}
+.about__cap{margin:10px 0 0;font-size:11px;color:var(--cream-45)}
+
+/* ============ 3. コース ============ */
+.course{padding-top:var(--gap)}
+.course__item{border-top:1px solid var(--cream-16);padding:28px 0}
+.course__item:last-child{border-bottom:1px solid var(--cream-16)}
+.course__ph{aspect-ratio:4/3;margin-bottom:18px}
+.course__name{font-size:clamp(17px,4.4vw,20px);margin:0 0 6px}
+.course__for{font-size:11px;letter-spacing:.18em;color:var(--brass);margin:0 0 14px}
+.course__fee{font-family:var(--serif);font-size:clamp(20px,5vw,24px);margin:0 0 4px}
+.course__unit{font-size:11.5px;color:var(--cream-45);margin:0 0 14px}
+.course__desc{font-size:13px;color:var(--cream-70);margin:0}
+
+/* ============ 4. レッスンの中身 ============ */
+.lesson{padding-top:var(--gap)}
+.lesson__item{padding:28px 0;border-top:1px solid var(--cream-16)}
+.lesson__item:last-child{border-bottom:1px solid var(--cream-16)}
+.lesson__no{font-family:var(--serif);font-size:11px;letter-spacing:.3em;color:var(--brass)}
+.lesson__title{font-size:17px;margin:10px 0 12px}
+.lesson__body{font-size:13px;color:var(--cream-70);margin:0}
+.lesson__fig{margin-top:20px}
+.lesson__fig .ph{aspect-ratio:16/10}
+
+/* ============ 5. 教室の情報 ============ */
+.info-sec{padding-top:var(--gap)}
+.info{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 26px}
+.info th,.info td{text-align:left;padding:13px 0;border-bottom:1px solid var(--cream-16);vertical-align:top}
+.info th{width:6.5em;font-weight:400;font-size:10.5px;letter-spacing:.2em;color:var(--brass);white-space:nowrap}
+.info a{color:var(--cream);border-bottom:1px solid var(--cream-45);text-decoration:none}
+.dummy{display:inline-block;margin-left:.4em;padding:1px 7px;font-size:10px;letter-spacing:.08em;
+       color:var(--brass);border:1px solid var(--brass);line-height:1.7;vertical-align:2px}
+.slot{width:100%;border-collapse:collapse;font-size:12.5px}
+.slot th,.slot td{padding:8px 6px;border:1px solid var(--cream-16);text-align:center}
+.slot th{background:var(--bg-2);font-weight:400;font-size:11px;letter-spacing:.08em;color:var(--cream-70)}
+.slot td:first-child{text-align:left;white-space:nowrap;color:var(--cream-70)}
+.slot .open{color:var(--brass)}
+.map{aspect-ratio:4/3;background:var(--bg-2);display:flex;align-items:center;justify-content:center;
+     text-align:center;margin-top:26px}
+.map p{margin:0;padding:20px;font-size:11px;letter-spacing:.14em;color:var(--cream-45);line-height:2}
+
+/* ============ 6. 体験レッスン（本命CTA） ============ */
+.trial{margin-top:var(--gap);background:var(--brass);color:#16191B;padding:clamp(48px,9vw,76px) 0}
+.trial__label{font-size:10px;letter-spacing:.34em;color:rgba(22,25,27,.6);margin:0 0 14px}
+.trial__title{font-size:clamp(19px,4.8vw,25px);line-height:1.9;margin:0 0 26px}
+.trial__tel{display:inline-block;font-family:var(--serif);font-size:clamp(22px,6vw,29px);
+            letter-spacing:.04em;text-decoration:none;border-bottom:1px solid rgba(22,25,27,.4);
+            padding-bottom:6px;margin:0 0 18px}
+.trial__note{font-size:12px;line-height:1.95;color:rgba(22,25,27,.72);margin:0 0 20px}
+.trial__line{display:inline-block;padding:13px 28px;border:1px solid rgba(22,25,27,.5);
+             font-size:12px;letter-spacing:.16em;text-decoration:none;transition:background-color .3s,color .3s}
+.trial__line:hover{background:#16191B;color:var(--brass)}
+.trial .dummy{color:rgba(22,25,27,.75);border-color:rgba(22,25,27,.45)}
+
+/* スマホだけ、画面下に体験レッスンのボタン */
+.callbar{display:none}
+
+/* ============ 7. よくある質問 ============ */
+.faq{padding-top:var(--gap)}
+.faq__item{border-top:1px solid var(--cream-16);padding:20px 0}
+.faq__item:last-child{border-bottom:1px solid var(--cream-16)}
+.faq__q{font-size:14px;margin:0 0 8px}
+.faq__q::before{content:"Q ";color:var(--brass);font-family:var(--serif)}
+.faq__a{font-size:13px;color:var(--cream-70);margin:0}
+
+/* ============ 8. フッター ============ */
+footer{margin-top:var(--gap);padding:38px 0 36px;border-top:1px solid var(--cream-16);text-align:center}
+.f__name{font-family:var(--serif);font-size:13px;letter-spacing:.22em;margin:0 0 6px}
+.f__addr{margin:0 0 20px;font-size:11.5px;color:var(--cream-45);line-height:2}
+.f__copy{margin:0;font-size:10.5px;letter-spacing:.1em;color:var(--cream-45)}
+.f__credit{margin:14px 0 0;font-size:10px;line-height:1.85;color:var(--cream-45)}
+.f__credit-link{color:var(--cream-45);border-bottom:1px solid var(--cream-16);text-decoration:none}
+
+/* 出品用スクリーンショット：?shot でダミーバッジを隠す */
+.shot .dummy{display:none}
+
+/* ---------- フェードイン（控えめ） ---------- */
+.js .fade{opacity:0;transform:translateY(12px);transition:opacity .85s ease,transform .85s ease}
+.js .fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js .fade{opacity:1;transform:none;transition:none} }
+
+/* ---------- 839px 以下 ---------- */
+@media (max-width:839px){
+  body{padding-bottom:60px}
+  .callbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;
+           background:var(--brass);color:#16191B;text-align:center;
+           padding:16px 10px;font-size:12px;letter-spacing:.14em;text-decoration:none}
+}
+
+/* ---------- 840px 以上 ---------- */
+@media (min-width:840px){
+  :root{--pad:44px}
+  body{font-size:15px}
+
+  .about__body{max-width:760px;margin-inline:auto}
+  .about__fig .ph{aspect-ratio:21/9}
+
+  /* コースは3枚を横に並べ、写真を上に置く */
+  .course__list{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3vw,40px)}
+  .course__item{border-top:1px solid var(--cream-16);border-bottom:0;padding:24px 0 0}
+  .course__item:last-child{border-bottom:0}
+
+  /* レッスンの中身は、写真と本文を左右交互に */
+  .lesson__item{display:grid;grid-template-columns:1fr minmax(0,46%);
+                gap:clamp(28px,4vw,56px);align-items:center;padding:36px 0}
+  .lesson__fig{margin:0}
+  .lesson__item:nth-child(even) .lesson__fig{order:-1}
+
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4.5vw,64px);align-items:start}
+  .map{margin-top:0}
+
+  .faq__list{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,4.5vw,64px)}
+
+  .trial__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,4.5vw,64px);align-items:end}
+  .trial__right{text-align:right}
+  .trial__title{margin-bottom:0}
+}
+
+/* ---------- 印刷・PDF書き出し ---------- */
+@media print{
+  :root{--hero-print-h:760px}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:var(--bg)}
+  .fade,.js .fade{opacity:1 !important;transform:none !important;transition:none !important}
+  .hero{min-height:0;height:var(--hero-print-h)}
+  .hero__media video{display:none}
+  .course__item,.lesson__item,figure{break-inside:avoid}
+  .callbar{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ 1. ファーストビュー ============ -->
+<header class="hero">
+  <div class="hero__media">
+    <!-- 後日、鍵盤の上を手が動く8秒ほどのループ動画を src に指定する -->
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" aria-hidden="true"></video>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__mark">OTONOMA</p>
+    <h1 class="hero__copy">
+      最後の30秒を、<br>
+      録音して持ち帰る。
+    </h1>
+    <p class="hero__name">ピアノ教室 音の間（おとのま）</p>
+    <p class="hero__sub">
+      毎回のレッスンの終わりに、その日弾けるようになったところだけを録音します。<br>
+      家で聴き返せるので、練習の的が絞れます。
+    </p>
+    <a class="hero__cta" href="#trial">体験レッスンを申し込む</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 2. 教室について ============ -->
+<section class="about wrap fade">
+  <div class="about__body">
+    <p class="about__lead">
+      「毎日30分練習しましょう」は、<br>
+      言わないことにしています。
+    </p>
+    <div class="about__text">
+      <p>
+        続かない原因は、たいてい練習量ではなく的の絞り方です。
+        当教室では、レッスンの最後にその日弾けるようになった部分だけを30秒録音し、
+        次回までに練習するところを2か所だけ決めて終わります。多くても3か所です。
+      </p>
+      <p>
+        講師は1人、教室は1部屋なので、同時に進むレッスンはありません。
+        振替は前日までの連絡で月2回まで受け付けます。
+      </p>
+    </div>
+
+    <figure class="about__fig">
+      <img class="ph" src="images/01-room.jpg"
+           alt="暗いホールに置かれたグランドピアノ。高い窓から差し込む光が床に伸びている。">
+      <figcaption class="about__cap">ピアノはヤマハ C3（2003年製）。調律は5月と11月の年2回です。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 3. コース ============ -->
+<section class="course wrap fade" id="course">
+  <div class="head">
+    <span class="head__en">Course</span>
+    <h2 class="head__title">3つのコース</h2>
+  </div>
+
+  <div class="course__list">
+    <article class="course__item">
+      <img class="ph course__ph" src="images/02-kids.jpg"
+           alt="アップライトピアノの鍵盤に置かれた子どもの両手。指先だけが明るく照らされている。">
+      <h3 class="course__name">こども</h3>
+      <p class="course__for">4歳 〜 中学3年</p>
+      <p class="course__fee">月 ¥8,000</p>
+      <p class="course__unit">月3回・1回30分／教材費は実費</p>
+      <p class="course__desc">
+        最初の半年はバーナムの導入書を使います。読譜が追いつかない場合は、
+        音符を書く宿題を週1枚だけ出します。
+      </p>
+    </article>
+
+    <article class="course__item">
+      <img class="ph course__ph" src="images/03-adult.jpg"
+           alt="開いた楽譜のページ。五線と音符が斜めから写っている。">
+      <h3 class="course__name">おとな</h3>
+      <p class="course__for">高校生 以上</p>
+      <p class="course__fee">月 ¥11,000</p>
+      <p class="course__unit">月4回・1回45分／曲は持ち込み可</p>
+      <p class="course__desc">
+        弾きたい曲から始めます。難しすぎる場合は、同じ作曲家の易しい曲を先に1曲挟みます。
+      </p>
+    </article>
+
+    <article class="course__item">
+      <img class="ph course__ph" src="images/04-single.jpg"
+           alt="グランドピアノの内部と鍵盤を斜めから写したモノクロの写真。">
+      <h3 class="course__name">1回ずつ</h3>
+      <p class="course__for">再開・単発</p>
+      <p class="course__fee">1回 ¥3,500</p>
+      <p class="course__unit">45分・その都度のお支払い</p>
+      <p class="course__desc">
+        月謝ではなく都度払いです。ブランクのある方や、発表会前だけ通いたい方に。
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 4. レッスンの中身 ============ -->
+<section class="lesson wrap fade">
+  <div class="head">
+    <span class="head__en">Lesson</span>
+    <h2 class="head__title">レッスンの中身</h2>
+  </div>
+
+  <div class="lesson__item">
+    <div>
+      <span class="lesson__no">i</span>
+      <h3 class="lesson__title">30秒だけ録音する</h3>
+      <p class="lesson__body">
+        レッスンの最後、その日通せるようになった部分をスマートフォンで録音してお渡しします。
+        全曲ではなく、うまくいった30秒だけです。家では、まずその録音を聴いてから練習を始めてもらいます。
+        自分の音を聴くと、次に直すところが自分で分かるようになります。
+      </p>
+    </div>
+    <figure class="lesson__fig">
+      <img class="ph" src="images/05-record.jpg"
+           alt="暗い机に置かれたスマートフォン。音楽の再生画面が表示されている。">
+    </figure>
+  </div>
+
+  <div class="lesson__item">
+    <div>
+      <span class="lesson__no">ii</span>
+      <h3 class="lesson__title">練習するのは2か所まで</h3>
+      <p class="lesson__body">
+        次回までの宿題は2か所、多くても3か所に絞ります。何小節目から何小節目までかを、
+        その場で楽譜に赤で囲みます。曲全体を毎日通すことは求めません。
+        1週間で直らなかった場所は、翌週に持ち越して同じ場所をもう一度やります。
+      </p>
+    </div>
+    <figure class="lesson__fig">
+      <img class="ph" src="images/06-marking.jpg"
+           alt="譜面台に開かれた楽譜と、その手前のピアノの鍵盤。">
+    </figure>
+  </div>
+
+  <div class="lesson__item">
+    <div>
+      <span class="lesson__no">iii</span>
+      <h3 class="lesson__title">発表会は12月に1回だけ</h3>
+      <p class="lesson__body">
+        年に1回、12月に◯◯市民会館の小ホールで行います。参加は自由で、参加費は ¥5,000（会場費と調律代）。
+        出ない方も同じ内容のレッスンです。曲は9月に決め、10月から2回だけ通し練習の回を入れます。
+      </p>
+    </div>
+    <figure class="lesson__fig">
+      <img class="ph" src="images/07-recital.jpg"
+           alt="客席が暗いホールのステージ。中央にグランドピアノが小さく見えている。">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 5. 教室の情報 ============ -->
+<section class="info-sec wrap fade" id="info">
+  <div class="head">
+    <span class="head__en">Information</span>
+    <h2 class="head__title">教室の情報</h2>
+  </div>
+
+  <div class="info-grid">
+    <div>
+      <table class="info">
+        <tr><th>講師</th><td>1名（音楽大学ピアノ科卒・指導歴14年）</td></tr>
+        <tr><th>住所</th><td>〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span></td></tr>
+        <tr><th>電話</th><td><a href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span></td></tr>
+        <tr><th>楽器</th><td>グランドピアノ ヤマハ C3（2003年製）／電子ピアノ 1台</td></tr>
+        <tr><th>駐車場</th><td>2台（送迎の一時停車は3台まで）</td></tr>
+        <tr><th>体験</th><td>30分 ¥1,000（入会された場合は初月分から差し引きます）</td></tr>
+        <tr><th>入会金</th><td>¥5,000</td></tr>
+      </table>
+
+      <table class="slot">
+        <tr><th></th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+        <tr><td>15:00 – 18:00</td><td class="open">空き</td><td>—</td><td class="open">空き</td><td>満</td><td class="open">空き</td></tr>
+        <tr><td>18:00 – 20:30</td><td>満</td><td>—</td><td>満</td><td class="open">空き</td><td>—</td></tr>
+      </table>
+      <p class="about__cap">月曜・日曜と、水曜の終日はお休みです。空き状況は毎週月曜に更新します。</p>
+    </div>
+
+    <!-- 地図：ここに Google マップの iframe を差し込む -->
+    <div class="map">
+      <p>MAP<br>Google マップの埋め込みコードを<br>この枠に差し込みます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. よくある質問 ============ -->
+<section class="faq wrap fade">
+  <div class="head">
+    <span class="head__en">Questions</span>
+    <h2 class="head__title">よくある質問</h2>
+  </div>
+
+  <div class="faq__list">
+    <div class="faq__item">
+      <h3 class="faq__q">家にピアノがありません</h3>
+      <p class="faq__a">最初の3か月は電子ピアノでも構いません。ただし鍵盤は88鍵、
+        強く弾くと大きな音が出るもの（タッチレスポンス付き）をお選びください。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">何歳から通えますか</h3>
+      <p class="faq__a">4歳からお受けしています。座って15分続けられるかどうかが目安なので、
+        体験レッスンで確かめてから決めてください。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">振替はできますか</h3>
+      <p class="faq__a">前日までのご連絡で、月2回までお受けします。
+        当日のお休みは振替になりませんが、その回の課題はメールでお送りします。</p>
+    </div>
+    <div class="faq__item">
+      <h3 class="faq__q">保護者は同席できますか</h3>
+      <p class="faq__a">できます。部屋に椅子が2脚あります。
+        小学3年生くらいからは、本人だけのほうが集中する場合が多いです。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 6. 体験レッスン（本命CTA） ============ -->
+<section class="trial fade" id="trial">
+  <div class="wrap trial__inner">
+    <div>
+      <p class="trial__label">Trial Lesson</p>
+      <h2 class="trial__title">
+        体験レッスンは30分 ¥1,000。<br>
+        その場で入会を決めなくて構いません。
+      </h2>
+    </div>
+    <div class="trial__right">
+      <a class="trial__tel" href="tel:00000000000">000-0000-0000</a><span class="dummy">ダミー</span>
+      <p class="trial__note">
+        電話に出られるのは 10:00 – 20:00 です<br>
+        レッスン中は留守番電話に切り替わります
+      </p>
+      <a class="trial__line" href="#" rel="noopener">LINE で申し込む</a>
+    </div>
+  </div>
+</section>
+
+<!-- 画面下に固定するボタン（スマホのみ表示） -->
+<a class="callbar" href="tel:00000000000">体験レッスンを申し込む（電話）</a>
+
+<!-- ============ 8. フッター ============ -->
+<footer class="wrap">
+  <p class="f__name">ピアノ教室 音の間</p>
+  <p class="f__addr">
+    〒000-0000 埼玉県◯◯市△△ 0-0-0<span class="dummy">ダミー</span><br>
+    TEL 000-0000-0000<span class="dummy">ダミー</span>／火・木・金・土／月・水・日 休み
+  </p>
+  <p class="f__copy">&copy; otonoma piano</p>
+  <p class="f__credit">
+    サンプル用の写真は <a class="f__credit-link" href="https://unsplash.com/" rel="noopener">Unsplash</a> の作品です。
+    撮影者の一覧は <a class="f__credit-link" href="images/CREDITS.md">こちら</a>。<br>
+    実際の案件では、教室で撮影した写真に差し替えます。
+  </p>
+</footer>
+
+<script>
+// 出品用スクリーンショット向け：?shot を付けて開くと「ダミー」バッジを隠す。
+if (location.search.indexOf('shot') !== -1) {
+  document.documentElement.classList.add('shot');
+}
+
+// スクロール時のフェードイン。一度表示したら監視を外す。
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll('.fade');
+  document.documentElement.classList.add('js');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < targets.length; i++) targets[i].classList.add('in');
+    return;
+  }
+
+  var safety = setTimeout(function () {
+    for (var j = 0; j < targets.length; j++) targets[j].classList.add('in');
+  }, 3000);
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      clearTimeout(safety);
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
