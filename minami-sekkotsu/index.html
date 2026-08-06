@@ -150,6 +150,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.7;letter-spacing
      justify-content:center;text-align:center;margin-top:26px}
 .map p{margin:0;padding:20px;font-size:11px;letter-spacing:.14em;color:var(--ink-42);line-height:2}
 
+/* 院内と備品の写真を3枚並べる帯 */
+.gallery{padding-top:var(--gap)}
+.gallery__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gallery__grid .ph{aspect-ratio:4/3}
+.gallery__cap{margin:12px 0 0;font-size:11px;color:var(--ink-42)}
+
 /* ============ 7. よくある質問 ============ */
 .faq{padding-top:var(--gap)}
 .faq__item{border-top:1px solid var(--ink-14);padding:20px 0}
@@ -390,6 +396,19 @@ footer{margin-top:var(--gap);padding:36px 0 34px;border-top:1px solid var(--ink-
       <p class="flow__body">お支払いのあと、次にお越しになる日を決めてお帰りいただきます。</p>
     </div>
   </div>
+</section>
+
+<!-- ============ 院内のようす ============ -->
+<section class="gallery wrap fade">
+  <div class="gallery__grid">
+    <img class="ph" src="images/02-taping.jpg"
+         alt="足首の構造がわかる解剖模型。骨と靭帯が色分けされ、暗い背景に置かれている。">
+    <img class="ph" src="images/08-explain.jpg"
+         alt="背骨の一つひとつの形がわかる模型。黒い背景に白く浮かんでいる。">
+    <img class="ph" src="images/09-chart.jpg"
+         alt="背骨のスケッチが描かれた紙とクリップボード。受付の机に広げられている。">
+  </div>
+  <p class="gallery__cap">院内には、説明に使う模型と資料を置いています。</p>
 </section>
 
 <!-- ============ 5. ご来院のときに ============ -->

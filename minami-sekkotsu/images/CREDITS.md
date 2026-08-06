@@ -13,6 +13,9 @@
 |---|---|---|---|
 | `01-room.jpg` | はじめに（院内） | [Kimiya Sabbaghan](https://unsplash.com/@k_sabbaghan) | https://unsplash.com/photos/a-white-room-with-a-bed-and-a-desk-o4OJfrmMC0o |
 | `05-intake.jpg` | 流れ1 問診 | [Corinne Kutz](https://unsplash.com/@corinnekutz) | https://unsplash.com/photos/black-iphone-case-beside-black-framed-eyeglasses-and-white-click-pen-on-brown-wooden-table-bYmdyND3shs |
+| `02-taping.jpg` | 院内のようす | [Anne Nygård](https://unsplash.com/@polarmermaid) | https://unsplash.com/photos/blue-and-brown-ceramic-vase-_W94Eb1iNYc |
+| `08-explain.jpg` | 院内のようす | [Nowbelov](https://unsplash.com/@nowbelov) | https://unsplash.com/photos/abstract-sculpture-with-holes-against-black-background-aL7Jx-IrpyA |
+| `09-chart.jpg` | 院内のようす | [Joyce Hankins](https://unsplash.com/@moonshadowpress) | https://unsplash.com/photos/brown-and-black-clipboard-with-white-spinal-cord-print-manual-IG96K_HiDk0 |
 | `10-calendar.jpg` | 記録2 予約表 | [Roman Bozhko](https://unsplash.com/@romanbozhko) | https://unsplash.com/photos/silver-imac-on-brown-wooden-desk-PypjzKTUqLo |
 
 ## 差し替えるとき
