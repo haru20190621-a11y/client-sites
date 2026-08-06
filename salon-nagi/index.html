@@ -42,7 +42,7 @@ img,video{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.75;letter-spacing:.12em;margin:0}
 
-.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1120px;margin-inline:auto}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1300px;margin-inline:auto}
 .ph{width:100%;background:var(--mist);object-fit:cover}
 
 /* セクションの頭。左に細い縦罫、その上にラベルを置く */
@@ -58,7 +58,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.75;letter-spacin
 .hero__media video{width:100%;height:100%;object-fit:cover;background:#2A302C}
 .hero__media::after{content:"";position:absolute;inset:0;background:rgba(20,26,23,.38)}
 .hero__inner{
-  position:relative;z-index:1;width:100%;max-width:1120px;margin-inline:auto;
+  position:relative;z-index:1;width:100%;max-width:1300px;margin-inline:auto;
   padding:0 var(--pad) clamp(48px,10vh,92px);
   display:flex;flex-direction:column;justify-content:flex-end;color:#F1F2EF;
 }
@@ -157,7 +157,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.75;letter-spacin
 
 /* ============ 7. Instagram ============ */
 .ig{margin-top:var(--gap);padding-top:clamp(50px,9vw,76px);border-top:1px solid var(--ink-14)}
-.ig__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:28px}
+.ig__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;margin-bottom:28px}
 .ig__grid .ph{aspect-ratio:1/1}
 .ig__title{font-size:clamp(17px,4.4vw,20px);margin:0 0 8px}
 .ig__handle{font-size:12px;letter-spacing:.14em;color:var(--ink-40);margin:0 0 20px}
@@ -234,7 +234,7 @@ footer{margin-top:var(--gap);padding:40px 0 38px;border-top:1px solid var(--ink-
   .reserve__right{text-align:right}
   .reserve__title{margin-bottom:0}
 
-  .ig__grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .ig__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
   .ig__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(36px,5vw,72px);align-items:end}
 }
 
@@ -452,7 +452,7 @@ footer{margin-top:var(--gap);padding:40px 0 38px;border-top:1px solid var(--ink-
 </section>
 
 <!-- ============ 7. Instagram ============ -->
-<section class="ig wrap fade">
+<section class="ig fade">
   <div class="ig__grid">
     <img class="ph" src="images/08-ig.jpg"
          alt="肩に流れた長い髪の質感がわかる寄りの写真。">
@@ -468,7 +468,7 @@ footer{margin-top:var(--gap);padding:40px 0 38px;border-top:1px solid var(--ink-
          alt="たたんだタオルとキャンドルが置かれた棚まわり。木と石でできた落ち着いた内装。">
   </div>
 
-  <div class="ig__inner">
+  <div class="wrap ig__inner">
     <div>
       <p class="label">Instagram</p>
       <h2 class="ig__title">仕上がりと空き状況は<br>Instagram に出しています</h2>

@@ -46,7 +46,7 @@ a{color:inherit}
 
 h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;letter-spacing:.08em;line-height:1.7}
 
-.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1180px;margin-inline:auto}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1340px;margin-inline:auto}
 
 /* セクション見出し（番号＋和文＋欧文の三点） */
 .sec-head{margin:0 0 clamp(28px,6vw,44px)}
@@ -75,7 +75,7 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;letter-spacing:.08em;li
   position:relative;z-index:1;flex:1;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:0 var(--pad) clamp(44px,11vh,88px);
-  color:#F5F1E9;max-width:1180px;margin-inline:auto;width:100%;
+  color:#F5F1E9;max-width:1340px;margin-inline:auto;width:100%;
 }
 .hero__mark{
   position:absolute;top:clamp(26px,7vh,44px);left:var(--pad);
@@ -192,7 +192,7 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;letter-spacing:.08em;li
 
 /* ============ 7. Instagram ============ */
 .ig{margin-top:var(--gap);border-top:1px solid var(--ink-12);padding-top:clamp(52px,10vw,80px)}
-.ig__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:30px}
+.ig__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;margin-bottom:30px}
 .ig__grid .ph{aspect-ratio:1/1}
 .ig__title{margin:0 0 8px;font-size:clamp(17px,4.4vw,21px)}
 .ig__handle{margin:0 0 22px;font-size:12px;letter-spacing:.14em;color:var(--ink-60)}
@@ -532,7 +532,7 @@ footer{margin-top:var(--gap);padding:44px 0 40px;border-top:1px solid var(--ink-
 </section>
 
 <!-- ============ 6. Instagram ============ -->
-<section class="ig wrap fade">
+<section class="ig fade">
   <div class="ig__grid">
     <img class="ph" src="images/08-ig.jpg"
          alt="焼き上がった丸いパンが積み重なり、そのうちの一つが半分に切られている。">
@@ -548,7 +548,7 @@ footer{margin-top:var(--gap);padding:44px 0 40px;border-top:1px solid var(--ink-
          alt="籠に盛り合わせたいろいろな種類のパン。">
   </div>
 
-  <div class="ig__inner">
+  <div class="wrap ig__inner">
     <div>
       <span class="sec-num">05</span>
       <h2 class="ig__title">その日の焼き上がりは<br>Instagram に出しています</h2>
