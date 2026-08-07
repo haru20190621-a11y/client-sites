@@ -1,0 +1,311 @@
+@charset "utf-8";
+
+/* ── はるき造園 ────────────────────────────────────────────
+   骨格 A（全面写真ヒーロー＋大きな写真面積）／背骨は四季。
+   配色は松の緑から採り、差し色は灯籠と紅葉の柿渋。
+   ───────────────────────────────────────────────────── */
+
+:root{
+  --bg:#f7f5ef;          /* 生成り */
+  --bg-deep:#eceade;     /* 一段沈めた地 */
+  --ink:#2a302a;         /* 墨に緑を寄せた */
+  --ink-soft:#5a615a;
+  --accent:#9c5c34;      /* 柿渋 */
+  --matsu:#3d5140;       /* 松の緑 */
+  --line:rgba(42,48,42,.16);
+  --serif:"Shippori Mincho",serif;
+  --sans:"Zen Kaku Gothic New",sans-serif;
+  --latin:"Cormorant Garamond",serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:17px;              /* 施主に高齢層が多い業種 */
+  line-height:1.95;
+  letter-spacing:.04em;
+  color:var(--ink);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.55;letter-spacing:.13em;margin:0}
+h2{font-size:clamp(1.5rem,3.6vw,2.15rem);margin:0 0 .8em}
+h3{font-size:clamp(1.1rem,2.4vw,1.35rem)}
+
+.label{
+  font-family:var(--latin);
+  font-size:.8rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 .7em;
+}
+
+/* ── 反応獲得バナー ───────────────────────────────────── */
+.offer-banner{
+  background:var(--matsu);color:#f4f2ea;
+  padding:22px 6vw;font-size:.94rem;line-height:1.9;
+}
+.offer-banner p{margin:0}
+.offer-links{margin-top:14px;display:flex;flex-wrap:wrap;gap:12px}
+.offer-btn{
+  display:inline-block;padding:9px 20px;
+  border:1px solid rgba(244,242,234,.75);
+  color:#f4f2ea;text-decoration:none;font-size:.9rem;letter-spacing:.08em;
+  transition:background .3s,color .3s;
+}
+.offer-btn:hover{background:#f4f2ea;color:var(--matsu)}
+
+/* ── ナビ ─────────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,245,239,.9);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav__inner{
+  max-width:1080px;margin:0 auto;padding:12px 5vw;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.nav__mark{font-family:var(--serif);font-size:1.05rem;letter-spacing:.22em;text-decoration:none}
+.nav__links{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap}
+.nav__links a{font-size:.88rem;letter-spacing:.1em;text-decoration:none;color:var(--ink-soft)}
+.nav__links a:hover{color:var(--accent)}
+
+/* ── ヒーロー ─────────────────────────────────────────── */
+.hero{position:relative;height:88svh;min-height:520px;overflow:hidden;background:var(--matsu)}
+.hero__slide{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;animation:heroFade 21s infinite,kenburns 21s ease-in-out infinite;
+}
+.hero__slide:nth-child(2){animation-delay:7s,7s}
+.hero__slide:nth-child(3){animation-delay:14s,14s}
+@keyframes heroFade{0%{opacity:0}5%{opacity:1}30%{opacity:1}36%{opacity:0}100%{opacity:0}}
+@keyframes kenburns{0%{transform:scale(1)}100%{transform:scale(1.09)}}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,20,.28) 0%,rgba(20,26,20,.52) 100%)}
+.hero__inner{
+  position:relative;z-index:2;height:100%;color:#f6f4ec;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:0 6vw;
+}
+.hero__eyebrow{
+  font-family:var(--latin);font-size:.76rem;letter-spacing:.45em;
+  margin:0 0 1.4em;color:rgba(246,244,236,.82);
+}
+.hero__name{font-size:clamp(1.9rem,6.4vw,3.5rem);margin:0}
+.hero__lead{font-family:var(--serif);font-size:clamp(1rem,2.4vw,1.3rem);margin:1.2em 0 0;letter-spacing:.1em}
+.hero__tel{margin:2.2em 0 0}
+.hero__tel a{
+  font-family:var(--serif);font-size:clamp(1.3rem,3.4vw,1.75rem);letter-spacing:.08em;
+  text-decoration:none;border-bottom:1px solid rgba(246,244,236,.45);padding-bottom:.1em;
+}
+.hero__place{font-size:.85rem;letter-spacing:.1em;margin:1.5em 0 0;color:rgba(246,244,236,.8)}
+.hero__imgnote{
+  position:absolute;right:14px;bottom:12px;z-index:3;margin:0;
+  font-size:.72rem;letter-spacing:.08em;color:rgba(246,244,236,.78);
+}
+
+/* ── 営業情報ストリップ ───────────────────────────────── */
+.strip{background:var(--bg-deep);padding:34px 6vw;border-bottom:1px solid var(--line)}
+.strip__grid{
+  max-width:1080px;margin:0 auto;display:grid;gap:22px 40px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+}
+.strip__item{margin:0}
+.strip__grid dt{
+  font-family:var(--sans);font-weight:500;font-size:.76rem;letter-spacing:.2em;
+  color:var(--accent);margin:0 0 .3em;
+}
+.strip__item--wide{grid-column:1/-1}
+/* 括弧書きが中途半端な位置で折り返さないようにする（quality-standard §5） */
+.nb{white-space:nowrap}
+.shigoto__note{
+  max-width:40em;margin:8px 0 0;font-size:.9rem;color:var(--ink-soft);
+  padding-top:22px;border-top:1px solid var(--line);
+}
+.strip__grid dd{margin:0;font-size:.95rem;line-height:1.8}
+.strip__tel{font-family:var(--serif);font-size:1.25rem;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* ── About ────────────────────────────────────────────── */
+.about{
+  max-width:1080px;margin:0 auto;padding:96px 6vw;
+  display:grid;gap:46px;grid-template-columns:1.35fr .9fr;align-items:start;
+}
+.about__text p{margin:0 0 1.4em}
+.about__figs{display:grid;gap:22px}
+.about__fig{margin:0}
+.about__fig img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.about__fig--small img{aspect-ratio:3/2}
+.about__fig figcaption,
+.job__fig figcaption{
+  font-size:.74rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:.6em;
+}
+
+/* ── 承る仕事 ─────────────────────────────────────────── */
+.shigoto{max-width:1080px;margin:0 auto;padding:40px 6vw 96px}
+.shigoto__lead{max-width:34em;margin:0 0 64px}
+.job{
+  display:grid;gap:36px;grid-template-columns:1.05fr 1fr;align-items:center;
+  margin-bottom:72px;
+}
+.job--flip .job__fig{order:2}
+.job__fig{margin:0}
+.job__fig img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.job__no{
+  font-family:var(--latin);font-size:2.4rem;line-height:1;
+  color:var(--accent);margin:0 0 .2em;letter-spacing:.06em;
+}
+.job__body h3{margin:0 0 .7em;padding-bottom:.55em;border-bottom:1px solid var(--line)}
+.job__body p{margin:0}
+
+/* ── 四季 ─────────────────────────────────────────────── */
+.shiki{
+  position:relative;background:var(--bg-deep);
+  padding:96px 6vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.shiki__head{max-width:1080px;margin:0 auto}
+.shiki__lead{max-width:34em;margin:0 0 64px}
+.shiki__rail{
+  position:absolute;left:calc(6vw + 7px);top:270px;bottom:96px;width:1px;
+  background:var(--line);
+}
+.shiki__line{
+  display:block;width:1px;height:100%;background:var(--accent);
+  transform-origin:top;transform:scaleY(1);
+}
+@supports (animation-timeline:view()){
+  .shiki__line{
+    transform:scaleY(0);
+    animation:railGrow linear both;
+    animation-timeline:view();
+    animation-range:cover 12% cover 78%;
+  }
+  @keyframes railGrow{to{transform:scaleY(1)}}
+}
+.shiki__list{
+  list-style:none;margin:0 auto;padding:0 0 0 44px;max-width:1080px;
+}
+.season{
+  position:relative;display:grid;gap:30px;
+  grid-template-columns:1fr 1.05fr;align-items:center;margin-bottom:64px;
+}
+.season:last-child{margin-bottom:0}
+.season::before{
+  content:"";position:absolute;left:-44px;top:calc(50% - 4px);
+  width:9px;height:9px;border:1px solid var(--accent);background:var(--bg-deep);
+  transform:rotate(45deg);
+}
+.season__fig{position:relative;margin:0}
+.season__fig img{width:100%;aspect-ratio:5/4;object-fit:cover}
+.season__note{
+  display:block;font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft);margin-top:.55em;
+}
+.season__mark{
+  font-family:var(--serif);font-size:1.5rem;letter-spacing:.3em;
+  color:var(--matsu);margin:0 0 .35em;
+}
+.season__body h3{margin:0 0 .55em}
+.season__body p{margin:0;font-size:.98rem}
+
+/* ── パララックス帯 ───────────────────────────────────── */
+.band{
+  position:relative;min-height:340px;
+  background-image:url(images/11-band-koke.jpg);
+  background-size:cover;background-position:center;background-attachment:fixed;
+  display:flex;align-items:center;justify-content:center;
+}
+.band::after{content:"";position:absolute;inset:0;background:rgba(18,26,18,.45)}
+.band__quote{
+  position:relative;z-index:2;margin:0;color:#f6f4ec;
+  font-family:var(--serif);font-size:clamp(1.15rem,3.2vw,1.75rem);
+  letter-spacing:.18em;text-align:center;padding:0 6vw;
+}
+.band__note{
+  position:absolute;right:14px;bottom:10px;z-index:2;margin:0;
+  font-size:.72rem;color:rgba(246,244,236,.8);letter-spacing:.06em;
+}
+
+/* ── 会社概要 ─────────────────────────────────────────── */
+.gaiyo{max-width:860px;margin:0 auto;padding:96px 6vw}
+.gaiyo__table{width:100%;border-collapse:collapse;font-size:.96rem}
+.gaiyo__table th,.gaiyo__table td{
+  text-align:left;vertical-align:top;padding:16px 8px;border-bottom:1px solid var(--line);
+}
+.gaiyo__table th{
+  width:8.5em;font-weight:500;letter-spacing:.12em;color:var(--ink-soft);white-space:nowrap;
+}
+.gaiyo__map{margin:26px 0 0;font-size:.94rem}
+
+/* ── お問い合わせ ─────────────────────────────────────── */
+.toiawase{
+  background:var(--matsu);color:#f4f2ea;text-align:center;
+  padding:88px 6vw;
+}
+.toiawase .label{color:rgba(244,242,234,.72)}
+.toiawase__lead{margin:0 auto 1.8em;max-width:32em;line-height:2}
+.toiawase__tel{margin:0}
+.toiawase__tel a{
+  font-family:var(--serif);font-size:clamp(1.8rem,6vw,2.9rem);
+  letter-spacing:.08em;text-decoration:none;
+  border-bottom:1px solid rgba(244,242,234,.5);padding-bottom:.08em;
+}
+.toiawase__hours{font-size:.88rem;margin:2em 0 0;color:rgba(244,242,234,.82)}
+
+/* ── フッター ─────────────────────────────────────────── */
+.foot{padding:64px 6vw;text-align:center;font-size:.85rem;line-height:1.9;color:var(--ink-soft)}
+.foot__name{font-family:var(--serif);font-size:1.05rem;letter-spacing:.2em;color:var(--ink);margin:0 0 .6em}
+.foot__addr{margin:0 0 1.8em}
+.foot__credit{margin:0 0 .5em;font-size:.79rem}
+.foot__note{margin:0 auto 1.6em;max-width:40em;font-size:.79rem}
+.foot__demo{margin:0;font-size:.79rem;letter-spacing:.08em}
+
+/* ── スクロール出現 ───────────────────────────────────── */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
+.js .reveal.on{opacity:1;transform:none}
+
+/* ── レスポンシブ ─────────────────────────────────────── */
+@media (max-width:860px){
+  body{font-size:16.5px}
+  .about{grid-template-columns:1fr;gap:32px;padding:72px 6vw}
+  .job,.job--flip .job__fig,.season{grid-template-columns:1fr;order:0}
+  .job{gap:20px;margin-bottom:56px}
+  .season{gap:18px;margin-bottom:48px}
+  .shigoto{padding:24px 6vw 72px}
+  .shiki{padding:72px 6vw}
+  .shiki__rail{top:250px;bottom:72px;left:calc(6vw + 4px)}
+  .shiki__list{padding-left:28px}
+  .season::before{left:-28px;top:8px}
+  .nav__links{gap:16px}
+  .nav__links a{font-size:.82rem}
+  
+}
+@media (max-width:900px),(hover:none){
+  .band{background-attachment:scroll}
+}
+@media (max-width:480px){
+  .hero__tel a{font-size:1.25rem}
+  /* 社名9文字＋広いletter-spacingは375pxで確実にはみ出す。ここだけ字送りを詰める */
+  .hero__name{font-size:1.52rem;letter-spacing:.05em}
+  .hero__lead{font-size:.96rem;letter-spacing:.03em}
+  .hero__place{font-size:.74rem;letter-spacing:.04em;line-height:1.8}
+  .hero__eyebrow{font-size:.66rem;letter-spacing:.3em}
+}
+@media (max-width:420px){
+  .nav__inner{padding:10px 5vw}
+  .nav__mark{font-size:.98rem}
+  .gaiyo__table th{width:6.5em;font-size:.88rem}
+  .gaiyo__table th,.gaiyo__table td{padding:13px 4px}
+}
+
+/* ── reduced-motion（必須・最下部） ───────────────────── */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .band{background-attachment:scroll}
+  .hero__slide{opacity:1}
+  .hero__slide:nth-child(2),.hero__slide:nth-child(3){opacity:0}
+  .shiki__line{transform:scaleY(1)}
+}
