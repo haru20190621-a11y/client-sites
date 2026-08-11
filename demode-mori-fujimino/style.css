@@ -1,0 +1,194 @@
+/* demode MORI '67 — 骨格D（時刻の背骨）。地色が夕方から深夜へ暮れていく */
+:root{
+  --yuu:#f2e9d8;      /* 外壁の黄土色から。夕方の地色 */
+  --yuu2:#e6d4b4;
+  --yoru:#4a3226;     /* 木枠の焦茶 */
+  --shinya:#1b1512;   /* 深夜 */
+  --ink:#241c17;
+  --ink-r:#f3e9dc;    /* 反転時の文字色 */
+  --aka:#9e2a2b;      /* 庇と盾ロゴの赤（彩度を一段落とす） */
+  --aka-l:#c96f60;
+  --midashi:"Kaisei Decol",serif;
+  --honbun:"Zen Kaku Gothic New",sans-serif;
+  --suji:"Cormorant Garamond",serif;
+}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:var(--honbun);font-weight:400;font-size:17px;
+  color:var(--ink);background:var(--yuu);line-height:1.95;letter-spacing:.04em;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+h1,h2,h3{font-family:var(--midashi);font-weight:700;line-height:1.55;letter-spacing:.08em;margin:0}
+.nw{white-space:nowrap}
+.dm-small{font-size:.82rem;line-height:1.8;opacity:.78}
+.dm-label{font-family:var(--suji);font-size:.76rem;letter-spacing:.38em;
+  color:var(--aka);text-transform:uppercase;margin:0 0 .8em}
+.dm-label-center{text-align:center}
+.dm-cite{display:block;font-size:.78rem;letter-spacing:.06em;opacity:.7;margin-top:.4em}
+
+/* 反応獲得バナー */
+.offer-banner{background:var(--aka);color:#fdf6ec;padding:22px 20px 24px;text-align:center}
+.offer-banner p{margin:0 auto 14px;max-width:820px;font-size:.9rem;line-height:1.9;text-align:left}
+.offer-btn{display:inline-block;margin:0 6px 6px;padding:10px 22px;border:1px solid #fdf6ec;
+  color:#fdf6ec;text-decoration:none;font-size:.86rem;letter-spacing:.08em}
+.offer-btn:hover{background:#fdf6ec;color:var(--aka)}
+
+/* ナビ */
+.dm-nav{position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:10px 26px;
+  align-items:baseline;justify-content:space-between;
+  padding:12px 22px;background:rgba(242,233,216,.9);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(36,28,23,.16)}
+.dm-nav-mark{font-family:var(--midashi);font-size:1rem;letter-spacing:.1em;text-decoration:none}
+.dm-nav-list{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-size:.86rem}
+.dm-nav-list a{text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.dm-nav-list a:hover{border-bottom-color:var(--aka)}
+
+/* ヒーロー（実写・Ken Burns） */
+.dm-hero{position:relative;min-height:76vh;overflow:hidden;display:flex;align-items:flex-end}
+.dm-hero-photo{position:absolute;inset:0;background-image:url(images/01-hero-gaikan.jpg);
+  background-size:cover;background-position:center 30%;animation:dmKen 26s ease-in-out infinite alternate}
+@keyframes dmKen{from{transform:scale(1)}to{transform:scale(1.09)}}
+.dm-hero-veil{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(27,21,18,.16) 0%,rgba(27,21,18,.34) 48%,rgba(27,21,18,.82) 100%)}
+.dm-hero-inner{position:relative;z-index:2;color:#f7ece0;padding:0 26px 58px;max-width:900px}
+.dm-hero-kicker{font-family:var(--suji);font-size:.74rem;letter-spacing:.4em;margin:0 0 .9em;opacity:.9}
+.dm-hero h1{font-size:clamp(2.1rem,7vw,3.6rem);letter-spacing:.05em}
+.dm-hero-lead{margin:.7em 0 .3em;font-size:clamp(1rem,2.6vw,1.22rem);line-height:1.9}
+.dm-hero-sub{margin:0;font-size:.88rem;letter-spacing:.08em;opacity:.9}
+
+/* 営業情報ストリップ */
+.dm-strip{background:var(--yuu2);border-bottom:1px solid rgba(36,28,23,.14)}
+.dm-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;
+  max-width:1080px;margin-inline:auto}
+.dm-strip-grid > div{padding:24px 22px;border-left:1px solid rgba(36,28,23,.14)}
+.dm-strip-grid > div:first-child{border-left:none}
+.dm-strip dt{font-family:var(--suji);font-size:.74rem;letter-spacing:.28em;
+  color:var(--aka);text-transform:uppercase;margin-bottom:.5em}
+.dm-strip dd{margin:0;font-size:1rem;line-height:1.85}
+
+/* About */
+.dm-about{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;
+  max-width:1080px;margin:0 auto;padding:82px 26px 88px}
+.dm-about h2{font-size:clamp(1.5rem,4vw,2.15rem);margin-bottom:.7em}
+.dm-about p{margin:0 0 1.25em}
+.dm-about-photo{margin:0}
+.dm-about-photo img{width:100%;height:440px;object-fit:cover}
+.dm-about-photo figcaption,.dm-chapter-photo figcaption,.dm-menu-photo figcaption{
+  font-size:.76rem;letter-spacing:.05em;opacity:.72;padding-top:.6em}
+.dm-quote-inline{border-left:2px solid var(--aka);padding-left:16px;font-size:1rem}
+
+/* 時刻の背骨（章ごとに地色が暮れていく） */
+.dm-clock{padding:78px 0 0}
+.dm-clock-title{text-align:center;font-size:clamp(1.5rem,4vw,2.15rem);margin-bottom:1.6em}
+.dm-chapter{display:grid;grid-template-columns:170px 1fr 1fr;gap:38px;align-items:center;
+  padding:56px max(26px,calc((100% - 1080px)/2))}
+.dm-chapter-time{text-align:right;border-right:1px solid rgba(36,28,23,.3);padding-right:22px}
+.dm-num{display:block;font-family:var(--suji);font-size:2.5rem;line-height:1.1;letter-spacing:.02em}
+.dm-when{display:block;font-size:.78rem;letter-spacing:.16em;opacity:.75;margin-top:.4em}
+.dm-chapter-body h3{font-size:1.3rem;margin-bottom:.6em}
+.dm-chapter-body p{margin:0 0 1em}
+.dm-chapter-body-wide{grid-column:2 / span 2}
+.dm-chapter-photo{margin:0}
+.dm-chapter-photo img{width:100%;height:290px;object-fit:cover}
+
+/* 章が進むほど地色が暮れる。三章目から反転配色になる */
+.dm-chapter-1{background:var(--yuu)}
+.dm-chapter-2{background:var(--yuu2)}
+.dm-chapter-3{background:var(--yoru);color:var(--ink-r)}
+.dm-chapter-4{background:var(--shinya);color:var(--ink-r)}
+.dm-chapter-3 .dm-chapter-time,.dm-chapter-4 .dm-chapter-time{border-right-color:rgba(243,233,220,.35)}
+.dm-chapter-4 .dm-quote-inline{border-left-color:var(--aka-l)}
+
+/* パララックスバンド */
+.dm-band{min-height:360px;background-image:url(images/06-lanterns.jpg);
+  background-size:cover;background-position:center;background-attachment:fixed;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:#f7ece0;position:relative;padding:60px 26px}
+.dm-band::before{content:"";position:absolute;inset:0;background:rgba(20,15,12,.55)}
+.dm-band-copy{position:relative;z-index:2;font-family:var(--midashi);
+  font-size:clamp(1.3rem,4.4vw,2.1rem);letter-spacing:.14em;margin:0}
+.dm-band-note{position:relative;z-index:2;font-size:.74rem;letter-spacing:.06em;
+  opacity:.8;margin:1.5em 0 0}
+
+/* お品書き（夜が明けないよう、バンド以降は暗いまま着地させる） */
+.dm-menu{background:var(--yoru);color:var(--ink-r);padding:84px 26px 90px}
+.dm-menu-title{text-align:center;font-size:clamp(1.5rem,4vw,2.15rem);margin-bottom:.8em}
+.dm-menu-intro{max-width:640px;margin:0 auto 46px;text-align:center;font-size:1rem}
+.dm-menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1080px;margin:0 auto}
+.dm-menu-cell{border-top:1px solid rgba(243,233,220,.4);padding-top:20px}
+.dm-menu-cell h3{font-size:1.16rem;margin-bottom:.5em}
+.dm-menu-cell p{margin:0;font-size:1rem}
+.dm-menu-photo{margin:0}
+.dm-menu-photo img{width:100%;height:230px;object-fit:cover}
+.dm-menu-voice{max-width:640px;margin:52px auto 0;text-align:center;
+  font-family:var(--midashi);font-size:1.06rem;letter-spacing:.08em}
+.dm-menu-voice .dm-cite{font-family:var(--honbun)}
+
+/* お店の情報 */
+.dm-info{background:var(--shinya);color:var(--ink-r);padding:84px 26px 90px}
+.dm-info-title{text-align:center;font-size:clamp(1.5rem,4vw,2.15rem);margin-bottom:1.4em}
+.dm-table{width:100%;max-width:760px;margin:0 auto;border-collapse:collapse;font-size:1rem}
+.dm-table th,.dm-table td{text-align:left;vertical-align:top;padding:16px 8px;
+  border-bottom:1px solid rgba(243,233,220,.24)}
+.dm-table th{width:8.5em;font-weight:500;letter-spacing:.1em;opacity:.78}
+.dm-map{text-align:center;margin:34px 0 0}
+/* 暗い地の上では赤が沈むので、ラベルだけ明るい方の赤に差し替える */
+.dm-menu .dm-label{color:#e6a99e}
+.dm-info .dm-label{color:var(--aka-l)}
+
+/* フッター */
+.dm-footer{background:var(--shinya);color:var(--ink-r);text-align:center;padding:44px 26px 50px}
+.dm-footer p{margin:0 0 .7em;font-size:.8rem;letter-spacing:.06em}
+.dm-footer .credit{font-family:var(--suji);letter-spacing:.2em}
+.dm-footnote{opacity:.82;line-height:1.9;max-width:600px;margin-inline:auto}
+.demo-note{opacity:.72}
+
+/* スクロール出現 */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.on{opacity:1;transform:none}
+
+@media (max-width:880px){
+  .dm-strip-grid{grid-template-columns:repeat(2,1fr)}
+  .dm-strip-grid > div:nth-child(3){border-left:none}
+  .dm-strip-grid > div:nth-child(n+3){border-top:1px solid rgba(36,28,23,.14)}
+  .dm-about{grid-template-columns:1fr;gap:34px;padding:64px 22px 70px}
+  .dm-about-photo img{height:320px}
+  .dm-chapter{grid-template-columns:110px 1fr;gap:22px 24px;padding-top:44px;padding-bottom:46px}
+  .dm-chapter-body{grid-column:2}
+  .dm-chapter-body-wide{grid-column:2}
+  .dm-chapter-photo{grid-column:1 / span 2}
+  .dm-chapter-photo img{height:230px}
+  .dm-num{font-size:2rem}
+  .dm-menu-grid{grid-template-columns:1fr;gap:24px}
+  .dm-menu-photo img{height:210px}
+}
+@media (max-width:420px){
+  body{font-size:16px}
+  .dm-nav{gap:6px 14px;padding:10px 16px}
+  .dm-nav-list{gap:6px 14px;font-size:.8rem}
+  .dm-strip-grid{grid-template-columns:1fr}
+  .dm-strip-grid > div{border-left:none;border-top:1px solid rgba(36,28,23,.14)}
+  .dm-strip-grid > div:first-child{border-top:none}
+  /* バナーぶんファーストビューが押し下がるので、バナーとヒーローを詰めて
+     店名・業態・場所・営業時間の要約を1画面目に入れる */
+  .offer-banner{padding:16px 16px 18px}
+  .offer-banner p{font-size:.82rem;line-height:1.75;margin-bottom:11px}
+  .offer-btn{padding:8px 16px;font-size:.8rem}
+  .dm-hero{min-height:46vh;align-items:center}
+  .dm-hero-inner{padding:24px 20px}
+  .dm-hero-kicker{font-size:.66rem;letter-spacing:.26em;margin-bottom:.7em}
+  .dm-hero-photo{background-position:58% 30%}
+  .dm-hero-veil{background:linear-gradient(180deg,rgba(27,21,18,.24) 0%,rgba(27,21,18,.46) 42%,rgba(27,21,18,.9) 100%)}
+  .dm-chapter{grid-template-columns:92px 1fr;gap:18px}
+  /* 本文は16pxを割らせない */
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+  .dm-band{background-attachment:scroll}
+}
+@media (max-width:900px),(hover:none){.dm-band{background-attachment:scroll}}
