@@ -48,8 +48,8 @@ h1,h2,h3{font-family:var(--midashi);font-weight:700;line-height:1.55;letter-spac
 
 /* ヒーロー（実写・Ken Burns） */
 .dm-hero{position:relative;min-height:76vh;overflow:hidden;display:flex;align-items:flex-end}
-.dm-hero-photo{position:absolute;inset:0;background-image:url(images/01-hero-gaikan.jpg);
-  background-size:cover;background-position:center 30%;animation:dmKen 26s ease-in-out infinite alternate}
+.dm-hero-photo{position:absolute;inset:0;background-image:url(images/09-counter-yuugure.jpg);
+  background-size:cover;background-position:center 52%;animation:dmKen 26s ease-in-out infinite alternate}
 @keyframes dmKen{from{transform:scale(1)}to{transform:scale(1.09)}}
 .dm-hero-veil{position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(27,21,18,.16) 0%,rgba(27,21,18,.34) 48%,rgba(27,21,18,.82) 100%)}
@@ -58,6 +58,7 @@ h1,h2,h3{font-family:var(--midashi);font-weight:700;line-height:1.55;letter-spac
 .dm-hero h1{font-size:clamp(2.1rem,7vw,3.6rem);letter-spacing:.05em}
 .dm-hero-lead{margin:.7em 0 .3em;font-size:clamp(1rem,2.6vw,1.22rem);line-height:1.9}
 .dm-hero-sub{margin:0;font-size:.88rem;letter-spacing:.08em;opacity:.9}
+.dm-hero-note{margin:1.9em 0 0;font-size:.72rem;letter-spacing:.05em;opacity:.72}
 
 /* 営業情報ストリップ */
 .dm-strip{background:var(--yuu2);border-bottom:1px solid rgba(36,28,23,.14)}
@@ -138,6 +139,9 @@ h1,h2,h3{font-family:var(--midashi);font-weight:700;line-height:1.55;letter-spac
 .dm-table th,.dm-table td{text-align:left;vertical-align:top;padding:16px 8px;
   border-bottom:1px solid rgba(243,233,220,.24)}
 .dm-table th{width:8.5em;font-weight:500;letter-spacing:.1em;opacity:.78}
+.dm-info-photo{max-width:620px;margin:0 auto 46px}
+.dm-info-photo img{width:100%;height:auto;display:block}
+.dm-info-photo figcaption{margin-top:.7em;font-size:.78rem;letter-spacing:.05em;opacity:.72}
 .dm-map{text-align:center;margin:34px 0 0}
 /* 暗い地の上では赤が沈むので、ラベルだけ明るい方の赤に差し替える */
 .dm-menu .dm-label{color:#e6a99e}
@@ -184,7 +188,7 @@ h1,h2,h3{font-family:var(--midashi);font-weight:700;line-height:1.55;letter-spac
   .dm-hero{min-height:46vh;align-items:center}
   .dm-hero-inner{padding:24px 20px}
   .dm-hero-kicker{font-size:.66rem;letter-spacing:.26em;margin-bottom:.7em}
-  .dm-hero-photo{background-position:58% 30%}
+  .dm-hero-photo{background-position:54% 48%}
   .dm-hero-veil{background:linear-gradient(180deg,rgba(27,21,18,.24) 0%,rgba(27,21,18,.46) 42%,rgba(27,21,18,.9) 100%)}
   .dm-chapter{grid-template-columns:92px 1fr;gap:18px}
   /* 本文は16pxを割らせない */
