@@ -360,7 +360,7 @@ a { color: var(--ink); }
 .ai-note{font-size:.85rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
 
 /* ── 2026-08-14: ヒーローを写真に。線画マークは廃止 ── */
-.hero{position:relative;background-image:url(img/hero-nikujiru.jpg);background-size:cover;background-position:center 55%;padding:104px 20px 56px}
+.hero{position:relative;background-image:url(img/hero-nikujiru.jpg);background-size:cover;background-position:58% center;padding:104px 20px 56px}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,16,10,.66) 0%,rgba(24,16,10,.50) 55%,rgba(24,16,10,.72) 100%)}
 .hero > *{position:relative;z-index:1}
 .hero h1,.hero-copy,.hero-info,.hero-scroll{color:#fff}
@@ -371,12 +371,14 @@ a { color: var(--ink); }
 .hero-info a{color:#fff;border-bottom-color:rgba(255,255,255,.55)}
 .hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .hero-copy{text-shadow:0 1px 12px rgba(0,0,0,.5)}
-@media (max-width:700px){.hero{padding:76px 16px 44px;background-position:center 58%}}
+@media (max-width:700px){.hero{padding:76px 16px 44px;background-position:66% center}}
 
 /* ── 帯にも写真を敷く ── */
-.band{position:relative;background-image:url(img/band-uchiba.jpg);background-size:cover;background-position:center;background-color:var(--ink)}
-.band::before{content:"";position:absolute;inset:0;background:rgba(20,14,10,.55)}
-.band > *{position:relative;z-index:1}
+.band:not(.band2){position:relative;background-image:url(img/band-uchiba.jpg);background-size:cover;background-position:center;background-color:var(--ink)}
+.band:not(.band2)::before{content:"";position:absolute;inset:0;background:rgba(20,14,10,.62)}
+.band:not(.band2) > *{position:relative;z-index:1}
+/* band2（営業日のご案内）は写真を敷かない。文字色が濃いので読めなくなるため */
+.band2{background-image:none!important;background:var(--band);color:var(--ink)}
 
 /* ── 写真の帯（横スクロール） ── */
 .strip-sec{padding:0 0 8px}
