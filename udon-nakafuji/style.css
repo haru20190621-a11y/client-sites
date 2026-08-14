@@ -360,7 +360,7 @@ a { color: var(--ink); }
 .ai-note{font-size:.85rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
 
 /* ── 2026-08-14: ヒーローを写真に。線画マークは廃止 ── */
-.hero{position:relative;background-image:url(img/hero-nikujiru.jpg);background-size:cover;background-position:center 62%;padding:104px 20px 56px}
+.hero{position:relative;background-image:url(img/hero-nikujiru.jpg);background-size:cover;background-position:center 55%;padding:104px 20px 56px}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,16,10,.66) 0%,rgba(24,16,10,.50) 55%,rgba(24,16,10,.72) 100%)}
 .hero > *{position:relative;z-index:1}
 .hero h1,.hero-copy,.hero-info,.hero-scroll{color:#fff}
