@@ -135,3 +135,6 @@ footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
 .hero.video-on .hero-video{opacity:1}
 .hero.video-on .slide{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.hero-video{display:none}}
+
+/* お品書きのイメージ写真（2026-08-14に線画から差し替え） */
+.ai-note{font-size:.78rem;color:var(--ink-soft,#8a8079);margin-top:6px;letter-spacing:.04em}

@@ -258,7 +258,7 @@ a { color: var(--ink); }
 
 .item-list li { transition: transform 0.35s ease; }
 .item-list li:hover { transform: translateY(-6px); }
-.item-list li:hover svg { transform: rotate(-3deg) scale(1.06); }
+
 
 .item-list svg { width: 150px; height: auto; color: var(--ink); transition: transform 0.35s ease; }
 
@@ -352,3 +352,9 @@ a { color: var(--ink); }
   .shop th { width: 120px; padding-left: 40px; }
   .band-quote { font-size: 1.7rem; }
 }
+
+/* お品書きのイメージ写真（2026-08-14に線画から差し替え） */
+.item-list .item-ph{overflow:hidden;aspect-ratio:3/2;max-width:560px}
+.item-list .item-photo{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.item-list li:hover .item-photo{transform:scale(1.04)}
+.ai-note{font-size:.85rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
