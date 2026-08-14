@@ -66,7 +66,6 @@ a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .hero-hours{font-size:.82rem;letter-spacing:.14em;margin-top:26px;opacity:.9}
 
 /* --- strip --- */
-.strip{border-bottom:1px solid var(--line);background:var(--bg)}
 .strip-in{max-width:1080px;margin:0 auto;padding:18px 24px;
   display:flex;justify-content:center;gap:34px;flex-wrap:wrap}
 .strip-in div{font-size:.9rem;letter-spacing:.08em}
@@ -139,12 +138,13 @@ footer .demo-note{margin-top:6px;color:rgba(51,48,43,.55);font-size:.74rem}
 /* お品書きのイメージ写真（2026-08-14に線画から差し替え） */
 .ai-note{font-size:.78rem;color:var(--ink-soft,#8a8079);margin-top:6px;letter-spacing:.04em}
 
-/* ── 写真の帯（横スクロール）2026-08-14 ── */
-.strip-sec{padding:0 0 10px}
-.strip{display:flex;gap:10px;overflow-x:auto;padding:0 20px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.strip::-webkit-scrollbar{height:6px}
-.strip::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:3px}
-.strip figure{margin:0;flex:0 0 auto;width:min(46vw,330px);aspect-ratio:3/2;overflow:hidden;scroll-snap-align:start}
-.strip figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
-.strip figure:hover img{transform:scale(1.05)}
-.strip-note{text-align:center;margin-top:8px}
+/* ── 写真のマーキー（2026-08-14）
+   百丈: 文化財の建物にあわせて、写真は小ぶり・間隔を広く・ゆっくり流す。
+   地色は紙のままにして、罫は上だけの細い線に留める ── */
+.photo-marquee{overflow:hidden;padding:40px 0;background:var(--bg);border-top:1px solid var(--line)}
+.photo-marquee-track{display:flex;width:max-content;animation:photomq 64s linear infinite}
+.mq-img{height:190px;width:auto;margin-right:34px;object-fit:cover;display:block}
+@keyframes photomq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.photo-marquee-track{animation:none}}
+@media (max-width:700px){.mq-img{height:136px;margin-right:22px}.photo-marquee{padding:26px 0}}
+.strip-note{text-align:center;margin-top:14px;opacity:.62;letter-spacing:.06em}
