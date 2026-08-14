@@ -358,3 +358,32 @@ a { color: var(--ink); }
 .item-list .item-photo{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
 .item-list li:hover .item-photo{transform:scale(1.04)}
 .ai-note{font-size:.85rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
+
+/* ── 2026-08-14: ヒーローを写真に。線画マークは廃止 ── */
+.hero{position:relative;background-image:url(img/hero-nikujiru.jpg);background-size:cover;background-position:center 62%;padding:104px 20px 56px}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,16,10,.66) 0%,rgba(24,16,10,.50) 55%,rgba(24,16,10,.72) 100%)}
+.hero > *{position:relative;z-index:1}
+.hero h1,.hero-copy,.hero-info,.hero-scroll{color:#fff}
+.hero .vtx{color:rgba(255,255,255,.82)}
+.hero-en{color:#e9c98f}
+.hero-info.sub{color:rgba(255,255,255,.86)}
+.hero-info .sep{color:rgba(255,255,255,.42)}
+.hero-info a{color:#fff;border-bottom-color:rgba(255,255,255,.55)}
+.hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero-copy{text-shadow:0 1px 12px rgba(0,0,0,.5)}
+@media (max-width:700px){.hero{padding:76px 16px 44px;background-position:center 58%}}
+
+/* ── 帯にも写真を敷く ── */
+.band{position:relative;background-image:url(img/band-uchiba.jpg);background-size:cover;background-position:center;background-color:var(--ink)}
+.band::before{content:"";position:absolute;inset:0;background:rgba(20,14,10,.55)}
+.band > *{position:relative;z-index:1}
+
+/* ── 写真の帯（横スクロール） ── */
+.strip-sec{padding:0 0 8px}
+.strip{display:flex;gap:10px;overflow-x:auto;padding:0 20px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{height:6px}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.strip figure{margin:0;flex:0 0 auto;width:min(46vw,340px);aspect-ratio:3/2;overflow:hidden;scroll-snap-align:start}
+.strip figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.strip figure:hover img{transform:scale(1.05)}
+.strip-note{text-align:center;margin-top:8px}
