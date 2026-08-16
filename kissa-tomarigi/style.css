@@ -282,7 +282,9 @@ section h2{font-size:clamp(1.45rem,4vw,2rem);margin:0 0 1.5em}
   .mark-nav a{font-size:13px}
   .hero{min-height:66vh}
   .hero-text{padding:0 1.2rem 3rem}
+  .hero h1{font-size:2.15rem;letter-spacing:.1em}
   .hero-copy{font-size:15px}
+  .mark-nav{gap:.9em 1.1em}
   .strip dl{padding:1.2rem;gap:1rem}
   .strip dd{font-size:15px}
   section{padding:3.6rem 1.2rem}
