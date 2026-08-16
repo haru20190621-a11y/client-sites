@@ -9,10 +9,10 @@
 <meta name="description" content="喫茶とまり木は、Instagram運用の設計を検証するためにNexusGuildが営んでいる架空の喫茶店です。自家焙煎の珈琲と、かための焼きプリン。8:00〜17:00、水曜・第3木曜定休。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232a2019'/%3E%3Cpath d='M20 26h20v12a10 10 0 0 1-20 0z' fill='none' stroke='%23d9b06a' stroke-width='2.2'/%3E%3Cpath d='M40 29h5a4 4 0 0 1 0 8h-5' fill='none' stroke='%23d9b06a' stroke-width='2.2'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=2">
-<script src="script.js?v=2" defer></script>
+<link rel="stylesheet" href="style.css?v=6">
+<script src="script.js?v=6" defer></script>
 </head>
 <body>
 
@@ -23,16 +23,16 @@
     <a href="#menu">おしながき</a>
     <a href="#beans">珈琲のこと</a>
     <a href="#gallery">店のようす</a>
-    <a href="#info">営業のご案内</a>
+    <a href="#info">ご案内</a>
   </nav>
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-photo"><img src="../kissa-tomarigi-photos/13_exterior-night.jpg" alt="夜の店先。窓からもれる灯りが道を照らしている" fetchpriority="high"></div>
+  <div class="hero-photo"><img src="../kissa-tomarigi-photos/13_exterior-night.jpg" alt="夜の店先。小さな窓から灯りがもれている" fetchpriority="high"></div>
   <div class="hero-veil"></div>
+  <h1 class="hero-name"><span>喫茶 とまり木</span></h1>
   <div class="hero-text">
     <p class="hero-eyebrow">自家焙煎</p>
-    <h1>喫茶 とまり木</h1>
     <p class="hero-copy">看板は出していません。<br>見つけてくださった方だけの店で構わないと思っています。</p>
   </div>
 </section>
@@ -48,21 +48,24 @@
 
 <section class="about" id="about">
   <div class="about-text reveal">
-    <p class="sec-label">この店のこと</p>
+    <p class="idx"><i>01</i>この店のこと</p>
     <h2>急がないほうが、<br>おいしくなる気がしています。</h2>
     <p>珈琲は一杯ずつ、湯を細く落として淹れています。同じ豆でも、その日の湿気で味が変わります。少しずつ淹れ方を直しながら、毎日おなじことを続けています。</p>
     <p>開店したときから、ほとんど模様替えをしていません。席は多くありません。そのぶん、一杯ずつ丁寧に淹れられます。</p>
     <p>本を読みに来てくださる方が多い店です。長居していただいて構いません。読みかけの本を置いていかれる方がいて、次にいらしたときに続きをお渡ししています。</p>
-    <p class="sign">とまり木</p>
   </div>
   <figure class="about-photo reveal">
     <img src="../kissa-tomarigi-photos/01_handdrip.jpg" alt="湯を細く落として珈琲を淹れているところ" loading="lazy">
   </figure>
 </section>
 
+<blockquote class="say reveal">
+  <p>道具を並べるところから、一日が始まります。<br>この時間で、気持ちが整います。</p>
+  <cite>とまり木</cite>
+</blockquote>
+
 <section class="menu" id="menu">
-  <p class="sec-label">おしながき</p>
-  <h2>おしながき</h2>
+  <p class="idx"><i>02</i>おしながき</p>
 
   <div class="menu-cols">
     <div class="menu-block reveal">
@@ -86,7 +89,7 @@
       </ul>
       <h3 class="mt">お持ち帰り</h3>
       <ul>
-        <li><span class="n">コーヒー豆 100g<em>その場で挽きます</em></span><span class="dots"></span><span class="p">700 —</span></li>
+        <li><span class="n">コーヒー豆 100g<em>その場で挽きます</em></span><span class="dots"></span><span class="p from">700</span></li>
       </ul>
       <p class="note">表示は税込です。プリンは売り切れの日があります。</p>
     </div>
@@ -103,8 +106,8 @@
   <div class="beans-in">
     <figure class="reveal"><img src="../kissa-tomarigi-photos/20_beans-macro.jpg" alt="焙煎したての珈琲豆" loading="lazy"></figure>
     <div class="beans-text reveal">
-      <p class="sec-label">珈琲のこと</p>
-      <h2>少量ずつ、焼いています。</h2>
+      <p class="idx"><i>03</i>珈琲のこと</p>
+      <h2>少量ずつ、<br>焼いています。</h2>
       <p>豆は数種類だけ置いています。少量ずつ焼いているので、買ってすぐの香りが本当においしいです。迷われたら好みを聞かせてください。</p>
       <p>挽き目はその日の豆に合わせて変えています。お持ち帰りの豆も、その場で挽きます。</p>
     </div>
@@ -112,23 +115,24 @@
 </section>
 
 <section class="gallery" id="gallery">
-  <p class="sec-label">店のようす</p>
-  <h2>店のようす</h2>
+  <p class="idx"><i>04</i>店のようす</p>
   <div class="grid">
+    <figure class="wide reveal"><img src="../kissa-tomarigi-photos/08_evening-light.jpg" alt="夕方の光が差し込む店内" loading="lazy"><figcaption>日が傾くと、窓から光が長く伸びてきます。この時間がいちばん好きです。</figcaption></figure>
     <figure class="reveal"><img src="../kissa-tomarigi-photos/07_counter-seats.jpg" alt="カウンター席" loading="lazy"><figcaption>カウンターは、ひとりで来た人がいちばん落ち着く席だと思っています。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/08_evening-light.jpg" alt="夕方の光が差し込む店内" loading="lazy"><figcaption>日が傾くと、窓から光が長く伸びてきます。</figcaption></figure>
     <figure class="reveal"><img src="../kissa-tomarigi-photos/09_record-player.jpg" alt="レコードプレーヤー" loading="lazy"><figcaption>音は小さめにしています。話し声の邪魔をしない音量で。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/14_rainy-window.jpg" alt="雨の日の窓ぎわ" loading="lazy"><figcaption>雨の日は窓ぎわの席が人気です。</figcaption></figure>
     <figure class="reveal"><img src="../kissa-tomarigi-photos/16_book-and-coffee.jpg" alt="本と珈琲" loading="lazy"><figcaption>読みかけの本を置いていかれる方がいます。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/14_rainy-window.jpg" alt="雨の日の窓ぎわ" loading="lazy"><figcaption>雨の日は窓ぎわの席が人気です。</figcaption></figure>
     <figure class="reveal"><img src="../kissa-tomarigi-photos/19_table-evening.jpg" alt="灯りの下のテーブル席" loading="lazy"><figcaption>テーブル席は二人がけ。夜はいっそう静かになります。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/17_pourover-set.jpg" alt="並べられた珈琲の道具" loading="lazy"><figcaption>道具は増やさないようにしています。同じものを長く使っています。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/18_interior-wide.jpg" alt="店内のようす" loading="lazy"><figcaption>開店したときから、ほとんど模様替えをしていません。</figcaption></figure>
   </div>
 </section>
 
 <section class="info" id="info">
   <div class="info-in">
     <div class="info-text reveal">
-      <p class="sec-label">営業のご案内</p>
-      <h2>営業のご案内</h2>
+      <p class="idx"><i>05</i>ご案内</p>
+      <h2>営業のこと</h2>
       <table>
         <tr><th>営業時間</th><td>8:00 — 17:00</td></tr>
         <tr><th>定休日</th><td>水曜日、第3木曜日</td></tr>
