@@ -1,0 +1,303 @@
+@charset "UTF-8";
+
+:root{
+  --paper:#f6f1e7;
+  --paper-2:#efe8dc;
+  --ink:#241c16;
+  --ink-soft:#544639;
+  --rule:#cec2ae;
+  --rule-soft:#e2d8c7;
+  --accent:#2f4739;
+  --shell:1120px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans JP",-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  font-size:17px;
+  font-weight:400;
+  line-height:2;
+  letter-spacing:.045em;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{
+  font-family:"Zen Old Mincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-weight:600;
+  line-height:1.7;
+  letter-spacing:.09em;
+  margin:0;
+}
+p{margin:0 0 1.35em}
+p:last-child{margin-bottom:0}
+
+/* ── 見出しの小ラベル ───────────────────────── */
+.sec-label{
+  font-size:13px;
+  letter-spacing:.32em;
+  color:var(--accent);
+  margin:0 0 1.1em;
+}
+.sec-label::before{
+  content:"";
+  display:inline-block;
+  width:26px;
+  height:1px;
+  background:var(--accent);
+  vertical-align:middle;
+  margin-right:.9em;
+}
+
+/* ── ヘッダ ─────────────────────────────── */
+.mark{
+  position:relative;
+  z-index:3;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1.5rem;
+  max-width:var(--shell);
+  margin:0 auto;
+  padding:1.5rem 1.5rem 1.2rem;
+}
+.mark-name{
+  font-family:"Zen Old Mincho",serif;
+  font-size:19px;
+  letter-spacing:.2em;
+  text-decoration:none;
+}
+.mark-nav{display:flex;flex-wrap:wrap;gap:1.6em}
+.mark-nav a{
+  font-size:14px;
+  letter-spacing:.12em;
+  text-decoration:none;
+  color:var(--ink-soft);
+  padding:.3em 0;
+  border-bottom:1px solid transparent;
+}
+.mark-nav a:hover{border-bottom-color:var(--accent);color:var(--ink)}
+
+/* ── ヒーロー ───────────────────────────── */
+.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-photo{position:absolute;inset:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(18,12,8,.82) 0%,rgba(18,12,8,.45) 45%,rgba(18,12,8,.2) 100%);
+}
+.hero-text{
+  position:relative;
+  width:100%;
+  max-width:var(--shell);
+  margin:0 auto;
+  padding:0 1.5rem 4.5rem;
+  color:#f7f2e9;
+}
+.hero-eyebrow{
+  font-size:13px;letter-spacing:.4em;margin:0 0 1.1em;color:#dcc79b;
+}
+.hero h1{font-size:clamp(2.5rem,8vw,4.1rem);letter-spacing:.14em;margin:0 0 .7em}
+.hero-copy{font-size:16px;line-height:2.1;margin:0;color:#ece4d7}
+
+/* ── 情報の帯 ───────────────────────────── */
+.strip{border-bottom:1px solid var(--rule);background:var(--paper-2)}
+.strip dl{
+  max-width:var(--shell);
+  margin:0 auto;
+  padding:1.5rem;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.2rem 1.5rem;
+}
+.strip div{display:flex;flex-direction:column;gap:.15em}
+.strip dt{font-size:12px;letter-spacing:.22em;color:var(--accent)}
+.strip dd{margin:0;font-size:16px;line-height:1.7}
+
+/* ── 共通レイアウト ─────────────────────── */
+section{max-width:var(--shell);margin:0 auto;padding:6rem 1.5rem}
+section h2{font-size:clamp(1.45rem,4vw,2rem);margin:0 0 1.5em}
+
+/* ── この店のこと ───────────────────────── */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:start}
+.about h2{margin-bottom:1.3em}
+.about p{color:var(--ink-soft)}
+.about .sign{
+  font-family:"Zen Old Mincho",serif;
+  letter-spacing:.3em;
+  margin-top:2.2em;
+  color:var(--ink);
+}
+.about-photo{margin:0}
+.about-photo img{width:100%}
+
+/* ── おしながき ─────────────────────────── */
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem 4.5rem}
+.menu-block h3{
+  font-size:16px;
+  letter-spacing:.2em;
+  padding-bottom:.8em;
+  border-bottom:1px solid var(--rule);
+  margin:0 0 1.4em;
+}
+.menu-block h3.mt{margin-top:2.8em}
+.menu-block ul{list-style:none;margin:0;padding:0}
+.menu-block li{
+  display:flex;
+  align-items:baseline;
+  gap:.6em;
+  padding:.55em 0;
+  line-height:1.8;
+}
+.menu-block .n{font-size:16px}
+.menu-block .n em{
+  display:block;
+  font-style:normal;
+  font-size:13px;
+  color:var(--ink-soft);
+  letter-spacing:.06em;
+  line-height:1.8;
+}
+.menu-block .dots{
+  flex:1;
+  border-bottom:1px dotted var(--rule);
+  transform:translateY(-.28em);
+  min-width:1.5em;
+}
+.menu-block .p{
+  font-family:"Zen Old Mincho",serif;
+  font-size:16px;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.menu-block .p::after{content:" 円";font-size:12px;color:var(--ink-soft)}
+.note{font-size:14px;color:var(--ink-soft);margin-top:1.8em;line-height:1.95}
+
+.menu-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:4.5rem}
+.menu-photos figure{margin:0}
+.menu-photos figcaption,.grid figcaption{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.95;
+  margin-top:.9em;
+}
+
+/* ── 珈琲のこと ─────────────────────────── */
+.beans{max-width:none;background:var(--paper-2);border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);padding:0}
+.beans-in{
+  max-width:var(--shell);
+  margin:0 auto;
+  padding:6rem 1.5rem;
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:4.5rem;
+  align-items:center;
+}
+.beans figure{margin:0}
+.beans p{color:var(--ink-soft)}
+
+/* ── 店のようす ─────────────────────────── */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem 1.6rem}
+.grid figure{margin:0}
+
+/* ── 営業のご案内 ───────────────────────── */
+.info-in{display:grid;grid-template-columns:1fr .85fr;gap:4.5rem;align-items:start}
+.info table{width:100%;border-collapse:collapse;margin-bottom:.5em}
+.info th,.info td{
+  text-align:left;
+  vertical-align:top;
+  padding:1em 0;
+  border-bottom:1px solid var(--rule-soft);
+  font-weight:400;
+  line-height:1.9;
+}
+.info th{width:8.5em;font-size:14px;letter-spacing:.14em;color:var(--accent)}
+.info td{font-size:16px}
+.info figure{margin:0}
+
+.btn{
+  display:inline-block;
+  margin-top:2rem;
+  padding:.95em 2.2em;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-size:14px;
+  letter-spacing:.18em;
+  text-decoration:none;
+}
+.btn:hover{background:var(--accent);color:var(--paper)}
+
+/* ── 架空である旨 ───────────────────────── */
+.fiction{max-width:none;background:var(--ink);color:#ece4d7;padding:0}
+.fiction-in{max-width:760px;margin:0 auto;padding:6rem 1.5rem}
+.fiction h2{font-size:clamp(1.35rem,4vw,1.85rem);color:#f7f2e9;margin-bottom:1.5em}
+.fiction p{color:#d5cabb}
+.fiction strong{color:#f0e3c8;font-weight:500}
+.fiction .btn{border-color:#c9b184;color:#e8d8b6}
+.fiction .btn:hover{background:#c9b184;color:var(--ink)}
+
+/* ── フッタ ─────────────────────────────── */
+.foot{
+  border-top:1px solid var(--rule);
+  padding:3.5rem 1.5rem;
+  text-align:center;
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:2;
+}
+.foot-name{
+  font-family:"Zen Old Mincho",serif;
+  font-size:16px;
+  letter-spacing:.28em;
+  color:var(--ink);
+  margin-bottom:1.2em;
+}
+.foot-links{margin-top:1.4em}
+.foot-links a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.foot-links span{margin:0 .7em;color:var(--rule)}
+
+/* ── スクロールで現れる ─────────────────── */
+.js .reveal{opacity:0;transform:translateY(14px)}
+.js .reveal.shown{opacity:1;transform:none;transition:opacity .9s ease,transform .9s ease}
+
+/* ── タブレット ─────────────────────────── */
+@media (max-width:900px){
+  .about,.beans-in,.info-in{grid-template-columns:1fr;gap:2.8rem}
+  .menu-cols{grid-template-columns:1fr;gap:2.8rem}
+  .strip dl{grid-template-columns:1fr 1fr}
+  section{padding:4.5rem 1.5rem}
+  .beans-in{padding:4.5rem 1.5rem}
+  .fiction-in{padding:4.5rem 1.5rem}
+  .grid,.menu-photos{grid-template-columns:1fr 1fr}
+}
+
+/* ── スマートフォン ─────────────────────── */
+@media (max-width:620px){
+  body{font-size:16px}
+  .mark{flex-direction:column;align-items:flex-start;gap:.9rem;padding:1.2rem 1.2rem 1rem}
+  .mark-nav{gap:1.1em}
+  .mark-nav a{font-size:13px}
+  .hero{min-height:66vh}
+  .hero-text{padding:0 1.2rem 3rem}
+  .hero-copy{font-size:15px}
+  .strip dl{padding:1.2rem;gap:1rem}
+  .strip dd{font-size:15px}
+  section{padding:3.6rem 1.2rem}
+  .beans-in,.fiction-in{padding:3.6rem 1.2rem}
+  .grid,.menu-photos{grid-template-columns:1fr;gap:2rem}
+  .menu-photos{margin-top:3rem}
+  .info th{width:7em;font-size:13px}
+  .btn{width:100%;text-align:center;padding:1.05em 1em}
+}
+
+/* ── 動きを減らす設定 ───────────────────── */
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none}
+  .js .reveal.shown{transition:none}
+  *{scroll-behavior:auto!important}
+}
+
+html{scroll-behavior:smooth}
