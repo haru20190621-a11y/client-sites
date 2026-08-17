@@ -5,35 +5,39 @@
 <script>document.documentElement.className+=' js';</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>喫茶 とまり木｜自家焙煎の珈琲と、居場所（架空の喫茶店）</title>
-<meta name="description" content="喫茶とまり木は、Instagram運用の設計を検証するためにNexusGuildが営んでいる架空の喫茶店です。自家焙煎の珈琲と、かための焼きプリン。8:00〜17:00、水曜・第3木曜定休。">
+<title>喫茶 とまり木｜自家焙煎の珈琲と、かための焼きプリン（架空の喫茶店）</title>
+<meta name="description" content="喫茶とまり木は、Instagram運用の設計を検証するためにNexusGuildが営んでいる架空の喫茶店です。自家焙煎のブレンド珈琲500円、1日18個だけの焼きプリン500円、厚焼き玉子のたまごサンド600円。8:00〜17:00、水曜・第3木曜定休。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232a2019'/%3E%3Cpath d='M20 26h20v12a10 10 0 0 1-20 0z' fill='none' stroke='%23d9b06a' stroke-width='2.2'/%3E%3Cpath d='M40 29h5a4 4 0 0 1 0 8h-5' fill='none' stroke='%23d9b06a' stroke-width='2.2'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css?v=6">
-<script src="script.js?v=6" defer></script>
+<link rel="stylesheet" href="style.css?v=7">
+<script src="script.js?v=7" defer></script>
 </head>
 <body>
 
 <header class="mark">
   <a class="mark-name" href="#top">喫茶 とまり木</a>
   <nav class="mark-nav">
-    <a href="#about">この店のこと</a>
+    <a href="#osusume">おすすめ</a>
     <a href="#menu">おしながき</a>
-    <a href="#beans">珈琲のこと</a>
     <a href="#gallery">店のようす</a>
+    <a href="#about">この店のこと</a>
     <a href="#info">ご案内</a>
   </nav>
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-photo"><img src="../kissa-tomarigi-photos/13_exterior-night.jpg" alt="夜の店先。小さな窓から灯りがもれている" fetchpriority="high"></div>
+  <div class="hero-photo">
+    <img class="slide on" src="../kissa-tomarigi-photos/05_purin-spoon.jpg" alt="焼きプリンにスプーンを入れたところ" fetchpriority="high">
+    <img class="slide" src="../kissa-tomarigi-photos/08_evening-light.jpg" alt="夕方の光が差し込むカウンター" loading="lazy">
+    <img class="slide" src="../kissa-tomarigi-photos/13_exterior-night.jpg" alt="夜の店先。小さな窓から灯りがもれている" loading="lazy">
+  </div>
   <div class="hero-veil"></div>
   <h1 class="hero-name"><span>喫茶 とまり木</span></h1>
   <div class="hero-text">
     <p class="hero-eyebrow">自家焙煎</p>
-    <p class="hero-copy">看板は出していません。<br>見つけてくださった方だけの店で構わないと思っています。</p>
+    <p class="hero-copy">かためのプリンと、厚焼き玉子のサンド。<br>珈琲は一杯ずつ淹れています。</p>
   </div>
 </section>
 
@@ -46,23 +50,36 @@
   </dl>
 </div>
 
-<section class="about" id="about">
-  <div class="about-text reveal">
-    <p class="idx"><i>01</i>この店のこと</p>
-    <h2>急がないほうが、<br>おいしくなる気がしています。</h2>
-    <p>珈琲は一杯ずつ、湯を細く落として淹れています。同じ豆でも、その日の湿気で味が変わります。少しずつ淹れ方を直しながら、毎日おなじことを続けています。</p>
-    <p>開店したときから、ほとんど模様替えをしていません。席は多くありません。そのぶん、一杯ずつ丁寧に淹れられます。</p>
-    <p>本を読みに来てくださる方が多い店です。長居していただいて構いません。読みかけの本を置いていかれる方がいて、次にいらしたときに続きをお渡ししています。</p>
-  </div>
-  <figure class="about-photo reveal">
-    <img src="../kissa-tomarigi-photos/01_handdrip.jpg" alt="湯を細く落として珈琲を淹れているところ" loading="lazy">
-  </figure>
-</section>
+<section class="osusume" id="osusume">
+  <p class="idx"><i>01</i>おすすめ</p>
+  <h2>まずは、この三つを。</h2>
 
-<blockquote class="say reveal">
-  <p>道具を並べるところから、一日が始まります。<br>この時間で、気持ちが整います。</p>
-  <cite>とまり木</cite>
-</blockquote>
+  <div class="dishes">
+    <figure class="reveal">
+      <img src="../kissa-tomarigi-photos/03_purin-solo.jpg" alt="かための焼きプリン" loading="lazy">
+      <figcaption>
+        <p class="dish"><span>焼きプリン</span><span class="yen">500</span></p>
+        <p class="lead">スプーンを入れたときに角が残るくらいの、かためです。カラメルはすこし苦めに炊いています。<b>1日18個だけ。</b></p>
+      </figcaption>
+    </figure>
+    <figure class="reveal">
+      <img src="../kissa-tomarigi-photos/06_sandwich.jpg" alt="厚焼き玉子のたまごサンド" loading="lazy">
+      <figcaption>
+        <p class="dish"><span>たまごサンド</span><span class="yen">600</span></p>
+        <p class="lead">玉子は注文をいただいてから焼きます。パンは近所のパン屋さんのもの。耳を落として、やわらかいところだけを。</p>
+      </figcaption>
+    </figure>
+    <figure class="reveal">
+      <img src="../kissa-tomarigi-photos/15_cup-overhead.jpg" alt="ブレンド珈琲の一杯" loading="lazy">
+      <figcaption>
+        <p class="dish"><span>ブレンド珈琲</span><span class="yen">500</span></p>
+        <p class="lead">自家焙煎の豆を、一杯ずつ湯を細く落として。何も足さない一杯が、いちばん豆の違いが出ます。</p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <p class="set-note">珈琲とたまごサンドをご一緒に <b>1,000円</b>。夕方の窓ぎわの席が、よく空いています。</p>
+</section>
 
 <section class="menu" id="menu">
   <p class="idx"><i>02</i>おしながき</p>
@@ -83,9 +100,9 @@
     <div class="menu-block reveal">
       <h3>食べもの</h3>
       <ul>
+        <li><span class="n">たまごサンド<em>厚焼きの玉子をはさんで</em></span><span class="dots"></span><span class="p">600</span></li>
         <li><span class="n">焼きプリン<em>1日18個だけ焼いています</em></span><span class="dots"></span><span class="p">500</span></li>
-        <li><span class="n">厚切りトースト<em>バターを一枚のせて</em></span><span class="dots"></span><span class="p">400</span></li>
-        <li><span class="n">珈琲とトースト</span><span class="dots"></span><span class="p">800</span></li>
+        <li><span class="n">珈琲とたまごサンド</span><span class="dots"></span><span class="p">1,000</span></li>
       </ul>
       <h3 class="mt">お持ち帰り</h3>
       <ul>
@@ -94,45 +111,45 @@
       <p class="note">表示は税込です。プリンは売り切れの日があります。</p>
     </div>
   </div>
-
-  <div class="menu-photos">
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/03_purin-solo.jpg" alt="かための焼きプリン" loading="lazy"><figcaption>かためのプリン。スプーンを入れたときに角が残るくらいを目指しています。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/06_toast.jpg" alt="厚切りのトーストにバターをのせたところ" loading="lazy"><figcaption>パンは近所のパン屋さんのものを、厚めに切っています。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/15_cup-overhead.jpg" alt="まっすぐ上から見た珈琲の一杯" loading="lazy"><figcaption>カップは口当たりで選んでいます。熱いうちにどうぞ。</figcaption></figure>
-  </div>
-</section>
-
-<section class="beans" id="beans">
-  <div class="beans-in">
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/20_beans-macro.jpg" alt="焙煎したての珈琲豆" loading="lazy"></figure>
-    <div class="beans-text reveal">
-      <p class="idx"><i>03</i>珈琲のこと</p>
-      <h2>少量ずつ、<br>焼いています。</h2>
-      <p>豆は数種類だけ置いています。少量ずつ焼いているので、買ってすぐの香りが本当においしいです。迷われたら好みを聞かせてください。</p>
-      <p>挽き目はその日の豆に合わせて変えています。お持ち帰りの豆も、その場で挽きます。</p>
-    </div>
-  </div>
 </section>
 
 <section class="gallery" id="gallery">
-  <p class="idx"><i>04</i>店のようす</p>
+  <p class="idx"><i>03</i>店のようす</p>
+  <h2>ひとりで来て、長居していい店です。</h2>
   <div class="grid">
-    <figure class="wide reveal"><img src="../kissa-tomarigi-photos/08_evening-light.jpg" alt="夕方の光が差し込む店内" loading="lazy"><figcaption>日が傾くと、窓から光が長く伸びてきます。この時間がいちばん好きです。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/07_counter-seats.jpg" alt="カウンター席" loading="lazy"><figcaption>カウンターは、ひとりで来た人がいちばん落ち着く席だと思っています。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/09_record-player.jpg" alt="レコードプレーヤー" loading="lazy"><figcaption>音は小さめにしています。話し声の邪魔をしない音量で。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/16_book-and-coffee.jpg" alt="本と珈琲" loading="lazy"><figcaption>読みかけの本を置いていかれる方がいます。</figcaption></figure>
+    <figure class="wide reveal"><img src="../kissa-tomarigi-photos/18_interior-wide.jpg" alt="店内のようす" loading="lazy"><figcaption>席は多くありません。そのぶん、一杯ずつ丁寧に淹れられます。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/07_counter-seats.jpg" alt="カウンター席" loading="lazy"><figcaption>カウンターは、ひとりで来た方がいちばん落ち着く席です。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/16_book-and-coffee.jpg" alt="本と珈琲" loading="lazy"><figcaption>本を読みに来る方が多い店です。ごゆっくりどうぞ。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/09_record-player.jpg" alt="レコードプレーヤー" loading="lazy"><figcaption>レコードをかけています。話し声の邪魔をしない音量で。</figcaption></figure>
     <figure class="reveal"><img src="../kissa-tomarigi-photos/14_rainy-window.jpg" alt="雨の日の窓ぎわ" loading="lazy"><figcaption>雨の日は窓ぎわの席が人気です。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/19_table-evening.jpg" alt="灯りの下のテーブル席" loading="lazy"><figcaption>テーブル席は二人がけ。夜はいっそう静かになります。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/17_pourover-set.jpg" alt="並べられた珈琲の道具" loading="lazy"><figcaption>道具は増やさないようにしています。同じものを長く使っています。</figcaption></figure>
-    <figure class="reveal"><img src="../kissa-tomarigi-photos/18_interior-wide.jpg" alt="店内のようす" loading="lazy"><figcaption>開店したときから、ほとんど模様替えをしていません。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/19_table-evening.jpg" alt="灯りの下のテーブル席" loading="lazy"><figcaption>テーブル席は二人がけ。待ち合わせにもよく使われます。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/11_grinder.jpg" alt="手挽きのコーヒーミル" loading="lazy"><figcaption>挽き目は、その日の豆に合わせて変えています。</figcaption></figure>
+    <figure class="reveal"><img src="../kissa-tomarigi-photos/17_pourover-set.jpg" alt="並べられた珈琲の道具" loading="lazy"><figcaption>道具は増やさず、同じものを長く使っています。</figcaption></figure>
   </div>
 </section>
+
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <p class="idx"><i>04</i>この店のこと</p>
+    <h2>豆は、少量ずつ<br>焼いています。</h2>
+    <p>珈琲は自家焙煎です。少量ずつ焼いているので、買ってすぐの香りが本当においしい。豆は数種類だけ置いています。迷われたら、好みを聞かせてください。</p>
+    <p>お持ち帰りの豆も、その場で挽きます。</p>
+  </div>
+  <figure class="about-photo reveal">
+    <img src="../kissa-tomarigi-photos/20_beans-macro.jpg" alt="焙煎したての珈琲豆" loading="lazy">
+  </figure>
+</section>
+
+<blockquote class="say reveal">
+  <p>急がないほうが、おいしくなる気がしています。</p>
+  <cite>とまり木</cite>
+</blockquote>
 
 <section class="info" id="info">
   <div class="info-in">
     <div class="info-text reveal">
       <p class="idx"><i>05</i>ご案内</p>
-      <h2>営業のこと</h2>
+      <h2>お待ちしています。</h2>
       <table>
         <tr><th>営業時間</th><td>8:00 — 17:00</td></tr>
         <tr><th>定休日</th><td>水曜日、第3木曜日</td></tr>
