@@ -27,15 +27,15 @@
 
 ## 一覧
 
-| ファイル | 使用箇所 | 内容 | 撮影者 | 写真ページ |
-|---|---|---|---|---|
-| `02-shoji.jpg` | ヒーロー1 | 木の建具に差し込む朝の光 | [Prince Perry](https://unsplash.com/@prince_perry) | https://unsplash.com/photos/jHl9eZSC9Ac |
-| `09-heya.jpg` | ヒーロー2 | 庭に面した畳の部屋と座卓 | [S. Tsuchiya](https://unsplash.com/@s_tsuchiya) | https://unsplash.com/photos/c6NOIRunSbI |
-| `01-washitsu.jpg` | ヒーロー3 | 障子と縁側のある和室 | [Yosuke Ota](https://unsplash.com/@yosuke_ota) | https://unsplash.com/photos/sqH6pOCVAf4 |
-| `05-cha.jpg` | 事業所自身の言葉 | 低い座卓に置かれたお茶の道具 | [Arthur](https://unsplash.com/@arthur3607) | https://unsplash.com/photos/4bzrrYYQmoQ |
-| `06-heya2.jpg` | お体のお手伝い | 午後の光が差し込む住まいの一室（窓の外に日本の街並みと電線） | [Duong Nguyen](https://unsplash.com/@duonguyen) | https://unsplash.com/photos/pO5f_EC9DpE |
-| `03-zataku.jpg` | 暮らしまわりのお手伝い | 畳の部屋に置かれた低い座卓 | [Alan J](https://unsplash.com/@alan_j) | https://unsplash.com/photos/cw0tdPDC7B4 |
-| `07-note-crop.jpg` | はたらく人のこと | 木のテーブルに置かれたノートとペン（左下に写っていたつま先を除くため、左10%・下14%をトリミング） | [Kelly Sikkema](https://unsplash.com/@kellysikkema) | https://unsplash.com/photos/8KTTE5274EQ |
+| ファイル | 使用箇所 | 内容 | 撮影者 | 写真ページ | ライセンス |
+|---|---|---|---|---|---|
+| `02-shoji.jpg` | ヒーロー1 | 木の建具に差し込む朝の光 | [Prince Perry](https://unsplash.com/@prince_perry) | https://unsplash.com/photos/jHl9eZSC9Ac | Unsplash License |
+| `09-heya.jpg` | ヒーロー2 | 庭に面した畳の部屋と座卓 | [S. Tsuchiya](https://unsplash.com/@s_tsuchiya) | https://unsplash.com/photos/c6NOIRunSbI | Unsplash License |
+| `01-washitsu.jpg` | ヒーロー3 | 障子と縁側のある和室 | [Yosuke Ota](https://unsplash.com/@yosuke_ota) | https://unsplash.com/photos/sqH6pOCVAf4 | Unsplash License |
+| `05-cha.jpg` | 事業所自身の言葉 | 低い座卓に置かれたお茶の道具 | [Arthur](https://unsplash.com/@arthur3607) | https://unsplash.com/photos/4bzrrYYQmoQ | Unsplash License |
+| `06-heya2.jpg` | お体のお手伝い | 午後の光が差し込む住まいの一室（窓の外に日本の街並みと電線） | [Duong Nguyen](https://unsplash.com/@duonguyen) | https://unsplash.com/photos/pO5f_EC9DpE | Unsplash License |
+| `03-zataku.jpg` | 暮らしまわりのお手伝い | 畳の部屋に置かれた低い座卓 | [Alan J](https://unsplash.com/@alan_j) | https://unsplash.com/photos/cw0tdPDC7B4 | Unsplash License |
+| `07-note-crop.jpg` | はたらく人のこと | 木のテーブルに置かれたノートとペン（左下に写っていたつま先を除くため、左10%・下14%をトリミング） | [Kelly Sikkema](https://unsplash.com/@kellysikkema) | https://unsplash.com/photos/8KTTE5274EQ | Unsplash License |
 
 ## 不採用にした写真と理由（2026-08-15の批評で差し替え）
 

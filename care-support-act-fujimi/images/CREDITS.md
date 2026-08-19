@@ -27,13 +27,13 @@
 
 ## 一覧
 
-| ファイル | 使用箇所 | 内容 | 撮影者 | 写真ページ |
-|---|---|---|---|---|
-| `01-asa.jpg` | ヒーロー | 緑の庭に建つ日本家屋 | [Wei Feng](https://unsplash.com/@wings017) | https://unsplash.com/photos/12GolUyNbx0 |
-| `03-yugure.jpg` | お伺いできる時間（帯） | 夕暮れの庭のある日本家屋 | [lesha tuman](https://unsplash.com/@leshatuman) | https://unsplash.com/photos/ZDf_EFgMvrY |
-| `02-hiru.jpg` | お伺いする地域 | 庭に面した和室 | [Yosuke Ota](https://unsplash.com/@yosuke_ota) | https://unsplash.com/photos/OYR2mPD3yRY |
-| `05-hikari.jpg` | この事業所が書いていること | 木の窓から日ざしの入る部屋 | [Yanhao Fang](https://unsplash.com/@alamanga) | https://unsplash.com/photos/1U7J1QCKpZE |
-| `06-tokei.jpg` | 費用のこと | 壁に掛けられた白い丸時計 | [Peter Heymans](https://unsplash.com/@peter_heymans) | https://unsplash.com/photos/VESqksA2NQY |
+| ファイル | 使用箇所 | 内容 | 撮影者 | 写真ページ | ライセンス |
+|---|---|---|---|---| --- |
+| `01-asa.jpg` | ヒーロー | 緑の庭に建つ日本家屋 | [Wei Feng](https://unsplash.com/@wings017) | https://unsplash.com/photos/12GolUyNbx0 | Unsplash License |
+| `03-yugure.jpg` | お伺いできる時間（帯） | 夕暮れの庭のある日本家屋 | [lesha tuman](https://unsplash.com/@leshatuman) | https://unsplash.com/photos/ZDf_EFgMvrY | Unsplash License |
+| `02-hiru.jpg` | お伺いする地域 | 庭に面した和室 | [Yosuke Ota](https://unsplash.com/@yosuke_ota) | https://unsplash.com/photos/OYR2mPD3yRY | Unsplash License |
+| `05-hikari.jpg` | この事業所が書いていること | 木の窓から日ざしの入る部屋 | [Yanhao Fang](https://unsplash.com/@alamanga) | https://unsplash.com/photos/1U7J1QCKpZE | Unsplash License |
+| `06-tokei.jpg` | 費用のこと | 壁に掛けられた白い丸時計 | [Peter Heymans](https://unsplash.com/@peter_heymans) | https://unsplash.com/photos/VESqksA2NQY | Unsplash License |
 
 ## 落とした候補（次回も同じ確認をすること）
 

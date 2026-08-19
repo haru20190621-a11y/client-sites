@@ -211,3 +211,7 @@ footer{background:var(--azami-dk);color:#d9c9d3;padding:44px 0 56px;font-size:.9
   .sl{opacity:0}
   .sl:nth-child(1){opacity:1}
 }
+
+/* 出典表記・アンカー位置（批評 2026-08-20） */
+.figs-src{margin:10px 0 0;font-size:.8rem;color:#7a6f74;letter-spacing:.02em}
+section[id]{scroll-margin-top:96px}

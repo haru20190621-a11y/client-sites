@@ -315,8 +315,11 @@ figcaption{font-size:.72rem;color:var(--ink-2);margin-top:5px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
-  .fixbar{transform:none}
+  .fixbar{transform:translateY(100%)}
+  .showbar .fixbar{transform:none}
   .js .reveal{opacity:1;transform:none}
   .js .bar-fill{width:var(--w)}
   .js .bar-fill i{opacity:1}
 }
+
+section[id]{scroll-margin-top:96px}
