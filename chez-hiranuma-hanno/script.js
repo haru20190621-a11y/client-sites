@@ -52,3 +52,14 @@ window.__rv=1; /* head の保険（6秒後に全部表示）を止める合図 *
   });
   apply(7);
 })();
+
+/* 帯はタップ（クリック）で止める／もう一度で動かす。キーボードでも止められるようにする */
+(function(){
+  var sc=document.querySelector('.showcase');
+  if(!sc)return;
+  sc.setAttribute('tabindex','0');
+  sc.setAttribute('aria-label','デコレーションケーキの写真（タップで止まります）');
+  function toggle(){sc.classList.toggle('paused');}
+  sc.addEventListener('click',toggle);
+  sc.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+})();

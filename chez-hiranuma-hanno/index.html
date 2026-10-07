@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Kaisei+Opti:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.className+=' js';setTimeout(function(){if(window.__rv)return;var r=document.querySelectorAll('.reveal');for(var i=0;i<r.length;i++)r[i].classList.add('on');},6000);</script>
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=23">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23fdf8f0'/><path d='M8 20h16v5H8z' fill='%23f3e3d0' stroke='%233b2a22'/><path d='M8 20q8-9 16 0' fill='%23fff' stroke='%233b2a22'/><circle cx='16' cy='11' r='3' fill='%23c23b45'/></svg>">
 </head>
 <body>
@@ -45,31 +45,33 @@
 <main>
 
 <section class="hero" id="top">
-  <div class="hero-in">
-    <div class="hero-head">
-      <p class="hero-kicker">飯能・双柳のケーキ屋さん</p>
-      <h1><span class="h1-sub">フランス菓子</span>シェひらぬま</h1>
-      <p class="hero-lead"><span class="nb">お誕生日や記念日の、</span><span class="nb">デコレーションケーキ。</span><br class="pc-br"><span class="nb">平成4年11月の開業です。</span></p>
-    </div>
-
-    <div class="hero-photos">
-      <figure class="pf pf-main"><div class="pf-img"><img src="img/h-gender.jpg" alt="ジェンダー・リビールケーキ" width="1200" height="900"></div><figcaption>ジェンダー・リビールケーキ</figcaption></figure>
-      <figure class="pf pf-a"><div class="pf-img"><img src="img/h-koguma.jpg" alt="こぐまのマーくん" width="720" height="720"></div><figcaption>こぐまのマーくん</figcaption></figure>
-      <figure class="pf pf-b"><div class="pf-img"><img src="img/h-koneko.jpg" alt="こねこのアーちゃん" width="720" height="720"></div><figcaption>こねこのアーちゃん</figcaption></figure>
-    </div>
-
-    <div class="hero-meta">
-      <ul class="hero-info">
-        <li><b>営業</b>10:00〜18:30</li>
-        <li><b>定休</b><span class="nb">毎週水曜日、</span><span class="nb">他月2回火曜休み</span></li>
-        <li><b>場所</b><a class="hi-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E8%8F%93%E5%AD%90%20%E3%82%B7%E3%82%A7%E3%81%B2%E3%82%89%E3%81%AC%E3%81%BE%20%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%A3%AF%E8%83%BD%E5%B8%82%E5%8F%8C%E6%9F%B3916-2" target="_blank" rel="noopener"><span class="nb">飯能市双柳916-2・</span><span class="nb">元加治駅最寄</span></a></li>
-        <li class="hi-tel"><b>電話</b><a href="tel:0429723535">042-972-3535</a></li>
-      </ul>
-    </div>
-
+  <div class="hero-title">
+    <p class="hero-kicker">飯能・双柳のケーキ屋さん</p>
+    <h1><span class="h1-sub">フランス菓子</span>シェひらぬま</h1>
+    <p class="hero-lead">動物や物語の、<span class="nb">名前のあるデコレーションケーキ。</span></p>
+    <ul class="hero-info">
+      <li><b>営業</b>10:00〜18:30</li>
+      <li><b>定休</b><span class="nb">毎週水曜日、</span><span class="nb">他月2回火曜休み</span></li>
+      <li><b>場所</b><a class="hi-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E8%8F%93%E5%AD%90%20%E3%82%B7%E3%82%A7%E3%81%B2%E3%82%89%E3%81%AC%E3%81%BE%20%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%A3%AF%E8%83%BD%E5%B8%82%E5%8F%8C%E6%9F%B3916-2" target="_blank" rel="noopener"><span class="nb">飯能市双柳916-2・</span><span class="nb">元加治駅最寄</span></a></li>
+      <li class="hi-tel"><b>電話</b><a href="tel:0429723535">042-972-3535</a></li>
+    </ul>
+  </div>
+  <div class="showcase" role="group" aria-label="デコレーションケーキの写真">
+    <div class="sc-row sc-a"><div class="sc-track">
+      <div class="sc-set"><figure class="sc-tile"><img src="img/s-cinderella.jpg" alt="シンデレラ城" width="480" height="480"><figcaption>シンデレラ城</figcaption></figure><figure class="sc-tile"><img src="img/s-panda.jpg" alt="パンダのランちゃん" width="480" height="480"><figcaption>パンダのランちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-gender.jpg" alt="ジェンダー・リビールケーキ" width="480" height="480"><figcaption>ジェンダー・<wbr>リビールケーキ</figcaption></figure><figure class="sc-tile"><img src="img/s-koneko.jpg" alt="こねこのアーちゃん" width="480" height="480"><figcaption>こねこのアーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-himawari.jpg" alt="ひまわり・GIRL" width="480" height="480"><figcaption>ひまわり・GIRL</figcaption></figure><figure class="sc-tile"><img src="img/s-boule.jpg" alt="ブール・ド・ネージュ" width="480" height="480"><figcaption>ブール・ド・ネージュ</figcaption></figure><figure class="sc-tile"><img src="img/s-kaeru.jpg" alt="カエルのケロちゃん" width="480" height="480"><figcaption>カエルのケロちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-peace.jpg" alt="PEACE(平和)" width="480" height="480"><figcaption>PEACE(平和)</figcaption></figure></div>
+      <div class="sc-set" aria-hidden="true"><figure class="sc-tile"><img src="img/s-cinderella.jpg" alt="" width="480" height="480"><figcaption>シンデレラ城</figcaption></figure><figure class="sc-tile"><img src="img/s-panda.jpg" alt="" width="480" height="480"><figcaption>パンダのランちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-gender.jpg" alt="" width="480" height="480"><figcaption>ジェンダー・<wbr>リビールケーキ</figcaption></figure><figure class="sc-tile"><img src="img/s-koneko.jpg" alt="" width="480" height="480"><figcaption>こねこのアーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-himawari.jpg" alt="" width="480" height="480"><figcaption>ひまわり・GIRL</figcaption></figure><figure class="sc-tile"><img src="img/s-boule.jpg" alt="" width="480" height="480"><figcaption>ブール・ド・ネージュ</figcaption></figure><figure class="sc-tile"><img src="img/s-kaeru.jpg" alt="" width="480" height="480"><figcaption>カエルのケロちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-peace.jpg" alt="" width="480" height="480"><figcaption>PEACE(平和)</figcaption></figure></div>
+    
+      <div class="sc-set" aria-hidden="true"><figure class="sc-tile"><img src="img/s-cinderella.jpg" alt="" width="480" height="480"><figcaption>シンデレラ城</figcaption></figure><figure class="sc-tile"><img src="img/s-panda.jpg" alt="" width="480" height="480"><figcaption>パンダのランちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-gender.jpg" alt="" width="480" height="480"><figcaption>ジェンダー・<wbr>リビールケーキ</figcaption></figure><figure class="sc-tile"><img src="img/s-koneko.jpg" alt="" width="480" height="480"><figcaption>こねこのアーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-himawari.jpg" alt="" width="480" height="480"><figcaption>ひまわり・GIRL</figcaption></figure><figure class="sc-tile"><img src="img/s-boule.jpg" alt="" width="480" height="480"><figcaption>ブール・ド・ネージュ</figcaption></figure><figure class="sc-tile"><img src="img/s-kaeru.jpg" alt="" width="480" height="480"><figcaption>カエルのケロちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-peace.jpg" alt="" width="480" height="480"><figcaption>PEACE(平和)</figcaption></figure></div></div></div>
+    <div class="sc-row sc-b"><div class="sc-track">
+      <div class="sc-set"><figure class="sc-tile"><img src="img/s-koguma.jpg" alt="こぐまのマーくん" width="480" height="480"><figcaption>こぐまのマーくん</figcaption></figure><figure class="sc-tile"><img src="img/s-suika.jpg" alt="スイカのケーキ食べたいなー" width="480" height="480"><figcaption>スイカのケーキ<wbr>食べたいなー</figcaption></figure><figure class="sc-tile"><img src="img/s-poodle.jpg" alt="プードル犬" width="480" height="480"><figcaption>プードル犬</figcaption></figure><figure class="sc-tile"><img src="img/s-etcetera.jpg" alt="エト・セ・ト・ラ" width="480" height="480"><figcaption>エト・セ・ト・ラ</figcaption></figure><figure class="sc-tile"><img src="img/s-kobuta.jpg" alt="こぶたのルーちゃん" width="480" height="480"><figcaption>こぶたのルーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-papa.jpg" alt="パパはダンディー" width="480" height="480"><figcaption>パパはダンディー</figcaption></figure><figure class="sc-tile"><img src="img/s-tora.jpg" alt="トラ・とら" width="480" height="480"><figcaption>トラ・とら</figcaption></figure><figure class="sc-tile"><img src="img/s-koinu.jpg" alt="こいぬのニーちゃん" width="480" height="480"><figcaption>こいぬのニーちゃん</figcaption></figure></div>
+      <div class="sc-set" aria-hidden="true"><figure class="sc-tile"><img src="img/s-koguma.jpg" alt="" width="480" height="480"><figcaption>こぐまのマーくん</figcaption></figure><figure class="sc-tile"><img src="img/s-suika.jpg" alt="" width="480" height="480"><figcaption>スイカのケーキ<wbr>食べたいなー</figcaption></figure><figure class="sc-tile"><img src="img/s-poodle.jpg" alt="" width="480" height="480"><figcaption>プードル犬</figcaption></figure><figure class="sc-tile"><img src="img/s-etcetera.jpg" alt="" width="480" height="480"><figcaption>エト・セ・ト・ラ</figcaption></figure><figure class="sc-tile"><img src="img/s-kobuta.jpg" alt="" width="480" height="480"><figcaption>こぶたのルーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-papa.jpg" alt="" width="480" height="480"><figcaption>パパはダンディー</figcaption></figure><figure class="sc-tile"><img src="img/s-tora.jpg" alt="" width="480" height="480"><figcaption>トラ・とら</figcaption></figure><figure class="sc-tile"><img src="img/s-koinu.jpg" alt="" width="480" height="480"><figcaption>こいぬのニーちゃん</figcaption></figure></div>
+    
+      <div class="sc-set" aria-hidden="true"><figure class="sc-tile"><img src="img/s-koguma.jpg" alt="" width="480" height="480"><figcaption>こぐまのマーくん</figcaption></figure><figure class="sc-tile"><img src="img/s-suika.jpg" alt="" width="480" height="480"><figcaption>スイカのケーキ<wbr>食べたいなー</figcaption></figure><figure class="sc-tile"><img src="img/s-poodle.jpg" alt="" width="480" height="480"><figcaption>プードル犬</figcaption></figure><figure class="sc-tile"><img src="img/s-etcetera.jpg" alt="" width="480" height="480"><figcaption>エト・セ・ト・ラ</figcaption></figure><figure class="sc-tile"><img src="img/s-kobuta.jpg" alt="" width="480" height="480"><figcaption>こぶたのルーちゃん</figcaption></figure><figure class="sc-tile"><img src="img/s-papa.jpg" alt="" width="480" height="480"><figcaption>パパはダンディー</figcaption></figure><figure class="sc-tile"><img src="img/s-tora.jpg" alt="" width="480" height="480"><figcaption>トラ・とら</figcaption></figure><figure class="sc-tile"><img src="img/s-koinu.jpg" alt="" width="480" height="480"><figcaption>こいぬのニーちゃん</figcaption></figure></div></div></div>
+  </div>
+  <div class="hero-bottom">
     <div class="hero-btns">
-        <a class="btn btn-main" href="#menu">ケーキを選ぶ</a>
-        <a class="btn" href="https://haru20190621-a11y.github.io/cake-demos/4ibmgxsxchkg/" target="_blank" rel="noopener">ご予約</a>
+      <a class="btn btn-main" href="#menu">ケーキを選ぶ</a>
+      <a class="btn" href="https://haru20190621-a11y.github.io/cake-demos/4ibmgxsxchkg/" target="_blank" rel="noopener">ご予約</a>
     </div>
   </div>
 </section>
@@ -201,10 +203,11 @@
         </div>
       </li>
       <li class="cake reveal" data-lead="7">
-        <div class="cake-ph tile tile-photo" aria-hidden="true"><span class="tile-en">Photo cake</span></div>
+        <div class="cake-ph"><img src="img/c-photo.jpg" alt="写真ケーキ（のせた写真はぼかしています）" width="720" height="720" loading="lazy" decoding="async"></div>
         <div class="cake-tx">
           <h3 class="cake-name">写真ケーキ</h3>
           <p class="cake-kind">苺ショート／生チョコ</p>
+          <p class="cake-note">のせたお写真はぼかしています。</p>
           <p class="cake-price"><span>本体価格に<span class="nb">プラス850円</span></span></p>
           <p class="cake-lead">7日前までにご予約</p>
         </div>
@@ -218,8 +221,8 @@
           <p class="cake-lead">7日前までにご予約</p>
         </div>
       </li>
-      <li class="cake is-cover" data-lead="7">
-        <a class="cake-ph tile" href="#top"><span>このケーキの写真は<br>ページ上部に<br>あります</span></a>
+      <li class="cake reveal" data-lead="7">
+        <div class="cake-ph"><img src="img/c-gender.jpg" alt="ジェンダー・リビールケーキ" width="720" height="720" loading="lazy" decoding="async"></div>
         <div class="cake-tx">
           <h3 class="cake-name">ジェンダー・<wbr>リビールケーキ</h3>
           <p class="cake-kind">ケーキの種類：<span class="nb">お好み</span></p>
@@ -279,7 +282,6 @@
           <h3 class="cake-name">生チョコ<wbr>デコレーションケーキ</h3>
           <p class="cake-desc">甘さひかえめの生チョコクリーム。<br>代表的な<span class="nb">デコレーション</span><span class="nb">ケーキです。</span></p>
           <p class="cake-price"><span class="pl">前日までにご予約</span><span>5号 2,870円</span><span>6号 3,360円</span><span>7号 3,950円</span><span>8号 5,100円</span><span class="pl">当日価格</span><span>5号 3,140円</span><span>6号 3,620円</span></p>
-          <p class="cake-lead">前日までにご予約</p>
         </div>
       </li>
       <li class="cake reveal" data-lead="1">
@@ -301,8 +303,8 @@
           <p class="cake-lead">3日前までにご予約</p>
         </div>
       </li>
-      <li class="cake is-cover" data-lead="3">
-        <a class="cake-ph tile" href="#top"><span>このケーキの写真は<br>ページ上部に<br>あります</span></a>
+      <li class="cake reveal" data-lead="3">
+        <div class="cake-ph"><img src="img/c-koneko.jpg" alt="こねこのアーちゃん" width="720" height="720" loading="lazy" decoding="async"></div>
         <div class="cake-tx">
           <h3 class="cake-name">こねこのアーちゃん</h3>
           <p class="cake-kind">苺ショート</p>
@@ -310,8 +312,8 @@
           <p class="cake-lead">3日前までにご予約</p>
         </div>
       </li>
-      <li class="cake is-cover" data-lead="3">
-        <a class="cake-ph tile" href="#top"><span>このケーキの写真は<br>ページ上部に<br>あります</span></a>
+      <li class="cake reveal" data-lead="3">
+        <div class="cake-ph"><img src="img/c-koguma.jpg" alt="こぐまのマーくん" width="720" height="720" loading="lazy" decoding="async"></div>
         <div class="cake-tx">
           <h3 class="cake-name">こぐまのマーくん</h3>
           <p class="cake-kind">苺ショート</p>
@@ -384,7 +386,7 @@
     </ol>
     <p class="finder-empty" hidden>この日数で間に合うケーキは見つかりませんでした。お電話でご相談ください。</p>
 
-    <p class="story-note">ケーキの名前・ご予約の締切は、<span class="nb">公式サイトの掲載どおりです。</span><br><span class="nb">ジェンダー・リビールケーキ・</span><span class="nb">こねこのアーちゃん・</span><span class="nb">こぐまのマーくんの写真は、</span><span class="nb">ページ上部にあります。</span><br>「卵と粉を使用していないケーキ」の<span class="nb">ご予約の日数は、</span><span class="nb">お電話でお確かめください。</span></p>
+    <p class="story-note">ケーキの名前・ご予約の締切は、<span class="nb">公式サイトの掲載どおりです。</span><br>「卵と粉を使用していないケーキ」の<span class="nb">ご予約の日数は、</span><span class="nb">お電話でお確かめください。</span></p>
   </div>
 </section>
 
@@ -487,6 +489,6 @@
   <a href="https://haru20190621-a11y.github.io/cake-demos/4ibmgxsxchkg/" target="_blank" rel="noopener">ご予約</a>
 </div>
 
-<script src="script.js?v=5" defer></script>
+<script src="script.js?v=6" defer></script>
 </body>
 </html>
