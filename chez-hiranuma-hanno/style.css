@@ -1,0 +1,306 @@
+/* フランス菓子 シェひらぬま — 提案用デモ
+   配色: 公式サイトの星空ヒーロー・生成りのヘッダー・金の見出し＋ケーキ写真の濃い茶の背景から */
+:root{
+  --night:#15110f;
+  --night2:#1f1915;
+  --cream:#f1e5c8;
+  --cream2:#d8cbad;
+  --gold:#d1ad62;
+  --paper:#efe4c8;
+  --paper2:#e6d8b6;
+  --cocoa:#2b1f18;
+  --cocoa2:#56473b;
+  --gold-d:#6e4e15;
+  --serif:"Kaisei Opti",serif;
+  --sans:"Zen Kaku Gothic New",sans-serif;
+  --latin:"Cormorant Garamond",serif;
+  --stars-s:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><g fill='%23f1e5c8'><circle cx='136' cy='63' r='0.8' opacity='0.28'/><circle cx='225' cy='154' r='0.5' opacity='0.43'/><circle cx='16' cy='182' r='0.5' opacity='0.28'/><circle cx='178' cy='347' r='0.6' opacity='0.33'/><circle cx='264' cy='398' r='0.8' opacity='0.39'/><circle cx='410' cy='20' r='0.9' opacity='0.35'/><circle cx='61' cy='49' r='0.7' opacity='0.54'/><circle cx='76' cy='244' r='0.8' opacity='0.38'/><circle cx='230' cy='26' r='0.5' opacity='0.32'/><circle cx='286' cy='180' r='0.7' opacity='0.45'/><circle cx='190' cy='126' r='0.9' opacity='0.49'/><circle cx='103' cy='241' r='0.8' opacity='0.56'/><circle cx='306' cy='121' r='1.0' opacity='0.29'/><circle cx='176' cy='318' r='0.6' opacity='0.42'/><circle cx='16' cy='281' r='0.9' opacity='0.45'/><circle cx='368' cy='132' r='0.8' opacity='0.46'/><circle cx='244' cy='192' r='0.9' opacity='0.58'/><circle cx='199' cy='279' r='0.5' opacity='0.50'/><circle cx='272' cy='417' r='0.9' opacity='0.35'/><circle cx='162' cy='281' r='0.5' opacity='0.41'/><circle cx='71' cy='49' r='0.5' opacity='0.52'/><circle cx='54' cy='104' r='0.7' opacity='0.55'/><circle cx='34' cy='189' r='0.8' opacity='0.56'/><circle cx='344' cy='363' r='0.6' opacity='0.40'/><circle cx='151' cy='371' r='1.0' opacity='0.30'/><circle cx='74' cy='97' r='0.6' opacity='0.42'/><circle cx='247' cy='110' r='0.5' opacity='0.40'/><circle cx='155' cy='238' r='1.0' opacity='0.49'/><circle cx='217' cy='259' r='0.8' opacity='0.27'/><circle cx='378' cy='328' r='0.9' opacity='0.53'/><circle cx='165' cy='168' r='0.6' opacity='0.47'/><circle cx='26' cy='28' r='0.6' opacity='0.31'/><circle cx='143' cy='22' r='0.5' opacity='0.30'/><circle cx='43' cy='153' r='0.5' opacity='0.56'/><circle cx='258' cy='62' r='0.6' opacity='0.37'/><circle cx='153' cy='52' r='0.9' opacity='0.60'/><circle cx='196' cy='203' r='0.5' opacity='0.29'/><circle cx='144' cy='111' r='0.9' opacity='0.31'/><circle cx='10' cy='399' r='0.8' opacity='0.30'/><circle cx='228' cy='11' r='0.8' opacity='0.59'/><circle cx='363' cy='292' r='0.6' opacity='0.38'/><circle cx='70' cy='324' r='0.8' opacity='0.52'/><circle cx='138' cy='94' r='0.9' opacity='0.59'/><circle cx='358' cy='339' r='0.9' opacity='0.51'/><circle cx='95' cy='217' r='0.7' opacity='0.26'/><circle cx='12' cy='117' r='0.6' opacity='0.49'/></g></svg>");
+  --stars-l:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='560'><g fill='%23f1e5c8'><circle cx='536' cy='250' r='1.7' opacity='0.90'/><circle cx='535' cy='204' r='1.2' opacity='0.59'/><circle cx='110' cy='114' r='1.4' opacity='0.86'/><circle cx='471' cy='269' r='1.5' opacity='0.82'/><circle cx='47' cy='370' r='1.6' opacity='0.81'/><circle cx='420' cy='268' r='1.1' opacity='0.82'/><circle cx='186' cy='448' r='1.7' opacity='0.66'/><circle cx='225' cy='530' r='1.5' opacity='0.57'/><circle cx='71' cy='85' r='1.6' opacity='0.82'/><circle cx='82' cy='463' r='1.7' opacity='0.76'/><circle cx='196' cy='307' r='1.1' opacity='0.51'/><circle cx='544' cy='364' r='1.4' opacity='0.87'/><circle cx='243' cy='488' r='1.6' opacity='0.58'/><circle cx='141' cy='164' r='1.2' opacity='0.73'/></g></svg>");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.9;letter-spacing:.04em;
+  color:var(--cream);background:var(--night);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.5}
+p{margin:0}
+.nb{white-space:nowrap}
+h2,h3,.cake-name,.hw-title{word-break:auto-phrase}
+.cake-desc,.t-body,.sec-text,.story-note,.msg p,.order-text,.hero-lead{word-break:auto-phrase;line-break:strict;text-wrap:pretty}
+
+/* ---------- 提案バナー ---------- */
+.offer-banner{background:var(--gold);color:var(--cocoa);padding:16px 20px;
+  display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
+.offer-banner p{max-width:860px;font-size:.88rem;line-height:1.75;letter-spacing:.02em;font-weight:500}
+.offer-btns{display:flex;gap:10px;flex-wrap:wrap}
+.offer-btn{display:inline-block;border:1px solid var(--cocoa);color:var(--cocoa);text-decoration:none;
+  padding:8px 16px;font-size:.88rem;font-weight:500;letter-spacing:.06em;white-space:nowrap;transition:background .3s,color .3s}
+.offer-btn:hover{background:var(--cocoa);color:var(--gold)}
+
+/* ---------- ナビ ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(21,17,15,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(209,173,98,.28)}
+.nav-in{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1.25;font-family:var(--serif)}
+.logo-sub{font-size:.72rem;letter-spacing:.3em;color:var(--gold)}
+.logo-main{font-size:1.28rem;letter-spacing:.14em;font-weight:700}
+.nav-links{display:flex;gap:22px;margin-left:auto}
+.nav-links a{text-decoration:none;font-size:.9rem;letter-spacing:.08em;color:var(--cream2);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .35s}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-act{display:flex;align-items:center;gap:16px}
+.nav-tel{font-family:var(--latin);font-variant-numeric:lining-nums;font-size:1.12rem;letter-spacing:.06em;text-decoration:none;color:var(--cream);white-space:nowrap}
+.nav-reserve{border:1px solid var(--gold);color:var(--gold);text-decoration:none;padding:6px 18px;
+  font-family:var(--serif);font-size:.95rem;letter-spacing:.2em;white-space:nowrap;transition:background .3s,color .3s}
+.nav-reserve:hover{background:var(--gold);color:var(--night)}
+
+/* ---------- ヒーロー（夜空） ---------- */
+.hero{position:relative;overflow:hidden;background:var(--night);padding:72px 24px 88px}
+.hero::before,.hero::after{content:"";position:absolute;inset:0;pointer-events:none}
+.hero::before{background-image:var(--stars-s)}
+.hero::after{background-image:var(--stars-l);animation:twinkle 7s ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.35}100%{opacity:1}}
+.hero-in{position:relative;z-index:1;max-width:1120px;margin:0 auto;display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"head visual" "words visual";
+  column-gap:56px;align-items:center}
+.hero-head{grid-area:head;align-self:end}
+.hero-visual{grid-area:visual}
+.hero-words{grid-area:words;align-self:start;margin-top:40px}
+.hero-kicker{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;font-size:1.05rem;letter-spacing:.14em;color:var(--gold)}
+.hero h1{font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;letter-spacing:.12em;line-height:1.3;margin:.25em 0 .4em}
+.h1-sub{display:block;font-size:.36em;font-weight:500;letter-spacing:.42em;color:var(--cream2);margin-bottom:.35em}
+.hero-lead{font-size:1.02rem;color:var(--cream2)}
+.hero-info{list-style:none;margin:26px 0 0;padding:16px 0 0;border-top:1px solid rgba(209,173,98,.35);
+  display:grid;gap:4px;font-size:1rem}
+.hero-info b{display:inline-block;min-width:3.4em;font-family:var(--serif);font-weight:500;color:var(--gold);letter-spacing:.1em}
+.hero-info a{text-decoration:none;font-family:var(--latin);font-variant-numeric:lining-nums;font-size:1.1rem;letter-spacing:.06em}
+.hero-info a.hi-map{font-family:var(--sans);font-size:inherit;letter-spacing:inherit;text-decoration:underline;text-decoration-color:rgba(209,173,98,.6);text-underline-offset:5px}
+.hw-title{font-family:var(--serif);font-size:1.12rem;letter-spacing:.14em;color:var(--gold);
+  display:inline-block;padding-bottom:6px;border-bottom:1px solid rgba(209,173,98,.5)}
+.hw-quote{margin:18px 0 0;font-family:var(--serif);font-size:1.06rem;line-height:2.1;letter-spacing:.08em}
+.hw-bv{margin-top:22px;font-family:var(--latin);font-size:1.7rem;letter-spacing:.24em;line-height:1.2}
+.hw-bv-ja{font-family:var(--serif);font-size:.95rem;letter-spacing:.16em;color:var(--cream2)}
+
+/* 月の額（ケーキのクロスフェード） */
+.moon-wrap{position:relative;width:min(460px,100%);aspect-ratio:1;margin:0 auto}
+.moon{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:#2a160d;z-index:1;
+  outline:1px solid rgba(209,173,98,.45);outline-offset:12px}
+.moon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  animation:moonFade 18s infinite,kenburns 18s ease-in-out infinite}
+.moon img:nth-child(2){animation-delay:6s,6s}
+.moon img:nth-child(3){animation-delay:12s,12s}
+@keyframes moonFade{0%{opacity:0}5%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+@keyframes kenburns{0%{transform:scale(1)}39%{transform:scale(1.07)}100%{transform:scale(1.07)}}
+.orbit{position:absolute;left:-25%;top:-25%;width:150%;height:150%;pointer-events:none;overflow:visible}
+.orbit-back{z-index:0}
+.orbit-front{z-index:2}
+.orbit ellipse,.orb-front{fill:none;stroke:var(--gold);stroke-width:1;opacity:.55}
+.orb-path{fill:none;stroke:none}
+.voyager{fill:var(--cream)}
+.moon-cap{position:relative;list-style:none;margin:40px auto 0;padding:0;max-width:420px;min-height:8.6em;text-align:center}
+.moon-cap li{position:absolute;inset:0;opacity:0;animation:moonFade 18s infinite}
+.moon-cap li:nth-child(2){animation-delay:6s}
+.moon-cap li:nth-child(3){animation-delay:12s}
+.moon-cap span,.moon-cap b{display:block}
+.mc-no{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;color:var(--gold);letter-spacing:.2em;font-size:.95rem}
+.moon-cap b{font-family:var(--serif);font-weight:500;font-size:1.3rem;letter-spacing:.12em}
+.mc-p{font-size:.95rem;color:var(--cream2)}
+.mc-lead{font-family:var(--serif);color:var(--gold);font-size:.95rem;letter-spacing:.1em}
+
+/* ---------- 共通の見出し ---------- */
+.sec-head{text-align:center;max-width:760px;margin:0 auto}
+.sec-label{font-family:var(--latin);font-style:italic;font-size:1.1rem;letter-spacing:.24em;color:var(--gold);margin-bottom:.3em}
+.sec-head h2,.message h2,.order-main h2{font-size:clamp(1.5rem,3.6vw,2.15rem);letter-spacing:.12em}
+.sec-sub{font-family:var(--serif);color:var(--cream2);letter-spacing:.14em;margin-top:.5em}
+.sec-text{margin-top:22px;color:var(--cream2);line-height:2}
+
+/* ---------- 物語シリーズ（目録） ---------- */
+.story{position:relative;background:var(--night);padding:110px 24px 120px;border-top:1px solid rgba(209,173,98,.18)}
+.story::before{content:"";position:absolute;inset:0;background-image:var(--stars-l);opacity:.35;pointer-events:none}
+.story-in{position:relative;max-width:1120px;margin:0 auto}
+.finder{display:none}
+.js .finder{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 26px;
+  margin:54px auto 0;max-width:820px;padding:18px 20px;border-top:1px solid rgba(209,173,98,.45);border-bottom:1px solid rgba(209,173,98,.45)}
+.finder-q{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em}
+.finder-btns{display:flex;gap:6px}
+.finder-btns button{font:inherit;font-family:var(--serif);font-size:1rem;letter-spacing:.08em;color:var(--cream2);
+  background:none;border:0;border-bottom:1px solid transparent;padding:6px 10px;cursor:pointer;min-height:40px;transition:color .3s,border-color .3s}
+.finder-btns button:hover{color:var(--cream)}
+.finder-btns button[aria-pressed="true"]{color:var(--gold);border-bottom-color:var(--gold)}
+.finder-btns button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
+.finder-count{font-size:.95rem;color:var(--cream2)}
+.finder-count span{font-family:var(--latin);font-size:1.6rem;color:var(--cream);margin-right:4px;font-variant-numeric:lining-nums}
+.price-note{margin:22px auto 0;text-align:center;font-size:.95rem;color:var(--cream2)}
+.finder-empty{text-align:center;margin-top:40px;color:var(--cream2)}
+
+.cakes{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:64px 34px}
+.cake{display:flex;flex-direction:column}
+.cake[hidden]{display:none}
+.cake-ph{display:block;aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;background:#2a160d;
+  outline:1px solid rgba(209,173,98,.32);outline-offset:7px;margin:7px}
+.cake-ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.cake:hover .cake-ph img{transform:scale(1.05)}
+.cake-ph.ring{background:transparent;border:1px dashed rgba(209,173,98,.6);outline:0;display:grid;place-items:center;text-decoration:none}
+.cake-ph.ring span{font-family:var(--serif);font-size:.98rem;letter-spacing:.1em;color:var(--gold);text-align:center;line-height:1.7}
+.cake-ph.ring .up{display:block;width:9px;height:9px;margin:0 auto 12px;border-left:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
+.moon.pinned img,.moon-cap.pinned li{animation:none;opacity:0}
+.moon.pinned img.is-pin,.moon-cap.pinned li.is-pin{opacity:1}
+.cake-ph.ring .ring-en{font-family:var(--latin);font-style:italic;font-size:1.25rem;letter-spacing:.12em;line-height:1.3}
+a.cake-ph.ring:hover span{color:var(--cream)}
+.cake-tx{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:20px}
+.cake-desc{align-self:stretch}
+.cake-no{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;font-size:.95rem;letter-spacing:.2em;color:var(--gold)}
+.cake-name{font-size:1.14rem;letter-spacing:.06em;margin-top:2px}
+.cake-fr{font-family:var(--latin);font-style:italic;font-size:1.08rem;letter-spacing:.06em}
+.cake-kind{font-size:.95rem;color:var(--cream2);margin-top:2px}
+.cake-desc{font-size:.95rem;line-height:1.8;color:var(--cream2);margin-top:8px}
+.cake-price{margin-top:10px;font-size:1rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.cake-price span{display:block}
+.cake-price .pl{font-family:var(--serif);font-size:.95rem;color:var(--gold);letter-spacing:.1em;margin-top:6px}
+.cake-lead{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:var(--serif);font-size:1rem;letter-spacing:.06em;
+  color:var(--gold);line-height:1.6}
+.cake-lead.lead-multi{display:block}
+.cake-lead.lead-multi::before{display:none}
+.cake-lead::before{content:"";flex:none;width:9px;height:9px;background:var(--gold);
+  clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.story-note{margin:72px auto 0;max-width:720px;text-align:center;font-size:.95rem;line-height:2;color:var(--cream2)}
+
+/* ---------- 紙の面（割引・ご予約・お店） ---------- */
+.paper{background:var(--paper);color:var(--cocoa);padding:100px 24px}
+.paper .sec-label{color:var(--gold-d)}
+.paper .sec-text{color:var(--cocoa2)}
+.paper-in{max-width:1000px;margin:0 auto}
+.tickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:52px}
+.ticket{position:relative;border:1px solid var(--gold-d);padding:34px 30px 30px;text-align:center;background:var(--paper)}
+.ticket::before{content:"";position:absolute;inset:7px;border:1px dashed rgba(122,87,25,.55);pointer-events:none}
+.t-who{font-family:var(--serif);font-size:1rem;letter-spacing:.14em;color:var(--gold-d)}
+.t-num{font-family:var(--latin);font-variant-numeric:lining-nums;font-size:4.4rem;line-height:1;letter-spacing:.02em;margin:10px 0 8px;font-weight:500}
+.t-num span{font-size:.45em;margin-left:2px}
+.t-name{font-size:1.18rem;letter-spacing:.1em}
+.t-body{margin-top:14px;text-align:left;font-size:.98rem;color:var(--cocoa)}
+.t-cond{margin-top:12px;padding-top:12px;border-top:1px solid rgba(122,87,25,.35);font-size:1rem;color:var(--cocoa2)}
+
+.t-note{margin-top:8px;font-size:.95rem;color:var(--cocoa2)}
+.paper-order{background:var(--paper2)}
+.order-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center}
+.order-text{margin-top:18px;color:var(--cocoa2)}
+.order-tel-lead{margin-top:30px;font-family:var(--serif);letter-spacing:.14em}
+.order-tel{display:inline-block;font-family:var(--latin);font-variant-numeric:lining-nums;font-size:clamp(2.3rem,6vw,3.2rem);letter-spacing:.05em;line-height:1.2;
+  text-decoration:none;color:var(--cocoa);border-bottom:1px solid var(--gold-d)}
+.order-hours{margin-top:14px;font-size:.95rem;color:var(--cocoa2)}
+.order-side{border-left:1px solid rgba(122,87,25,.35);padding-left:44px}
+.merit-title{font-family:var(--serif);letter-spacing:.14em;color:var(--gold-d)}
+.merit{list-style:none;margin:12px 0 0;padding:0;font-family:var(--serif);font-size:1.12rem;letter-spacing:.08em;line-height:2.2}
+.merit span{color:var(--gold-d);margin-right:10px}
+.btn-line{display:inline-block;margin-top:30px;border:1px solid var(--cocoa);color:var(--cocoa);text-decoration:none;
+  padding:12px 30px;font-family:var(--serif);letter-spacing:.2em;transition:background .3s,color .3s}
+.btn-line::after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:14px;vertical-align:middle;transition:transform .3s}
+.btn-line:hover{background:var(--cocoa);color:var(--paper)}
+.btn-line:hover::after{transform:translateX(3px)}
+.order-note{margin-top:12px;font-size:.88rem;color:var(--cocoa2)}
+
+/* ---------- ごあいさつ ---------- */
+.message{position:relative;background:var(--night2);padding:110px 24px 120px}
+.message::before{content:"";position:absolute;inset:0;background-image:var(--stars-s);opacity:.6;pointer-events:none}
+.message-in{position:relative;max-width:720px;margin:0 auto;text-align:center}
+.msg{margin:40px 0 0;text-align:left;font-size:1.02rem;line-height:2.1}
+.msg p+p{margin-top:1.1em}
+.msg-src{margin-top:24px;font-size:.9rem;color:var(--cream2);text-align:right}
+.peace{margin-top:56px;font-family:var(--latin);font-style:italic;font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:.08em;color:var(--gold)}
+
+/* ---------- お店の情報 ---------- */
+.shop-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:20px 56px;align-items:start}
+.shop-head{text-align:left;margin:0}
+.shop-dl{margin:0;border-top:1px solid rgba(122,87,25,.4)}
+.shop-dl div{display:grid;grid-template-columns:7.5em 1fr;gap:16px;padding:14px 0;border-bottom:1px solid rgba(122,87,25,.25)}
+.shop-dl dt{font-family:var(--serif);color:var(--gold-d);letter-spacing:.1em}
+.shop-dl dd{margin:0}
+.shop-dl a{color:var(--cocoa)}
+.shop-map{grid-column:2}
+.shop-map a{color:var(--cocoa);font-family:var(--serif);letter-spacing:.1em}
+
+/* ---------- フッター ---------- */
+.foot{background:var(--night);text-align:center;padding:64px 24px 56px;border-top:1px solid rgba(209,173,98,.22)}
+.foot-logo{font-family:var(--serif);font-size:1.3rem;letter-spacing:.16em;font-weight:700}
+.foot-logo span{display:block;font-size:.62em;font-weight:500;letter-spacing:.32em;color:var(--gold)}
+.foot-bv{font-family:var(--latin);letter-spacing:.3em;color:var(--cream2);margin-top:6px}
+.credit{margin-top:28px;font-size:.88rem;color:var(--cream2)}
+.demo-note{margin-top:8px;font-size:.84rem;line-height:1.9;color:var(--cream2)}
+
+.m-bar{display:none}
+
+/* ---------- スクロール出現 ---------- */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.on{opacity:1;transform:none}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width:1060px){
+  .nav-in{flex-wrap:wrap;row-gap:4px}
+  .nav-act{margin-left:auto}
+  .nav-links{order:3;width:100%;margin-left:0;justify-content:center;gap:20px;padding-bottom:2px}
+  .nav-links a{font-size:.88rem}
+  .cakes{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:820px){
+  .hero{padding:44px 20px 64px}
+  .hero-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "visual" "words";row-gap:0}
+  .hero-head{text-align:left}
+  .hero-visual{margin-top:52px}
+  .hero-words{text-align:center;margin-top:36px}
+  .moon-wrap{width:min(340px,76vw)}
+  .order-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .order-side{border-left:0;padding-left:0;border-top:1px solid rgba(122,87,25,.35);padding-top:36px}
+  .shop-grid{grid-template-columns:minmax(0,1fr)}
+  .shop-head{text-align:center}
+  .shop-map{grid-column:1}
+  .tickets{grid-template-columns:minmax(0,1fr);gap:22px}
+}
+@media (max-width:640px){
+  body{padding-bottom:58px}
+  .offer-banner{padding:12px 16px;gap:10px}
+  .offer-banner p{font-size:.8rem;line-height:1.65}
+  .offer-btn{padding:6px 12px;font-size:.82rem}
+  .nav-in{padding:8px 16px;gap:12px}
+  .nav-links{display:none}
+  .logo-main{font-size:1.1rem}
+  .nav-tel{display:none}
+  .nav-reserve{padding:5px 14px}
+  .hero{padding-top:20px}
+  .hero-kicker{font-size:.92rem}
+  .hero h1{font-size:2.1rem;margin:.12em 0 .25em}
+  .hero-lead{font-size:.95rem}
+  .hero-kicker,.hero-info .hi-tel{display:none}
+  .hero-info{font-size:1rem;margin-top:14px;padding-top:10px;gap:0}
+  .hero-visual{margin-top:18px}
+  .moon-wrap{width:66vw}
+  .moon{outline-offset:8px}
+  .story,.message{padding:80px 16px 88px}
+  .paper{padding:76px 16px}
+  .cakes{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 14px;margin-top:44px}
+  .cake-ph{margin:5px;outline-offset:5px}
+  .cake-name{font-size:1.04rem;letter-spacing:.03em}
+  .cake-price{font-size:1rem;letter-spacing:0}
+  .cake-lead{font-size:1rem;gap:4px;letter-spacing:0}
+  .cake-desc,.cake-kind{font-size:.95rem;letter-spacing:.02em}
+  .cake-ph.ring span{font-size:.9rem;letter-spacing:.04em}
+  .js .finder{gap:6px 10px;padding:14px 4px}
+  .finder-btns button{padding:6px 7px;font-size:.98rem}
+  .ticket{padding:30px 22px 26px}
+  .shop-dl div{grid-template-columns:6.8em 1fr;gap:10px}
+  .m-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:120;
+    background:rgba(21,17,15,.96);border-top:1px solid rgba(209,173,98,.5)}
+  .m-bar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
+    font-family:var(--serif);letter-spacing:.12em;color:var(--cream);font-size:.98rem}
+  .m-bar a+a{border-left:1px solid rgba(209,173,98,.5);color:var(--gold)}
+}
+
+/* ---------- 動きを止める設定 ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+  .moon:not(.pinned) img:first-child,.moon-cap:not(.pinned) li:first-child{opacity:1}
+  .hero::after{opacity:.7}
+}
