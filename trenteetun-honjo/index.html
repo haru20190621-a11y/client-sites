@@ -9,15 +9,15 @@
 <meta name="description" content="埼玉県本庄市五十子の洋菓子店、四季菓子工房 TRENTEETUN（トランテアン）。1984年創業。プチガトー、デコレーションケーキ、焼菓子。営業時間10:30〜18:30、火曜定休。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Zen+Old+Mincho:wght@500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
-<script src="script.js?v=9" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Zen+Old+Mincho:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=19">
+<script src="script.js?v=19" defer></script>
 </head>
 <body>
 
 <!-- 契約後の本番公開時にこのブロックごと削除 -->
 <div class="offer-banner">
-  <p>このサイトは、トランテアン様にご提案したく、勝手ながら作らせていただいたデモです。ご覧いただくだけでしたら、費用は一切かかりません。もし気に入っていただけましたら、そのまま正式な公式サイトとしてお仕立ていたします。制作は一式8万円から3つのプランをご用意しておりまして、公開後の運用や毎月の更新は、どのプランでも月10,000円で承っております。詳しいことは下のご案内ページから確認できますので、よろしければご覧ください。</p>
+  <p>このサイトは、トランテアン様にご提案したく、勝手ながら作らせていただいたデモです。ご覧いただくだけでしたら、費用は一切かかりません。もし気に入っていただけましたら、そのまま<span class="nb">正式な公式サイトとして</span><span class="nb">お仕立ていたします。</span>制作は一式8万円から3つのプランをご用意しておりまして、公開後の運用や毎月の更新は、どのプランでも月10,000円で承っております。詳しいことは下のご案内ページから確認できますので、よろしければご覧ください。</p>
   <div class="offer-actions">
     <a class="offer-btn" href="https://haru20190621-a11y.github.io/nexusguild-lp/web.html" target="_blank" rel="noopener">料金と仕組みのご案内</a>
     <a class="offer-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdrRkrJ9gxpJmZRSip_PVG_wIQ4vSnfjtivmEkfsmEHZrNJOg/viewform" target="_blank" rel="noopener">相談してみる</a>
@@ -28,9 +28,9 @@
   <div class="nav-inner">
     <a class="nav-logo" href="#top">TRENTEETUN</a>
     <nav class="nav-links" aria-label="ページ内の案内">
-      <a href="#petits">お菓子</a>
+      <a href="#petits">ケーキ</a>
       <a href="#deco">デコ<span class="pc-only">レーション</span></a>
-      <a href="#saisons">季節</a>
+      <a href="#others">焼菓子</a>
       <a href="#day31">31日</a>
       <a class="pc-only" href="#about">お店について</a>
       <a href="#info">店舗情報</a>
@@ -42,10 +42,17 @@
 <main>
 
 <section class="hero" id="top">
-  <div class="hero-text">
+  <div class="hero-head">
     <p class="hero-kicker">四季菓子工房</p>
     <h1 class="hero-title"><span class="wm">TRENTEETUN</span><span class="kana">トランテアン</span></h1>
-    <p class="hero-since"><i>since</i> 1984</p>
+  </div>
+  <div class="hero-photos">
+    <figure class="hp hp-main"><img src="img/hero-showcase.jpg?v=17" alt="ショーケースに並ぶいちごのタルトやモンブラン" width="1080" height="1080"></figure>
+    <figure class="hp hp-sub1"><img src="img/hero-fruittart.jpg?v=17" alt="フルーツをのせたタルト" width="777" height="800"></figure>
+    <figure class="hp hp-sub2"><img src="img/p-fraise.jpg?v=17" alt="フレーズ（ショートケーキ）" width="929" height="929"></figure>
+  </div>
+  <div class="hero-body">
+    <p class="hero-since">since 1984</p>
     <p class="hero-lead">素材の魅力をカタチに。<br><span class="nb">埼玉県本庄市の</span><span class="nb">洋菓子店です。</span></p>
     <ul class="hero-meta">
       <li><span class="k">営業</span>10:30〜18:30</li>
@@ -54,70 +61,61 @@
       <li><span class="k">電話</span><a href="tel:0495716690">0495-71-6690</a></li>
     </ul>
     <p class="hero-cta">
-      <a class="link-arrow" href="#petits">お菓子を見る</a>
-      <a class="btn-line" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約</a>
+      <a class="btn-line btn-strong" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約</a>
+      <a class="link-arrow" href="#petits">ケーキを見る</a>
     </p>
   </div>
-  <div class="hero-photo">
-    <div class="slide" style="background-image:url(img/hero-showcase.jpg)" role="img" aria-label="ショーケースに並ぶケーキ"></div>
-    <div class="slide" style="background-image:url(img/hero-fruittart.jpg)" role="img" aria-label="フルーツをのせたタルト"></div>
-    <span class="hero-frame" aria-hidden="true"></span>
-  </div>
 </section>
-
-<div class="telop" aria-hidden="true">
-  <div class="telop-track">
-    <span>フレーズ</span><span>モンブラン</span><span>パリ</span><span>ザッハグラズィール</span><span>ベイクドチーズ</span><span>ベイクドショコラ</span><span>ピスタチオ</span><span>いちご 生クリーム</span><span>フルーツタルト</span><span>イングリッシュスコーン</span><span>シュークリーム</span><span>生シュー</span><span>なめらかプリン</span><span>マカロン</span><span>ラムボール</span><span>生チョコレート</span>
-    <span>フレーズ</span><span>モンブラン</span><span>パリ</span><span>ザッハグラズィール</span><span>ベイクドチーズ</span><span>ベイクドショコラ</span><span>ピスタチオ</span><span>いちご 生クリーム</span><span>フルーツタルト</span><span>イングリッシュスコーン</span><span>シュークリーム</span><span>生シュー</span><span>なめらかプリン</span><span>マカロン</span><span>ラムボール</span><span>生チョコレート</span>
-  </div>
-</div>
 
 <section class="sec" id="petits">
   <div class="wrap">
     <header class="sec-head reveal">
       <p class="sec-label">Petits gâteaux</p>
       <h2>プチガトー</h2>
-      <p class="sec-lead">美味しい小さなケーキたち。<br>トランテアン定番の洋菓子をご紹介します。</p>
+      <p class="sec-lead">美味しい小さなケーキたち。<br>トランテアン定番の洋菓子を<span class="nb">ご紹介します。</span><br><span class="nb">価格は店頭でご確認ください。</span><span class="nb">季節のケーキも、時期によって並びます。</span></p>
     </header>
     <ol class="catalog catalog-petits">
       <li class="item item-feature reveal">
-        <figure><img src="img/p-fraise.jpg" alt="フレーズ" width="900" height="900" loading="lazy"></figure>
-        <h3>フレーズ</h3>
-        <p class="desc">上品な甘さの定番ショートケーキ。</p>
-      </li>
-      <li class="item reveal">
-        <figure><img src="img/p-montblanc.jpg" alt="モンブラン" width="1100" height="785" loading="lazy"></figure>
+        <figure><img src="img/p-montblanc.jpg?v=19" alt="モンブラン" width="1100" height="1100" loading="lazy"></figure>
         <h3>モンブラン</h3>
         <p class="desc">フランス産<span class="nb">マロンペーストを</span><span class="nb">使用。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/p-paris.jpg" alt="パリ ザ ツェン" width="900" height="900" loading="lazy"></figure>
+        <figure><img src="img/p-fraise.jpg?v=17" alt="フレーズ" width="929" height="929" loading="lazy"></figure>
+        <h3>フレーズ</h3>
+        <p class="desc">上品な甘さの定番ショートケーキ。</p>
+      </li>
+      <li class="item reveal">
+        <figure><img src="img/p-paris.jpg?v=17" alt="パリ ザ ツェン" width="821" height="616" loading="lazy"></figure>
         <h3>パリ ザ ツェン<small class="nb">（パリ）</small></h3>
         <p class="desc"><span class="nb">フワッとして</span><wbr><span class="nb">かわいい。</span><span class="nb">チョコレートクリーム</span><span class="nb">入り。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/p-sacher.jpg" alt="ザッハグラズィール" width="1100" height="808" loading="lazy"></figure>
+        <figure><img src="img/p-sacher.jpg?v=17" alt="ザッハグラズィール" width="1000" height="750" loading="lazy"></figure>
         <h3>ザッハグラズィール</h3>
         <p class="desc">トランテアンの<span class="nb">チョコレートケーキ。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/p-cheese.jpg" alt="ベイクドチーズ" width="1100" height="798" loading="lazy"></figure>
+        <figure><img src="img/p-cheese.jpg?v=17" alt="ベイクドチーズ" width="832" height="624" loading="lazy"></figure>
         <h3>ベイクドチーズ</h3>
         <p class="desc">定番人気の濃厚<span class="nb">チーズケーキ。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/p-chocolat.jpg" alt="ベイクドショコラ" width="1100" height="715" loading="lazy"></figure>
+        <figure><img src="img/p-chocolat.jpg?v=17" alt="ベイクドショコラ" width="1000" height="750" loading="lazy"></figure>
         <h3>ベイクドショコラ</h3>
         <p class="desc">濃厚な<span class="nb">チョコレートタルトに</span><span class="nb">生クリーム。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/p-pistache.jpg" alt="ピスタチオ" width="1100" height="707" loading="lazy"></figure>
+        <figure><img src="img/p-pistache.jpg?v=17" alt="ピスタチオ" width="742" height="555" loading="lazy"></figure>
         <h3>ピスタチオ</h3>
         <p class="desc">ピスタチオムースとラズベリーの<span class="nb">組み合わせ。</span></p>
       </li>
-      <li class="item-note item-note-wide reveal">
-        <p>価格は店頭でご確認ください。<br>季節のケーキも、時期によって並びます。</p>
-        <p class="note-link"><a class="link-arrow" href="#deco">ホールのデコレーションケーキは号数別のお値段へ</a></p>
+      <li class="item item-link reveal">
+        <a href="#deco">
+          <figure><img src="img/d-atelier.jpg?v=17" alt="工房でいちごのデコレーションケーキを仕上げているところ" width="1400" height="855" loading="lazy"></figure>
+          <h3>ホールのデコレーションケーキ</h3>
+          <p class="desc">号数別のお値段は、<span class="nb">次の表でご覧いただけます。</span> <span class="more">お値段の表へ</span></p>
+        </a>
       </li>
     </ol>
   </div>
@@ -128,13 +126,19 @@
     <header class="sec-head reveal">
       <p class="sec-label">Décoration</p>
       <h2>デコレーションケーキ</h2>
-      <p class="sec-lead">大切な日の特別なケーキ。<br>心を込めてお作りいたします。</p>
+      <p class="sec-lead">大切な日の特別なケーキ。<br>心を込めて<span class="nb">お作りいたします。</span></p>
     </header>
     <div class="deco-grid">
-      <figure class="deco-main reveal">
-        <img src="img/d-ichigo.jpg" alt="いちご 生クリームのデコレーションケーキ" width="825" height="1100" loading="lazy">
-        <figcaption>いちご 生クリーム</figcaption>
-      </figure>
+      <div class="deco-photos">
+        <figure class="reveal">
+          <img src="img/d-ichigo.jpg?v=17" alt="いちご 生クリームのデコレーションケーキ" width="825" height="1100" loading="lazy">
+          <figcaption>いちご 生クリーム</figcaption>
+        </figure>
+        <figure class="reveal">
+          <img src="img/d-fruittart.jpg?v=17" alt="フルーツタルトのデコレーションケーキ" width="1000" height="750" loading="lazy">
+          <figcaption>フルーツタルト</figcaption>
+        </figure>
+      </div>
       <div class="deco-table reveal">
         <table class="ptable">
           <caption>号数別のお値段<span>（単位：円）</span></caption>
@@ -155,145 +159,86 @@
         <p class="ptable-note">価格・内容は変わることがあります。<br>くわしくはお店にお問い合わせください。</p>
         <div class="deco-reserve">
           <p><span class="nb">ご予約・お取り置きも</span><span class="nb">承っております。</span></p>
-          <a class="btn-line btn-blue" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約へ</a>
+          <a class="btn-line btn-strong" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約へ</a>
         </div>
       </div>
     </div>
-    <div class="deco-photos">
-      <figure class="reveal">
-        <img src="img/d-atelier.jpg" alt="工房でいちごのデコレーションケーキを仕上げているところ" width="1400" height="855" loading="lazy">
-        <figcaption>工房にて</figcaption>
-      </figure>
-    </div>
   </div>
 </section>
 
-<section class="sec" id="saisons">
+<section class="sec" id="others">
   <div class="wrap">
     <header class="sec-head reveal">
-      <p class="sec-label">Quatre saisons</p>
-      <h2>四季のお菓子</h2>
-      <p class="sec-lead">季節感のある素材をいかしたお菓子が、<span class="nb">季節ごとに並びます。</span><br>これまでに<span class="nb">お知らせしたものから、</span><span class="nb">一例をご紹介します。</span></p>
+      <p class="sec-label">Gâteaux secs &amp; plus</p>
+      <h2>焼菓子と、そのほかのお菓子</h2>
+      <p class="sec-lead">価格は店頭でご確認ください。</p>
     </header>
-    <div class="seasons">
-      <section class="season s-spring reveal" aria-labelledby="ss1">
-        <h3 id="ss1"><span class="dot" aria-hidden="true"></span>春<i>Printemps</i></h3>
-        <ul>
-          <li><b>いちごのタルト</b>国産いちごの<span class="nb">季節限定の</span><span class="nb">デコレーション。</span><span class="nb">1月〜5月中旬頃まで。</span></li>
-          <li><b>桜巾着ギフト</b>春の訪れを感じる、<span class="nb">桜のギフト。</span></li>
-          <li><b>ホワイトデーギフト</b>3月14日の<span class="nb">贈りものに。</span></li>
-        </ul>
-      </section>
-      <section class="season s-summer reveal" aria-labelledby="ss2">
-        <h3 id="ss2"><span class="dot" aria-hidden="true"></span>夏<i>Été</i></h3>
-        <ul>
-          <li><b>ももたろう</b>桃が丸ごと入った、<span class="nb">夏の季節限定の</span><span class="nb">一品。</span></li>
-          <li><b>金魚きんちゃく</b>夏限定の焼き菓子ギフト。</li>
-          <li><b>ひまわりギフト</b>ひまわりの黄色が<span class="nb">晴れやかな、</span><span class="nb">夏のギフト。</span></li>
-        </ul>
-      </section>
-      <section class="season s-autumn reveal" aria-labelledby="ss3">
-        <h3 id="ss3"><span class="dot" aria-hidden="true"></span>秋<i>Automne</i></h3>
-        <ul>
-          <li><b>栗のタルト</b>タルト生地に<span class="nb">アーモンドクリーム、</span><span class="nb">カスタード、渋栗。</span></li>
-          <li><b>ショコラカフェ</b>生チョコのタルトに、<span class="nb">コーヒー風味の</span><span class="nb">生クリーム。</span></li>
-          <li><b><span class="nb">シャインマスカットの</span>タルト</b>カスタードクリームと<span class="nb">旬のマスカット。</span></li>
-          <li><b>ダックワーズ</b>アーモンド生地で<span class="nb">キャラメルクリームを</span><span class="nb">挟んだ焼き菓子。</span></li>
-        </ul>
-      </section>
-      <section class="season s-winter reveal" aria-labelledby="ss4">
-        <h3 id="ss4"><span class="dot" aria-hidden="true"></span>冬<i>Hiver</i></h3>
-        <ul>
-          <li><b>クリスマスケーキ</b><span class="nb">ご予約の時期と締切日は、</span><span class="nb">Instagramで</span><span class="nb">お知らせしています。</span></li>
-          <li><b>あまりんのケーキ</b>本庄産のいちご<span class="nb">「あまりん」を</span><span class="nb">使ったケーキ。</span></li>
-          <li><b>タブレットのショコラ</b>抹茶・ホワイト・スイート・<span class="nb">いちご・ミルクの5種。</span></li>
-        </ul>
-      </section>
-    </div>
-    <p class="seasons-note reveal">並ぶお菓子は年や入荷によって変わります。<br>いま店頭にあるものは、<a href="https://www.instagram.com/trenteetun_honjo_city" target="_blank" rel="noopener">Instagram</a>でお知らせしています。</p>
-  </div>
-</section>
-
-<section class="sec sec-paper" id="yaki">
-  <div class="wrap">
-    <div class="yaki-grid">
-      <figure class="yaki-wide reveal">
-        <img src="img/y-shelf.jpg" alt="店内の焼菓子の棚" width="1400" height="989" loading="lazy">
-      </figure>
-      <div class="yaki-text reveal">
-        <p class="sec-label">Gâteaux secs</p>
-        <h2>焼菓子</h2>
-        <p>素材と製法にこだわり、<br>丁寧に焼き上げました。</p>
-        <p>季節ごとの焼き菓子ギフトも、<br>店頭に並びます。</p>
-      </div>
-    </div>
-
-    <h3 class="sub-head reveal"><span class="sec-label">Et aussi</span>そのほかのお菓子</h3>
-    <ol class="catalog catalog-others" start="8">
+    <ol class="catalog catalog-others">
+      <li class="item item-wide reveal">
+        <figure><img src="img/y-shelf.jpg?v=17" alt="店内の焼菓子の棚" width="1400" height="847" loading="lazy"></figure>
+        <h3>焼菓子各種</h3>
+        <p class="desc">素材と製法にこだわり、<span class="nb">丁寧に焼き上げました。</span><br>季節ごとの<span class="nb">焼き菓子ギフトも</span><span class="nb">店頭に並びます。</span></p>
+      </li>
       <li class="item reveal">
-        <figure><img src="img/o-scone.jpg" alt="イングリッシュスコーン" width="1100" height="801" loading="lazy"></figure>
-        <h4><span class="nb">イングリッシュ</span><span class="nb">スコーン</span></h4>
+        <figure><img src="img/o-scone.jpg?v=17" alt="イングリッシュスコーン" width="1000" height="750" loading="lazy"></figure>
+        <h3><span class="nb">イングリッシュ</span><span class="nb">スコーン</span></h3>
         <p class="desc">北海道<span class="nb">生クリーム＆バターを</span><span class="nb">贅沢に使用した、</span><span class="nb">ケーキ屋さんの</span><span class="nb">スコーン。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-chou.jpg" alt="シュークリーム" width="1000" height="774" loading="lazy"></figure>
-        <h4>シュークリーム</h4>
+        <figure><img src="img/o-chou.jpg?v=17" alt="シュークリーム" width="1000" height="750" loading="lazy"></figure>
+        <h3>シュークリーム</h3>
         <p class="desc">サクサクの<span class="nb">クッキー</span><span class="nb">シュークリーム。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-namachou.jpg" alt="生シュー" width="1000" height="931" loading="lazy"></figure>
-        <h4>生シュー</h4>
+        <figure><img src="img/o-namachou.jpg?v=17" alt="生シュー" width="1000" height="750" loading="lazy"></figure>
+        <h3>生シュー</h3>
         <p class="desc">生クリーム<span class="nb">たっぷり。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-pudding.jpg" alt="なめらかプリン" width="988" height="611" loading="lazy"></figure>
-        <h4>なめらかプリン</h4>
+        <figure><img src="img/o-pudding.jpg?v=17" alt="なめらかプリン" width="791" height="592" loading="lazy"></figure>
+        <h3>なめらかプリン</h3>
         <p class="desc">シンプルに<span class="nb">作りました。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-macaron.jpg" alt="マカロン" width="1100" height="822" loading="lazy"></figure>
-        <h4>マカロン</h4>
+        <figure><img src="img/o-macaron.jpg?v=17" alt="マカロン" width="1000" height="750" loading="lazy"></figure>
+        <h3>マカロン</h3>
         <p class="desc">カラフルで<span class="nb">カワイイ。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-rumball.jpg" alt="ラムボール" width="1000" height="750" loading="lazy"></figure>
-        <h4>ラムボール</h4>
+        <figure><img src="img/o-rumball.jpg?v=17" alt="ラムボール" width="768" height="576" loading="lazy"></figure>
+        <h3>ラムボール</h3>
         <p class="desc">芳醇なラム酒香る、大人の<span class="nb">チョコレート。</span></p>
       </li>
       <li class="item reveal">
-        <figure><img src="img/o-namachoco.jpg" alt="生チョコレート" width="1000" height="742" loading="lazy"></figure>
-        <h4>生チョコレート</h4>
+        <figure><img src="img/o-namachoco.jpg?v=17" alt="生チョコレート" width="852" height="639" loading="lazy"></figure>
+        <h3>生チョコレート</h3>
         <p class="desc">口どけがよく、<span class="nb">なめらか。</span></p>
       </li>
-      <li class="item-note reveal">
-        <p>価格は店頭でご確認ください。</p>
-      </li>
     </ol>
+    <p class="others-note reveal">新しいお菓子や季節の品は、<a href="https://www.instagram.com/trenteetun_honjo_city" target="_blank" rel="noopener">Instagram</a>でお知らせしています。</p>
   </div>
 </section>
 
 <section class="day31" id="day31">
   <div class="wrap day31-grid">
     <div class="day31-num">
-      <svg class="num31" viewBox="0 0 440 320" role="img" aria-label="31">
-        <text x="220" y="262" text-anchor="middle">31</text>
-      </svg>
+      <p class="num31" aria-hidden="true">31</p>
       <p class="trente"><i>trente et un</i></p>
     </div>
     <div class="day31-text reveal">
       <p class="sec-label">Le 31</p>
       <h2>31日は、<br>トランテアンの日。</h2>
-      <p>店名の <span class="nb">TRENTEETUN（トランテアン）は、</span><span class="nb">フランス語で「31」のこと。</span></p>
+      <p><span class="nb">店名の TRENTEETUN（トランテアン）は、</span><span class="nb">フランス語で「31」のこと。</span></p>
       <p>31日の「トランテアンの日」には、<span class="nb">ケーキのはじっこや</span><span class="nb">アウトレットの焼き菓子が</span><span class="nb">並びます。</span><span class="nb">2,000円のお買い上げごとに1回、</span><span class="nb">ハズレなしのくじも。</span></p>
       <p class="small">定休日と重なる月などは、<span class="nb">日にちが変わることがあります。</span><br>開催日は<a href="https://www.instagram.com/trenteetun_honjo_city" target="_blank" rel="noopener">Instagram</a>でお知らせしています。</p>
     </div>
   </div>
 </section>
 
-<section class="sec" id="about">
+<section class="sec sec-paper" id="about">
   <div class="wrap">
     <figure class="about-photo reveal">
-      <img src="img/about-sign.jpg" alt="店内の壁の切り文字「TRENTEETUN POEM DE GATEAUX」と31の数字" width="1800" height="987" loading="lazy">
+      <img src="img/about-sign.jpg?v=17" alt="店内の壁の切り文字「TRENTEETUN POEM DE GATEAUX」と31の数字" width="1800" height="987" loading="lazy">
     </figure>
     <div class="about-grid">
       <div class="about-year reveal">
@@ -311,10 +256,10 @@
   </div>
 </section>
 
-<section class="sec sec-paper" id="info">
+<section class="sec" id="info">
   <div class="wrap info-grid">
     <figure class="info-photo reveal">
-      <img src="img/info-wreath.jpg" alt="店内に飾られたリース" width="992" height="1000" loading="lazy">
+      <img src="img/info-wreath.jpg?v=17" alt="店内に飾られたリース" width="992" height="1000" loading="lazy">
     </figure>
     <div class="info-body reveal">
       <p class="sec-label">Boutique</p>
@@ -330,7 +275,7 @@
       <p class="info-note">臨時のお休みや年末年始のお休みは、<br>Instagramでお知らせしています。</p>
       <p class="info-links">
         <a class="btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9F%BC%E7%8E%89%E7%9C%8C%E6%9C%AC%E5%BA%84%E5%B8%82%E4%BA%94%E5%8D%81%E5%AD%901-8-4%20%E3%83%88%E3%83%A9%E3%83%B3%E3%83%86%E3%82%A2%E3%83%B3" target="_blank" rel="noopener">Googleマップで見る</a>
-        <a class="btn-line btn-blue" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約</a>
+        <a class="btn-line btn-strong" href="https://haru20190621-a11y.github.io/cake-demos/iwyza28pb2yw/" target="_blank" rel="noopener">ケーキのご予約</a>
       </p>
     </div>
   </div>
