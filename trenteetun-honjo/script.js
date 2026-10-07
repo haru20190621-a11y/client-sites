@@ -22,3 +22,24 @@
   },5000);
   check();
 })();
+
+// ヒーローの写真の切り替え（6秒ごと・前後の矢印・下の点）
+(function(){
+  var slides=document.querySelectorAll('.hs');
+  var dots=document.querySelectorAll('.hero-dots button');
+  if(slides.length<2)return;
+  var cur=0,timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n){
+    cur=(n+slides.length)%slides.length;
+    Array.prototype.forEach.call(slides,function(s,i){s.classList.toggle('is-active',i===cur);});
+    Array.prototype.forEach.call(dots,function(d,i){d.classList.toggle('is-active',i===cur);});
+  }
+  function start(){if(reduce)return;stop();timer=setInterval(function(){go(cur+1);},6000);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  var prev=document.querySelector('.hero-prev'),next=document.querySelector('.hero-next');
+  if(prev)prev.addEventListener('click',function(){go(cur-1);start();});
+  if(next)next.addEventListener('click',function(){go(cur+1);start();});
+  Array.prototype.forEach.call(dots,function(d,i){d.addEventListener('click',function(){go(i);start();});});
+  start();
+})();

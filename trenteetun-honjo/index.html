@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Zen+Old+Mincho:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19">
-<script src="script.js?v=19" defer></script>
+<link rel="stylesheet" href="style.css?v=24">
+<script src="script.js?v=24" defer></script>
 </head>
 <body>
 
@@ -41,19 +41,35 @@
 
 <main>
 
-<section class="hero" id="top">
-  <div class="hero-head">
-    <p class="hero-kicker">四季菓子工房</p>
-    <h1 class="hero-title"><span class="wm">TRENTEETUN</span><span class="kana">トランテアン</span></h1>
+<section class="hero" id="top" aria-label="トランテアンのケーキ">
+  <div class="hero-wrap">
+  <div class="hero-stage">
+    <div class="hero-slides">
+      <figure class="hs is-active">
+        <picture><source media="(max-width:760px)" srcset="img/hero-2-sp.jpg?v=24"><img src="img/hero-2.jpg?v=24" srcset="img/hero-2.jpg?v=24 1600w, img/hero-2@2x.jpg?v=24 2400w" sizes="100vw" alt="フルーツをたっぷりのせたタルト" width="1600" height="900"></picture>
+      </figure>
+      <figure class="hs">
+        <picture><source media="(max-width:760px)" srcset="img/hero-3-sp.jpg?v=24"><img src="img/hero-3.jpg?v=20" alt="いちごの生クリームのデコレーションケーキ" width="1600" height="900" loading="lazy"></picture>
+      </figure>
+      <figure class="hs">
+        <picture><source media="(max-width:760px)" srcset="img/hero-1-sp.jpg?v=24"><img src="img/hero-1.jpg?v=24" alt="ショーケースに並ぶいちごのタルトとモンブラン" width="1600" height="900" loading="lazy"></picture>
+      </figure>
+    </div>
+    <div class="hero-copy">
+      <p class="hero-kicker">四季菓子工房</p>
+      <h1 class="hero-title"><span class="wm">TRENTEETUN</span><span class="kana">トランテアン</span></h1>
+    </div>
   </div>
-  <div class="hero-photos">
-    <figure class="hp hp-main"><img src="img/hero-showcase.jpg?v=17" alt="ショーケースに並ぶいちごのタルトやモンブラン" width="1080" height="1080"></figure>
-    <figure class="hp hp-sub1"><img src="img/hero-fruittart.jpg?v=17" alt="フルーツをのせたタルト" width="777" height="800"></figure>
-    <figure class="hp hp-sub2"><img src="img/p-fraise.jpg?v=17" alt="フレーズ（ショートケーキ）" width="929" height="929"></figure>
+    <button class="hero-arrow hero-prev" type="button" aria-label="前の写真へ">PREV</button>
+    <button class="hero-arrow hero-next" type="button" aria-label="次の写真へ">NEXT</button>
   </div>
-  <div class="hero-body">
-    <p class="hero-since">since 1984</p>
-    <p class="hero-lead">素材の魅力をカタチに。<br><span class="nb">埼玉県本庄市の</span><span class="nb">洋菓子店です。</span></p>
+  <div class="hero-dots" aria-label="写真の切り替え">
+    <button type="button" class="is-active" aria-label="1枚目の写真"></button>
+    <button type="button" aria-label="2枚目の写真"></button>
+    <button type="button" aria-label="3枚目の写真"></button>
+  </div>
+  <div class="hero-info">
+    <p class="hero-lead">素材の魅力をカタチに。<span class="nb">埼玉県本庄市の洋菓子店です。</span></p>
     <ul class="hero-meta">
       <li><span class="k">営業</span>10:30〜18:30</li>
       <li><span class="k">定休</span>火曜日</li>
