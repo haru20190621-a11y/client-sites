@@ -1,238 +1,215 @@
-/* フランス菓子 シェひらぬま — 提案用デモ
-   配色: 公式サイトの星空ヒーロー・生成りのヘッダー・金の見出し＋ケーキ写真の濃い茶の背景から */
+/* フランス菓子 シェひらぬま — 提案用デモ（v2：明るい町のケーキ屋）
+   配色: ケーキの実物から＝生クリームの白・生成り／苺の赤／チョコのこげ茶。淡い色は苺ミルクのピンク */
 :root{
-  --night:#15110f;
-  --night2:#1f1915;
-  --cream:#f1e5c8;
-  --cream2:#d8cbad;
-  --gold:#d1ad62;
-  --paper:#efe4c8;
-  --paper2:#e6d8b6;
-  --cocoa:#2b1f18;
-  --cocoa2:#56473b;
-  --gold-d:#6e4e15;
+  --cream:#fdf8f0;
+  --cream2:#f7eee1;
+  --pink:#fbeceb;
+  --white:#ffffff;
+  --line:#eadccb;
+  --ink:#3b2a22;
+  --ink2:#5b463a;
+  --berry:#b8333e;
+  --berry-soft:#f4d6d6;
   --serif:"Kaisei Opti",serif;
   --sans:"Zen Kaku Gothic New",sans-serif;
   --latin:"Cormorant Garamond",serif;
-  --stars-s:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><g fill='%23f1e5c8'><circle cx='136' cy='63' r='0.8' opacity='0.28'/><circle cx='225' cy='154' r='0.5' opacity='0.43'/><circle cx='16' cy='182' r='0.5' opacity='0.28'/><circle cx='178' cy='347' r='0.6' opacity='0.33'/><circle cx='264' cy='398' r='0.8' opacity='0.39'/><circle cx='410' cy='20' r='0.9' opacity='0.35'/><circle cx='61' cy='49' r='0.7' opacity='0.54'/><circle cx='76' cy='244' r='0.8' opacity='0.38'/><circle cx='230' cy='26' r='0.5' opacity='0.32'/><circle cx='286' cy='180' r='0.7' opacity='0.45'/><circle cx='190' cy='126' r='0.9' opacity='0.49'/><circle cx='103' cy='241' r='0.8' opacity='0.56'/><circle cx='306' cy='121' r='1.0' opacity='0.29'/><circle cx='176' cy='318' r='0.6' opacity='0.42'/><circle cx='16' cy='281' r='0.9' opacity='0.45'/><circle cx='368' cy='132' r='0.8' opacity='0.46'/><circle cx='244' cy='192' r='0.9' opacity='0.58'/><circle cx='199' cy='279' r='0.5' opacity='0.50'/><circle cx='272' cy='417' r='0.9' opacity='0.35'/><circle cx='162' cy='281' r='0.5' opacity='0.41'/><circle cx='71' cy='49' r='0.5' opacity='0.52'/><circle cx='54' cy='104' r='0.7' opacity='0.55'/><circle cx='34' cy='189' r='0.8' opacity='0.56'/><circle cx='344' cy='363' r='0.6' opacity='0.40'/><circle cx='151' cy='371' r='1.0' opacity='0.30'/><circle cx='74' cy='97' r='0.6' opacity='0.42'/><circle cx='247' cy='110' r='0.5' opacity='0.40'/><circle cx='155' cy='238' r='1.0' opacity='0.49'/><circle cx='217' cy='259' r='0.8' opacity='0.27'/><circle cx='378' cy='328' r='0.9' opacity='0.53'/><circle cx='165' cy='168' r='0.6' opacity='0.47'/><circle cx='26' cy='28' r='0.6' opacity='0.31'/><circle cx='143' cy='22' r='0.5' opacity='0.30'/><circle cx='43' cy='153' r='0.5' opacity='0.56'/><circle cx='258' cy='62' r='0.6' opacity='0.37'/><circle cx='153' cy='52' r='0.9' opacity='0.60'/><circle cx='196' cy='203' r='0.5' opacity='0.29'/><circle cx='144' cy='111' r='0.9' opacity='0.31'/><circle cx='10' cy='399' r='0.8' opacity='0.30'/><circle cx='228' cy='11' r='0.8' opacity='0.59'/><circle cx='363' cy='292' r='0.6' opacity='0.38'/><circle cx='70' cy='324' r='0.8' opacity='0.52'/><circle cx='138' cy='94' r='0.9' opacity='0.59'/><circle cx='358' cy='339' r='0.9' opacity='0.51'/><circle cx='95' cy='217' r='0.7' opacity='0.26'/><circle cx='12' cy='117' r='0.6' opacity='0.49'/></g></svg>");
-  --stars-l:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='560'><g fill='%23f1e5c8'><circle cx='536' cy='250' r='1.7' opacity='0.90'/><circle cx='535' cy='204' r='1.2' opacity='0.59'/><circle cx='110' cy='114' r='1.4' opacity='0.86'/><circle cx='471' cy='269' r='1.5' opacity='0.82'/><circle cx='47' cy='370' r='1.6' opacity='0.81'/><circle cx='420' cy='268' r='1.1' opacity='0.82'/><circle cx='186' cy='448' r='1.7' opacity='0.66'/><circle cx='225' cy='530' r='1.5' opacity='0.57'/><circle cx='71' cy='85' r='1.6' opacity='0.82'/><circle cx='82' cy='463' r='1.7' opacity='0.76'/><circle cx='196' cy='307' r='1.1' opacity='0.51'/><circle cx='544' cy='364' r='1.4' opacity='0.87'/><circle cx='243' cy='488' r='1.6' opacity='0.58'/><circle cx='141' cy='164' r='1.2' opacity='0.73'/></g></svg>");
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
 body{margin:0;font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.9;letter-spacing:.04em;
-  color:var(--cream);background:var(--night);overflow-x:hidden}
+  color:var(--ink);background:var(--cream);overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-underline-offset:4px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.5}
+h1,h2,h3{font-family:var(--serif);font-weight:700;margin:0;line-height:1.5}
 p{margin:0}
 .nb{white-space:nowrap}
-h2,h3,.cake-name,.hw-title{word-break:auto-phrase}
+h2,h3,.cake-name{word-break:auto-phrase}
 .cake-desc,.t-body,.sec-text,.story-note,.msg p,.order-text,.hero-lead{word-break:auto-phrase;line-break:strict;text-wrap:pretty}
 
 /* ---------- 提案バナー ---------- */
-.offer-banner{background:var(--gold);color:var(--cocoa);padding:16px 20px;
+.offer-banner{background:var(--ink);color:#f7eee1;padding:14px 20px;
   display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
-.offer-banner p{max-width:860px;font-size:.88rem;line-height:1.75;letter-spacing:.02em;font-weight:500}
+.offer-banner p{max-width:860px;font-size:1rem;line-height:1.75;letter-spacing:.02em}
 .offer-btns{display:flex;gap:10px;flex-wrap:wrap}
-.offer-btn{display:inline-block;border:1px solid var(--cocoa);color:var(--cocoa);text-decoration:none;
-  padding:8px 16px;font-size:.88rem;font-weight:500;letter-spacing:.06em;white-space:nowrap;transition:background .3s,color .3s}
-.offer-btn:hover{background:var(--cocoa);color:var(--gold)}
+.offer-btn{display:inline-block;border:1px solid #f7eee1;color:#f7eee1;text-decoration:none;
+  padding:8px 16px;font-size:1rem;font-weight:500;letter-spacing:.06em;white-space:nowrap;transition:background .3s,color .3s}
+.offer-btn:hover{background:#f7eee1;color:var(--ink)}
 
 /* ---------- ナビ ---------- */
-.nav{position:sticky;top:0;z-index:100;background:rgba(21,17,15,.88);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(209,173,98,.28)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:28px}
 .logo{display:flex;flex-direction:column;text-decoration:none;line-height:1.25;font-family:var(--serif)}
-.logo-sub{font-size:.72rem;letter-spacing:.3em;color:var(--gold)}
-.logo-main{font-size:1.28rem;letter-spacing:.14em;font-weight:700}
+.logo-sub{font-size:.8rem;letter-spacing:.3em;color:var(--berry)}
+.logo-main{font-size:1.32rem;letter-spacing:.14em;font-weight:700}
 .nav-links{display:flex;gap:22px;margin-left:auto}
-.nav-links a{text-decoration:none;font-size:.9rem;letter-spacing:.08em;color:var(--cream2);position:relative;padding:4px 0}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .35s}
-.nav-links a:hover{color:var(--cream)}
+.nav-links a{text-decoration:none;font-size:1rem;letter-spacing:.06em;color:var(--ink2);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--berry);transform:scaleX(0);transition:transform .35s}
+.nav-links a:hover{color:var(--ink)}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-act{display:flex;align-items:center;gap:16px}
-.nav-tel{font-family:var(--latin);font-variant-numeric:lining-nums;font-size:1.12rem;letter-spacing:.06em;text-decoration:none;color:var(--cream);white-space:nowrap}
-.nav-reserve{border:1px solid var(--gold);color:var(--gold);text-decoration:none;padding:6px 18px;
-  font-family:var(--serif);font-size:.95rem;letter-spacing:.2em;white-space:nowrap;transition:background .3s,color .3s}
-.nav-reserve:hover{background:var(--gold);color:var(--night)}
+.nav-tel{font-size:1.05rem;font-weight:500;letter-spacing:.06em;text-decoration:none;white-space:nowrap}
+.nav-reserve{border:1.5px solid var(--berry);color:var(--berry);text-decoration:none;padding:5px 18px;
+  font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.2em;white-space:nowrap;transition:background .3s,color .3s}
+.nav-reserve:hover{background:var(--berry);color:#fff}
 
-/* ---------- ヒーロー（夜空） ---------- */
-.hero{position:relative;overflow:hidden;background:var(--night);padding:72px 24px 88px}
-.hero::before,.hero::after{content:"";position:absolute;inset:0;pointer-events:none}
-.hero::before{background-image:var(--stars-s)}
-.hero::after{background-image:var(--stars-l);animation:twinkle 7s ease-in-out infinite alternate}
-@keyframes twinkle{0%{opacity:.35}100%{opacity:1}}
-.hero-in{position:relative;z-index:1;max-width:1120px;margin:0 auto;display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"head visual" "words visual";
-  column-gap:56px;align-items:center}
-.hero-head{grid-area:head;align-self:end}
-.hero-visual{grid-area:visual}
-.hero-words{grid-area:words;align-self:start;margin-top:40px}
-.hero-kicker{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;font-size:1.05rem;letter-spacing:.14em;color:var(--gold)}
-.hero h1{font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:700;letter-spacing:.12em;line-height:1.3;margin:.25em 0 .4em}
-.h1-sub{display:block;font-size:.36em;font-weight:500;letter-spacing:.42em;color:var(--cream2);margin-bottom:.35em}
-.hero-lead{font-size:1.02rem;color:var(--cream2)}
-.hero-info{list-style:none;margin:26px 0 0;padding:16px 0 0;border-top:1px solid rgba(209,173,98,.35);
-  display:grid;gap:4px;font-size:1rem}
-.hero-info b{display:inline-block;min-width:3.4em;font-family:var(--serif);font-weight:500;color:var(--gold);letter-spacing:.1em}
-.hero-info a{text-decoration:none;font-family:var(--latin);font-variant-numeric:lining-nums;font-size:1.1rem;letter-spacing:.06em}
-.hero-info a.hi-map{font-family:var(--sans);font-size:inherit;letter-spacing:inherit;text-decoration:underline;text-decoration-color:rgba(209,173,98,.6);text-underline-offset:5px}
-.hw-title{font-family:var(--serif);font-size:1.12rem;letter-spacing:.14em;color:var(--gold);
-  display:inline-block;padding-bottom:6px;border-bottom:1px solid rgba(209,173,98,.5)}
-.hw-quote{margin:18px 0 0;font-family:var(--serif);font-size:1.06rem;line-height:2.1;letter-spacing:.08em}
-.hw-bv{margin-top:22px;font-family:var(--latin);font-size:1.7rem;letter-spacing:.24em;line-height:1.2}
-.hw-bv-ja{font-family:var(--serif);font-size:.95rem;letter-spacing:.16em;color:var(--cream2)}
+/* ---------- ヒーロー（写真が主役） ---------- */
+.hero{background:var(--cream);padding:56px 24px 72px;overflow:hidden}
+.hero-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr);
+  grid-template-areas:"head photos" "meta photos" "btns photos";grid-template-rows:auto auto 1fr;column-gap:56px}
+.hero-head{grid-area:head;align-self:end;padding-top:24px}
+.hero-photos{grid-area:photos}
+.hero-meta{grid-area:meta;align-self:start}
+.hero-btns{grid-area:btns;align-self:start}
+.hero-kicker{font-family:var(--serif);font-weight:700;font-size:1.05rem;letter-spacing:.16em;color:var(--berry)}
+.hero h1{font-size:clamp(2.4rem,5.2vw,3.6rem);letter-spacing:.12em;line-height:1.3;margin:.2em 0 .35em}
+.h1-sub{display:block;font-size:.36em;font-weight:500;letter-spacing:.42em;color:var(--ink2);margin-bottom:.3em}
+.hero-lead{font-size:1.08rem;color:var(--ink2)}
+.hero-info{list-style:none;margin:28px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:4px;font-size:1rem}
+.hero-info b{display:inline-block;min-width:3.4em;font-family:var(--serif);color:var(--berry);letter-spacing:.1em}
+.hero-info a{text-decoration:none;font-weight:500}
+.hero-info a.hi-map{font-weight:400;text-decoration:underline;text-decoration-color:var(--berry-soft);text-decoration-thickness:2px;text-underline-offset:5px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 26px;border:1.5px solid var(--ink);
+  color:var(--ink);text-decoration:none;font-family:var(--serif);font-weight:700;letter-spacing:.16em;transition:background .3s,color .3s,border-color .3s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn-main{border-color:var(--berry);color:var(--berry)}
+.btn-main:hover{background:var(--berry);color:#fff}
 
-/* 月の額（ケーキのクロスフェード） */
-.moon-wrap{position:relative;width:min(460px,100%);aspect-ratio:1;margin:0 auto}
-.moon{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:#2a160d;z-index:1;
-  outline:1px solid rgba(209,173,98,.45);outline-offset:12px}
-.moon img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
-  animation:moonFade 18s infinite,kenburns 18s ease-in-out infinite}
-.moon img:nth-child(2){animation-delay:6s,6s}
-.moon img:nth-child(3){animation-delay:12s,12s}
-@keyframes moonFade{0%{opacity:0}5%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
-@keyframes kenburns{0%{transform:scale(1)}39%{transform:scale(1.07)}100%{transform:scale(1.07)}}
-.orbit{position:absolute;left:-25%;top:-25%;width:150%;height:150%;pointer-events:none;overflow:visible}
-.orbit-back{z-index:0}
-.orbit-front{z-index:2}
-.orbit ellipse,.orb-front{fill:none;stroke:var(--gold);stroke-width:1;opacity:.55}
-.orb-path{fill:none;stroke:none}
-.voyager{fill:var(--cream)}
-.moon-cap{position:relative;list-style:none;margin:40px auto 0;padding:0;max-width:420px;min-height:8.6em;text-align:center}
-.moon-cap li{position:absolute;inset:0;opacity:0;animation:moonFade 18s infinite}
-.moon-cap li:nth-child(2){animation-delay:6s}
-.moon-cap li:nth-child(3){animation-delay:12s}
-.moon-cap span,.moon-cap b{display:block}
-.mc-no{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;color:var(--gold);letter-spacing:.2em;font-size:.95rem}
-.moon-cap b{font-family:var(--serif);font-weight:500;font-size:1.3rem;letter-spacing:.12em}
-.mc-p{font-size:.95rem;color:var(--cream2)}
-.mc-lead{font-family:var(--serif);color:var(--gold);font-size:.95rem;letter-spacing:.1em}
+/* 写真は白い枠に入れて、少しだけ傾けて置く（ケーキの箱に写真を貼ったように） */
+.hero-photos{position:relative;min-height:610px;align-self:center}
+.pf{position:absolute;margin:0;background:var(--white);padding:12px 12px 0;border:1px solid var(--line)}
+.pf img{width:100%;height:auto}
+.pf figcaption{font-family:var(--serif);font-weight:700;text-align:center;font-size:1rem;letter-spacing:.08em;padding:9px 4px 11px;line-height:1.5}
+.pf-main{left:0;top:46px;width:76%;transform:rotate(-1deg);z-index:1}
+.pf-a figcaption,.pf-b figcaption{font-size:1rem;letter-spacing:.02em}
+.pf figcaption{word-break:keep-all}
+.pf-a{right:0;top:0;width:25%;transform:rotate(3deg);z-index:2}
+.pf-b{right:1%;bottom:0;width:25%;transform:rotate(-3deg);z-index:2}
+.pf-img{overflow:hidden}
+.pf-main .pf-img img{animation:kenburns 16s ease-in-out infinite alternate;transform-origin:50% 45%}
+@keyframes kenburns{0%{transform:scale(1)}100%{transform:scale(1.06)}}
 
-/* ---------- 共通の見出し ---------- */
+/* ---------- 物語シリーズ（言葉で残す） ---------- */
+.story{background:var(--pink);padding:88px 24px 92px;text-align:center}
+.story-in{max-width:760px;margin:0 auto}
+.sec-label{font-family:var(--latin);font-style:italic;font-weight:600;font-size:1.2rem;letter-spacing:.18em;color:var(--berry);margin-bottom:.2em}
+.story h2,.sec-head h2,.message h2,.order-main h2{font-size:clamp(1.55rem,3.6vw,2.15rem);letter-spacing:.1em}
+.story-quote{margin:30px 0 0;font-family:var(--serif);font-weight:500;font-size:1.18rem;line-height:2.15;letter-spacing:.08em}
+.story-bv{margin-top:28px;font-family:var(--latin);font-weight:600;font-size:1.8rem;letter-spacing:.22em;line-height:1.2;color:var(--berry)}
+.story-bv-ja{font-family:var(--serif);font-size:1rem;letter-spacing:.14em;color:var(--ink2)}
+.story-src{margin-top:18px;font-size:1rem;color:var(--ink2)}
+
+/* ---------- メニュー（目録） ---------- */
+.menu{background:var(--cream2);padding:96px 24px 110px}
+.menu-in{max-width:1120px;margin:0 auto}
 .sec-head{text-align:center;max-width:760px;margin:0 auto}
-.sec-label{font-family:var(--latin);font-style:italic;font-size:1.1rem;letter-spacing:.24em;color:var(--gold);margin-bottom:.3em}
-.sec-head h2,.message h2,.order-main h2{font-size:clamp(1.5rem,3.6vw,2.15rem);letter-spacing:.12em}
-.sec-sub{font-family:var(--serif);color:var(--cream2);letter-spacing:.14em;margin-top:.5em}
-.sec-text{margin-top:22px;color:var(--cream2);line-height:2}
-
-/* ---------- 物語シリーズ（目録） ---------- */
-.story{position:relative;background:var(--night);padding:110px 24px 120px;border-top:1px solid rgba(209,173,98,.18)}
-.story::before{content:"";position:absolute;inset:0;background-image:var(--stars-l);opacity:.35;pointer-events:none}
-.story-in{position:relative;max-width:1120px;margin:0 auto}
+.sec-sub{font-family:var(--serif);color:var(--ink2);letter-spacing:.12em;margin-top:.5em}
+.sec-text{margin-top:20px;color:var(--ink2);line-height:2}
 .finder{display:none}
-.js .finder{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 26px;
-  margin:54px auto 0;max-width:820px;padding:18px 20px;border-top:1px solid rgba(209,173,98,.45);border-bottom:1px solid rgba(209,173,98,.45)}
-.finder-q{font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em}
+.js .finder{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;
+  margin:44px auto 0;max-width:820px;padding:16px 20px;background:var(--white);border:1px solid var(--line)}
+.finder-q{font-family:var(--serif);font-weight:700;font-size:1.05rem;letter-spacing:.1em}
 .finder-btns{display:flex;gap:6px}
-.finder-btns button{font:inherit;font-family:var(--serif);font-size:1rem;letter-spacing:.08em;color:var(--cream2);
-  background:none;border:0;border-bottom:1px solid transparent;padding:6px 10px;cursor:pointer;min-height:40px;transition:color .3s,border-color .3s}
-.finder-btns button:hover{color:var(--cream)}
-.finder-btns button[aria-pressed="true"]{color:var(--gold);border-bottom-color:var(--gold)}
-.finder-btns button:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
-.finder-count{font-size:.95rem;color:var(--cream2)}
-.finder-count span{font-family:var(--latin);font-size:1.6rem;color:var(--cream);margin-right:4px;font-variant-numeric:lining-nums}
-.price-note{margin:22px auto 0;text-align:center;font-size:.95rem;color:var(--cream2)}
-.finder-empty{text-align:center;margin-top:40px;color:var(--cream2)}
+.finder-btns button{font:inherit;font-family:var(--serif);font-weight:700;font-size:1.02rem;letter-spacing:.06em;color:var(--ink2);
+  background:none;border:0;border-bottom:2px solid transparent;padding:6px 10px;cursor:pointer;min-height:44px;transition:color .3s,border-color .3s}
+.finder-btns button:hover{color:var(--ink)}
+.finder-btns button[aria-pressed="true"]{color:var(--berry);border-bottom-color:var(--berry)}
+.finder-btns button:focus-visible{outline:2px solid var(--berry);outline-offset:2px}
+.finder-count{font-size:1rem;color:var(--ink2)}
+.finder-count span{font-size:1.5rem;font-weight:500;color:var(--ink);margin-right:3px}
+.price-note{margin:18px auto 0;text-align:center;font-size:1rem;color:var(--ink2)}
+.finder-empty{text-align:center;margin-top:40px;color:var(--ink2)}
 
-.cakes{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:64px 34px}
-.cake{display:flex;flex-direction:column}
+.cakes{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cake{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);padding:12px 12px 22px;transition:transform .35s ease,border-color .35s}
+.cake:hover{transform:translateY(-3px);border-color:#dcc6ae}
 .cake[hidden]{display:none}
-.cake-ph{display:block;aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;background:#2a160d;
-  outline:1px solid rgba(209,173,98,.32);outline-offset:7px;margin:7px}
+.cake-ph{display:block;aspect-ratio:1;overflow:hidden;background:var(--cream2)}
 .cake-ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
-.cake:hover .cake-ph img{transform:scale(1.05)}
-.cake-ph.ring{background:transparent;border:1px dashed rgba(209,173,98,.6);outline:0;display:grid;place-items:center;text-decoration:none}
-.cake-ph.ring span{font-family:var(--serif);font-size:.98rem;letter-spacing:.1em;color:var(--gold);text-align:center;line-height:1.7}
-.cake-ph.ring .up{display:block;width:9px;height:9px;margin:0 auto 12px;border-left:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
-.moon.pinned img,.moon-cap.pinned li{animation:none;opacity:0}
-.moon.pinned img.is-pin,.moon-cap.pinned li.is-pin{opacity:1}
-.cake-ph.ring .ring-en{font-family:var(--latin);font-style:italic;font-size:1.25rem;letter-spacing:.12em;line-height:1.3}
-a.cake-ph.ring:hover span{color:var(--cream)}
-.cake-tx{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:20px}
-.cake-desc{align-self:stretch}
-.cake-no{font-family:var(--latin);font-variant-numeric:lining-nums;font-style:italic;font-size:.95rem;letter-spacing:.2em;color:var(--gold)}
-.cake-name{font-size:1.14rem;letter-spacing:.06em;margin-top:2px}
-.cake-fr{font-family:var(--latin);font-style:italic;font-size:1.08rem;letter-spacing:.06em}
-.cake-kind{font-size:.95rem;color:var(--cream2);margin-top:2px}
-.cake-desc{font-size:.95rem;line-height:1.8;color:var(--cream2);margin-top:8px}
-.cake-price{margin-top:10px;font-size:1rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.cake:hover .cake-ph img{transform:scale(1.04)}
+.cake-ph.tile{display:grid;place-items:center;background:var(--pink);text-decoration:none;text-align:center}
+.cake-ph.tile span{font-family:var(--serif);font-weight:700;font-size:1.02rem;letter-spacing:.08em;color:var(--berry);line-height:1.8}
+.cake-ph.tile .tile-en{font-family:var(--latin);font-style:italic;font-weight:600;font-size:1.4rem;letter-spacing:.06em}
+a.cake-ph.tile:hover span{text-decoration:underline;text-underline-offset:5px}
+.cake-tx{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:16px;padding:0 6px}
+.cake-name{font-size:1.22rem;letter-spacing:.06em}
+.cake-fr{font-family:var(--latin);font-style:italic;font-size:1.15rem;font-weight:600;letter-spacing:.04em}
+.cake-kind{font-size:1rem;color:var(--ink2);margin-top:2px}
+.cake-desc{align-self:stretch;font-size:1rem;line-height:1.8;color:var(--ink2);margin-top:8px}
+.cake-price{margin-top:12px;font-size:1.06rem;font-weight:500;letter-spacing:.03em;font-variant-numeric:tabular-nums}
 .cake-price span{display:block}
-.cake-price .pl{font-family:var(--serif);font-size:.95rem;color:var(--gold);letter-spacing:.1em;margin-top:6px}
-.cake-lead{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:var(--serif);font-size:1rem;letter-spacing:.06em;
-  color:var(--gold);line-height:1.6}
+.cake-price .pl{font-family:var(--serif);font-weight:700;font-size:1rem;color:var(--berry);letter-spacing:.08em;margin-top:6px}
+.cake-lead{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:3px 12px;background:var(--pink);
+  font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.04em;color:var(--berry);line-height:1.6}
 .cake-lead.lead-multi{display:block}
-.cake-lead.lead-multi::before{display:none}
-.cake-lead::before{content:"";flex:none;width:9px;height:9px;background:var(--gold);
-  clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
-.story-note{margin:72px auto 0;max-width:720px;text-align:center;font-size:.95rem;line-height:2;color:var(--cream2)}
+.story-note{margin:56px auto 0;max-width:720px;text-align:center;font-size:1rem;line-height:2;color:var(--ink2)}
 
-/* ---------- 紙の面（割引・ご予約・お店） ---------- */
-.paper{background:var(--paper);color:var(--cocoa);padding:100px 24px}
-.paper .sec-label{color:var(--gold-d)}
-.paper .sec-text{color:var(--cocoa2)}
+/* ---------- 割引・ご予約・お店 ---------- */
+.paper{background:var(--white);color:var(--ink);padding:96px 24px}
+.paper .sec-text{color:var(--ink2)}
 .paper-in{max-width:1000px;margin:0 auto}
-.tickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:52px}
-.ticket{position:relative;border:1px solid var(--gold-d);padding:34px 30px 30px;text-align:center;background:var(--paper)}
-.ticket::before{content:"";position:absolute;inset:7px;border:1px dashed rgba(122,87,25,.55);pointer-events:none}
-.t-who{font-family:var(--serif);font-size:1rem;letter-spacing:.14em;color:var(--gold-d)}
-.t-num{font-family:var(--latin);font-variant-numeric:lining-nums;font-size:4.4rem;line-height:1;letter-spacing:.02em;margin:10px 0 8px;font-weight:500}
+#birthday{background:var(--pink)}
+.tickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:48px}
+.ticket{position:relative;background:var(--white);border:1.5px solid var(--berry);padding:34px 30px 30px;text-align:center}
+.ticket::before{content:"";position:absolute;inset:7px;border:1px dashed rgba(184,51,62,.45);pointer-events:none}
+.t-who{font-family:var(--serif);font-weight:700;font-size:1.02rem;letter-spacing:.12em;color:var(--berry)}
+.t-num{font-family:var(--serif);font-weight:700;font-size:4rem;line-height:1;margin:12px 0 8px;color:var(--berry)}
 .t-num span{font-size:.45em;margin-left:2px}
-.t-name{font-size:1.18rem;letter-spacing:.1em}
-.t-body{margin-top:14px;text-align:left;font-size:.98rem;color:var(--cocoa)}
-.t-cond{margin-top:12px;padding-top:12px;border-top:1px solid rgba(122,87,25,.35);font-size:1rem;color:var(--cocoa2)}
+.t-name{font-size:1.2rem;letter-spacing:.08em}
+.t-body{margin-top:14px;text-align:left;font-size:1rem}
+.t-cond{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:1rem;color:var(--ink2)}
+.t-note{margin-top:8px;font-size:1rem;color:var(--ink2)}
 
-.t-note{margin-top:8px;font-size:.95rem;color:var(--cocoa2)}
-.paper-order{background:var(--paper2)}
+.paper-order{background:var(--white)}
 .order-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center}
-.order-text{margin-top:18px;color:var(--cocoa2)}
-.order-tel-lead{margin-top:30px;font-family:var(--serif);letter-spacing:.14em}
-.order-tel{display:inline-block;font-family:var(--latin);font-variant-numeric:lining-nums;font-size:clamp(2.3rem,6vw,3.2rem);letter-spacing:.05em;line-height:1.2;
-  text-decoration:none;color:var(--cocoa);border-bottom:1px solid var(--gold-d)}
-.order-hours{margin-top:14px;font-size:.95rem;color:var(--cocoa2)}
-.order-side{border-left:1px solid rgba(122,87,25,.35);padding-left:44px}
-.merit-title{font-family:var(--serif);letter-spacing:.14em;color:var(--gold-d)}
-.merit{list-style:none;margin:12px 0 0;padding:0;font-family:var(--serif);font-size:1.12rem;letter-spacing:.08em;line-height:2.2}
-.merit span{color:var(--gold-d);margin-right:10px}
-.btn-line{display:inline-block;margin-top:30px;border:1px solid var(--cocoa);color:var(--cocoa);text-decoration:none;
-  padding:12px 30px;font-family:var(--serif);letter-spacing:.2em;transition:background .3s,color .3s}
-.btn-line::after{content:"";display:inline-block;width:18px;height:1px;background:currentColor;margin-left:14px;vertical-align:middle;transition:transform .3s}
-.btn-line:hover{background:var(--cocoa);color:var(--paper)}
+.order-text{margin-top:18px;color:var(--ink2)}
+.order-tel-lead{margin-top:28px;font-family:var(--serif);font-weight:700;letter-spacing:.12em}
+.order-tel{display:inline-block;font-size:clamp(2.1rem,5.6vw,2.9rem);font-weight:500;letter-spacing:.04em;line-height:1.25;
+  text-decoration:none;color:var(--ink);border-bottom:3px solid var(--berry-soft)}
+.order-hours{margin-top:14px;font-size:1rem;color:var(--ink2)}
+.order-side{background:var(--cream);border:1px solid var(--line);padding:30px 32px}
+.merit-title{font-family:var(--serif);font-weight:700;letter-spacing:.12em;color:var(--berry)}
+.merit{list-style:none;margin:10px 0 0;padding:0;font-family:var(--serif);font-weight:700;font-size:1.12rem;letter-spacing:.08em;line-height:2.2}
+.merit span{color:var(--berry);margin-right:10px}
+.btn-line{display:inline-flex;align-items:center;min-height:48px;margin-top:24px;border:1.5px solid var(--berry);color:var(--berry);text-decoration:none;
+  padding:10px 28px;font-family:var(--serif);font-weight:700;letter-spacing:.18em;transition:background .3s,color .3s}
+.btn-line::after{content:"";display:inline-block;width:18px;height:1.5px;background:currentColor;margin-left:14px;transition:transform .3s}
+.btn-line:hover{background:var(--berry);color:#fff}
 .btn-line:hover::after{transform:translateX(3px)}
-.order-note{margin-top:12px;font-size:.88rem;color:var(--cocoa2)}
+.order-note{margin-top:12px;font-size:1rem;color:var(--ink2)}
 
 /* ---------- ごあいさつ ---------- */
-.message{position:relative;background:var(--night2);padding:110px 24px 120px}
-.message::before{content:"";position:absolute;inset:0;background-image:var(--stars-s);opacity:.6;pointer-events:none}
-.message-in{position:relative;max-width:720px;margin:0 auto;text-align:center}
-.msg{margin:40px 0 0;text-align:left;font-size:1.02rem;line-height:2.1}
+.message{background:var(--cream);padding:96px 24px 104px}
+.message-in{max-width:720px;margin:0 auto;text-align:center}
+.msg{margin:36px 0 0;text-align:left;font-size:1.04rem;line-height:2.1;background:var(--white);border:1px solid var(--line);padding:34px 36px}
 .msg p+p{margin-top:1.1em}
-.msg-src{margin-top:24px;font-size:.9rem;color:var(--cream2);text-align:right}
-.peace{margin-top:56px;font-family:var(--latin);font-style:italic;font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:.08em;color:var(--gold)}
+.msg-src{margin-top:16px;font-size:1rem;color:var(--ink2);text-align:right}
+.peace{margin-top:44px;font-family:var(--latin);font-style:italic;font-weight:600;font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:.06em;color:var(--berry)}
 
 /* ---------- お店の情報 ---------- */
+.paper-shop{background:var(--white)}
 .shop-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:20px 56px;align-items:start}
 .shop-head{text-align:left;margin:0}
-.shop-dl{margin:0;border-top:1px solid rgba(122,87,25,.4)}
-.shop-dl div{display:grid;grid-template-columns:7.5em 1fr;gap:16px;padding:14px 0;border-bottom:1px solid rgba(122,87,25,.25)}
-.shop-dl dt{font-family:var(--serif);color:var(--gold-d);letter-spacing:.1em}
+.shop-dl{margin:0;border-top:1.5px solid var(--ink)}
+.shop-dl div{display:grid;grid-template-columns:7.5em 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.shop-dl dt{font-family:var(--serif);font-weight:700;color:var(--berry);letter-spacing:.08em}
 .shop-dl dd{margin:0}
-.shop-dl a{color:var(--cocoa)}
 .shop-map{grid-column:2}
-.shop-map a{color:var(--cocoa);font-family:var(--serif);letter-spacing:.1em}
+.shop-map a{font-family:var(--serif);font-weight:700;letter-spacing:.08em;color:var(--berry)}
 
 /* ---------- フッター ---------- */
-.foot{background:var(--night);text-align:center;padding:64px 24px 56px;border-top:1px solid rgba(209,173,98,.22)}
+.foot{background:var(--ink);color:#f7eee1;text-align:center;padding:60px 24px 54px}
 .foot-logo{font-family:var(--serif);font-size:1.3rem;letter-spacing:.16em;font-weight:700}
-.foot-logo span{display:block;font-size:.62em;font-weight:500;letter-spacing:.32em;color:var(--gold)}
-.foot-bv{font-family:var(--latin);letter-spacing:.3em;color:var(--cream2);margin-top:6px}
-.credit{margin-top:28px;font-size:.88rem;color:var(--cream2)}
-.demo-note{margin-top:8px;font-size:.84rem;line-height:1.9;color:var(--cream2)}
+.foot-logo span{display:block;font-size:.62em;font-weight:500;letter-spacing:.32em;color:#f0c9c9}
+.foot-bv{font-family:var(--latin);font-weight:600;letter-spacing:.3em;color:#e9dccb;margin-top:6px}
+.credit{margin-top:26px;font-size:1rem;color:#e9dccb}
+.demo-note{margin-top:8px;font-size:1rem;line-height:1.9;color:#e9dccb;word-break:auto-phrase;text-wrap:balance}
 
 .m-bar{display:none}
 
 /* ---------- スクロール出現 ---------- */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .js .reveal.on{opacity:1;transform:none}
 
 /* ---------- レスポンシブ ---------- */
@@ -240,18 +217,26 @@ a.cake-ph.ring:hover span{color:var(--cream)}
   .nav-in{flex-wrap:wrap;row-gap:4px}
   .nav-act{margin-left:auto}
   .nav-links{order:3;width:100%;margin-left:0;justify-content:center;gap:20px;padding-bottom:2px}
-  .nav-links a{font-size:.88rem}
-  .cakes{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nav-links a{font-size:1rem}
 }
-@media (max-width:820px){
-  .hero{padding:44px 20px 64px}
-  .hero-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "visual" "words";row-gap:0}
-  .hero-head{text-align:left}
-  .hero-visual{margin-top:52px}
-  .hero-words{text-align:center;margin-top:36px}
-  .moon-wrap{width:min(340px,76vw)}
-  .order-grid{grid-template-columns:minmax(0,1fr);gap:40px}
-  .order-side{border-left:0;padding-left:0;border-top:1px solid rgba(122,87,25,.35);padding-top:36px}
+@media (max-width:1000px){
+  .hero{padding:32px 20px 56px}
+  .hero-in{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:none;grid-template-rows:none;column-gap:14px;max-width:640px}
+  .hero-head,.hero-meta,.hero-photos,.hero-btns{grid-area:auto}
+  .hero-head,.hero-meta,.hero-btns{grid-column:1 / -1;padding-top:0}
+  .hero-photos{display:contents}
+  .pf{position:relative;inset:auto;width:auto}
+  .pf-main{grid-column:1 / -1;order:3;margin-top:18px;transform:rotate(-.6deg)}
+  .pf-main img{aspect-ratio:3/2;object-fit:cover;object-position:50% 35%}
+  .pf-a img,.pf-b img{aspect-ratio:1;object-fit:cover}
+  .hero-head{order:1}
+  .hero-meta{order:2}
+  .hero-btns{order:4}
+  .pf-a{order:5;margin-top:22px;transform:rotate(-2deg)}
+  .pf-b{order:5;margin-top:22px;transform:rotate(2deg)}
+  .hero-info{margin-top:18px}
+  .cakes{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .order-grid{grid-template-columns:minmax(0,1fr);gap:36px}
   .shop-grid{grid-template-columns:minmax(0,1fr)}
   .shop-head{text-align:center}
   .shop-map{grid-column:1}
@@ -259,41 +244,52 @@ a.cake-ph.ring:hover span{color:var(--cream)}
 }
 @media (max-width:640px){
   body{padding-bottom:58px}
+  .pc-br{display:none}
   .offer-banner{padding:12px 16px;gap:10px}
   .offer-banner p{font-size:.8rem;line-height:1.65}
   .offer-btn{padding:6px 12px;font-size:.82rem}
   .nav-in{padding:8px 16px;gap:12px}
   .nav-links{display:none}
-  .logo-main{font-size:1.1rem}
+  .logo-main{font-size:1.12rem}
   .nav-tel{display:none}
-  .nav-reserve{padding:5px 14px}
-  .hero{padding-top:20px}
-  .hero-kicker{font-size:.92rem}
-  .hero h1{font-size:2.1rem;margin:.12em 0 .25em}
-  .hero-lead{font-size:.95rem}
-  .hero-kicker,.hero-info .hi-tel{display:none}
+  .nav-reserve{padding:6px 14px}
+  .hero{padding:16px 16px 48px}
+  .hero-kicker{font-size:1rem}
+  .hero h1{font-size:2.05rem;margin:.08em 0 .2em}
+  .h1-sub{display:inline-block;font-size:.4em;letter-spacing:.1em;margin:0 .5em 0 0;vertical-align:.35em}
+  .hero h1{letter-spacing:.06em;white-space:nowrap}
+  .hero-lead{display:none}
+  .pf-main{margin-top:12px;padding:8px 8px 0}
+  .pf-main figcaption{padding:5px 4px 7px;font-size:1rem}
   .hero-info{font-size:1rem;margin-top:14px;padding-top:10px;gap:0}
-  .hero-visual{margin-top:18px}
-  .moon-wrap{width:66vw}
-  .moon{outline-offset:8px}
-  .story,.message{padding:80px 16px 88px}
-  .paper{padding:76px 16px}
-  .cakes{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 14px;margin-top:44px}
-  .cake-ph{margin:5px;outline-offset:5px}
-  .cake-name{font-size:1.04rem;letter-spacing:.03em}
-  .cake-price{font-size:1rem;letter-spacing:0}
-  .cake-lead{font-size:1rem;gap:4px;letter-spacing:0}
-  .cake-desc,.cake-kind{font-size:.95rem;letter-spacing:.02em}
-  .cake-ph.ring span{font-size:.9rem;letter-spacing:.04em}
-  .js .finder{gap:6px 10px;padding:14px 4px}
-  .finder-btns button{padding:6px 7px;font-size:.98rem}
+  .hero-info .hi-tel{display:none}
+  .hero-btns{margin-top:16px}
+  .pf-main img{aspect-ratio:16/10}
+  .hero-btns .btn{flex:1;padding:10px 12px}
+  .pf-a,.pf-b{padding:7px 7px 0}
+  .pf-a figcaption,.pf-b figcaption{font-size:1rem;padding:6px 2px 8px;letter-spacing:0}
+  .story,.menu,.message{padding:72px 16px 80px}
+  .paper{padding:72px 16px}
+  .story-quote{font-size:1.05rem;line-height:2.1;letter-spacing:.04em}
+  .cakes{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:28px}
+  .cake{padding:8px 8px 18px}
+  .cake-ph{aspect-ratio:4/3}
+  .cake-ph img{object-position:50% 28%}
+  .cake-tx{padding:0 6px;margin-top:12px}
+  .cake-name{font-size:1.18rem}
+  .cake-price span{display:inline-block;margin:0 .45em}
+  .cake-price .pl{display:block}
+  .js .finder{gap:6px 10px;padding:14px 6px}
+  .finder-btns button{padding:6px 7px}
   .ticket{padding:30px 22px 26px}
+  .msg{padding:24px 20px}
+  .order-side{padding:24px 20px}
   .shop-dl div{grid-template-columns:6.8em 1fr;gap:10px}
   .m-bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:120;
-    background:rgba(21,17,15,.96);border-top:1px solid rgba(209,173,98,.5)}
+    background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
   .m-bar a{display:flex;align-items:center;justify-content:center;min-height:56px;text-decoration:none;
-    font-family:var(--serif);letter-spacing:.12em;color:var(--cream);font-size:.98rem}
-  .m-bar a+a{border-left:1px solid rgba(209,173,98,.5);color:var(--gold)}
+    font-family:var(--serif);font-weight:700;letter-spacing:.1em;color:var(--ink);font-size:1rem}
+  .m-bar a+a{border-left:1px solid var(--line);color:var(--berry)}
 }
 
 /* ---------- 動きを止める設定 ---------- */
@@ -301,6 +297,4 @@ a.cake-ph.ring:hover span{color:var(--cream)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
   .js .reveal{opacity:1;transform:none}
-  .moon:not(.pinned) img:first-child,.moon-cap:not(.pinned) li:first-child{opacity:1}
-  .hero::after{opacity:.7}
 }

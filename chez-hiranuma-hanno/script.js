@@ -52,32 +52,3 @@ window.__rv=1; /* head の保険（6秒後に全部表示）を止める合図 *
   });
   apply(7);
 })();
-
-/* 目録の「表紙でご覧いただけます」を押したら、そのケーキを表紙の月に止めて見せる */
-(function(){
-  var moon=document.querySelector('.moon'),cap=document.querySelector('.moon-cap');
-  if(!moon||!cap)return;
-  var timer=null;
-  function unpin(){
-    [moon,cap].forEach(function(box){box.classList.remove('pinned');});
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-pin]'),function(a){
-    a.addEventListener('click',function(){
-      var i=parseInt(a.getAttribute('data-pin'),10);
-      [moon,cap].forEach(function(box){
-        box.classList.add('pinned');
-        Array.prototype.forEach.call(box.children,function(c,k){c.classList.toggle('is-pin',k===i);});
-      });
-      clearTimeout(timer);
-      timer=setTimeout(unpin,20000); /* 20秒たったら、また3台が切り替わる表示に戻す */
-    });
-  });
-  moon.addEventListener('click',function(){clearTimeout(timer);unpin();});
-})();
-
-/* 動きを止める設定のときは、月のまわりを回る星（SVGアニメ）も止める */
-(function(){
-  if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var svg=document.querySelector('.orbit-front');
-  if(svg&&svg.pauseAnimations)svg.pauseAnimations();
-})();
