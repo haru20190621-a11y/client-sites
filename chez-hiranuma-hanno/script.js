@@ -53,13 +53,22 @@ window.__rv=1; /* head の保険（6秒後に全部表示）を止める合図 *
   apply(7);
 })();
 
-/* 帯はタップ（クリック）で止める／もう一度で動かす。キーボードでも止められるようにする */
+/* 1画面目の写真：7秒ごとにゆっくり切り替える。PREV/NEXT・点で選べる。動きを止める設定では自動で切り替えない */
 (function(){
-  var sc=document.querySelector('.showcase');
-  if(!sc)return;
-  sc.setAttribute('tabindex','0');
-  sc.setAttribute('aria-label','デコレーションケーキの写真（タップで止まります）');
-  function toggle(){sc.classList.toggle('paused');}
-  sc.addEventListener('click',toggle);
-  sc.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+  var slides=document.querySelectorAll('.hs-slide');
+  var dots=document.querySelectorAll('.hs-dot');
+  if(slides.length<2)return;
+  var cur=0,timer=null;
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n){
+    cur=(n+slides.length)%slides.length;
+    Array.prototype.forEach.call(slides,function(s,k){s.classList.toggle('is-on',k===cur);});
+    Array.prototype.forEach.call(dots,function(d,k){d.classList.toggle('is-on',k===cur);if(k===cur)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current');});
+  }
+  function restart(){clearInterval(timer);if(!still)timer=setInterval(function(){show(cur+1);},7000);}
+  var prev=document.querySelector('.hs-prev'),next=document.querySelector('.hs-next');
+  if(prev)prev.addEventListener('click',function(){show(cur-1);restart();});
+  if(next)next.addEventListener('click',function(){show(cur+1);restart();});
+  Array.prototype.forEach.call(dots,function(d,k){d.addEventListener('click',function(){show(k);restart();});});
+  restart();
 })();
