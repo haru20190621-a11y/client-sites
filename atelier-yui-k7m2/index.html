@@ -52,8 +52,15 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 .occs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .occs .menu{grid-template-columns:1fr;gap:0;padding:12px 14px}
 .occs .menu b{font-size:15px}
-.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding:10px 14px;background:var(--tint);font-size:13px}
-.total b{font-size:16px;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.total{display:flex;flex-direction:column;gap:2px;margin-top:12px;padding:12px 14px;background:var(--tint);font-size:14px;line-height:1.7}
+.total b{font-size:17px;letter-spacing:.06em;font-variant-numeric:tabular-nums;white-space:nowrap;margin-bottom:4px}
+.total span::before{content:"・";color:var(--sub)}
+.lines{display:flex;flex-direction:column;gap:0}
+.done-menu{display:flex;flex-direction:column;gap:2px;font-size:15px;line-height:1.7}
+.done-menu b{font-weight:700}
+.item span span{display:block}
+.nw,.item span span.nw{white-space:nowrap;display:inline}
+.kimono b{word-break:keep-all;overflow-wrap:anywhere}
 .step small{font-weight:500;color:var(--sub);font-size:12px;letter-spacing:.02em}
 .sub-box{border:1px solid var(--line);border-top:0;background:var(--tint);padding:14px 14px 16px;margin-top:-8px}
 .sub-box .lab{font-size:13px;font-weight:700;margin:0 0 8px}
@@ -366,7 +373,13 @@ const svcMin=(occ,id)=>{const o=occOf(occ);const sv=choicesFor(occ).find(x=>x.id
 const totalMin=(occ,ids,km)=>ids.reduce((a,id)=>a+svcMin(occ,id),0)+(ids.includes('kitsuke')&&km&&km.source==='rental'?RENTAL_MIN:0);
 const kimonoText=(occ,km)=>!km?'':km.source==='rental'?`レンタル${km.item?'：'+kimonoName(occ,km.item):''}`:'持ち込み';
 const svcNames=(occ,ids,km)=>choicesFor(occ).filter(x=>ids.includes(x.id)).map(x=>x.id==='kitsuke'&&km?`着付け（${kimonoText(occ,km)}）`:x.name).join('・');
+const svcLines=(occ,ids,km)=>choicesFor(occ).filter(x=>ids.includes(x.id)).map(x=>x.id==='kitsuke'&&km?`着付け（${kimonoText(occ,km)}）`:x.name);
 const labelOf=b=>b.label||(b.occasion?occOf(b.occasion).name+'｜'+svcNames(b.occasion,b.services||[],b.kimono):'（メニューなし）');
+/* 一覧・LINE用の短い表記：場面｜メニュー名だけ（着物の柄などは中身の画面で） */
+const shortLabel=b=>b.occasion?occOf(b.occasion).name+'｜'+(choicesFor(b.occasion).filter(x=>(b.services||[]).includes(x.id)).map(x=>x.name).join('・')||'—'):labelOf(b);
+const nw=t=>`<span class="nw">${esc(t)}</span>`;
+const shortHtml=b=>b.occasion?nw(occOf(b.occasion).name)+'<br>'+(choicesFor(b.occasion).filter(x=>(b.services||[]).includes(x.id)).map(x=>nw(x.name)).join('・')||'—'):esc(labelOf(b));
+const totalHtml=(occ,ids,km,len)=>`<b>合計 約${dur(len)}</b>`+svcLines(occ,ids,km).map(l=>`<span>${esc(l)}</span>`).join('');
 const OPEN=9*60, CLOSE=18*60, STEP=30, CLOSED_WD=2, DAYS_AHEAD=60, LEAD=120;
 const SRC={web:'ホームページ',phone:'電話',insta:'インスタ',mail:'メール',walkin:'店頭'};
 const WD='日月火水木金土';
@@ -455,7 +468,7 @@ function renderCustomer(){
   $('c-kimono').hidden=!showK;
   if(showK)$('c-kimono').innerHTML=kimonoBox('c',c.occ,c.km);
   $('c-total').hidden=!c.svcs.length;
-  if(c.svcs.length)$('c-total').innerHTML=`<span>${esc(svcNames(c.occ,c.svcs,showK?c.km:null))}</span><b>合計 約${dur(len)}</b>`;
+  if(c.svcs.length)$('c-total').innerHTML=totalHtml(c.occ,c.svcs,showK?c.km:null,len);
   if(!c.month)c.month=monthStart(todayStr());
   const first=c.month, today=todayStr(), last=lastDay();
   $('c-month').textContent=`${first.getFullYear()}年 ${first.getMonth()+1}月`;
@@ -521,7 +534,7 @@ $('c-form').addEventListener('submit',async e=>{
     const b={date:c.date,start:hhmm(c.time),end:hhmm(c.time+len),occasion:c.occ,services:c.svcs,kimono:km,label,name,tel,contact:$('c-contact').value,email:$('c-contact').value==='メール'?mail:'',note:$('c-note').value.trim(),source:'web',status:'booked'};
     await saveBooking(b);
     $('c-done-when').textContent=`${dlabel(b.date)} ${show(b.start)}〜${show(b.end)}`;
-    $('c-done-menu').textContent=`${label}（${name} 様）`;
+    $('c-done-menu').innerHTML=`<b>${esc(occOf(c.occ).name)}</b>`+svcLines(c.occ,c.svcs,km).map(l=>`<span>${esc(l)}</span>`).join('')+`<span style="margin-top:6px">${esc(name)} 様</span>`;
     $('c-form').hidden=true;$('c-done').hidden=false;$('c-done').scrollIntoView({block:'start'});
     c.occ=null;c.svcs=[];c.km={source:'own',item:null};c.date=c.time=null;['c-name','c-tel','c-note','c-mail'].forEach(i=>$(i).value='');$('c-contact').value='お電話';$('c-mail-wrap').hidden=true;$('c-agree').checked=false;
   }catch(x){err('予約を送れませんでした。少し待ってからもう一度お試しください。')}
@@ -539,7 +552,7 @@ function renderLine(){
     const ca=b.createdAt?new Date(b.createdAt):null;
     const d=ca?`${ca.getMonth()+1}/${ca.getDate()}(${WD[ca.getDay()]})`:'';
     if(d&&d!==lastD){h+=`<span class="sep">${d}</span>`;lastD=d}
-    h+=`<div class="msg"><span class="av" aria-hidden="true"><img src="${LOGO}" alt=""></span><div class="bub"><span class="k">ホームページから予約が入りました</span><span class="when">${dshort(b.date)} ${show(b.start)}〜${show(b.end)}</span><p>${esc(labelOf(b))}<br>${esc(b.name)} 様</p><a href="#y-${esc(b.id)}">予約を見る</a></div><span class="stamp">${ca?show(hhmm(ca.getHours()*60+ca.getMinutes())):''}</span></div>`;
+    h+=`<div class="msg"><span class="av" aria-hidden="true"><img src="${LOGO}" alt=""></span><div class="bub"><span class="k">ホームページから予約が入りました</span><span class="when">${dshort(b.date)} ${show(b.start)}〜${show(b.end)}</span><p>${shortHtml(b)}<br>${esc(b.name)} 様</p><a href="#y-${esc(b.id)}">予約を見る</a></div><span class="stamp">${ca?show(hhmm(ca.getHours()*60+ca.getMinutes())):''}</span></div>`;
   }
   $('l-chat').innerHTML=h;
 }
@@ -572,7 +585,7 @@ function renderOwner(){
   $('k-off').textContent=closedDays.includes(k.date)?'お休みを外す':'この日を休みにする';
   $('k-list').innerHTML=(off?`<p class="empty">${weekly?'定休日':'お休みの日（お客さまは選べません）'}</p>`:'')+(list.length?list.map(itemHtml).join(''):(off?'':'<p class="empty">予約はありません</p>'));
 }
-function itemHtml(b){return `<a class="item${b.status==='cancelled'?' cx':''}" href="#y-${esc(b.id)}"><span class="tm">${show(b.start)}<small>〜${show(b.end)}</small></span><span><b>${esc(b.name)} 様</b><span>${esc(labelOf(b))}${b.status==='cancelled'?'・キャンセル':b.status==='done'?'・来店済み':''}</span></span><span class="src ${esc(b.source)}">${esc(SRC[b.source]||'')}</span></a>`}
+function itemHtml(b){return `<a class="item${b.status==='cancelled'?' cx':''}" href="#y-${esc(b.id)}"><span class="tm">${show(b.start)}<small>〜${show(b.end)}</small></span><span><b>${esc(b.name)} 様</b><span>${shortHtml(b)}${b.status==='cancelled'?'・キャンセル':b.status==='done'?'・来店済み':''}</span></span><span class="src ${esc(b.source)}">${esc(SRC[b.source]||'')}</span></a>`}
 $('k-prev').onclick=()=>{k.month=addMonth(k.month,-1);renderOwner()};
 $('k-next').onclick=()=>{k.month=addMonth(k.month,1);renderOwner()};
 $('k-off').onclick=async()=>{
@@ -633,9 +646,9 @@ function renderSheet(){
   $('a-menus').innerHTML=choicesFor(aOcc).map(m=>`<button type="button" class="menu${isLesson?'':' ck'}" data-asvc="${m.id}" aria-pressed="${aSvcs.includes(m.id)}"><span class="r" aria-hidden="true"></span><span><b>${esc(m.name)}</b></span><em>約${dur(svcMin(aOcc,m.id))}</em></button>`).join('');
   const aK=!isLesson&&aSvcs.includes('kitsuke');
   $('a-kimono').hidden=!aK;
-  if(aK){$('a-kimono').innerHTML=kimonoBox('a',aOcc,aKm,{photos:false}).replace(/data-asrc=/g,'data-asrc2=');const sel=$('a-kimono').querySelector('[data-aitemsel]');if(sel)sel.onchange=()=>{aKm.item=sel.value||null}}
+  if(aK){$('a-kimono').innerHTML=kimonoBox('a',aOcc,aKm,{photos:false}).replace(/data-asrc=/g,'data-asrc2=');const sel=$('a-kimono').querySelector('[data-aitemsel]');if(sel)sel.onchange=()=>{aKm.item=sel.value||null;renderSheet()}}
   $('a-total').hidden=!aSvcs.length;
-  if(aSvcs.length)$('a-total').innerHTML=`<span>${esc(svcNames(aOcc,aSvcs,aK?aKm:null))}</span><b>合計 約${dur(totalMin(aOcc,aSvcs,aK?aKm:null))}</b>`;
+  if(aSvcs.length)$('a-total').innerHTML=totalHtml(aOcc,aSvcs,aK?aKm:null,totalMin(aOcc,aSvcs,aK?aKm:null));
   const s=$('a-date').value, len=aSvcs.length?totalMin(aOcc,aSvcs,aK?aKm:null):60;
   if(!s){$('a-times').innerHTML='<p class="empty" style="grid-column:1/-1">日にちを選んでください</p>';return}
   const free=freeStarts(s,len,{owner:true});
