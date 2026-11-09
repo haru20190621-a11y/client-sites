@@ -61,6 +61,18 @@ button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
 .item span span{display:block}
 .nw,.item span span.nw{white-space:nowrap;display:inline}
 .kimono b{word-break:keep-all;overflow-wrap:anywhere}
+.day.full:not(:disabled){cursor:pointer}
+.wait{margin-top:16px;background:var(--tint);border-left:3px solid var(--few);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.wait b{font-size:15px}
+.wait p{font-size:14px;line-height:1.7;color:var(--sub)}
+.wait select{margin-top:4px}
+.wl-h{display:flex;align-items:center;gap:10px;margin:22px 0 6px;font-weight:700;font-size:15px;letter-spacing:.08em}
+.wl-h .cnt{font-size:12px;font-weight:700;background:var(--few);color:#fff;padding:0 10px;border-radius:999px}
+.item .tm.wt{color:var(--few);font-size:13px}
+.badge.waitlist{border-color:var(--few);color:var(--few)}
+.notice-wl{background:#FBF4E6;border-left:3px solid var(--few);padding:14px 16px;margin-top:22px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.notice-wl b{font-size:15px}
+.notice-wl .list{margin-top:6px;border-top:1px solid var(--line)}
 .step small{font-weight:500;color:var(--sub);font-size:12px;letter-spacing:.02em}
 .sub-box{border:1px solid var(--line);border-top:0;background:var(--tint);padding:14px 14px 16px;margin-top:-8px}
 .sub-box .lab{font-size:13px;font-weight:700;margin:0 0 8px}
@@ -246,7 +258,7 @@ textarea{resize:vertical;min-height:84px;line-height:1.7}
         <p class="done-title">ご予約を受け付けました</p>
         <p class="done-when" id="c-done-when"></p>
         <p class="done-menu" id="c-done-menu"></p>
-        <p>atelier結 から、ご確認のご連絡をいたします。<br>日時の変更・キャンセルは、ご連絡ください。</p>
+        <p id="c-done-note">atelier結 から、ご確認のご連絡をいたします。<br>日時の変更・キャンセルは、ご連絡ください。</p>
         <button class="link" id="c-again" type="button" style="margin-top:18px">続けて予約する</button>
       </div>
     </div>
@@ -395,7 +407,10 @@ const dlabel=s=>{const d=parse(s);return `${d.getMonth()+1}月${d.getDate()}日(
 const dshort=s=>{const d=parse(s);return `${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`};
 const dur=m=>m>=60?(m%60?`${Math.floor(m/60)}時間${m%60}分`:`${m/60}時間`):`${m}分`;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const active=b=>b.status!=='cancelled';
+const active=b=>b.status==='booked'||b.status==='done';
+const isWait=b=>b.status==='waitlist';
+const PREFS={any:'時間はいつでも',am:'午前を希望',pm:'午後を希望'};
+function waitFor(s){return bookings.filter(b=>b.date===s&&isWait(b)).sort((a,b)=>(a.createdAt||'').localeCompare(b.createdAt||''))}
 const todayStr=()=>ymd(new Date());
 
 const SEED=[
@@ -410,18 +425,20 @@ const SEED=[
  {id:'s09',date:'2026-11-15',start:'09:00',end:'12:00',occasion:'seijin',services:['kitsuke','hair','make'],kimono:{source:'own',item:null},label:'成人式｜着付け（持ち込み）・ヘアセット・メイク',name:'小林 美羽（見本）',tel:'090-0000-0009',contact:'メール',email:'miu.k@example.com',note:'前撮り。振袖持ち込み',source:'web',status:'booked',createdAt:'2026-11-08T07:31:00+09:00'},
  {id:'s10',date:'2026-11-15',start:'13:00',end:'14:30',occasion:'sotsugyo',services:['kitsuke'],kimono:{source:'rental',item:'consult'},label:'卒業式｜着付け（レンタル：相談したい）',name:'加藤 莉子（見本）',tel:'090-0000-0010',contact:'お電話',note:'卒業式の袴の試着',source:'phone',status:'booked',createdAt:'2026-11-05T13:10:00+09:00'},
  {id:'s11',date:'2026-11-19',start:'10:00',end:'12:00',occasion:'seijin',services:['kitsuke'],kimono:{source:'rental',item:'consult'},label:'成人式｜着付け（レンタル：相談したい）',name:'吉田 彩（見本）',tel:'090-0000-0011',contact:'メール',email:'aya.y@example.com',note:'前撮り。振袖は当日お見立てを希望',source:'web',status:'booked',createdAt:'2026-11-08T09:02:00+09:00'},
+ {id:'w01',date:'2026-11-14',start:'99:99',end:'99:99',occasion:'753',services:['kitsuke','hair'],kimono:{source:'own',item:null},label:'七五三｜着付け（持ち込み）・ヘアセット',min:75,pref:'am',name:'松本 凛（見本）',tel:'090-0000-0021',contact:'お電話',note:'7歳。午前なら神社の時間に間に合います',source:'web',status:'waitlist',createdAt:'2026-11-08T12:10:00+09:00'},
+ {id:'w02',date:'2026-11-14',start:'99:99',end:'99:99',occasion:'753',services:['kitsuke'],kimono:{source:'rental',item:'k1'},label:'七五三｜着付け（レンタル：赤地に鞠（3歳 被布））',min:75,pref:'any',name:'井上 花（見本）',tel:'090-0000-0022',contact:'メール',email:'hana.i@example.com',note:'',source:'web',status:'waitlist',createdAt:'2026-11-08T18:40:00+09:00'},
  {id:'s12',date:'2026-11-21',start:'16:00',end:'17:00',occasion:'odekake',services:['kitsuke'],kimono:{source:'own',item:null},label:'お出かけ・撮影｜着付け（持ち込み）',name:'山口 千夏（見本）',tel:'090-0000-0012',contact:'メール',email:'chinatsu@example.com',note:'訪問着・お茶会',source:'mail',status:'booked',createdAt:'2026-11-04T18:45:00+09:00'}
 ];
 const LS_KEY='atelier-yui-yoyaku-demo';
 function localLoad(){try{const v=JSON.parse(localStorage.getItem(LS_KEY));if(v&&Array.isArray(v.bookings)){bookings=v.bookings;closedDays=v.closedDays||[];return}}catch(x){} bookings=SEED.map(b=>({...b}));closedDays=[]}
 function localSave(){try{localStorage.setItem(LS_KEY,JSON.stringify({bookings,closedDays}))}catch(x){}}
 let bookings=[], closedDays=[], db=null, loaded=false;
-const c={occ:null,svcs:[],km:{source:'own',item:null},date:null,time:null,month:null};
+const c={occ:null,svcs:[],km:{source:'own',item:null},date:null,time:null,month:null,wait:false,pref:'any'};
 const k={date:todayStr(),month:null};
 let detailId=null, confirmCancel=false, aSrc='phone', aTime=null, aOcc='seijin', aSvcs=['kitsuke','hair'], aKm={source:'own',item:null};
 
 function isClosed(s){return parse(s).getDay()===CLOSED_WD||closedDays.includes(s)}
-function dayList(s){return bookings.filter(b=>b.date===s).sort((a,b)=>a.start.localeCompare(b.start))}
+function dayList(s){return bookings.filter(b=>b.date===s&&!isWait(b)&&b.status!=='converted').sort((a,b)=>a.start.localeCompare(b.start))}
 function freeStarts(s,len,{owner=false}={}){
   if(isClosed(s)&&!owner)return [];
   const now=new Date(), today=ymd(now), nowMin=now.getHours()*60+now.getMinutes();
@@ -483,17 +500,23 @@ function renderCustomer(){
     if(s<today||s>last){cls='out';mark='';word='受付外'}
     else if(isClosed(s)){cls='off';mark='休';word='定休日'}
     else{const n=freeStarts(s,len).length; if(n===0){cls='full';mark='×';word='満席'}else if(n<=2){cls='few';mark='△';word='残りわずか'}else{cls='ok';mark='○';word='空きあり'}}
-    const dis=cls!=='ok'&&cls!=='few';
+    const dis=cls==='out'||cls==='off';
     h+=`<button type="button" class="day ${cls}${s===today?' today':''}" data-cday="${s}" ${dis?'disabled':''} aria-pressed="${c.date===s}" aria-label="${dlabel(s)} ${word}"><span class="n">${d}</span><span class="m">${mark}</span></button>`;
   }
   $('c-cal').innerHTML=h;
   let t='';
-  if(c.date){
+  c.wait=false;
+  if(c.date&&c.svcs.length&&!isClosed(c.date)&&freeStarts(c.date,len).length===0){
+    c.wait=true;c.time=null;
+    t=`<div class="wait"><b>${dlabel(c.date)}は満席です</b><p>キャンセルが出たときにご連絡できるよう、キャンセル待ちを受け付けています。下にお名前と連絡先を入れて「キャンセル待ちに入れる」を押してください。</p><label for="c-pref" style="margin:0;font-size:13px">ご希望の時間帯</label><select id="c-pref">${Object.entries(PREFS).map(([k,v])=>`<option value="${k}" ${c.pref===k?'selected':''}>${v}</option>`).join('')}</select></div>`;
+  }else if(c.date){
     const free=new Set(freeStarts(c.date,len));
     if(c.time!=null&&!free.has(c.time))c.time=null;
     t=`<p class="picked">${dlabel(c.date)}　開始時間</p><div class="times">`+allStarts(len).map(m=>`<button type="button" class="t" data-ctime="${m}" ${free.has(m)?'':'disabled'} aria-pressed="${c.time===m}" aria-label="${show(hhmm(m))}${free.has(m)?'':' 予約済み'}">${show(hhmm(m))}</button>`).join('')+'</div>';
   }else if(!c.svcs.length){t='<p class="hint" style="margin-top:16px">メニューを選ぶと、空き状況が出ます。</p>'}
   $('c-times-wrap').innerHTML=t;
+  const pr=$('c-pref'); if(pr)pr.onchange=()=>{c.pref=pr.value};
+  $('c-submit').textContent=c.wait?'キャンセル待ちに入れる':'この内容で予約する';
 }
 document.addEventListener('click',e=>{
   const ob=e.target.closest('[data-occ]'); if(ob){if(c.occ!==ob.dataset.occ){c.occ=ob.dataset.occ;c.svcs=occOf(c.occ).lesson?[]:(c.occ==='other'?[]:['kitsuke','hair']);c.km={source:'own',item:null};c.time=null;}renderCustomer();return}
@@ -517,7 +540,7 @@ $('c-form').addEventListener('submit',async e=>{
   const name=$('c-name').value.trim(), tel=$('c-tel').value.trim(), digits=tel.replace(/[^0-9]/g,'');
   if(!c.occ)return err('ご利用の場面を選んでください。');
   if(!c.svcs.length)return err('メニューを選んでください。');
-  if(!c.date||c.time==null)return err('日にちと開始時間を選んでください。');
+  if(!c.date||(c.time==null&&!c.wait))return err('日にちと開始時間を選んでください。');
   if(!name)return err('お名前を入れてください。');
   if(digits.length<10||digits.length>11)return err('電話番号を確かめてください（10〜11けた）。');
   const mail=$('c-mail').value.trim();
@@ -526,17 +549,20 @@ $('c-form').addEventListener('submit',async e=>{
   const useK=c.svcs.includes('kitsuke')&&!occOf(c.occ).lesson;
   if(useK&&c.km.source==='rental'&&!c.km.item)return err('レンタルの着物を選ぶか、「相談したい」を押してください。');
   const len=totalMin(c.occ,c.svcs,useK?c.km:null);
-  if(!freeStarts(c.date,len).includes(c.time)){c.time=null;renderCustomer();return err('その時間はちょうど埋まりました。ほかの時間をお選びください。')}
+  if(!c.wait&&!freeStarts(c.date,len).includes(c.time)){c.time=null;renderCustomer();return err('その時間はちょうど埋まりました。ほかの時間をお選びください。')}
   $('c-submit').disabled=true;
   try{
     const km=useK?c.km:null;
     const label=occOf(c.occ).name+'｜'+svcNames(c.occ,c.svcs,km);
-    const b={date:c.date,start:hhmm(c.time),end:hhmm(c.time+len),occasion:c.occ,services:c.svcs,kimono:km,label,name,tel,contact:$('c-contact').value,email:$('c-contact').value==='メール'?mail:'',note:$('c-note').value.trim(),source:'web',status:'booked'};
+    const common={date:c.date,occasion:c.occ,services:c.svcs,kimono:km,label,name,tel,contact:$('c-contact').value,email:$('c-contact').value==='メール'?mail:'',note:$('c-note').value.trim(),source:'web'};
+    const b=c.wait?{...common,start:'99:99',end:'99:99',status:'waitlist',pref:c.pref,min:len}:{...common,start:hhmm(c.time),end:hhmm(c.time+len),status:'booked'};
     await saveBooking(b);
-    $('c-done-when').textContent=`${dlabel(b.date)} ${show(b.start)}〜${show(b.end)}`;
+    $('c-done').querySelector('.done-title').textContent=c.wait?'キャンセル待ちを受け付けました':'ご予約を受け付けました';
+    $('c-done-note').innerHTML=c.wait?'キャンセルが出ましたら、atelier結 からご連絡いたします。<br>ご連絡が行くまでは、ご予約は確定していません。':'atelier結 から、ご確認のご連絡をいたします。<br>日時の変更・キャンセルは、ご連絡ください。';
+    $('c-done-when').textContent=c.wait?`${dlabel(b.date)}　キャンセル待ち（${PREFS[c.pref]}）`:`${dlabel(b.date)} ${show(b.start)}〜${show(b.end)}`;
     $('c-done-menu').innerHTML=`<b>${esc(occOf(c.occ).name)}</b>`+svcLines(c.occ,c.svcs,km).map(l=>`<span>${esc(l)}</span>`).join('')+`<span style="margin-top:6px">${esc(name)} 様</span>`;
     $('c-form').hidden=true;$('c-done').hidden=false;$('c-done').scrollIntoView({block:'start'});
-    c.occ=null;c.svcs=[];c.km={source:'own',item:null};c.date=c.time=null;['c-name','c-tel','c-note','c-mail'].forEach(i=>$(i).value='');$('c-contact').value='お電話';$('c-mail-wrap').hidden=true;$('c-agree').checked=false;
+    c.occ=null;c.svcs=[];c.km={source:'own',item:null};c.date=c.time=null;c.wait=false;c.pref='any';['c-name','c-tel','c-note','c-mail'].forEach(i=>$(i).value='');$('c-contact').value='お電話';$('c-mail-wrap').hidden=true;$('c-agree').checked=false;
   }catch(x){err('予約を送れませんでした。少し待ってからもう一度お試しください。')}
   $('c-submit').disabled=false;
 });
@@ -545,14 +571,14 @@ $('c-again').onclick=()=>{$('c-done').hidden=true;$('c-form').hidden=false;rende
 
 /* ---------- LINE（見本） ---------- */
 function renderLine(){
-  const web=bookings.filter(b=>b.source==='web').sort((a,b)=>(a.createdAt||'').localeCompare(b.createdAt||''));
+  const web=bookings.filter(b=>b.source==='web'&&b.status!=='converted').sort((a,b)=>(a.createdAt||'').localeCompare(b.createdAt||''));
   if(!web.length){$('l-chat').innerHTML=`<p class="chat-h" style="font-weight:500">${loaded?'まだお知らせはありません':'読み込み中…'}</p>`;return}
   let h='',lastD='';
   for(const b of web){
     const ca=b.createdAt?new Date(b.createdAt):null;
     const d=ca?`${ca.getMonth()+1}/${ca.getDate()}(${WD[ca.getDay()]})`:'';
     if(d&&d!==lastD){h+=`<span class="sep">${d}</span>`;lastD=d}
-    h+=`<div class="msg"><span class="av" aria-hidden="true"><img src="${LOGO}" alt=""></span><div class="bub"><span class="k">ホームページから予約が入りました</span><span class="when">${dshort(b.date)} ${show(b.start)}〜${show(b.end)}</span><p>${shortHtml(b)}<br>${esc(b.name)} 様</p><a href="#y-${esc(b.id)}">予約を見る</a></div><span class="stamp">${ca?show(hhmm(ca.getHours()*60+ca.getMinutes())):''}</span></div>`;
+    h+=`<div class="msg"><span class="av" aria-hidden="true"><img src="${LOGO}" alt=""></span><div class="bub"><span class="k">${isWait(b)?'キャンセル待ちが入りました':'ホームページから予約が入りました'}</span><span class="when">${dshort(b.date)} ${isWait(b)?'キャンセル待ち':show(b.start)+'〜'+show(b.end)}</span><p>${shortHtml(b)}<br>${esc(b.name)} 様</p><a href="#y-${esc(b.id)}">予約を見る</a></div><span class="stamp">${ca?show(hhmm(ca.getHours()*60+ca.getMinutes())):''}</span></div>`;
   }
   $('l-chat').innerHTML=h;
 }
@@ -583,9 +609,11 @@ function renderOwner(){
   $('k-day-h').textContent=dlabel(k.date);
   $('k-off').hidden=weekly;
   $('k-off').textContent=closedDays.includes(k.date)?'お休みを外す':'この日を休みにする';
-  $('k-list').innerHTML=(off?`<p class="empty">${weekly?'定休日':'お休みの日（お客さまは選べません）'}</p>`:'')+(list.length?list.map(itemHtml).join(''):(off?'':'<p class="empty">予約はありません</p>'));
+  const wl=waitFor(k.date);
+  $('k-list').innerHTML=(off?`<p class="empty">${weekly?'定休日':'お休みの日（お客さまは選べません）'}</p>`:'')+(list.length?list.map(itemHtml).join(''):(off?'':'<p class="empty">予約はありません</p>'))
+    +(wl.length?`<div class="wl-h" style="border-top:0">キャンセル待ち<span class="cnt">${wl.length}人</span></div>`+wl.map(itemHtml).join(''):'');
 }
-function itemHtml(b){return `<a class="item${b.status==='cancelled'?' cx':''}" href="#y-${esc(b.id)}"><span class="tm">${show(b.start)}<small>〜${show(b.end)}</small></span><span><b>${esc(b.name)} 様</b><span>${shortHtml(b)}${b.status==='cancelled'?'・キャンセル':b.status==='done'?'・来店済み':''}</span></span><span class="src ${esc(b.source)}">${esc(SRC[b.source]||'')}</span></a>`}
+function itemHtml(b){return `<a class="item${b.status==='cancelled'?' cx':''}" href="#y-${esc(b.id)}"><span class="tm${isWait(b)?' wt':''}">${isWait(b)?'待ち<small>'+esc(PREFS[b.pref]||'')+'</small>':show(b.start)+'<small>〜'+show(b.end)+'</small>'}</span><span><b>${esc(b.name)} 様</b><span>${shortHtml(b)}${b.status==='cancelled'?'・キャンセル':b.status==='done'?'・来店済み':''}</span></span><span class="src ${esc(b.source)}">${esc(SRC[b.source]||'')}</span></a>`}
 $('k-prev').onclick=()=>{k.month=addMonth(k.month,-1);renderOwner()};
 $('k-next').onclick=()=>{k.month=addMonth(k.month,1);renderOwner()};
 $('k-off').onclick=async()=>{
@@ -597,24 +625,32 @@ $('k-off').onclick=async()=>{
 function renderDetail(){
   const b=bookings.find(x=>x.id===detailId);
   if(!b){$('d-card').innerHTML=`<p class="empty">${loaded?'この予約は見つかりませんでした':'読み込み中…'}</p>`;$('d-day-h').textContent='';$('d-day').innerHTML='';return}
-  const st={booked:'予約中',done:'来店済み',cancelled:'キャンセル'}[b.status]||'予約中';
+  const st={booked:'予約中',done:'来店済み',cancelled:'キャンセル',waitlist:'キャンセル待ち',converted:'予約に入れ済み'}[b.status]||'予約中';
   const ca=b.createdAt?new Date(b.createdAt):null;
   let h=`<span class="badge ${esc(b.status)}">${st}</span>
-  <p class="when-big" style="margin-top:8px">${dlabel(b.date)}<br>${show(b.start)}〜${show(b.end)}</p>
+  <p class="when-big" style="margin-top:8px">${dlabel(b.date)}<br>${isWait(b)?'<span style="color:var(--few)">キャンセル待ち・'+esc(PREFS[b.pref]||'')+'</span>':show(b.start)+'〜'+show(b.end)}</p>
   <dl class="dl">
     <dt>お名前</dt><dd><b>${esc(b.name)} 様</b></dd>
     <dt>場面</dt><dd>${esc(b.occasion?occOf(b.occasion).name:'—')}</dd>
-    <dt>メニュー</dt><dd>${esc(b.occasion?(choicesFor(b.occasion).filter(x=>(b.services||[]).includes(x.id)).map(x=>x.name).join('・')||'—'):labelOf(b))}<br><small style="color:var(--sub)">約${dur(toMin(b.end)-toMin(b.start))}</small></dd>
+    <dt>メニュー</dt><dd>${esc(b.occasion?(choicesFor(b.occasion).filter(x=>(b.services||[]).includes(x.id)).map(x=>x.name).join('・')||'—'):labelOf(b))}<br><small style="color:var(--sub)">約${dur(isWait(b)?(b.min||60):toMin(b.end)-toMin(b.start))}</small></dd>
     ${b.kimono?`<dt>着物</dt><dd>${esc(kimonoText(b.occasion,b.kimono))}</dd>`:''}
     <dt>電話番号</dt><dd>${b.tel?`<span class="tel"><code>${esc(b.tel)}</code><button class="mini" type="button" id="d-copy">コピー</button></span>`:'—'}</dd>
     <dt>ご連絡</dt><dd>${esc(b.contact||'—')}${b.email?`<br><span class="tel"><code style="font-size:15px;letter-spacing:0">${esc(b.email)}</code><button class="mini" type="button" id="d-copy-mail">コピー</button></span>`:''}</dd>
     <dt>ご要望・メモ</dt><dd>${b.note?esc(b.note):'—'}</dd>
     <dt>受付</dt><dd><span class="src ${esc(b.source)}">${esc(SRC[b.source]||'')}</span>　${ca?`${ca.getMonth()+1}/${ca.getDate()} ${show(hhmm(ca.getHours()*60+ca.getMinutes()))}`:''}</dd>
   </dl>`;
-  if(b.status==='booked'){
+  const wl=waitFor(b.date);
+  if(isWait(b)){
+    h+=`<div class="acts"><button class="btn plain" type="button" id="d-conv">予約に入れる</button><button class="btn ghost plain" type="button" id="d-wl-drop">取り下げる</button></div><p class="empty" style="border:0;padding:8px 2px 0">「予約に入れる」を押すと、この方の名前と連絡先が入った状態で、時間を選ぶ画面が開きます。</p>`;
+  }else if(b.status==='booked'){
     h+=confirmCancel?`<div class="confirm"><b>この予約をキャンセルにしますか？</b><span>時間が空き、お客さまが選べるようになります。</span><div class="acts" style="margin-top:0"><button class="btn danger plain" type="button" id="d-cx-yes">キャンセルにする</button><button class="btn ghost plain" type="button" id="d-cx-no">やめる</button></div></div>`
     :`<div class="acts"><button class="btn plain" type="button" id="d-done">来店済みにする</button><button class="btn ghost plain" type="button" id="d-cx">キャンセル</button></div>`;
   }else h+=`<div class="acts" style="grid-template-columns:1fr"><button class="btn ghost plain" type="button" id="d-back">予約中に戻す</button></div>`;
+  if(b.status==='cancelled'&&wl.length){
+    h+=`<div class="notice-wl"><b>この日はキャンセル待ちが ${wl.length} 人います</b><span>空いた ${show(b.start)}〜${show(b.end)} をご案内できます。名前を押すと連絡先が開きます。</span><div class="list">${wl.map(itemHtml).join('')}</div></div>`;
+  }else if(b.status==='booked'&&wl.length){
+    h+=`<p class="empty" style="border:0;padding:10px 2px 0">この日はキャンセル待ちが ${wl.length} 人います。キャンセルが出たらご案内できます。</p>`;
+  }
   $('d-card').innerHTML=h;
   $('d-day-h').textContent=`${dshort(b.date)}のほかの予約`;
   const others=dayList(b.date).filter(x=>x.id!==b.id);
@@ -625,17 +661,23 @@ function renderDetail(){
   if($('d-done'))$('d-done').onclick=()=>set({status:'done'},'来店済みにしました');
   if($('d-cx'))$('d-cx').onclick=()=>{confirmCancel=true;renderDetail()};
   if($('d-cx-no'))$('d-cx-no').onclick=()=>{confirmCancel=false;renderDetail()};
-  if($('d-cx-yes'))$('d-cx-yes').onclick=()=>set({status:'cancelled'},'キャンセルにしました');
+  if($('d-cx-yes'))$('d-cx-yes').onclick=()=>set({status:'cancelled'},wl.length?`キャンセルにしました。キャンセル待ちが ${wl.length} 人います`:'キャンセルにしました');
   if($('d-back'))$('d-back').onclick=()=>set({status:'booked'},'予約中に戻しました');
+  if($('d-wl-drop'))$('d-wl-drop').onclick=()=>set({status:'cancelled'},'キャンセル待ちを取り下げました');
+  if($('d-conv'))$('d-conv').onclick=()=>{k.date=b.date;openSheet(b)};
 }
 
 /* ---------- 予約を入れる（電話・インスタ・メール） ---------- */
-function openSheet(){
-  aSrc='phone';aTime=null;aOcc='seijin';aSvcs=['kitsuke','hair'];aKm={source:'own',item:null};
+let aFromWait=null;
+function openSheet(from){
+  aFromWait=from?from.id:null;
+  aSrc=from?from.source:'phone';aTime=null;aOcc=from?from.occasion:'seijin';aSvcs=from?[...(from.services||[])]:['kitsuke','hair'];aKm=from&&from.kimono?{...from.kimono}:{source:'own',item:null};
   $('a-occ').innerHTML=OCCASIONS.map(o=>`<option value="${o.id}">${esc(o.name)}</option>`).join('');
   $('a-occ').value=aOcc;
-  $('a-date').value=k.date||todayStr();
+  $('a-date').value=from?from.date:(k.date||todayStr());
   ['a-name','a-tel','a-mail','a-note','a-time-free'].forEach(i=>$(i).value='');
+  if(from){$('a-name').value=from.name||'';$('a-tel').value=from.tel||'';$('a-mail').value=from.email||'';$('a-note').value=from.note||''}
+  $('a-h').textContent=from?'キャンセル待ちの方を予約に入れる':'予約を入れる';
   $('a-err').hidden=true;$('sheet').hidden=false;renderSheet();
 }
 function closeSheet(){$('sheet').hidden=true}
@@ -675,7 +717,8 @@ $('a-form').addEventListener('submit',async e=>{
   $('a-save').disabled=true;
   try{
     await saveBooking({date:s,start:hhmm(start),end:hhmm(start+len),occasion:aOcc,services:aSvcs,kimono:km2,label:occOf(aOcc).name+'｜'+svcNames(aOcc,aSvcs,km2),name,tel:$('a-tel').value.trim(),contact:aSrc==='phone'?'お電話':SRC[aSrc],email:aSrc==='mail'?$('a-mail').value.trim():'',note:$('a-note').value.trim(),source:aSrc,status:'booked'});
-    closeSheet();k.date=s;k.month=monthStart(s);renderOwner();
+    if(aFromWait){await updateBooking(aFromWait,{status:'converted'});aFromWait=null}
+    closeSheet();k.date=s;k.month=monthStart(s);location.hash='kanri';renderOwner();
     toast(clash?'入れました（ほかの予約と時間が重なっています）':`${dshort(s)} ${show(hhmm(start))}〜 を入れました`);
   }catch(x){err('保存できませんでした。もう一度お試しください。')}
   $('a-save').disabled=false;
